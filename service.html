@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEXA | Inspection Services</title>
+    <meta name="description" content="ORVEXA vehicle inspection and emissions testing services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="service.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body>
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+                <div class="brand-text-block">
+                    <span class="brand-name">ORVEXA</span>
+                    <span class="brand-subline">INSPECTION &amp; TESTING</span>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item has-dropdown">
+                        <a href="index.html" class="nav-link">
+                            <span>Home</span>
+                            <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="index.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 1</span>
+                                <span class="dropdown-desc">Daylight &amp; Night Luxury Center</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 2</span>
+                                <span class="dropdown-desc">High-Tech Diagnostic Laboratory</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="service.html" class="nav-link active">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="journal.html" class="nav-link">Journals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon-sun" title="Light Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                    </span>
+                    <span class="theme-icon-moon" title="Dark Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="header-rtl-btn" id="rtlToggle">
+                    <span id="rtlBtnText">RTL</span>
+                </button>
+                <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
+                <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn" onclick="openBookingModal()">
+                    <span>Book Now</span>
+                    <span class="btn-arrow">&#x2192;</span>
+                </button>
+                <button type="button" class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="drawer-brand-block">
+                <span class="drawer-brand">ORVEXA</span>
+                <span class="drawer-tagline">INSPECTION &amp; TESTING</span>
+            </div>
+            <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="drawer-links">
+            <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
+            <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
+            <li><a href="about.html" class="drawer-link"><span>About Us</span></a></li>
+            <li><a href="service.html" class="drawer-link active"><span>Services</span></a></li>
+            <li><a href="journal.html" class="drawer-link"><span>Journals</span></a></li>
+            <li><a href="contact.html" class="drawer-link"><span>Contact</span></a></li>
+            <li><a href="dashboard.html" class="drawer-link"><span>Dashboard</span></a></li>
+        </ul>
+
+        <div class="drawer-actions">
+            <a href="login.html" class="drawer-btn-login">Login</a>
+            <button type="button" class="btn-primary-hero btn-sm w-full" id="drawerBookBtn" onclick="openBookingModal()">Book Now &rarr;</button>
+        </div>
+    </div>
+    <main>
+        <section class="svc-hero" id="svcHero">
+            <div class="svc-hero-inner">
+                <div class="svc-hero-content">
+                    <div class="hero-eyebrow-wrapper">
+                        <span class="eyebrow-dash"></span>
+                        <span class="hero-eyebrow">ORVEXA SERVICES CATALOGUE</span>
+                    </div>
+                    <h1 class="hero-headline">
+                        <span class="headline-line">PRECISION</span>
+                        <span class="headline-line">VERIFICATION.</span>
+                        <span class="headline-line highlight-gold">SIX WAYS.</span>
+                    </h1>
+                    <p class="svc-hero-desc">From statutory safety inspections to EV battery telemetry &mdash; every
+                        ORVEXA service is engineered to ISO/IEC 17020 standards, completed in under 20 minutes, and
+                        backed by encrypted digital certification.</p>
+                    <div class="svc-hero-stats">
+                        <div class="svc-stat-item">
+                            <span class="svc-stat-num">48+</span>
+                            <span class="svc-stat-lbl">Check Points</span>
+                        </div>
+                        <div class="svc-stat-div"></div>
+                        <div class="svc-stat-item">
+                            <span class="svc-stat-num">ISO</span>
+                            <span class="svc-stat-lbl">17020 Certified</span>
+                        </div>
+                        <div class="svc-stat-div"></div>
+                        <div class="svc-stat-item">
+                            <span class="svc-stat-num">20m</span>
+                            <span class="svc-stat-lbl">Bay Time</span>
+                        </div>
+                    </div>
+                    <div class="svc-hero-cta-row">
+                        <a href="#services-grid" class="btn-primary-hero">
+                            Explore Services
+                            <span class="btn-arrow">&#x2193;</span>
+                        </a>
+                        <button type="button" class="btn-secondary-hero" onclick="openBookingModal()">Book Now
+                            &#x2192;</button>
+                    </div>
+                </div>
+                <div class="svc-hero-mosaic">
+                    <div class="mosaic-panel mosaic-left">
+                        <img src="assets/service_hero_left.jpg" alt="ORVEXA inspection bay" loading="eager">
+                        <div class="mosaic-overlay"></div>
+                        <div class="mosaic-badge">
+                            <span class="mb-num">04</span>
+                            <span class="mb-label">INSPECTION BAY</span>
+                        </div>
+                    </div>
+                    <div class="mosaic-right-col">
+                        <div class="mosaic-panel mosaic-top-right">
+                            <img src="assets/service_hero_top_right.jpg" alt="OBD-II diagnostic scanner"
+                                loading="eager">
+                            <div class="mosaic-overlay"></div>
+                            <div class="mosaic-tag">OBD-II ANALYSIS</div>
+                        </div>
+                        <div class="mosaic-panel mosaic-bottom-right">
+                            <img src="assets/service_hero_bottom_right.jpg" alt="Digital telemetry dashboard"
+                                loading="eager">
+                            <div class="mosaic-overlay"></div>
+                            <div class="mosaic-tag">TELEMETRY CONSOLE</div>
+                        </div>
+                    </div>
+                    <div class="mosaic-float-cert">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        <span>ISO/IEC</span>
+                        <strong>17020</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="svc-grid-section" id="services-grid">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">VERIFICATION PROTOCOLS</span>
+                    </div>
+                    <h2 class="svc-section-title">Our Service Suite</h2>
+                    <p class="svc-section-desc">Each protocol is engineered to deliver certainty. Select any service to
+                        view full specifications, pricing, and booking options.</p>
+                </div>
+                <div class="svc-cards-grid" id="servicesGrid">
+                    <article class="svc-card" data-service="safety-inspection">
+                        <div class="svc-card-glow"></div>
+                        <div class="svc-card-media">
+                            <img src="assets/real_test_undercarriage_lift.png" alt="Statutory Safety Inspection - Hoist & Underbody Diagnostics" class="svc-card-img" loading="lazy">
+                            <div class="svc-card-media-overlay"></div>
+                            <span class="svc-card-num-badge">01</span>
+                            <div class="svc-card-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="svc-card-body">
+                            <div class="svc-card-eyebrow">CORE SERVICE</div>
+                            <h3 class="svc-card-title">Statutory Safety Inspection</h3>
+                            <p class="svc-card-desc">48-point physical verification of braking balance, chassis
+                                alignment, lighting systems, tyre integrity, and structural compliance.</p>
+                            <ul class="svc-card-features">
+                                <li>Brake force distribution analysis</li>
+                                <li>Chassis geometry laser scan</li>
+                                <li>Lighting &amp; signalling check</li>
+                                <li>Steering &amp; suspension audit</li>
+                            </ul>
+                        </div>
+                        <div class="svc-card-footer">
+                            <div class="svc-card-price">
+                                <div class="svc-price-main">
+                                    <span class="price-label">FROM</span>
+                                    <span class="price-val">$185</span>
+                                </div>
+                                <span class="price-note">per vehicle</span>
+                            </div>
+                            <a href="service-detail.html?service=safety-inspection" class="svc-view-btn">
+                                View Service
+                                <span>&#x2192;</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="svc-card" data-service="emissions-testing">
+                        <div class="svc-card-glow"></div>
+                        <div class="svc-card-media">
+                            <img src="assets/service_emissions.jpg" alt="5-Gas Emissions Spectrometry" class="svc-card-img" loading="lazy">
+                            <div class="svc-card-media-overlay"></div>
+                            <span class="svc-card-num-badge">02</span>
+                            <div class="svc-card-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    <circle cx="12" cy="12" r="4" />
+                                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="svc-card-body">
+                            <div class="svc-card-eyebrow">EMISSIONS PROTOCOL</div>
+                            <h3 class="svc-card-title">5-Gas Emissions Spectrometry</h3>
+                            <p class="svc-card-desc">Dyno-loaded tailpipe optical gas chromatography measuring CO, HC,
+                                O&#8322;, and NOx with full OBD-II monitor status readout.</p>
+                            <ul class="svc-card-features">
+                                <li>5-gas optical analysis</li>
+                                <li>OBD-II readiness monitors</li>
+                                <li>Lambda &amp; AFR measurement</li>
+                                <li>Smoke opacity (diesel)</li>
+                            </ul>
+                        </div>
+                        <div class="svc-card-footer">
+                            <div class="svc-card-price">
+                                <div class="svc-price-main">
+                                    <span class="price-label">FROM</span>
+                                    <span class="price-val">$145</span>
+                                </div>
+                                <span class="price-note">per vehicle</span>
+                            </div>
+                            <a href="service-detail.html?service=emissions-testing" class="svc-view-btn">
+                                View Service
+                                <span>&#x2192;</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="svc-card svc-card-featured" data-service="combined-protocol">
+                        <div class="svc-card-glow"></div>
+                        <div class="svc-card-media">
+                            <img src="assets/real_test_mechanic_tablet.png" alt="Combined Comprehensive Protocol - Certified Technician Diagnostic Interrogation" class="svc-card-img" loading="lazy">
+                            <div class="svc-card-media-overlay"></div>
+                            <span class="svc-card-num-badge">03</span>
+                            <span class="svc-card-badge-feat">BEST VALUE</span>
+                            <div class="svc-card-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                                    <line x1="9" y1="9" x2="9.01" y2="9" />
+                                    <line x1="15" y1="9" x2="15.01" y2="9" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="svc-card-body">
+                            <div class="svc-card-eyebrow">COMPREHENSIVE</div>
+                            <h3 class="svc-card-title">Combined Protocol</h3>
+                            <p class="svc-card-desc">Full statutory safety inspection + 5-gas emissions + instant
+                                digital certificate in a single 20-minute bay session.</p>
+                            <ul class="svc-card-features">
+                                <li>Complete 48-point safety check</li>
+                                <li>Full 5-gas emissions suite</li>
+                                <li>Instant digital certificate</li>
+                                <li>Priority lane access</li>
+                            </ul>
+                        </div>
+                        <div class="svc-card-footer">
+                            <div class="svc-card-price">
+                                <div class="svc-price-main">
+                                    <span class="price-label">FROM</span>
+                                    <span class="price-val">$295</span>
+                                </div>
+                                <span class="price-note">save $35</span>
+                            </div>
+                            <a href="service-detail.html?service=combined-protocol" class="svc-view-btn">
+                                View Service
+                                <span>&#x2192;</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="svc-card" data-service="fleet-compliance">
+                        <div class="svc-card-glow"></div>
+                        <div class="svc-card-media">
+                            <img src="assets/card_clean_road.jpg" alt="Fleet Compliance Management" class="svc-card-img" loading="lazy">
+                            <div class="svc-card-media-overlay"></div>
+                            <span class="svc-card-num-badge">04</span>
+                            <div class="svc-card-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    <rect x="1" y="3" width="15" height="13" rx="2" />
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
+                                    <circle cx="5.5" cy="18.5" r="2.5" />
+                                    <circle cx="18.5" cy="18.5" r="2.5" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="svc-card-body">
+                            <div class="svc-card-eyebrow">FLEET SERVICES</div>
+                            <h3 class="svc-card-title">Fleet Compliance Management</h3>
+                            <p class="svc-card-desc">Scheduled multi-vehicle compliance for commercial fleets, corporate
+                                pools, and transport authorities with automated reporting.</p>
+                            <ul class="svc-card-features">
+                                <li>Bulk scheduling portal</li>
+                                <li>Automated compliance reports</li>
+                                <li>Fleet-wide expiry tracking</li>
+                                <li>Dedicated account manager</li>
+                            </ul>
+                        </div>
+                        <div class="svc-card-footer">
+                            <div class="svc-card-price">
+                                <div class="svc-price-main">
+                                    <span class="price-label">FROM</span>
+                                    <span class="price-val">$850</span>
+                                </div>
+                                <span class="price-note">per fleet/mo</span>
+                            </div>
+                            <a href="service-detail.html?service=fleet-compliance" class="svc-view-btn">
+                                View Service
+                                <span>&#x2192;</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="svc-card" data-service="digital-certification">
+                        <div class="svc-card-glow"></div>
+                        <div class="svc-card-media">
+                            <img src="assets/card_tablet_cert.jpg" alt="Digital Certification" class="svc-card-img" loading="lazy">
+                            <div class="svc-card-media-overlay"></div>
+                            <span class="svc-card-num-badge">05</span>
+                            <div class="svc-card-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="svc-card-body">
+                            <div class="svc-card-eyebrow">DIGITAL RECORDS</div>
+                            <h3 class="svc-card-title">Digital Certification</h3>
+                            <p class="svc-card-desc">Blockchain-secured digital vehicle certificates with 64-character
+                                QR verification hash. Instantly shareable and permanently archived.</p>
+                            <ul class="svc-card-features">
+                                <li>QR + 64-char hash token</li>
+                                <li>Blockchain-anchored record</li>
+                                <li>Instant email delivery</li>
+                                <li>10-year archive access</li>
+                            </ul>
+                        </div>
+                        <div class="svc-card-footer">
+                            <div class="svc-card-price">
+                                <div class="svc-price-main">
+                                    <span class="price-label">FROM</span>
+                                    <span class="price-val">$65</span>
+                                </div>
+                                <span class="price-note">per certificate</span>
+                            </div>
+                            <a href="service-detail.html?service=digital-certification" class="svc-view-btn">
+                                View Service
+                                <span>&#x2192;</span>
+                            </a>
+                        </div>
+                    </article>
+                    <article class="svc-card" data-service="ev-hybrid">
+                        <div class="svc-card-glow"></div>
+                        <div class="svc-card-media">
+                            <img src="assets/real_test_obd_engine.png" alt="EV &amp; Hybrid Telemetry - Battery &amp; Electrical Diagnostic Testing" class="svc-card-img" loading="lazy">
+                            <div class="svc-card-media-overlay"></div>
+                            <span class="svc-card-num-badge">06</span>
+                            <span class="svc-card-badge-new">NEW</span>
+                            <div class="svc-card-icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="svc-card-body">
+                            <div class="svc-card-eyebrow">EV &amp; HYBRID</div>
+                            <h3 class="svc-card-title">EV &amp; Hybrid Telemetry</h3>
+                            <p class="svc-card-desc">Advanced battery health analysis, regenerative brake efficiency
+                                testing, HV insulation resistance checks, and motor output dyno validation.</p>
+                            <ul class="svc-card-features">
+                                <li>Battery state-of-health (SOH)</li>
+                                <li>HV insulation resistance test</li>
+                                <li>Regen brake efficiency</li>
+                                <li>Motor torque dyno profile</li>
+                            </ul>
+                        </div>
+                        <div class="svc-card-footer">
+                            <div class="svc-card-price">
+                                <div class="svc-price-main">
+                                    <span class="price-label">FROM</span>
+                                    <span class="price-val">$220</span>
+                                </div>
+                                <span class="price-note">per vehicle</span>
+                            </div>
+                            <a href="service-detail.html?service=ev-hybrid" class="svc-view-btn">
+                                View Service
+                                <span>&#x2192;</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="svc-gallery-section" id="svcGallery">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">VISUAL ARCHIVE</span>
+                    </div>
+                    <h2 class="svc-section-title">
+                        PRECISION,<br>
+                        <span class="italic-serif highlight-gold">THROUGH A DIFFERENT LENS.</span>
+                    </h2>
+                    <p class="svc-section-desc">A visual documentation of precision equipment, calibrated dynamometer cells, and immaculate architectural testing bays.</p>
+                </div>
+                <div class="editorial-gallery-grid">
+                    <!-- Tile 01: Hero Featured AWD Dynamometer Cell (Occupies 2 cols x 2 rows) -->
+                    <div class="gallery-tile tile-featured-hero">
+                        <div class="tile-inner">
+                            <img src="assets/archive_dyno_cell.jpg" alt="AWD Dynamometer acoustic testing cell with laser wheel alignment" class="gallery-img" loading="lazy">
+                            <span class="tile-corner-tag">01 // DYNO CELL</span>
+                            <div class="gallery-overlay"></div>
+                            <div class="gallery-caption">
+                                <span class="caption-category">DYNAMOMETER TESTING</span>
+                                <h4 class="caption-name">AWD Acoustic Dynamometer Cell &amp; Laser Alignment</h4>
+                                <p class="caption-desc">Full-power torque verification, acoustic dampening, and automated dynamic tire contact sensors under simulated highway load.</p>
+                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+                            </div>
+                            <div class="gallery-gold-line"></div>
+                        </div>
+                    </div>
+                    <!-- Tile 02: Carbon Ceramic Braking Rig -->
+                    <div class="gallery-tile tile-companion-1">
+                        <div class="tile-inner">
+                            <img src="assets/card_brake_disc.jpg" alt="Carbon ceramic brake disc rotor test rig" class="gallery-img" loading="lazy">
+                            <span class="tile-corner-tag">02 // BRAKES</span>
+                            <div class="gallery-overlay"></div>
+                            <div class="gallery-caption">
+                                <span class="caption-category">VEHICLE DETAIL</span>
+                                <h4 class="caption-name">Carbon Ceramic Deceleration &amp; Thermal Analysis</h4>
+                                <p class="caption-desc">Rotor surface thermal profiling and dynamic caliper clamping pressure calibration.</p>
+                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+                            </div>
+                            <div class="gallery-gold-line"></div>
+                        </div>
+                    </div>
+                    <!-- Tile 03: Automated Laser Alignment Lift -->
+                    <div class="gallery-tile tile-companion-2">
+                        <div class="tile-inner">
+                            <img src="assets/real_test_undercarriage_lift.png" alt="Hydraulic vehicle lift and underbody chassis inspection" class="gallery-img" loading="lazy">
+                            <span class="tile-corner-tag">03 // CHASSIS</span>
+                            <div class="gallery-overlay"></div>
+                            <div class="gallery-caption">
+                                <span class="caption-category">VEHICLE INSPECTION</span>
+                                <h4 class="caption-name">Multi-Axis Laser Alignment &amp; Chassis Diagnostic</h4>
+                                <p class="caption-desc">Precision optical sensors detecting sub-millimeter structural variances against OEM specifications.</p>
+                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+                            </div>
+                            <div class="gallery-gold-line"></div>
+                        </div>
+                    </div>
+                    <!-- Tile 04: Exhaust Quad Tips -->
+                    <div class="gallery-tile tile-triplet-1">
+                        <div class="tile-inner">
+                            <img src="assets/card_exhaust_tips.jpg" alt="High performance exhaust tips tailpipe gas analysis" class="gallery-img" loading="lazy">
+                            <span class="tile-corner-tag">04 // EMISSIONS</span>
+                            <div class="gallery-overlay"></div>
+                            <div class="gallery-caption">
+                                <span class="caption-category">EMISSIONS TESTING</span>
+                                <h4 class="caption-name">Particulate &amp; Gas Telemetry</h4>
+                                <p class="caption-desc">NDIR non-dispersive infrared detection measuring exact hydrocarbons, CO, and NOx.</p>
+                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+                            </div>
+                            <div class="gallery-gold-line"></div>
+                        </div>
+                    </div>
+                    <!-- Tile 05: Tablet Digital Certification -->
+                    <div class="gallery-tile tile-triplet-2">
+                        <div class="tile-inner">
+                            <img src="assets/real_test_mechanic_tablet.png" alt="Certified technician OBD-II diagnostic scanner interrogation" class="gallery-img" loading="lazy">
+                            <span class="tile-corner-tag">05 // VAULT</span>
+                            <div class="gallery-overlay"></div>
+                            <div class="gallery-caption">
+                                <span class="caption-category">DIGITAL CERTIFICATION</span>
+                                <h4 class="caption-name">Encrypted Telemetry Passport</h4>
+                                <p class="caption-desc">Paperless verification synchronized to driver wallet and official licensing authorities.</p>
+                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+                            </div>
+                            <div class="gallery-gold-line"></div>
+                        </div>
+                    </div>
+                    <!-- Tile 06: EV Battery Telemetry Lab -->
+                    <div class="gallery-tile tile-triplet-3">
+                        <div class="tile-inner">
+                            <img src="assets/real_test_obd_engine.png" alt="Hands-on engine battery &amp; electrical subsystem testing" class="gallery-img" loading="lazy">
+                            <span class="tile-corner-tag">06 // EV LAB</span>
+                            <div class="gallery-overlay"></div>
+                            <div class="gallery-caption">
+                                <span class="caption-category">BATTERY TELEMETRY</span>
+                                <h4 class="caption-name">High-Voltage EV Battery Diagnostics</h4>
+                                <p class="caption-desc">State-of-health analysis, insulation resistance validation, and regenerative braking profiling.</p>
+                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+                            </div>
+                            <div class="gallery-gold-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="svc-gallery-stats-row">
+                    <div class="gstat">
+                        <span class="gstat-num">12,400+</span>
+                        <span class="gstat-lbl">Vehicles Inspected</span>
+                    </div>
+                    <div class="gstat-sep"></div>
+                    <div class="gstat">
+                        <span class="gstat-num">99.7%</span>
+                        <span class="gstat-lbl">Pass Accuracy</span>
+                    </div>
+                    <div class="gstat-sep"></div>
+                    <div class="gstat">
+                        <span class="gstat-num">3</span>
+                        <span class="gstat-lbl">Certified Centres</span>
+                    </div>
+                    <div class="gstat-sep"></div>
+                    <div class="gstat">
+                        <span class="gstat-num">100%</span>
+                        <span class="gstat-lbl">Regulatory Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="svc-faq-section" id="svcFAQ">
+            <div class="svc-container">
+                <div class="svc-faq-grid">
+                    <div class="svc-faq-left">
+                        <div class="svc-eyebrow-wrap">
+                            <span class="svc-eyebrow-line"></span>
+                            <span class="svc-eyebrow-text">KNOWLEDGE BASE</span>
+                        </div>
+                        <h2 class="svc-section-title">Frequently Asked Questions</h2>
+                        <p class="svc-section-desc" style="max-width:340px;margin:1rem 0 0 0;text-align:left;">Everything you need to know
+                            before your first ORVEXA appointment.</p>
+                        <a href="#services-grid" class="btn-secondary-hero"
+                            style="margin-top:2rem;display:inline-flex;">Browse Services &#x2193;</a>
+                    </div>
+                    <div class="svc-faq-right">
+                        <div class="faq-list" id="faqList">
+                            <div class="faq-item">
+                                <button class="faq-trigger" aria-expanded="false">
+                                    <span>How long does a standard inspection take?</span>
+                                    <span class="faq-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="faq-body">
+                                    <p>Most single-protocol inspections are completed within 15&ndash;20 minutes. The
+                                        Combined Protocol takes up to 25 minutes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-trigger" aria-expanded="false">
+                                    <span>Do I need to book in advance?</span>
+                                    <span class="faq-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="faq-body">
+                                    <p>Walk-ins are welcome during off-peak hours. Pre-booking guarantees your slot and
+                                        allows specialist equipment preparation.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-trigger" aria-expanded="false">
+                                    <span>What if my vehicle fails?</span>
+                                    <span class="faq-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="faq-body">
+                                    <p>You receive a detailed advisory report. Return for a free Re-Inspection within 30
+                                        days, limited to identified items only.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-trigger" aria-expanded="false">
+                                    <span>Are digital certificates legally recognised?</span>
+                                    <span class="faq-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="faq-body">
+                                    <p>Yes. ORVEXA digital certificates carry the same legal weight as physical
+                                        certificates with 64-character QR verification hashes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-trigger" aria-expanded="false">
+                                    <span>Do you inspect EV and hybrid vehicles?</span>
+                                    <span class="faq-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="faq-body">
+                                    <p>Yes &mdash; our EV &amp; Hybrid Telemetry covers BEVs, PHEVs, and mild-hybrids
+                                        with HV insulation tests, BMS interfaces, and EV dyno protocols.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-trigger" aria-expanded="false">
+                                    <span>Can you handle an entire commercial fleet?</span>
+                                    <span class="faq-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div class="faq-body">
+                                    <p>Absolutely. Fleet Compliance Management includes bulk scheduling, automated
+                                        dashboards, and dedicated account management for 10&ndash;500+ vehicles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="svc-cta-section" id="svcCTA">
+            <div class="svc-container">
+                <div class="svc-cta-card">
+                    <div class="cta-scan-lines"></div>
+                    <span class="cta-bracket cta-bracket-tl"></span>
+                    <span class="cta-bracket cta-bracket-tr"></span>
+                    <span class="cta-bracket cta-bracket-bl"></span>
+                    <span class="cta-bracket cta-bracket-br"></span>
+                    <div class="svc-cta-content">
+                        <div class="svc-cta-left">
+                            <div class="cta-live-pill">
+                                <span class="cta-live-dot"></span>
+                                <span class="cta-live-text">DIRECT BAY ACCESS &bull; LANES CLEAR</span>
+                            </div>
+                            <h2 class="svc-cta-title">
+                                Ready for Your
+                                <span class="italic-serif highlight-gold">Inspection?</span>
+                            </h2>
+                            <p class="svc-cta-desc">Book your preferred bay slot online. Walk in, verify, and depart with an encrypted digital compliance certificate in under 20 minutes.</p>
+                            <div class="svc-cta-specs">
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                    ISO/IEC 17020
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    15&ndash;20 Min Turnaround
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                    </svg>
+                                    Digital Pass
+                                </span>
+                            </div>
+                            <div class="svc-cta-btns">
+                                <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                    <span>Book Appointment</span>
+                                    <span class="btn-arrow">&#x2192;</span>
+                                </button>
+                                <a href="contact.html" class="btn-secondary-hero">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="svc-cta-seal-wrap">
+                            <div class="cta-seal">
+                                <div class="seal-dash-ring"></div>
+                                <div class="seal-gold-orbit"></div>
+                                <div class="seal-core">
+                                    <div class="seal-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            <path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <span class="seal-brand">ORVEXA</span>
+                                    <span class="seal-meta">VERIFIED BAY</span>
+                                </div>
+                            </div>
+                            <div class="seal-badge-caption">
+                                <span class="sbc-dot"></span>
+                                <span>FAST-TRACK INTAKE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
+                        <div class="brand-text-block">
+                            <span class="footer-brand-name">ORVEXA</span>
+                            <span class="footer-tagline brand-subline">INSPECTION &amp; TESTING</span>
+                        </div>
+                    </div>
+                    <p class="footer-positioning">
+                        Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital Certification.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on X / Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="View on YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+                                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 1: Services -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="service-detail.html?service=safety-inspection">Safety Inspection</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=emissions-testing">Emissions Testing</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=re-inspection">Re-Inspection</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=fleet-compliance">Fleet Compliance</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=ev-hybrid">EV &amp; Hybrid Telemetry</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="about.html">About ORVEXA</a>
+                        </li>
+                        <li>
+                            <a href="service.html">All Services</a>
+                        </li>
+                        <li>
+                            <a href="journal.html">Metrology Journal</a>
+                        </li>
+                        <li>
+                            <a href="home2.html">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="index.html#gallery">Visual Archive</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Additional Links -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Additional Links</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#booking" onclick="openBookingModal(); return false;">Pricing &amp; Rates</a>
+                        </li>
+                        <li>
+                            <a href="404.html" class="footer-link-pill">404 Error <span class="link-pill-tag">PAGE</span></a>
+                        </li>
+                        <li>
+                            <a href="coming-soon.html" class="footer-link-pill">Coming Soon <span class="link-pill-tag tag-gold">SOON</span></a>
+                        </li>
+                        <li>
+                            <a href="login.html">Client Login</a>
+                        </li>
+                        <li>
+                            <a href="signup.html">Create Account</a>
+                        </li>
+                        <li>
+                            <a href="dashboard.html">Inspector Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-nav-col footer-contact-col">
+                    <h4 class="footer-col-title">Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <span class="footer-contact-text">
+                                48 Calibration Drive,
+                                <br>
+                                Tech District, CA 90210
+                            </span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </span>
+                            <a href="mailto:verify@orvexa.com" class="footer-contact-link">verify@orvexa.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </span>
+                            <a href="tel:+18005550199" class="footer-contact-link">+1 (800) 555-0199</a>
+                        </li>
+                        <li class="footer-contact-item footer-hours-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </span>
+                            <div class="footer-hours-block">
+                                <span class="footer-hours-row">
+                                    <span class="footer-hours-day">Mon &ndash; Fri</span>
+                                    <span class="footer-hours-time">7:00 AM &ndash; 7:00 PM</span>
+                                </span>
+                                <span class="footer-hours-row">
+                                    <span class="footer-hours-day">Saturday</span>
+                                    <span class="footer-hours-time">8:00 AM &ndash; 5:00 PM</span>
+                                </span>
+                                <span class="footer-hours-row">
+                                    <span class="footer-hours-day">Sunday</span>
+                                    <span class="footer-hours-time footer-closed">Closed</span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+            <!-- Bottom Footer Row -->
+            <div class="footer-bottom-row">
+                <p class="footer-copyright">
+                    &copy;
+                    <span id="currentYear">2026</span>
+                    ORVEXA. Vehicle Inspection &amp; Emissions Testing. All rights reserved.
+                </p>
+                <div class="footer-badges">
+                    <span class="badge-item">CALIBRATED SENSORS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">ENCRYPTED DIGITAL RECORDS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">STATUTORY COMPLIANCE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="modalTitle">
+        <div class="modal-container" style="max-width:500px;">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">ORVEXA APPOINTMENT PORTAL</span>
+                    <h3 class="modal-title" id="modalTitle">Schedule Verification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn">&#x2715;</button>
+            </div>
+            <div class="modal-body">
+                <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65;">Select a service below to
+                    view pricing and book your preferred bay slot.</p>
+                <div style="display:flex;flex-direction:column;gap:0.65rem;margin-top:1.5rem;">
+                    <a href="service-detail.html?service=safety-inspection" class="btn-secondary-hero"
+                        style="text-align:center;">Safety Inspection &mdash; $185</a>
+                    <a href="service-detail.html?service=emissions-testing" class="btn-secondary-hero"
+                        style="text-align:center;">Emissions Testing &mdash; $145</a>
+                    <a href="service-detail.html?service=combined-protocol" class="btn-primary-hero"
+                        style="text-align:center;">Combined Protocol &mdash; $295 (Best Value)</a>
+                    <a href="service-detail.html?service=fleet-compliance" class="btn-secondary-hero"
+                        style="text-align:center;">Fleet Compliance &mdash; from $850/mo</a>
+                    <a href="service-detail.html?service=ev-hybrid" class="btn-secondary-hero"
+                        style="text-align:center;">EV &amp; Hybrid Telemetry &mdash; $220</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container portal-notice-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow" id="portalNoticeEyebrow">ORVEXA DIGITAL ARCHIVE</span>
+                    <h3 class="modal-title" id="portalNoticeTitle">Portal Notification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closePortalNotice()">&#x2715;</button>
+            </div>
+            <div class="modal-body">
+                <div class="portal-notice-content">
+                    <div class="portal-notice-icon-wrap" id="portalNoticeIcon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <p class="portal-notice-message" id="portalNoticeMsg">Information preview.</p>
+                    <div class="portal-notice-details" id="portalNoticeDetails"></div>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button type="button" class="btn-secondary-hero" onclick="closePortalNotice()">Dismiss</button>
+                <button type="button" class="btn-primary-hero" id="portalNoticeActionBtn"
+                    onclick="closePortalNotice()">Return to Platform</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="service.js"></script>
+</body>
+
+</html>
+

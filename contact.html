@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEXA | Contact &amp; Testing Bay Priority Intake — Metrology Laboratory</title>
+    <meta name="description"
+        content="Contact ORVEXA vehicle metrology engineers. Book statutory safety inspection, 5-gas optical emissions spectrometry, EV battery telemetry, or fleet compliance audits.">
+    <meta name="keywords"
+        content="contact ORVEXA, book vehicle inspection, automotive metrology bay, emissions testing appointment, EV telemetry intake, statutory compliance testing">
+
+    <!-- Modern Editorial & Precision Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="contact.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="contact-page">
+    <!-- ==================================================
+         01. GLOBAL LUXURY NAVIGATION (Identical to Home 1)
+         ================================================== -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
+                <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+                <div class="brand-text-block">
+                    <span class="brand-name">ORVEXA</span>
+                    <span class="brand-subline">INSPECTION &amp; TESTING</span>
+                </div>
+            </a>
+
+            <!-- Primary Navigation -->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li class="nav-item has-dropdown">
+                        <a href="index.html" class="nav-link">
+                            <span>Home</span>
+                            <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="index.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 1</span>
+                                <span class="dropdown-desc">Daylight &amp; Night Luxury Center</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 2</span>
+                                <span class="dropdown-desc">High-Tech Diagnostic Laboratory</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="journal.html" class="nav-link">Journals</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Utilities -->
+            <div class="header-actions">
+                <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
+                    <span class="theme-icon-sun" title="Light Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                    </span>
+                    <span class="theme-icon-moon" title="Dark Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="header-rtl-btn" id="rtlToggle"
+                    aria-label="Toggle text direction RTL / LTR">
+                    <span id="rtlBtnText">RTL</span>
+                </button>
+                <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
+                <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn" onclick="openBookingModal()">
+                    <span>Book Now</span>
+                    <span class="btn-arrow">&rarr;</span>
+                </button>
+                <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="drawer-brand-block">
+                <span class="drawer-brand">ORVEXA</span>
+                <span class="drawer-tagline">INSPECTION &amp; TESTING</span>
+            </div>
+            <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="drawer-links">
+            <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
+            <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
+            <li><a href="about.html" class="drawer-link"><span>About Us</span></a></li>
+            <li><a href="service.html" class="drawer-link"><span>Services</span></a></li>
+            <li><a href="journal.html" class="drawer-link"><span>Journals</span></a></li>
+            <li><a href="contact.html" class="drawer-link active"><span>Contact</span></a></li>
+            <li><a href="dashboard.html" class="drawer-link"><span>Dashboard</span></a></li>
+        </ul>
+
+        <div class="drawer-actions">
+            <a href="login.html" class="drawer-btn-login">Login</a>
+            <button type="button" class="btn-primary-hero btn-sm w-full" id="drawerBookBtn" onclick="openBookingModal()">Book Now &rarr;</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- ==================================================
+             02. PREMIUM HERO BANNER (Architectural 2-Image Layout)
+             ================================================== -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="contact-hero-grid">
+                    <!-- Left Hero Content -->
+                    <div class="contact-hero-content">
+                        <div class="hero-eyebrow-wrapper">
+                            <span class="eyebrow-dash"></span>
+                            <span class="hero-eyebrow">PRIORITY DISPATCH // DIRECT LAB INTAKE</span>
+                        </div>
+                        <h1 class="contact-hero-title">
+                            Connect with Certified <br>
+                            <em class="italic-serif highlight-gold">Metrology Engineers.</em>
+                        </h1>
+                        <p class="contact-hero-desc">
+                            Direct access to accredited vehicle inspection facilities, statutory compliance
+                            certification, and enterprise fleet testing corridors. Submit your technical vehicle
+                            telemetry or schedule priority intake with an accredited testing officer.
+                        </p>
+
+                        <!-- Quick Trust Metric Chips -->
+                        <div class="contact-hero-metrics">
+                            <div class="contact-metric-pill">
+                                <span class="cmp-dot"></span>
+                                <span class="cmp-text">15&ndash;20 MIN BAY TURNAROUND</span>
+                            </div>
+                            <div class="contact-metric-pill">
+                                <span class="cmp-dot gold"></span>
+                                <span class="cmp-text">&lt; 2-HOUR INTAKE SLA</span>
+                            </div>
+                            <div class="contact-metric-pill">
+                                <span class="cmp-dot"></span>
+                                <span class="cmp-text">ISO/IEC 17020 ACCREDITED</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="contact-hero-actions">
+                            <a href="#intake-form" class="btn-primary-hero">
+                                <span>Reserve a Testing Bay</span>
+                            </a>
+                            <a href="#locations" class="btn-secondary-hero">
+                                <span>View Bay Locations</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Dual-Image Architectural Showcase -->
+                    <div class="contact-hero-showcase">
+                        <!-- Primary Main Visual Card -->
+                        <div class="contact-main-card">
+                            <div class="contact-card-glow"></div>
+                            <!-- 4 Precision CNC Gold Corner Reticles -->
+                            <span class="hud-bracket top-left"></span>
+                            <span class="hud-bracket top-right"></span>
+                            <span class="hud-bracket bottom-left"></span>
+                            <span class="hud-bracket bottom-right"></span>
+
+                            <!-- Top Live Station Tag -->
+                            <div class="contact-card-tag">
+                                <span class="cct-radar"></span>
+                                <span>BAY 01 // METROLOGY HEADQUARTERS</span>
+                            </div>
+
+                            <!-- Live Standard Pill -->
+                            <div class="contact-card-standard">
+                                <span>UNECE R100 &bull; ISO 17020</span>
+                            </div>
+
+                            <!-- Full-Bleed Viewport with Telemetry Mesh -->
+                            <div class="contact-card-viewport">
+                                <img src="assets/h2_inspection_bay.jpg" alt="ORVEXA Central Metrology Bay"
+                                    class="contact-viewport-img" loading="eager">
+                                <div class="contact-viewport-watermark"></div>
+                                <div class="contact-viewport-overlay"></div>
+                            </div>
+
+                            <!-- Floating Glass HUD Strip -->
+                            <div class="contact-card-hud">
+                                <div class="hud-left-meta">
+                                    <span class="hud-label">APPARATUS STATUS</span>
+                                    <span class="hud-val">Capelec NDIR + Fluke 1000V</span>
+                                </div>
+                                <div class="hud-right-meta">
+                                    <span class="hud-live-beacon"></span>
+                                    <span class="hud-live-tag">LIVE BAYS READY</span>
+                                </div>
+                            </div>
+                            <div class="contact-card-accent-line"></div>
+                        </div>
+
+                        <!-- Secondary Overlapping Floating Visual Card -->
+                        <div class="contact-secondary-card">
+                            <!-- 4 Corner Reticles -->
+                            <span class="hud-bracket top-left"></span>
+                            <span class="hud-bracket top-right"></span>
+                            <span class="hud-bracket bottom-left"></span>
+                            <span class="hud-bracket bottom-right"></span>
+
+                            <div class="contact-sec-viewport">
+                                <img src="assets/h2_inspection_car.jpg" alt="Laser Chassis &amp; Powertrain Scanner"
+                                    class="contact-sec-img">
+                                <div class="contact-sec-overlay"></div>
+                            </div>
+
+                            <div class="contact-sec-caption">
+                                <div class="sec-caption-head">
+                                    <span class="sec-dot"></span>
+                                    <span class="sec-name">RAPID DISPATCH</span>
+                                </div>
+                                <p class="sec-sub">Direct CANbus &bull; High-Voltage Metrology</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             03. FORM CARD SECTION (High-End Laboratory Intake)
+             ================================================== -->
+        <section class="contact-form-section" id="intake-form">
+            <div class="container">
+                <div class="section-header-center">
+                    <div class="section-eyebrow justify-center">
+                        <span class="eyebrow-num">01</span>
+                        <span class="eyebrow-text">PRIORITY SCHEDULING &amp; DIRECT INTAKE</span>
+                    </div>
+                    <h2 class="editorial-title">
+                        SUBMIT AN INSPECTION<br>
+                        <span class="italic-serif">PROTOCOL REQUEST.</span>
+                    </h2>
+                    <p class="section-lead-center">
+                        Provide your vehicle details and select your required inspection tier. A certified metrologist
+                        will review your telemetry and confirm your reserved bay corridor.
+                    </p>
+                </div>
+
+                <!-- Form Card -->
+                <div class="contact-form-card">
+                    <!-- Luxury Background Elements -->
+                    <div class="form-scan-lines"></div>
+                    <div class="form-card-ambient"></div>
+
+                    <!-- 4 Precision CNC Gold Corner Brackets -->
+                    <span class="cta-bracket cta-bracket-tl"></span>
+                    <span class="cta-bracket cta-bracket-tr"></span>
+                    <span class="cta-bracket cta-bracket-bl"></span>
+                    <span class="cta-bracket cta-bracket-br"></span>
+
+                    <!-- Form Header Header Bar -->
+                    <div class="cfc-header">
+                        <div class="cfc-status">
+                            <span class="cfc-dot"></span>
+                            <span class="cfc-status-text">DISPATCH DESK ONLINE // DIRECT LAB ROUTING</span>
+                        </div>
+                        <span class="cfc-ref-code">REF // INTAKE-PORTAL-2026</span>
+                    </div>
+
+                    <form id="contactIntakeForm" class="contact-form-grid" novalidate
+                        onsubmit="handleContactSubmit(event)">
+                        <!-- Column 1: Client & Booking Metadata -->
+                        <div class="form-col">
+                            <h3 class="form-col-title">
+                                <span class="fct-num">01</span>
+                                <span>Client &amp; Contact Metadata</span>
+                            </h3>
+
+                            <div class="form-group">
+                                <label for="cfFullName" class="form-label">Full Legal Name <span
+                                        class="req">*</span></label>
+                                <input type="text" id="cfFullName" class="form-input"
+                                    placeholder="e.g. Jonathan Sterling" required>
+                                <span class="form-err-msg">Please enter your name.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cfOrgName" class="form-label">Company / Fleet Entity <span
+                                        class="opt">(Optional)</span></label>
+                                <input type="text" id="cfOrgName" class="form-input"
+                                    placeholder="e.g. Sterling Logistics LLC / Private">
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="cfEmail" class="form-label">Direct Email <span
+                                            class="req">*</span></label>
+                                    <input type="email" id="cfEmail" class="form-input"
+                                        placeholder="j.sterling@domain.com" required>
+                                    <span class="form-err-msg">Valid email required.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cfPhone" class="form-label">Mobile Phone <span
+                                            class="req">*</span></label>
+                                    <input type="tel" id="cfPhone" class="form-input" placeholder="+1 (555) 000-0000"
+                                        required>
+                                    <span class="form-err-msg">Phone number required.</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cfLocation" class="form-label">Preferred Testing Facility <span
+                                        class="req">*</span></label>
+                                <select id="cfLocation" class="form-select" required>
+                                    <option value="Central HQ — 48 Calibration Dr (Tech District)">Central HQ — 48
+                                        Calibration Dr (Tech District)</option>
+                                    <option value="Metro EV Hub — 128 Precision Way (Suite A)">Metro EV Hub — 128
+                                        Precision Way (Suite A)</option>
+                                    <option value="West Corridor — 70 Aviation Blvd (Bay 4)">West Corridor — 70 Aviation
+                                        Blvd (Bay 4)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="cfDate" class="form-label">Preferred Date <span
+                                            class="req">*</span></label>
+                                    <input type="date" id="cfDate" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cfWindow" class="form-label">Arrival Window <span
+                                            class="req">*</span></label>
+                                    <select id="cfWindow" class="form-select">
+                                        <option value="Morning (08:00 — 11:00 AM)">Morning (08:00 &ndash; 11:00 AM)
+                                        </option>
+                                        <option value="Mid-day (11:30 AM — 02:30 PM)">Mid-day (11:30 AM &ndash; 02:30
+                                            PM)</option>
+                                        <option value="Afternoon (03:00 — 06:00 PM)">Afternoon (03:00 &ndash; 06:00 PM)
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Vehicle & Diagnostic Protocol -->
+                        <div class="form-col">
+                            <h3 class="form-col-title">
+                                <span class="fct-num">02</span>
+                                <span>Vehicle &amp; Diagnostic Protocol</span>
+                            </h3>
+
+                            <div class="form-group">
+                                <label for="cfProtocol" class="form-label">Required Verification Protocol <span
+                                        class="req">*</span></label>
+                                <select id="cfProtocol" class="form-select" required>
+                                    <option value="Statutory Safety Inspection ($185)">Statutory Safety Inspection
+                                        &mdash; $185</option>
+                                    <option value="5-Gas Emissions Spectrometry ($145)">5-Gas Emissions Spectrometry
+                                        &mdash; $145</option>
+                                    <option value="Combined Comprehensive Protocol ($295)" selected>Combined
+                                        Comprehensive Protocol &mdash; $295</option>
+                                    <option value="High-Voltage EV &amp; Hybrid Telemetry ($220)">High-Voltage EV &amp;
+                                        Hybrid Telemetry &mdash; $220</option>
+                                    <option value="Commercial Fleet Compliance Audit ($490)">Commercial Fleet Compliance
+                                        Audit &mdash; $490</option>
+                                    <option value="Pre-Purchase Laboratory Diagnostic ($250)">Pre-Purchase Laboratory
+                                        Diagnostic &mdash; $250</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="cfMakeModel" class="form-label">Vehicle Make &amp; Model <span
+                                            class="req">*</span></label>
+                                    <input type="text" id="cfMakeModel" class="form-input"
+                                        placeholder="e.g. Porsche 911 / Tesla Model S" required>
+                                    <span class="form-err-msg">Make &amp; model required.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cfYear" class="form-label">Model Year <span class="req">*</span></label>
+                                    <input type="number" id="cfYear" class="form-input" placeholder="e.g. 2024"
+                                        min="1970" max="2027" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="cfPowertrain" class="form-label">Powertrain Architecture</label>
+                                    <select id="cfPowertrain" class="form-select">
+                                        <option value="ICE (Petrol / Diesel)">ICE (Petrol / Diesel)</option>
+                                        <option value="Hybrid / PHEV">Hybrid / PHEV</option>
+                                        <option value="Full EV (400V / 800V Architecture)">Full EV (400V / 800V
+                                            Architecture)</option>
+                                        <option value="Heavy Commercial / Fleet">Heavy Commercial / Fleet</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cfPlate" class="form-label">License Plate or VIN <span
+                                            class="opt">(Optional)</span></label>
+                                    <input type="text" id="cfPlate" class="form-input" placeholder="e.g. 7XYZ892">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cfNotes" class="form-label">Technical Symptoms / Statutory Deadlines <span
+                                        class="opt">(Optional)</span></label>
+                                <textarea id="cfNotes" class="form-textarea" rows="3"
+                                    placeholder="Specify any known OBD error codes, steering pulsation, previous inspection citations, or custom fleet requirements..."></textarea>
+                            </div>
+
+                            <div class="form-checkbox-group">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" id="cfCryptoPassport" checked>
+                                    <span class="checkbox-indicator"></span>
+                                    <span class="checkbox-text">Generate SHA-256 cryptographic digital passport with QR
+                                        code verification</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Full Width Submit Action Row -->
+                        <div class="form-actions-full">
+                            <div class="form-submit-wrap">
+                                <button type="submit" class="btn-primary-hero btn-submit-intake" id="formSubmitBtn">
+                                    <span>Submit Priority Request</span>
+                                </button>
+                                <button type="reset" class="btn-secondary-hero">
+                                    <span>Clear Form</span>
+                                </button>
+                            </div>
+                            <div class="form-hotline-strip">
+                                <span class="fhs-dot"></span>
+                                <span>Immediate emergency bay slot needed? Direct Line:</span>
+                                <a href="tel:+18005550199" class="fhs-phone">+1 (800) 555-0199</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             04. MAP AND ADDRESS CARDS SECTION
+             ================================================== -->
+        <section class="contact-locations-section" id="locations">
+            <div class="container">
+                <div class="section-header-center">
+                    <div class="section-eyebrow justify-center">
+                        <span class="eyebrow-num">02</span>
+                        <span class="eyebrow-text">REGIONAL TESTING HUBS</span>
+                    </div>
+                    <h2 class="editorial-title">
+                        OUR TESTING CORRIDORS<br>
+                        <span class="italic-serif">&amp; METROLOGY BAYS.</span>
+                    </h2>
+                    <p class="section-lead-center">
+                        ORVEXA operates climate-controlled, accredited metrology centers equipped with certified
+                        dynamometers, laser alignment corridors, and direct CANbus diagnostic terminals.
+                    </p>
+                </div>
+
+                <!-- 3 Address Hub Cards -->
+                <div class="locations-cards-grid">
+                    <!-- Hub 1: Central HQ -->
+                    <div class="hub-card active" data-hub-id="central" onclick="selectHub('central')">
+                        <div class="hub-card-header">
+                            <div class="hub-status-badge">
+                                <span class="hub-live-dot"></span>
+                                <span>4 BAYS ACTIVE</span>
+                            </div>
+                            <span class="hub-code">HUB 01 // HQ</span>
+                        </div>
+                        <h3 class="hub-title">Central Metrology Headquarters</h3>
+                        <p class="hub-type">AWD Dynamometer &bull; 5-Gas Molecular Spectrometry</p>
+
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>48 Calibration Drive, Tech District, CA 90210</span>
+                        </div>
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            <a href="tel:+18005550199">+1 (800) 555-0199 &bull; Ext. 1</a>
+                        </div>
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <span>Mon &ndash; Fri: 7:00 AM &ndash; 7:00 PM | Sat: 8:00 AM &ndash; 5:00 PM</span>
+                        </div>
+
+                        <div class="hub-card-footer">
+                            <button type="button" class="btn-hub-select"
+                                onclick="selectHub('central'); event.stopPropagation();">
+                                <span>Target on HUD Map</span>
+                            </button>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
+                                class="hub-dir-link" onclick="event.stopPropagation();">Directions &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Hub 2: Metro EV Facility -->
+                    <div class="hub-card" data-hub-id="metro" onclick="selectHub('metro')">
+                        <div class="hub-card-header">
+                            <div class="hub-status-badge">
+                                <span class="hub-live-dot"></span>
+                                <span>2 BAYS ACTIVE</span>
+                            </div>
+                            <span class="hub-code">HUB 02 // EV</span>
+                        </div>
+                        <h3 class="hub-title">Metro EV &amp; Telemetry Facility</h3>
+                        <p class="hub-type">1000V DC Galvanic Isolation &bull; CANbus Logging</p>
+
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>128 Precision Way, Suite A, Metro District, CA 90212</span>
+                        </div>
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            <a href="tel:+18005550198">+1 (800) 555-0198 &bull; Ext. 2</a>
+                        </div>
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <span>Mon &ndash; Fri: 8:00 AM &ndash; 6:00 PM | Sat: 9:00 AM &ndash; 3:00 PM</span>
+                        </div>
+
+                        <div class="hub-card-footer">
+                            <button type="button" class="btn-hub-select"
+                                onclick="selectHub('metro'); event.stopPropagation();">
+                                <span>Target on HUD Map</span>
+                            </button>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
+                                class="hub-dir-link" onclick="event.stopPropagation();">Directions &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Hub 3: West Fleet Corridor -->
+                    <div class="hub-card" data-hub-id="west" onclick="selectHub('west')">
+                        <div class="hub-card-header">
+                            <div class="hub-status-badge">
+                                <span class="hub-live-dot"></span>
+                                <span>3 BAYS ACTIVE</span>
+                            </div>
+                            <span class="hub-code">HUB 03 // FLEET</span>
+                        </div>
+                        <h3 class="hub-title">Commercial Fleet Logistics Hub</h3>
+                        <p class="hub-type">Heavy Commercial Bays 07&ndash;12 &bull; Pre-Purchase</p>
+
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>70 Aviation Blvd, Bay 4, West Corridor, CA 90215</span>
+                        </div>
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            <a href="tel:+18005550197">+1 (800) 555-0197 &bull; Ext. 3</a>
+                        </div>
+                        <div class="hub-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            <span>Mon &ndash; Fri: 6:30 AM &ndash; 7:30 PM | Sat: 8:00 AM &ndash; 4:00 PM</span>
+                        </div>
+
+                        <div class="hub-card-footer">
+                            <button type="button" class="btn-hub-select"
+                                onclick="selectHub('west'); event.stopPropagation();">
+                                <span>Target on HUD Map</span>
+                            </button>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
+                                class="hub-dir-link" onclick="event.stopPropagation();">Directions &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Architectural Map HUD Container -->
+                <div class="contact-map-card">
+                    <div class="map-hud-bar">
+                        <div class="map-hud-left">
+                            <span class="map-hud-beacon"></span>
+                            <span class="map-hud-title" id="mapTargetTitle">TARGET: CENTRAL METROLOGY
+                                HEADQUARTERS</span>
+                        </div>
+                        <div class="map-hud-coords" id="mapCoordinates">
+                            <span>LAT 37.7749&deg; N &bull; LONG 122.4194&deg; W &bull; ELEV 38M</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Blueprint / Satellite SVG Map Stage -->
+                    <div class="map-stage-viewport">
+                        <div class="map-grid-overlay"></div>
+                        <div class="map-radar-sweep"></div>
+
+                        <!-- Central SVG Metrology Map Visual -->
+                        <svg class="map-blueprint-svg" viewBox="0 0 1000 480" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Roads / Arterials -->
+                            <path d="M50 240 Q 250 120 500 240 T 950 240" stroke="rgba(164, 119, 67, 0.25)"
+                                stroke-width="3" stroke-dasharray="6 6" />
+                            <path d="M220 50 L 220 430" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+                            <path d="M500 50 L 500 430" stroke="rgba(255, 255, 255, 0.12)" stroke-width="3" />
+                            <path d="M780 50 L 780 430" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+                            <circle cx="500" cy="240" r="180" stroke="rgba(164, 119, 67, 0.18)" stroke-width="1" />
+                            <circle cx="500" cy="240" r="90" stroke="rgba(164, 119, 67, 0.25)" stroke-width="1"
+                                stroke-dasharray="4 4" />
+
+                            <!-- Location Pin 1: Central HQ (x: 500, y: 240) -->
+                            <g id="mapPinCentral" class="map-pin-group active" onclick="selectHub('central')">
+                                <circle cx="500" cy="240" r="28" class="pin-radar-ring" />
+                                <circle cx="500" cy="240" r="12" fill="var(--brand-accent)" />
+                                <circle cx="500" cy="240" r="5" fill="#FFFFFF" />
+                                <text x="500" y="275" text-anchor="middle" fill="#FFFFFF"
+                                    font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700"
+                                    letter-spacing="1">CENTRAL HQ (48 CALIBRATION DR)</text>
+                            </g>
+
+                            <!-- Location Pin 2: Metro EV (x: 220, y: 160) -->
+                            <g id="mapPinMetro" class="map-pin-group" onclick="selectHub('metro')">
+                                <circle cx="220" cy="160" r="22" class="pin-radar-ring" />
+                                <circle cx="220" cy="160" r="10" fill="rgba(164, 119, 67, 0.7)" />
+                                <circle cx="220" cy="160" r="4" fill="#FFFFFF" />
+                                <text x="220" y="195" text-anchor="middle" fill="#D1C8B8"
+                                    font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600"
+                                    letter-spacing="0.5">METRO EV HUB (128 PRECISION)</text>
+                            </g>
+
+                            <!-- Location Pin 3: West Fleet (x: 780, y: 310) -->
+                            <g id="mapPinWest" class="map-pin-group" onclick="selectHub('west')">
+                                <circle cx="780" cy="310" r="22" class="pin-radar-ring" />
+                                <circle cx="780" cy="310" r="10" fill="rgba(164, 119, 67, 0.7)" />
+                                <circle cx="780" cy="310" r="4" fill="#FFFFFF" />
+                                <text x="780" y="345" text-anchor="middle" fill="#D1C8B8"
+                                    font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600"
+                                    letter-spacing="0.5">WEST FLEET BAY (70 AVIATION)</text>
+                            </g>
+                        </svg>
+
+                        <!-- Floating Live Info Card on Map -->
+                        <div class="map-floating-panel" id="mapFloatingPanel">
+                            <span class="mfp-eyebrow" id="mfpEyebrow">ACTIVE METROLOGY NODE</span>
+                            <h4 class="mfp-title" id="mfpTitle">48 Calibration Drive</h4>
+                            <p class="mfp-desc" id="mfpDesc">Central Laboratory Hub with Class-A chassis dynos and
+                                Horiba gas analyzers.</p>
+                            <div class="mfp-meta-grid">
+                                <div><span class="mfp-label">BAY CLEARANCE</span><span class="mfp-val"
+                                        id="mfpClearance">4 Active Slots</span></div>
+                                <div><span class="mfp-label">AVG DURATION</span><span class="mfp-val">15&ndash;20
+                                        Mins</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             05. FAQS SECTION (Interactive Accordion)
+             ================================================== -->
+        <section class="contact-faq-section" id="faqs">
+            <div class="container">
+                <div class="section-header-center">
+                    <div class="section-eyebrow justify-center">
+                        <span class="eyebrow-num">03</span>
+                        <span class="eyebrow-text">CLEAR PROCEDURES &amp; GUIDELINES</span>
+                    </div>
+                    <h2 class="editorial-title">
+                        FREQUENTLY ASKED<br>
+                        <span class="italic-serif">CLINICAL QUESTIONS.</span>
+                    </h2>
+                    <p class="section-lead-center">
+                        Everything you need to know about preparing for your scheduled bay session, vehicle
+                        documentation, and statutory cryptographic certificates.
+                    </p>
+                </div>
+
+                <div class="contact-faq-grid">
+                    <div class="faq-item" data-faq="0">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span>What documents must I present upon laboratory arrival?</span>
+                            <span class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-body">
+                            <p>
+                                Please bring your state vehicle registration or ownership title, valid driver ID, and
+                                any statutory inspection renewal citation notice. If you are presenting a commercial
+                                fleet vehicle or modified powertrain, please have your previous emissions or exemption
+                                certificates on hand.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-faq="1">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span>How far in advance should I reserve a testing bay?</span>
+                            <span class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-body">
+                            <p>
+                                We recommend scheduling 24 to 48 hours in advance for priority bay slots. However, our
+                                Central Headquarters reserves dedicated same-day emergency fast-track corridors for
+                                vehicles facing immediate statutory expiration deadlines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-faq="2">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span>Are walk-in inspections accepted without an online appointment?</span>
+                            <span class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-body">
+                            <p>
+                                Yes. Walk-ins are accommodated at our Central HQ facility on a first-come,
+                                first-verified basis subject to bay availability. To avoid waiting during peak morning
+                                and afternoon windows, reserving online is strongly advised.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-faq="3">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span>Can ORVEXA inspect and certify 800V High-Voltage Electric Vehicles?</span>
+                            <span class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-body">
+                            <p>
+                                Absolutely. Our Metro EV Facility and Central HQ are equipped with CAT IV 1000V DC
+                                dielectric isolation test benches and low-level CANbus diagnostic interfaces that safely
+                                interrogate battery pack health, individual cell variance, and galvanic isolation under
+                                simulated road load.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-faq="4">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span>How does the digital cryptographic certificate work with government
+                                authorities?</span>
+                            <span class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-body">
+                            <p>
+                                Upon passing verification, our system signs the complete sensor dataset with our ISO/IEC
+                                17020 metrologist public key, writes a 256-bit SHA digest to our distributed registry,
+                                and transmits an instant pass status directly to state transportation registries. You
+                                receive a digital pass with a QR link for immediate mobile wallet storage.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-faq="5">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span>What happens if my vehicle fails to meet a statutory benchmark?</span>
+                            <span class="faq-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-body">
+                            <p>
+                                Because ORVEXA does not perform repairs, our evaluation is completely conflict-free. You
+                                will receive an exact diagnostic telemetry report identifying precisely why a threshold
+                                was missed (e.g. brake balance disparity or elevated hydrocarbon parts-per-million). You
+                                receive a 30-day free re-inspection clearance once remediated.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             06. LUXURY CTA CARD (Matching Home 1 & Circular Image)
+             ================================================== -->
+        <section class="svc-cta-section" id="svcCTA">
+            <div class="container">
+                <div class="svc-cta-card">
+                    <!-- Luxury Grid Scan Lines Background -->
+                    <div class="cta-scan-lines"></div>
+
+                    <!-- Precision Corner Brackets -->
+                    <span class="cta-bracket cta-bracket-tl"></span>
+                    <span class="cta-bracket cta-bracket-tr"></span>
+                    <span class="cta-bracket cta-bracket-bl"></span>
+                    <span class="cta-bracket cta-bracket-br"></span>
+
+                    <div class="svc-cta-content">
+                        <div class="svc-cta-left">
+                            <!-- Live Status Indicator -->
+                            <div class="cta-live-pill">
+                                <span class="cta-live-dot"></span>
+                                <span class="cta-live-text">ISO 17020 ACCREDITED BAY ACTIVE</span>
+                            </div>
+
+                            <h2 class="svc-cta-title">
+                                Verify Your Vehicle with <span class="cta-title-gold italic-serif">Scientific
+                                    Certainty.</span>
+                            </h2>
+                            <p class="svc-cta-desc">
+                                Connect directly with our certified metrology engineers. Secure your priority inspection
+                                slot, receive immediate diagnostic telemetry, and obtain unalterable cryptographic
+                                certification.
+                            </p>
+
+                            <!-- Micro Feature Indicators -->
+                            <div class="svc-cta-specs">
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Direct CANbus &amp; Optical Spectrometry
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    15&ndash;20 Min Turnaround
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    Encrypted Passport
+                                </span>
+                            </div>
+
+                            <div class="svc-cta-btns">
+                                <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                    <span>Book Laboratory Appointment</span>
+                                </button>
+                                <a href="journal.html" class="btn-secondary-hero">Explore All Journals</a>
+                            </div>
+                        </div>
+
+                        <!-- Circular Active Bay Visual with Glowing Gold HUD Orbit -->
+                        <div class="svc-cta-seal-wrap">
+                            <div class="cta-circle-frame">
+                                <div class="cta-circle-dash-ring"></div>
+                                <div class="cta-circle-gold-orbit"></div>
+                                <div class="cta-circle-img-wrap">
+                                    <img src="assets/h2_inspection_car.jpg" alt="ORVEXA Active Inspection Bay"
+                                        class="cta-circle-img">
+                                    <div class="cta-circle-overlay"></div>
+                                    <div class="cta-circle-scan-line"></div>
+                                </div>
+                                <div class="cta-circle-status-pill">
+                                    <span class="cta-circle-live-dot"></span>
+                                    <span>ACTIVE BAY</span>
+                                </div>
+                            </div>
+                            <div class="seal-badge-caption">
+                                <span class="sbc-dot"></span>
+                                <span>ISO 17020 ACCREDITED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================================================
+         07. SITE FOOTER (Exact Reference to Home 1)
+         ================================================== -->
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <!-- Top Footer Row -->
+            <div class="footer-top-grid">
+
+                <!-- Brand Column -->
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
+                        <div class="brand-text-block">
+                            <span class="footer-brand-name">ORVEXA</span>
+                            <span class="footer-tagline brand-subline">INSPECTION &amp; TESTING</span>
+                        </div>
+                    </div>
+                    <p class="footer-positioning">
+                        Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital
+                        Certification.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on X / Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="View on YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 1: Services -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="service-detail.html?service=safety-inspection">Safety Inspection</a></li>
+                        <li><a href="service-detail.html?service=emissions-testing">Emissions Testing</a></li>
+                        <li><a href="service-detail.html?service=combined-protocol">Re-Inspection &amp; Combined</a>
+                        </li>
+                        <li><a href="service-detail.html?service=fleet-compliance">Fleet Compliance</a></li>
+                        <li><a href="service-detail.html?service=ev-hybrid">EV &amp; Hybrid Telemetry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About ORVEXA</a></li>
+                        <li><a href="service.html">All Services</a></li>
+                        <li><a href="journal.html">Metrology Journal</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="index.html#gallery">Visual Archive</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Additional Links -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Additional Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#intake-form"
+                                onclick="document.getElementById('intake-form').scrollIntoView({behavior:'smooth'}); return false;">Pricing
+                                &amp; Rates</a></li>
+                        <li><a href="404.html" class="footer-link-pill">404 Error <span class="link-pill-tag">PAGE</span></a></li>
+                        <li><a href="coming-soon.html" class="footer-link-pill">Coming Soon <span class="link-pill-tag tag-gold">SOON</span></a></li>
+                        <li><a href="login.html">Client Login</a></li>
+                        <li><a href="signup.html">Create Account</a></li>
+                        <li><a href="dashboard.html">Inspector Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-nav-col footer-contact-col">
+                    <h4 class="footer-col-title">Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <span class="footer-contact-text">48 Calibration Drive,<br>Tech District, CA 90210</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </span>
+                            <a href="mailto:verify@orvexa.com" class="footer-contact-link">verify@orvexa.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </span>
+                            <a href="tel:+18005550199" class="footer-contact-link">+1 (800) 555-0199</a>
+                        </li>
+                        <li class="footer-contact-item footer-hours-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </span>
+                            <div class="footer-hours-block">
+                                <span class="footer-hours-row"><span class="footer-hours-day">Mon &ndash;
+                                        Fri</span><span class="footer-hours-time">7:00 AM &ndash; 7:00 PM</span></span>
+                                <span class="footer-hours-row"><span class="footer-hours-day">Saturday</span><span
+                                        class="footer-hours-time">8:00 AM &ndash; 5:00 PM</span></span>
+                                <span class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span
+                                        class="footer-hours-time footer-closed">CLOSED</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Bottom Footer Row -->
+            <div class="footer-bottom-row">
+                <p class="footer-copyright">
+                    &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All
+                    rights reserved.
+                </p>
+                <div class="footer-badges">
+                    <span class="badge-item">CALIBRATED SENSORS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">ENCRYPTED DIGITAL RECORDS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">STATUTORY COMPLIANCE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================================================
+         08. SUCCESS CONFIRMATION MODAL
+         ================================================== -->
+    <div class="modal-backdrop" id="intakeSuccessModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container success-receipt-modal">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">METROLOGY INTAKE CONFIRMATION</span>
+                    <h3 class="modal-title">Protocol Request Verified</h3>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closeSuccessModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="receipt-card">
+                    <div class="receipt-header-row">
+                        <div class="receipt-badge-pass">&#10003; DISPATCH QUEUED</div>
+                        <span class="receipt-token" id="receiptToken">ORV-2026-X889</span>
+                    </div>
+                    <h4 class="receipt-service" id="receiptProtocol">Combined Comprehensive Protocol</h4>
+
+                    <div class="receipt-meta-grid">
+                        <div class="rmg-cell"><span class="rmg-lbl">CLIENT</span><span class="rmg-val"
+                                id="receiptClient">Jonathan Sterling</span></div>
+                        <div class="rmg-cell"><span class="rmg-lbl">BAY FACILITY</span><span class="rmg-val"
+                                id="receiptBay">Central Metrology HQ</span></div>
+                        <div class="rmg-cell"><span class="rmg-lbl">SCHEDULED WINDOW</span><span class="rmg-val"
+                                id="receiptWindow">Morning (08:00 &ndash; 11:00 AM)</span></div>
+                        <div class="rmg-cell"><span class="rmg-lbl">VEHICLE</span><span class="rmg-val"
+                                id="receiptVehicle">Porsche 911 GT3 (2024)</span></div>
+                    </div>
+
+                    <div class="receipt-crypto-box">
+                        <span class="rcb-label">CRYPTOGRAPHIC SHA-256 HASH ANCHOR</span>
+                        <code class="rcb-hash"
+                            id="receiptHash">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button type="button" class="btn-secondary-hero" onclick="closeSuccessModal()">Close</button>
+                <button type="button" class="btn-primary-hero" onclick="window.print()">Print Confirmation Pass</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">ORVEXA APPOINTMENT PORTAL</span>
+                    <h3 class="modal-title">Schedule Vehicle Verification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn"
+                    aria-label="Close booking modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1.5rem;">Select your required
+                    protocol to secure your priority bay slot:</p>
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <a href="service-detail.html?service=safety-inspection" class="btn-primary-hero"
+                        style="justify-content:center;">Statutory Safety Inspection</a>
+                    <a href="service-detail.html?service=emissions-testing" class="btn-secondary-hero"
+                        style="justify-content:center;">5-Gas Emissions Spectrometry</a>
+                    <a href="service-detail.html?service=combined-protocol" class="btn-secondary-hero"
+                        style="justify-content:center;">Combined Comprehensive Protocol</a>
+                    <a href="service-detail.html?service=ev-hybrid" class="btn-secondary-hero"
+                        style="justify-content:center;">EV &amp; Hybrid Telemetry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portal Notice Modal (404, Coming Soon, Login, Dashboard) -->
+    <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container portal-notice-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow" id="portalNoticeEyebrow">ORVEXA DIGITAL ARCHIVE</span>
+                    <h3 class="modal-title" id="portalNoticeTitle">Portal Notification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closePortalNotice()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="portal-notice-content">
+                    <div class="portal-notice-icon-wrap" id="portalNoticeIcon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <p class="portal-notice-message" id="portalNoticeMsg">Information preview.</p>
+                    <div class="portal-notice-details" id="portalNoticeDetails"></div>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button type="button" class="btn-secondary-hero" onclick="closePortalNotice()">Dismiss</button>
+                <button type="button" class="btn-primary-hero" id="portalNoticeActionBtn"
+                    onclick="closePortalNotice()">Return to Platform</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Javascript Engines -->
+    <script src="contact.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORVEXA | Inspection Intelligence & High-Tech Diagnostic Laboratory</title>
+  <meta name="description"
+    content="ORVEXA Home 2 — The High-Tech Diagnostic Laboratory. Precision vehicle inspection intelligence, 5-gas optical emissions spectrometry, cryptographic digital vehicle passport, and immersive inspection bay telemetry.">
+  <meta name="keywords"
+    content="vehicle inspection intelligence, emissions testing index, digital vehicle passport, automotive compliance standards, inspection bay telemetry">
+
+  <!-- Modern Editorial & Precision Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Inherited Design System & Home 1 Consistency -->
+  <link rel="stylesheet" href="index.css">
+  <!-- Bespoke Home 2 Stylesheet -->
+  <link rel="stylesheet" href="home2.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="home2-body tech-grid-bg">
+
+  <!-- ==================================================
+       00. LUXURY HEADER (100% VISUAL & BEHAVIORAL CONSISTENCY)
+       ================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
+        <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">ORVEXA</span>
+          <span class="brand-subline">INSPECTION &amp; TESTING</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation (Same exact links and order on every page) -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <!-- Home with Dropdown (Home 1 & Home 2) -->
+          <li class="nav-item has-dropdown">
+            <a href="home2.html" class="nav-link active">
+              <span>Home</span>
+              <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="index.html" class="dropdown-item">
+                <span class="dropdown-title">Home 1</span>
+                <span class="dropdown-desc">Daylight &amp; Night Luxury Center</span>
+              </a>
+              <a href="home2.html" class="dropdown-item active">
+                <span class="dropdown-title">Home 2</span>
+                <span class="dropdown-desc">High-Tech Diagnostic Laboratory</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- About -->
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+
+          <!-- Services -->
+          <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
+
+          <!-- Journals -->
+          <li class="nav-item"><a href="journal.html" class="nav-link">Journals</a></li>
+
+          <!-- Contact -->
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+
+          <!-- Dashboard -->
+          <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Utilities -->
+      <div class="header-actions">
+        <!-- 1. Theme Toggle (Sun in Light, Moon in Dark) -->
+        <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
+          <span class="theme-icon-sun" title="Light Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </span>
+          <span class="theme-icon-moon" title="Dark Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+        </button>
+
+        <!-- 2. RTL Button -->
+        <button type="button" class="header-rtl-btn" id="rtlToggle" aria-label="Toggle text direction RTL / LTR">
+          <span id="rtlBtnText">RTL</span>
+        </button>
+
+        <!-- 3. Client Login -->
+        <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
+
+        <!-- 4. Book Now CTA (Single Line) -->
+        <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn" onclick="openBookingModal()">
+          <span>Book Now</span>
+          <span class="btn-arrow">→</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer (Matches Home 1, properly hidden on desktop) -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="drawer-brand-block">
+        <span class="drawer-brand">ORVEXA</span>
+        <span class="drawer-tagline">INSPECTION &amp; TESTING</span>
+      </div>
+      <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="drawer-links">
+      <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
+      <li><a href="home2.html" class="drawer-link active"><span>Home 2</span></a></li>
+      <li><a href="about.html" class="drawer-link"><span>About Us</span></a></li>
+      <li><a href="service.html" class="drawer-link"><span>Services</span></a></li>
+      <li><a href="journal.html" class="drawer-link"><span>Journals</span></a></li>
+      <li><a href="contact.html" class="drawer-link"><span>Contact</span></a></li>
+      <li><a href="dashboard.html" class="drawer-link"><span>Dashboard</span></a></li>
+    </ul>
+
+    <div class="drawer-actions">
+      <a href="login.html" class="drawer-btn-login">Login</a>
+      <button type="button" class="btn-primary-hero btn-sm w-full" id="drawerBookBtn" onclick="openBookingModal()">Book Now &rarr;</button>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==================================================
+         HERO BANNER — HIGH-TECH DIAGNOSTIC LABORATORY
+         ================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          <div class="hero-eyebrow-wrapper">
+            <span class="eyebrow-dash"></span>
+            <span class="hero-eyebrow">HIGH-TECH DIAGNOSTIC LABORATORY</span>
+          </div>
+
+          <h1 class="hero-headline">
+            <span class="headline-line">DIAGNOSTIC</span>
+            <span class="headline-line">PRECISION.</span>
+            <span class="headline-line highlight-gold">ENGINEERED TRUTH.</span>
+          </h1>
+
+          <p class="hero-description">
+            Next-generation vehicle verification powered by sub-millimeter laser metrology, 5-gas optical spectrometry, and immutable digital cryptographic records.
+          </p>
+
+          <!-- Mobile Hero Banner Image (shows before buttons on small screens) -->
+          <div class="hero-mobile-banner">
+            <img src="assets/h2_hero_banner.jpg" alt="ORVEXA Diagnostic Lab" class="hero-mobile-banner-img" />
+          </div>
+
+          <div class="hero-cta-group">
+            <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+              <span>BOOK AN INSPECTION</span>
+            </button>
+            <a href="#intelligence" class="btn-secondary-hero">
+              <span class="play-icon-ring">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M5.5 3.5L12 8L5.5 12.5V3.5Z" />
+                </svg>
+              </span>
+              <span>EXPLORE INTELLIGENCE</span>
+            </a>
+          </div>
+
+          <!-- 4 Micro Feature Indicators (100% Consistency with Home 1) -->
+          <div class="hero-micro-features">
+            <!-- 1. Metrology -->
+            <div class="micro-feature-item">
+              <span class="micro-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </span>
+              <span class="micro-title">METROLOGY</span>
+              <span class="micro-sub">Sub-Millimeter Scan</span>
+            </div>
+
+            <!-- 2. Spectrometry -->
+            <div class="micro-feature-item">
+              <span class="micro-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                </svg>
+              </span>
+              <span class="micro-title">SPECTROMETRY</span>
+              <span class="micro-sub">5-Gas Absorption</span>
+            </div>
+
+            <!-- 3. Compliance -->
+            <div class="micro-feature-item">
+              <span class="micro-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 11 12 14 22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+              </span>
+              <span class="micro-title">COMPLIANCE</span>
+              <span class="micro-sub">Official Benchmarks</span>
+            </div>
+
+            <!-- 4. Digital Records -->
+            <div class="micro-feature-item">
+              <span class="micro-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </span>
+              <span class="micro-title">PASSPORT</span>
+              <span class="micro-sub">Digital Ledger</span>
+            </div>
+          </div>
+
+        </div><!-- /hero-content -->
+      </div><!-- /hero-container -->
+
+      <!-- Hero Integrated Photographic Environment (Classy Right-Aligned Obsidian GT) -->
+      <div class="hero-media-wrapper">
+        <div class="hero-image-container hero-image-container-h2">
+          <img src="assets/h2_hero_banner.jpg" alt="ORVEXA Automated Vehicle Inspection &amp; Diagnostic Scanning Tunnel" class="hero-img hero-img-h2" id="heroH2Img" />
+          <div class="hero-gradient-overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 01 — THE INSPECTION INTELLIGENCE
+         ================================================== -->
+    <section class="intelligence-section" id="intelligence">
+      <div class="container">
+
+        <!-- Section Header (Centered & Compact) -->
+        <div class="h2-section-header text-center">
+          <div class="section-eyebrow justify-center">
+            <span class="eyebrow-num">01</span>
+            <span class="eyebrow-text">VEHICLE-CENTRIC TELEMETRY &bull; THE INSPECTION INTELLIGENCE</span>
+          </div>
+          <h2 class="h2-section-title">
+            THE ANATOMY OF<br>
+            <span class="italic-serif">TOTAL CERTAINTY.</span>
+          </h2>
+          <p class="h2-section-desc">
+            Sub-millimeter laser metrology, hydraulic stress curves, and electronic sensor verification across seven mission-critical vehicle domains. Select any inspection hotspot to interrogate live telemetry tolerances.
+          </p>
+        </div>
+
+        <!-- Central Vehicle Interactive Stage & HUD -->
+        <div class="intelligence-grid">
+
+          <!-- Left: Central Vehicle Canvas with 7 Hotspots -->
+          <div class="inspection-car-stage">
+            <img src="assets/h2_inspection_car.jpg" alt="ORVEXA High-Performance Vehicle Inspection Intelligence" id="inspectionCarImg">
+            
+            <!-- Animated Vertical Laser Coordinate Sweep -->
+            <div class="laser-sweep-line"></div>
+
+            <!-- 01. Braking Hotspot (Front Wheel Caliper) -->
+            <button type="button" class="car-hotspot active" data-spot="braking" style="top: 62%; left: 77%;" aria-label="Inspect Braking Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">01 / BRAKING</span>
+            </button>
+
+            <!-- 02. Steering Hotspot (Front Axle Geometry) -->
+            <button type="button" class="car-hotspot" data-spot="steering" style="top: 54%; left: 68%;" aria-label="Inspect Steering Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">02 / STEERING</span>
+            </button>
+
+            <!-- 03. Suspension Hotspot (Front Strut Tower) -->
+            <button type="button" class="car-hotspot" data-spot="suspension" style="top: 48%; left: 82%;" aria-label="Inspect Suspension Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">03 / SUSPENSION</span>
+            </button>
+
+            <!-- 04. Tyres Hotspot (Rear Wheel Contact Patch) -->
+            <button type="button" class="car-hotspot" data-spot="tyres" style="top: 68%; left: 26%;" aria-label="Inspect Tyres Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">04 / TYRES</span>
+            </button>
+
+            <!-- 05. Lighting Hotspot (Front Matrix Headlamp) -->
+            <button type="button" class="car-hotspot" data-spot="lighting" style="top: 50%; left: 87%;" aria-label="Inspect Lighting Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">05 / LIGHTING</span>
+            </button>
+
+            <!-- 06. Safety Systems Hotspot (Windshield ADAS Radar) -->
+            <button type="button" class="car-hotspot" data-spot="safety" style="top: 38%; left: 56%;" aria-label="Inspect Safety Systems Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">06 / SAFETY SYSTEMS</span>
+            </button>
+
+            <!-- 07. Vehicle Condition Hotspot (Underbody Sill & Chassis) -->
+            <button type="button" class="car-hotspot" data-spot="condition" style="top: 60%; left: 45%;" aria-label="Inspect Vehicle Condition Area">
+              <span class="hotspot-dot"></span>
+              <span class="hotspot-ring"></span>
+              <span class="hotspot-label">07 / CONDITION</span>
+            </button>
+
+            <!-- Bottom Telemetry Live Ribbon -->
+            <div class="stage-telemetry-bar">
+              <span class="stage-stat-item">TELEMETRY FREQ: <strong>100 HZ</strong></span>
+              <span class="stage-stat-item">METROLOGY TOLERANCE: <strong>&plusmn;0.01 MM</strong></span>
+              <span class="stage-stat-item">BENCHMARK MATRIX: <strong>ISO/IEC 17020</strong></span>
+            </div>
+          </div>
+
+          <!-- Right: Telemetry Detail HUD Card -->
+          <div class="inspection-hud-card" id="inspectionHudCard">
+            <span class="hud-domain-badge" id="hudDomainNum">INSPECTION DOMAIN 01/07</span>
+            <h3 class="hud-title" id="hudTitle">Braking System Metrology</h3>
+            
+            <div class="hud-status-pill">
+              <span class="hud-status-dot"></span>
+              <span id="hudStatus">VERIFIED &bull; 100% NOMINAL</span>
+            </div>
+
+            <div class="hud-metrics-grid">
+              <div class="hud-metric-box">
+                <span class="hud-metric-label" id="hudM1Label">Peak Deceleration</span>
+                <span class="hud-metric-val" id="hudM1Val">1.04 G</span>
+                <span class="hud-metric-target" id="hudM1Target">Standard: &gt; 0.60 G</span>
+              </div>
+              <div class="hud-metric-box">
+                <span class="hud-metric-label" id="hudM2Label">Rotor Thickness</span>
+                <span class="hud-metric-val" id="hudM2Val">33.8 mm</span>
+                <span class="hud-metric-target" id="hudM2Target">Min Limit: 32.0 mm</span>
+              </div>
+              <div class="hud-metric-box">
+                <span class="hud-metric-label" id="hudM3Label">Lateral Runout</span>
+                <span class="hud-metric-val" id="hudM3Val">0.012 mm</span>
+                <span class="hud-metric-target" id="hudM3Target">Max Limit: 0.035 mm</span>
+              </div>
+              <div class="hud-metric-box">
+                <span class="hud-metric-label" id="hudM4Label">L/R Bias Delta</span>
+                <span class="hud-metric-val" id="hudM4Val">1.2%</span>
+                <span class="hud-metric-target" id="hudM4Target">Max Permitted: &lt; 15%</span>
+              </div>
+            </div>
+
+            <p class="hud-description" id="hudDesc">
+              Dual-axle dynamic roller dynamometer evaluation. Laser micrometer analysis of disc warp, friction pad degradation, and hydraulic caliper piston pressure response under emergency stop deceleration.
+            </p>
+
+            <div class="hud-footer-code">
+              <span id="hudCode">REGULATORY CODE: ISO 21069 / FMVSS 135</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Domain Navigation Pills -->
+        <div class="domain-pills-bar">
+          <button type="button" class="domain-pill-btn active" data-domain="braking">01 Braking</button>
+          <button type="button" class="domain-pill-btn" data-domain="steering">02 Steering</button>
+          <button type="button" class="domain-pill-btn" data-domain="suspension">03 Suspension</button>
+          <button type="button" class="domain-pill-btn" data-domain="tyres">04 Tyres</button>
+          <button type="button" class="domain-pill-btn" data-domain="lighting">05 Lighting</button>
+          <button type="button" class="domain-pill-btn" data-domain="safety">06 Safety Systems</button>
+          <button type="button" class="domain-pill-btn" data-domain="condition">07 Vehicle Condition</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 02 — THE EMISSIONS INDEX
+         ================================================== -->
+    <section class="emissions-section" id="emissions">
+      <div class="container">
+
+        <!-- Section Header (Centered & Compact) -->
+        <div class="h2-section-header text-center">
+          <div class="section-eyebrow justify-center">
+            <span class="eyebrow-num">02</span>
+            <span class="eyebrow-text">5-GAS OPTICAL SPECTROMETRY &bull; THE EMISSIONS INDEX</span>
+          </div>
+          <h2 class="h2-section-title">
+            MOLECULAR PRECISION.<br>
+            <span class="italic-serif">REGULATED PURITY.</span>
+          </h2>
+          <p class="h2-section-desc">
+            Real-time optical laser absorption and non-dispersive infrared (NDIR) spectrometry analyzing tailpipe gas molecules against EPA Tier 3, CARB, and Euro 6e statutory ceilings.
+          </p>
+        </div>
+
+        <!-- Dual-Pane Emissions Cockpit -->
+        <div class="emissions-cockpit-grid">
+
+          <!-- Left: Optical Sensor Photo Frame -->
+          <div class="emissions-visual-frame">
+            <img src="assets/h2_emissions_sensor.jpg" alt="HORIBA Optical Laser Gas Spectrometry Probe in Dyno Cell">
+            <div class="emissions-visual-tag">HORIBA MEXA-7000 &bull; ACTIVE LASER PROBE</div>
+            <div class="emissions-flow-meter" id="emissionsFlowRate">EXHAUST FLOW: 14.2 L/s</div>
+          </div>
+
+          <!-- Right: Instrument Console with Dynamic Gauges -->
+          <div class="emissions-console-card">
+            
+            <div class="console-header-row">
+              <div class="console-title-group">
+                <h3>Live Gas Telemetry Console</h3>
+                <span>Calibrated Spectrometry Stream</span>
+              </div>
+
+              <!-- RPM Mode Selector -->
+              <div class="rpm-selector-group">
+                <button type="button" class="rpm-btn active" data-mode="idle">Idle (750 RPM)</button>
+                <button type="button" class="rpm-btn" data-mode="cruise">Cruise (2.2k RPM)</button>
+                <button type="button" class="rpm-btn" data-mode="highload">Dyno Load (3.8k RPM)</button>
+              </div>
+            </div>
+
+            <!-- 4 Gas Telemetry Rows -->
+            <div class="gas-gauges-stack">
+
+              <!-- CO -->
+              <div class="gas-row-item">
+                <div class="gas-row-top">
+                  <div class="gas-name-block">
+                    <span class="gas-symbol">CO</span>
+                    <span class="gas-full-name">Carbon Monoxide</span>
+                  </div>
+                  <div class="gas-readout-block">
+                    <span class="gas-value-num" id="coValue">0.02 %</span>
+                    <span class="gas-limit-tag">Ceiling: 0.20%</span>
+                  </div>
+                </div>
+                <div class="gas-bar-track">
+                  <div class="gas-bar-fill" id="coBar" style="width: 10%;"></div>
+                </div>
+                <div class="gas-row-meta">
+                  <span class="gas-status-tag">OPTIMAL PASS</span>
+                  <span id="coMeta">OPTIMAL PASS (-90% OF CEILING)</span>
+                </div>
+              </div>
+
+              <!-- HC -->
+              <div class="gas-row-item">
+                <div class="gas-row-top">
+                  <div class="gas-name-block">
+                    <span class="gas-symbol">HC</span>
+                    <span class="gas-full-name">Unburned Hydrocarbons</span>
+                  </div>
+                  <div class="gas-readout-block">
+                    <span class="gas-value-num" id="hcValue">12 PPM</span>
+                    <span class="gas-limit-tag">Ceiling: 60 PPM</span>
+                  </div>
+                </div>
+                <div class="gas-bar-track">
+                  <div class="gas-bar-fill" id="hcBar" style="width: 20%;"></div>
+                </div>
+                <div class="gas-row-meta">
+                  <span class="gas-status-tag">EXCELLENT PASS</span>
+                  <span id="hcMeta">EXCELLENT PASS (-80% OF CEILING)</span>
+                </div>
+              </div>
+
+              <!-- NOx -->
+              <div class="gas-row-item">
+                <div class="gas-row-top">
+                  <div class="gas-name-block">
+                    <span class="gas-symbol">NOx</span>
+                    <span class="gas-full-name">Nitrogen Oxides</span>
+                  </div>
+                  <div class="gas-readout-block">
+                    <span class="gas-value-num" id="noxValue">14 mg/km</span>
+                    <span class="gas-limit-tag">Ceiling: 60 mg/km</span>
+                  </div>
+                </div>
+                <div class="gas-bar-track">
+                  <div class="gas-bar-fill" id="noxBar" style="width: 23%;"></div>
+                </div>
+                <div class="gas-row-meta">
+                  <span class="gas-status-tag">EURO 6e COMPLIANT</span>
+                  <span id="noxMeta">EURO 6e COMPLIANT</span>
+                </div>
+              </div>
+
+              <!-- CO2 -->
+              <div class="gas-row-item">
+                <div class="gas-row-top">
+                  <div class="gas-name-block">
+                    <span class="gas-symbol">CO₂</span>
+                    <span class="gas-full-name">Carbon Dioxide &amp; Lambda</span>
+                  </div>
+                  <div class="gas-readout-block">
+                    <span class="gas-value-num" id="co2Value">142 g/km</span>
+                    <span class="gas-limit-tag">Benchmark: 155 g/km</span>
+                  </div>
+                </div>
+                <div class="gas-bar-track">
+                  <div class="gas-bar-fill" id="co2Bar" style="width: 75%;"></div>
+                </div>
+                <div class="gas-row-meta">
+                  <span class="gas-status-tag">STOICHIOMETRIC BALANCED</span>
+                  <span id="co2Meta">STOICHIOMETRIC BALANCED (&lambda; = 1.001)</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Diagnostics Bar -->
+            <div class="console-diag-footer">
+              <span class="diag-live-status">
+                <span class="diag-blink-dot"></span>
+                LASER SPECTROMETER: ONLINE
+              </span>
+              <span>OPACITY: <strong>0.04 m⁻¹</strong></span>
+              <span>O₂ RESIDUAL: <strong>0.4%</strong></span>
+              <span>SAMPLE CELL: <strong>428&deg;C</strong></span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 03 — VEHICLE PASSPORT
+         ================================================== -->
+    <!-- ==================================================
+         SECTION 03 — VEHICLE PASSPORT (ASYMMETRICAL SPLIT EDITORIAL)
+         ================================================== -->
+    <section class="passport-section" id="passport">
+      <div class="container">
+
+        <div class="passport-split-layout">
+
+          <!-- Left Column: Editorial Side-Rail & Provenance Credentials -->
+          <div class="passport-editorial-col">
+            <div class="section-eyebrow">
+              <span class="eyebrow-num">03</span>
+              <span class="eyebrow-text">CRYPTOGRAPHIC COMPLIANCE LEDGER</span>
+            </div>
+
+            <h2 class="passport-split-title">
+              THE IMMUTABLE<br>
+              <span class="italic-serif">VEHICLE PASSPORT.</span>
+            </h2>
+
+            <p class="passport-split-desc">
+              A permanent digital record of vehicle identity, multi-year inspection milestones, emissions telemetry, and statutory clearance. Cryptographically signed and synchronized directly with statutory transport authorities.
+            </p>
+
+            <!-- Verification Provenance Widget -->
+            <div class="passport-provenance-box">
+              <div class="provenance-header">
+                <span class="provenance-dot"></span>
+                <span class="provenance-title">STATE REGISTRY &bull; SHA-256 VERIFIED</span>
+              </div>
+              
+              <div class="provenance-code-line">
+                <span class="prov-label">TOKEN HASH:</span>
+                <span class="prov-val">7f8a9e42...c89012bf</span>
+              </div>
+              <div class="provenance-code-line">
+                <span class="prov-label">LEDGER BLOCK:</span>
+                <span class="prov-val">#ORV-2026-9842-CA</span>
+              </div>
+              <div class="provenance-code-line">
+                <span class="prov-label">JURISDICTION:</span>
+                <span class="prov-val">CALIFORNIA DMV (CA-04)</span>
+              </div>
+
+              <!-- Mini QR Scan Preview -->
+              <div class="provenance-qr-row">
+                <div class="provenance-qr-box" title="Scan to verify passport authenticity">
+                  <svg viewBox="0 0 48 48" class="qr-svg-icon" fill="currentColor">
+                    <path d="M4 4h16v16H4V4zm4 4v8h8V8H8zm24-4h16v16H32V4zm4 4v8h8V8h-8zM4 32h16v16H4V32zm4 4v8h8v-8H8zm24 0h4v4h-4v-4zm8 0h4v4h-4v-4zm-8 8h4v4h-4v-4zm8 0h4v4h-4v-4zm-4-4h4v4h-4v-4zm-16-8h4v4h-4v-4zm4-4h4v4h-4v-4zm4 4h4v4h-4v-4zm4-4h4v4h-4v-4zm-8 8h4v4h-4v-4zm12-4h4v4h-4v-4z"/>
+                  </svg>
+                </div>
+                <div class="provenance-qr-text">
+                  <strong>SMARTPHONE QR VERIFIED</strong>
+                  <span>Instant roadside or resale verification pass</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Side Action Buttons -->
+            <div class="passport-side-actions">
+              <button type="button" class="btn-primary-hero btn-sm" onclick="alert('Exporting Encrypted Digital Vehicle Passport to PDF.')">
+                <span>DOWNLOAD PASSPORT &rarr;</span>
+              </button>
+              <button type="button" class="btn-secondary-hero btn-sm" onclick="previewDocModal('Inspection Certificate')">
+                <span>VIEW CERTIFICATE</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Digital Vehicle Passport Dossier Card -->
+          <div class="passport-dossier-col">
+            <div class="passport-ledger-card">
+              
+              <!-- Passport Top Banner -->
+              <div class="passport-header-bar">
+                <div class="passport-brand-group">
+                  <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img" style="width:42px; height:26px; object-fit:contain;">
+                  <div>
+                    <span class="passport-token-badge">OFFICIAL VEHICLE PASSPORT &bull; TOKEN #ORV-9842-CA</span>
+                    <div style="font-size:0.72rem; color:var(--text-muted);">Cryptographic Certificate SHA-256 Verified</div>
+                  </div>
+                </div>
+
+                <div class="passport-status-tag">CERTIFIED ACTIVE &bull; VALID THRU 2027</div>
+              </div>
+
+              <!-- Identity Matrix 4-Column Grid -->
+              <div class="passport-identity-grid">
+                <div class="id-item">
+                  <span class="id-label">VIN Number</span>
+                  <span class="id-value vin-copyable" id="copyVinBtn" title="Click to copy VIN">
+                    WAUZZZF27NA019842
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px; height:13px;">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                  </span>
+                </div>
+                <div class="id-item">
+                  <span class="id-label">Vehicle Spec</span>
+                  <span class="id-value">ORVEXA GT PROTO V12</span>
+                </div>
+                <div class="id-item">
+                  <span class="id-label">Registration</span>
+                  <span class="id-value">CALIFORNIA &bull; 8XYZ492</span>
+                </div>
+                <div class="id-item">
+                  <span class="id-label">Verified Odo</span>
+                  <span class="id-value">18,420 MILES</span>
+                </div>
+              </div>
+
+              <!-- Chronological Milestone Flow -->
+              <div class="passport-timeline-block">
+                <h4 class="timeline-block-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px; height:15px; color:var(--brand-accent);">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  Inspection Event History &amp; Renewal Trajectory
+                </h4>
+
+                <div class="passport-timeline-flow">
+                  <!-- Milestone 1 -->
+                  <div class="timeline-step-card">
+                    <div class="step-node-dot"></div>
+                    <div class="step-date">SEPT 2024</div>
+                    <div class="step-name">Factory Conformance</div>
+                    <div class="step-station">Station #CA-01</div>
+                    <span class="step-badge-mini">100% PASS</span>
+                  </div>
+
+                  <!-- Milestone 2 -->
+                  <div class="timeline-step-card">
+                    <div class="step-node-dot"></div>
+                    <div class="step-date">SEPT 2025</div>
+                    <div class="step-name">Annual Safety &amp; Gas</div>
+                    <div class="step-station">Station #CA-04</div>
+                    <span class="step-badge-mini">100% PASS</span>
+                  </div>
+
+                  <!-- Milestone 3 (Current) -->
+                  <div class="timeline-step-card active">
+                    <div class="step-node-dot"></div>
+                    <div class="step-date">SEPT 2026 (CURRENT)</div>
+                    <div class="step-name">Full Clearance</div>
+                    <div class="step-station">Station #CA-04 &bull; Bay 04</div>
+                    <span class="step-badge-mini" style="background:rgba(76,175,80,0.15); color:#4CAF50;">ACTIVE VALID</span>
+                  </div>
+
+                  <!-- Milestone 4 (Upcoming) -->
+                  <div class="timeline-step-card scheduled">
+                    <div class="step-node-dot"></div>
+                    <div class="step-date">SEPT 2027</div>
+                    <div class="step-name">Statutory Renewal</div>
+                    <div class="step-station">364 Days Remaining</div>
+                    <span class="step-badge-mini" style="background:rgba(255,255,255,0.06); color:var(--text-secondary);">SCHEDULED</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Holographic Security Seal Strip -->
+              <div class="passport-footer-actions">
+                <div class="passport-seal-info">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="seal-icon-svg">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                  <div class="seal-text-block">
+                    <span>Cryptographic Ledger Seal &bull; State Transport Registry Verified</span>
+                    <strong>SHA-256: 7f8a9e42...c89012bf &bull; COMPLIANT STATE REGISTRY</strong>
+                  </div>
+                </div>
+                <div class="passport-seal-badge">
+                  <span>ORVEXA VERIFIED</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 04 — INSIDE THE INSPECTION BAY
+         ================================================== -->
+    <section class="bay-section" id="bay">
+      <div class="container">
+
+        <!-- Section Header (Centered & Compact) -->
+        <div class="h2-section-header text-center">
+          <div class="section-eyebrow justify-center">
+            <span class="eyebrow-num">04</span>
+            <span class="eyebrow-text">SPATIAL PROTOCOL &bull; INSIDE THE INSPECTION BAY</span>
+          </div>
+          <h2 class="h2-section-title">
+            FIVE STAGES.<br>
+            <span class="italic-serif">ZERO MARGIN FOR ERROR.</span>
+          </h2>
+          <p class="h2-section-desc">
+            An immersive spatial walkthrough of Bay 04. Follow the physical transit of a vehicle as it proceeds through automated identification gates, computerized dynamic rollers, and optical exhaust chambers.
+          </p>
+        </div>
+
+        <!-- Sequential Stage Stepper Buttons -->
+        <div class="bay-stage-stepper">
+          <button type="button" class="bay-step-btn active" data-stage="1">01 &mdash; ARRIVAL</button>
+          <button type="button" class="bay-step-btn" data-stage="2">02 &mdash; IDENTIFICATION</button>
+          <button type="button" class="bay-step-btn" data-stage="3">03 &mdash; INSPECTION</button>
+          <button type="button" class="bay-step-btn" data-stage="4">04 &mdash; EMISSIONS</button>
+          <button type="button" class="bay-step-btn" data-stage="5">05 &mdash; RESULTS</button>
+        </div>
+
+        <!-- Cinematic Bay Canvas with Spatial Telemetry HUD -->
+        <div class="bay-canvas-container">
+          <img src="assets/h2_inspection_bay.jpg" alt="ORVEXA Automated Vehicle Inspection Bay 04" id="bayCanvasImg">
+
+          <!-- Spatial HUD Overlay -->
+          <div class="bay-hud-overlay" id="bayHudOverlay">
+            <div class="bay-hud-eyebrow" id="bayHudEyebrow">STAGE 01 — ARRIVAL</div>
+            <h3 class="bay-hud-title" id="bayHudTitle">Bay Arrival &amp; License Plate Recognition</h3>
+            <p class="bay-hud-desc" id="bayHudDesc">
+              Vehicle arrives at Bay 04 entry threshold. High-speed ANPR optical cameras scan license plate, cross-reference reservation record in the cloud registry, and initiate bay guidance lasers.
+            </p>
+            <div class="bay-hud-meta-row">
+              <span id="bayHudTime">Stage Time: 2.0 Minutes</span>
+              <span id="bayHudStatus">Status: <strong>ENTRY PERMITTED</strong></span>
+            </div>
+            <div class="bay-hud-equipment" id="bayHudEquipment">
+              Overhead 4K Stereoscopic Cameras &bull; Ground Induction Transponder
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 05 — THE ROAD AHEAD (COMPACT EDITORIAL TRIAD)
+         ================================================== -->
+    <section class="ahead-section" id="ahead">
+      <!-- Background Panoramic Photo & Vignette -->
+      <div class="ahead-backdrop-image">
+        <img src="assets/h2_road_ahead.jpg" alt="Grand tourer driving into open coastal highway at twilight">
+      </div>
+      <div class="ahead-backdrop-gradient"></div>
+
+      <div class="container ahead-content-wrapper">
+
+        <!-- Eyebrow Center -->
+        <div class="ahead-eyebrow-center">
+          <div class="section-eyebrow justify-center">
+            <span class="eyebrow-num">05</span>
+            <span class="eyebrow-text">CERTAINTY DELIVERED &bull; THE ROAD AHEAD</span>
+          </div>
+        </div>
+
+        <!-- Refined Closing Headline -->
+        <h2 class="h2-closing-headline">
+          YOUR VEHICLE HAS A STORY.<br>
+          <span class="italic-serif highlight-gold">WE MAKE SURE ITS NEXT CHAPTER IS READY.</span>
+        </h2>
+
+        <!-- Three Asymmetric Closing Concept Cards -->
+        <div class="ahead-concepts-grid">
+
+          <!-- Concept 01: SAFE -->
+          <div class="ahead-concept-card">
+            <div class="concept-num">CONCEPT 01</div>
+            <h3 class="concept-title">SAFE</h3>
+            <div class="concept-subhead">Prepared for the journey.</div>
+            <p class="concept-text">
+              Every brake pad, steering link, suspension damper, and optical sensor verified against laboratory-grade tolerance thresholds. Drive with absolute mechanical certainty.
+            </p>
+          </div>
+
+          <!-- Concept 02: COMPLIANT -->
+          <div class="ahead-concept-card">
+            <div class="concept-num">CONCEPT 02</div>
+            <h3 class="concept-title">COMPLIANT</h3>
+            <div class="concept-subhead">Aligned with requirements.</div>
+            <p class="concept-text">
+              Seamless regulatory clearance registered with statutory transport authorities and backed by tamper-evident digital cryptographic tokens. No delays, zero paperwork.
+            </p>
+          </div>
+
+          <!-- Concept 03: READY -->
+          <div class="ahead-concept-card">
+            <div class="concept-num">CONCEPT 03</div>
+            <h3 class="concept-title">READY</h3>
+            <div class="concept-subhead">Clear on what comes next.</div>
+            <p class="concept-text">
+              Empowered with actionable preventive insights, wear projections, and upcoming statutory renewal schedules compiled directly into your digital vehicle ledger.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================
+         FINAL CTA CARD — HIGH-TECH DIAGNOSTIC RESERVATION
+         ================================================== -->
+    <section class="final-cta-section" id="booking">
+      <div class="container">
+        <div class="final-cta-card">
+          <!-- Subtle Luxury Ambient Glow Sheen -->
+          <div class="cta-card-sheen"></div>
+
+          <div class="final-cta-grid">
+            <!-- Left Column: Editorial & Left-Aligned Content -->
+            <div class="final-card-content text-left">
+              <div class="final-eyebrow-pill">
+                <span class="final-dot"></span>
+                <span>CALIBRATION RESERVATION &bull; RAPID TELEMETRY INTAKE</span>
+              </div>
+
+              <h2 class="final-title">
+                READY FOR<br>
+                <span class="italic-serif highlight-gold">THE ROAD?</span>
+              </h2>
+
+              <p class="final-desc">
+                Book your diagnostic verification with guaranteed bay reservations, sub-millimeter laser metrology, and certified cryptographic vehicle clearance.
+              </p>
+
+              <div class="final-btn-group">
+                <button type="button" class="btn-primary-hero btn-cta-compact" onclick="openBookingModal()">
+                  <span>BOOK AN INSPECTION</span>
+                  <span class="arrow">&rarr;</span>
+                </button>
+                <a href="contact.html" class="btn-secondary-hero btn-cta-secondary-compact">
+                  <span>CONTACT US</span>
+                  <span class="arrow">&rarr;</span>
+                </a>
+              </div>
+
+              <!-- Micro Inspection Highlights -->
+              <div class="cta-specs-strip">
+                <div class="cta-spec-item">
+                  <span class="cta-spec-check">&#10003;</span>
+                  <span>5-Gas Spectrometry</span>
+                </div>
+                <div class="cta-spec-sep">&bull;</div>
+                <div class="cta-spec-item">
+                  <span class="cta-spec-check">&#10003;</span>
+                  <span>Laser Metrology</span>
+                </div>
+                <div class="cta-spec-sep">&bull;</div>
+                <div class="cta-spec-item">
+                  <span class="cta-spec-check">&#10003;</span>
+                  <span>ISO-17020 Certified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Animated Vehicle Inspection HUD Stage -->
+            <div class="final-cta-visual">
+              <div class="cta-inspector-stage">
+                <!-- HUD Precision Corner Reticles -->
+                <span class="cta-hud-corner tl"></span>
+                <span class="cta-hud-corner tr"></span>
+                <span class="cta-hud-corner bl"></span>
+                <span class="cta-hud-corner br"></span>
+
+                <!-- Top Telemetry Bar -->
+                <div class="cta-hud-header">
+                  <div class="cta-hud-live">
+                    <span class="cta-live-beacon"></span>
+                    <span class="cta-live-text">BAY 04 // SPECTROMETRY TELEMETRY</span>
+                  </div>
+                  <div class="cta-hud-id">
+                    <span>LASER TOLERANCE &plusmn;0.001&deg;</span>
+                  </div>
+                </div>
+
+                <!-- Central Vehicle Stage & Scanner -->
+                <div class="cta-vehicle-display">
+                  <img src="assets/h2_inspection_car.jpg" alt="Vehicle Inspection Diagnostics" class="cta-car-graphic">
+                  
+                  <!-- Diagnostics Metrology Grid Overlay -->
+                  <div class="cta-scan-grid"></div>
+
+                  <!-- Animated Laser Metrology Beam -->
+                  <div class="cta-laser-scanner">
+                    <div class="cta-laser-beam"></div>
+                    <div class="cta-laser-flare"></div>
+                    <div class="cta-laser-trail"></div>
+                    <span class="cta-laser-tag">METROLOGY BEAM</span>
+                  </div>
+
+                  <!-- Hotspot 1: Front Caliper / Brakes -->
+                  <div class="cta-hud-point pt-brakes" title="Braking System">
+                    <span class="point-radar"></span>
+                    <span class="point-core"></span>
+                    <div class="point-badge">
+                      <span class="badge-dot green"></span>
+                      <span class="badge-text">BRAKES: 99.4%</span>
+                    </div>
+                  </div>
+
+                  <!-- Hotspot 2: Chassis Geometry -->
+                  <div class="cta-hud-point pt-chassis" title="Laser Chassis Alignment">
+                    <span class="point-radar"></span>
+                    <span class="point-core"></span>
+                    <div class="point-badge">
+                      <span class="badge-dot gold"></span>
+                      <span class="badge-text">CHASSIS: 0.00&deg;</span>
+                    </div>
+                  </div>
+
+                  <!-- Hotspot 3: Powertrain & Emissions -->
+                  <div class="cta-hud-point pt-engine" title="Emissions Diagnostics">
+                    <span class="point-radar"></span>
+                    <span class="point-core"></span>
+                    <div class="point-badge">
+                      <span class="badge-dot green"></span>
+                      <span class="badge-text">ECU: VERIFIED</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Telemetry Readout & Verification Status -->
+                <div class="cta-hud-footer">
+                  <div class="cta-hud-progress-info">
+                    <span class="cta-progress-label">INSPECTION:</span>
+                    <span class="cta-progress-val">100% PASS</span>
+                  </div>
+                  <div class="cta-hud-meter">
+                    <div class="cta-meter-fill"></div>
+                  </div>
+                  <div class="cta-hud-badge-pass">
+                    <span class="pass-icon">&#10003;</span>
+                    <span>ROAD CLEARANCE CERTIFIED</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================
+       07. BESPOKE EDITORIAL FOOTER (100% IDENTICAL & CONSISTENT)
+       ================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+
+      <!-- Top Footer Row -->
+      <div class="footer-top-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
+            <div class="brand-text-block">
+              <span class="footer-brand-name">ORVEXA</span>
+              <span class="footer-tagline brand-subline">INSPECTION &amp; TESTING</span>
+            </div>
+          </div>
+          <p class="footer-positioning">
+            Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital Certification.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn" aria-label="Follow on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-btn" aria-label="Follow on X / Twitter" title="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-btn" aria-label="Follow on LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-btn" aria-label="View on YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 1: Services -->
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="service-detail.html?service=safety-inspection">Safety Inspection</a></li>
+            <li><a href="service-detail.html?service=emissions-testing">Emissions Testing</a></li>
+            <li><a href="service-detail.html?service=combined-protocol">Re-Inspection &amp; Combined</a></li>
+            <li><a href="service-detail.html?service=fleet-compliance">Fleet Compliance</a></li>
+            <li><a href="service-detail.html?service=ev-hybrid">EV &amp; Hybrid Telemetry</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Company -->
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About ORVEXA</a></li>
+            <li><a href="service.html">All Services</a></li>
+            <li><a href="journal.html">Metrology Journal</a></li>
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="index.html#gallery">Visual Archive</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Additional Links -->
+        <div class="footer-nav-col">
+          <h4 class="footer-col-title">Additional Links</h4>
+          <ul class="footer-links">
+            <li><a href="#booking" onclick="openBookingModal(); return false;">Pricing &amp; Rates</a></li>
+            <li><a href="404.html" class="footer-link-pill">404 Error <span class="link-pill-tag">PAGE</span></a></li>
+            <li><a href="coming-soon.html" class="footer-link-pill">Coming Soon <span class="link-pill-tag tag-gold">SOON</span></a></li>
+            <li><a href="login.html">Client Login</a></li>
+            <li><a href="signup.html">Create Account</a></li>
+            <li><a href="dashboard.html">Inspector Dashboard</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-nav-col footer-contact-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-contact-list">
+
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <span class="footer-contact-text">48 Calibration Drive,<br>Tech District, CA 90210</span>
+            </li>
+
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </span>
+              <a href="mailto:verify@orvexa.com" class="footer-contact-link">verify@orvexa.com</a>
+            </li>
+
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </span>
+              <a href="tel:+18005550199" class="footer-contact-link">+1 (800) 555-0199</a>
+            </li>
+
+            <li class="footer-contact-item footer-hours-item">
+              <span class="footer-contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </span>
+              <div class="footer-hours-block">
+                <span class="footer-hours-row"><span class="footer-hours-day">Mon &ndash; Fri</span><span class="footer-hours-time">7:00 AM &ndash; 7:00 PM</span></span>
+                <span class="footer-hours-row"><span class="footer-hours-day">Saturday</span><span class="footer-hours-time">8:00 AM &ndash; 5:00 PM</span></span>
+                <span class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span class="footer-hours-time footer-closed">Closed</span></span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="footer-divider"></div>
+
+      <!-- Bottom Footer Row -->
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">
+          &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All rights reserved.
+        </p>
+        <div class="footer-badges">
+          <span class="badge-item">CALIBRATED SENSORS</span>
+          <span class="badge-dot">&bull;</span>
+          <span class="badge-item">ENCRYPTED DIGITAL RECORDS</span>
+          <span class="badge-dot">&bull;</span>
+          <span class="badge-item">STATUTORY COMPLIANCE</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================================================
+       INTERACTIVE BOOKING MODAL WIZARD
+       ================================================== -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">ORVEXA APPOINTMENT PORTAL</span>
+          <h3 class="modal-title" id="modalTitle">Schedule Vehicle Verification</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close booking modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Booking Step Progress Bar -->
+        <div class="modal-steps-indicator">
+          <div class="step-indicator-item active" data-step-indicator="1">
+            <span class="step-num">1</span>
+            <span class="step-text">Service</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-indicator-item" data-step-indicator="2">
+            <span class="step-num">2</span>
+            <span class="step-text">Location &amp; Time</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-indicator-item" data-step-indicator="3">
+            <span class="step-num">3</span>
+            <span class="step-text">Vehicle</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-indicator-item" data-step-indicator="4">
+            <span class="step-num">4</span>
+            <span class="step-text">Confirmation</span>
+          </div>
+        </div>
+
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+          <!-- STEP 1: SELECT SERVICE -->
+          <div class="form-step-pane active" data-step-pane="1">
+            <h4 class="step-title">Select Inspection Protocol</h4>
+            <div class="service-selection-cards">
+              <label class="service-option-card">
+                <input type="radio" name="bookingService" value="Safety Inspection" checked>
+                <div class="option-inner">
+                  <span class="option-name">Comprehensive Safety Inspection</span>
+                  <span class="option-desc">Brakes, steering, suspension, optical alignment &amp; chassis integrity</span>
+                  <span class="option-fee">$140 &bull; Est. 25 Min</span>
+                </div>
+              </label>
+              <label class="service-option-card">
+                <input type="radio" name="bookingService" value="Emissions Testing">
+                <div class="option-inner">
+                  <span class="option-name">5-Gas Optical Emissions Testing</span>
+                  <span class="option-desc">Laboratory grade NDIR gas spectrometry, OBD-II telemetry &amp; opacity</span>
+                  <span class="option-fee">$95 &bull; Est. 15 Min</span>
+                </div>
+              </label>
+              <label class="service-option-card">
+                <input type="radio" name="bookingService" value="Combined Verification">
+                <div class="option-inner">
+                  <span class="option-name">Full Combined Conformance (Safety + Emissions)</span>
+                  <span class="option-desc">Complete multi-point verification with immediate digital certificate release</span>
+                  <span class="option-fee">$195 &bull; Est. 35 Min</span>
+                </div>
+              </label>
+            </div>
+            <div class="step-btn-bar">
+              <div></div>
+              <button type="button" class="btn-primary-hero btn-sm" onclick="goToBookingStep(2)">Proceed to Location &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: LOCATION & DATE -->
+          <div class="form-step-pane" data-step-pane="2">
+            <h4 class="step-title">Select Testing Facility &amp; Date</h4>
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label for="bookingLocation">Testing Station Facility</label>
+                <select id="bookingLocation" class="form-select" required>
+                  <option value="Station 01 — Manhattan Tech District">Station 01 — Manhattan Tech District</option>
+                  <option value="Station 02 — Long Island City Gateway">Station 02 — Long Island City Gateway</option>
+                  <option value="Station 03 — Westchester Regional Center">Station 03 — Westchester Regional Center</option>
+                  <option value="Station 04 — Silicon Valley Calibration Facility">Station 04 — Silicon Valley Calibration Facility</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="bookingDate">Appointment Date</label>
+                <input type="date" id="bookingDate" class="form-input" required>
+              </div>
+            </div>
+            <div class="form-field mt-1">
+              <label>Select Time Window</label>
+              <div class="time-slots-grid">
+                <label class="time-slot-btn"><input type="radio" name="bookingTime" value="08:30 AM" checked><span>08:30 AM</span></label>
+                <label class="time-slot-btn"><input type="radio" name="bookingTime" value="10:00 AM"><span>10:00 AM</span></label>
+                <label class="time-slot-btn"><input type="radio" name="bookingTime" value="11:30 AM"><span>11:30 AM</span></label>
+                <label class="time-slot-btn"><input type="radio" name="bookingTime" value="01:30 PM"><span>01:30 PM</span></label>
+                <label class="time-slot-btn"><input type="radio" name="bookingTime" value="03:00 PM"><span>03:00 PM</span></label>
+                <label class="time-slot-btn"><input type="radio" name="bookingTime" value="04:30 PM"><span>04:30 PM</span></label>
+              </div>
+            </div>
+            <div class="step-btn-bar">
+              <button type="button" class="btn-secondary-hero btn-sm" onclick="goToBookingStep(1)">&larr; Back</button>
+              <button type="button" class="btn-primary-hero btn-sm" onclick="goToBookingStep(3)">Vehicle Details &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: VEHICLE DETAILS -->
+          <div class="form-step-pane" data-step-pane="3">
+            <h4 class="step-title">Vehicle &amp; Owner Profile</h4>
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label for="vehicleVin">VIN (17 Digits) or License Plate</label>
+                <input type="text" id="vehicleVin" class="form-input" placeholder="e.g. WAUZZZF27NA019842" required>
+              </div>
+              <div class="form-field">
+                <label for="vehicleMakeModel">Make, Model &amp; Year</label>
+                <input type="text" id="vehicleMakeModel" class="form-input" placeholder="e.g. Porsche 911 GT3 (2024)" required>
+              </div>
+              <div class="form-field">
+                <label for="clientName">Full Legal Name</label>
+                <input type="text" id="clientName" class="form-input" placeholder="Johnathan Doe" required>
+              </div>
+              <div class="form-field">
+                <label for="clientEmail">Email (For Digital Token Certificate)</label>
+                <input type="email" id="clientEmail" class="form-input" placeholder="j.doe@domain.com" required>
+              </div>
+            </div>
+            <div class="step-btn-bar">
+              <button type="button" class="btn-secondary-hero btn-sm" onclick="goToBookingStep(2)">&larr; Back</button>
+              <button type="button" class="btn-primary-hero btn-sm" onclick="compileBookingReview()">Review &amp; Confirm &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: CONFIRMATION & SUMMARY -->
+          <div class="form-step-pane" data-step-pane="4">
+            <h4 class="step-title">Review Verification Appointment</h4>
+            <div class="booking-summary-box" id="bookingSummaryBox">
+              <!-- Dynamically populated -->
+            </div>
+            <div class="step-btn-bar">
+              <button type="button" class="btn-secondary-hero btn-sm" onclick="goToBookingStep(3)">&larr; Edit Details</button>
+              <button type="submit" class="btn-primary-hero btn-sm" id="confirmAppointmentBtn">Confirm &amp; Encrypt Appointment</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Certificate Modal -->
+  <div class="modal-backdrop" id="docModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-container doc-modal-container">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">STATUTORY VERIFICATION CERTIFICATE</span>
+          <h3 class="modal-title" id="docModalTitle">Official Clearance Certificate</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeDocModal()">✕</button>
+      </div>
+      <div class="modal-body doc-modal-body">
+        <div class="certificate-paper" id="certificatePaper">
+          <div class="cert-header">
+            <div class="cert-logo-row">
+              <span class="cert-brand">ORVEXA VERIFICATION LABORATORIES</span>
+              <span class="cert-state-badge">STATUTORY CONFORMANCE SEAL</span>
+            </div>
+            <h2 class="cert-main-title">VEHICLE VERIFICATION CERTIFICATE</h2>
+            <div class="cert-token-id">CERTIFICATE ID: ORV-2026-984218-NY &bull; ISO/IEC 17020 COMPLIANT</div>
+          </div>
+
+          <div class="cert-table-grid">
+            <div class="cert-field"><span class="c-lbl">VIN NUMBER:</span><span class="c-val">WAUZZZF27NA019842</span></div>
+            <div class="cert-field"><span class="c-lbl">REGISTRATION PLATE:</span><span class="c-val">CALIFORNIA 8XYZ492</span></div>
+            <div class="cert-field"><span class="c-lbl">MAKE / MODEL / YEAR:</span><span class="c-val">ORVEXA GT PROTO V12 (2024)</span></div>
+            <div class="cert-field"><span class="c-lbl">INSPECTION NODE:</span><span class="c-val">STATION #CA-04 &bull; BAY 04</span></div>
+            <div class="cert-field"><span class="c-lbl">BRAKE FORCE EFFICIENCY:</span><span class="c-val text-success">1.04 G &bull; 100% PASSED</span></div>
+            <div class="cert-field"><span class="c-lbl">5-GAS SPECTROMETRY:</span><span class="c-val text-success">EURO 6e &bull; CARB CERTIFIED</span></div>
+            <div class="cert-field"><span class="c-lbl">CHASSIS INTEGRITY:</span><span class="c-val text-success">STRUCTURAL &bull; ZERO DEFECTS</span></div>
+            <div class="cert-field"><span class="c-lbl">STATUTORY EXPIRATION:</span><span class="c-val text-gold">SEPTEMBER 2027</span></div>
+          </div>
+
+          <div class="cert-footer-row">
+            <div>
+              <span class="sign-line"></span>
+              <span class="sign-name">M. Vance, Lead Verification Inspector</span>
+              <span class="sign-badge">ORVEXA Technical License #891-NY</span>
+            </div>
+            <div class="qr-mock">
+              <div class="qr-box">
+                <span class="qr-text">QR SCAN VERIFIED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer-btns">
+        <button type="button" class="btn-secondary-hero" onclick="closeDocModal()">Close</button>
+        <button type="button" class="btn-primary-hero" onclick="alert('Encrypted Certificate PDF exported to local downloads.')">Download Verified PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Quick Modal -->
+  <div class="modal-backdrop" id="quickSearchModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-container quick-search-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Search ORVEXA Home 2</h3>
+        <button type="button" class="modal-close-btn" onclick="closeSearchModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="siteSearchInput" class="form-input" placeholder="Search domains, emissions indices, inspection bay, passport..." autofocus>
+        <div class="quick-links-hints">
+          <span class="hint-label">Quick Suggestions:</span>
+          <button type="button" class="hint-pill" onclick="searchFor('Braking')">Braking Protocol</button>
+          <button type="button" class="hint-pill" onclick="searchFor('Emissions')">5-Gas Spectrometry</button>
+          <button type="button" class="hint-pill" onclick="searchFor('Passport')">Digital Passport</button>
+          <button type="button" class="hint-pill" onclick="searchFor('Bay')">Inspection Bay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portal Notice & Status Modal (404, Coming Soon, Login, Dashboard) -->
+  <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-container portal-notice-container">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow" id="portalNoticeEyebrow">ORVEXA DIGITAL ARCHIVE</span>
+          <h3 class="modal-title" id="portalNoticeTitle">Portal Notification</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closePortalNotice()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="portal-notice-content">
+          <div class="portal-notice-icon-wrap" id="portalNoticeIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <p class="portal-notice-message" id="portalNoticeMsg">Information preview.</p>
+          <div class="portal-notice-details" id="portalNoticeDetails"></div>
+        </div>
+      </div>
+      <div class="modal-footer-btns">
+        <button type="button" class="btn-secondary-hero" onclick="closePortalNotice()">Dismiss</button>
+        <button type="button" class="btn-primary-hero" id="portalNoticeActionBtn" onclick="closePortalNotice()">Return to Platform</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Javascript Engines -->
+  <script src="index.js"></script>
+  <!-- Home 2 Interactive Controllers -->
+  <script src="home2.js"></script>
+</body>
+
+</html>

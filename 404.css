@@ -1,0 +1,915 @@
+/* ==========================================================================
+   ORVEXA — 404 PAGE: SINGLE SCREEN (ZERO SCROLL)
+   Vehicle Inspection & Emission Testing Center
+   Strict Home 1 Design Tokens, Typography, Top Car Animation & Micro Interactions
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. HOME 1 DESIGN TOKENS (EXACT MATCH)
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme="light"],
+html[data-theme="light"] {
+  /* LIGHT MODE (Default) - Warm Luxury Ivory */
+  --bg-primary: #F7F4EF;
+  --bg-secondary: #EEE9E1;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FAF8F5;
+  --bg-translucent: rgba(247, 244, 239, 0.92);
+  --bg-glass: rgba(255, 255, 255, 0.65);
+
+  --text-primary: #0B0B0A;
+  --text-secondary: #55514B;
+  --text-muted: #847E73;
+  --text-inverse: #F4F0E9;
+
+  --border-color: #D9D1C5;
+  --border-subtle: #E8E2D7;
+  --border-focus: #A47743;
+
+  /* Primary Champagne Bronze & Muted Gold from Home 1 */
+  --brand-accent: #A47743;
+  --brand-gold-secondary: #C49A62;
+  --brand-gold-glow: rgba(164, 119, 67, 0.18);
+  --dark-accent: #171512;
+
+  /* Shadows & Depth */
+  --shadow-sm: 0 2px 8px rgba(11, 11, 10, 0.04);
+  --shadow-md: 0 8px 24px rgba(11, 11, 10, 0.06);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Layout */
+  --header-height: 72px;
+  --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"],
+html[data-theme="dark"] {
+  /* DARK MODE - Architectural Night Inspection Environment */
+  --bg-primary: #080909;
+  --bg-secondary: #101110;
+  --bg-surface: #161715;
+  --bg-surface-elevated: #1D1E1B;
+  --bg-translucent: rgba(8, 9, 9, 0.88);
+  --bg-glass: rgba(22, 23, 21, 0.75);
+
+  --text-primary: #F4F0E9;
+  --text-secondary: #B8B1A6;
+  --text-muted: #7E786E;
+  --text-inverse: #0B0B0A;
+
+  --border-color: #302D28;
+  --border-subtle: #22201C;
+  --border-focus: #B88A52;
+
+  /* Champagne Bronze in Dark Mode from Home 1 */
+  --brand-accent: #B88A52;
+  --brand-gold-secondary: #D1A86E;
+  --brand-gold-glow: rgba(184, 138, 82, 0.25);
+  --dark-accent: #050505;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   02. STRICT 100VH NO-SCROLL RESET
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body.p404-body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100%;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+/* Subtle Dynamic Ambient Glow */
+.p404-ambient-glow {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(800px, 90vw);
+  height: min(480px, 55vh);
+  background: radial-gradient(circle, var(--brand-gold-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.85;
+}
+
+.p404-grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="dark"] .p404-grid-overlay {
+  opacity: 0.16;
+}
+
+/* --------------------------------------------------------------------------
+   03. TOP UTILITY BAR (Brand Left, Utilities in Right Corner)
+   -------------------------------------------------------------------------- */
+.p404-topbar {
+  flex-shrink: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--bg-translucent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 20;
+}
+
+.p404-topbar-inner {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo (Exact Home 1 Styling) */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1.05rem;
+  text-decoration: none;
+  padding: 2px 0;
+  transition: opacity var(--transition-fast);
+}
+
+.logo-symbol {
+  width: 76px;
+  height: 48px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-symbol img,
+.brand-emblem-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.22)) drop-shadow(0 1px 3px rgba(184, 134, 11, 0.28)) contrast(1.06) brightness(1.02);
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+[data-theme="dark"] .brand-emblem-img {
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(212, 175, 55, 0.38)) brightness(1.08);
+}
+
+.brand-logo:hover .brand-emblem-img {
+  transform: scale(1.06);
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+[data-theme="dark"] .brand-name {
+  color: #FFFFFF;
+}
+
+.brand-subline {
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  font-weight: 700;
+  color: var(--brand-accent);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* Utilities in Right Corner (Exact Home 1 Buttons) */
+.p404-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Home 1 RTL Button */
+.header-rtl-btn {
+  height: 34px;
+  min-height: 34px;
+  max-height: 34px;
+  padding: 0 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all var(--transition-fast);
+}
+
+.header-rtl-btn:hover {
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+  transform: translateY(-1px);
+}
+
+[dir="rtl"] .header-rtl-btn {
+  background-color: var(--brand-accent);
+  color: #FFFFFF;
+  border-color: var(--brand-accent);
+}
+
+/* Home 1 Theme Mode Toggle */
+.theme-mode-btn {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.theme-mode-btn:hover {
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+  transform: translateY(-1px);
+}
+
+.theme-mode-btn svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+[data-theme="dark"] .theme-mode-btn,
+[data-theme="dark"] .header-rtl-btn {
+  border-color: var(--brand-accent);
+}
+
+[data-theme="dark"] .theme-mode-btn:hover,
+[data-theme="dark"] .header-rtl-btn:hover {
+  border-color: var(--brand-gold-secondary);
+  box-shadow: 0 0 10px var(--brand-gold-glow);
+}
+
+/* Sun/Moon Toggle Visibility */
+html[data-theme="light"] .theme-icon-moon {
+  display: none !important;
+}
+
+html[data-theme="light"] .theme-icon-sun {
+  display: flex !important;
+}
+
+html[data-theme="dark"] .theme-icon-sun {
+  display: none !important;
+}
+
+html[data-theme="dark"] .theme-icon-moon {
+  display: flex !important;
+}
+
+/* --------------------------------------------------------------------------
+   04. TOP REALISTIC VEHICLE HIGHWAY & TELEMETRY TRACK
+   -------------------------------------------------------------------------- */
+.top-highway-track {
+  position: relative;
+  width: 100%;
+  height: 72px;
+  background: linear-gradient(180deg, var(--bg-translucent) 0%, rgba(164, 119, 67, 0.05) 100%);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+  z-index: 15;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .top-highway-track {
+  background: linear-gradient(180deg, rgba(16, 17, 16, 0.96) 0%, rgba(184, 138, 82, 0.08) 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 1. Live Telemetry Strip Running Along Top */
+.telemetry-line-strip {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: rgba(164, 119, 67, 0.04);
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="dark"] .telemetry-line-strip {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.telemetry-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 clamp(0.75rem, 2vw, 1.25rem);
+  height: 100%;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.telemetry-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2ECC71;
+  box-shadow: 0 0 8px #2ECC71;
+  animation: telemPulse 1.8s infinite ease-in-out;
+}
+
+.telemetry-live-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+}
+
+.telemetry-scroll-wrapper {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.telemetry-scroll-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  animation: telemetryTicker 30s linear infinite;
+  will-change: transform;
+}
+
+.telemetry-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+.telem-item {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.telem-key {
+  color: var(--brand-accent);
+  font-weight: 700;
+}
+
+.telem-val {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.telem-sep {
+  color: var(--brand-accent);
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+/* 2. Dual Road Guide Laser & Distance Markers */
+.highway-guideway {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  overflow: hidden;
+}
+
+.guideway-laser-line {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--border-subtle) 8%, 
+    var(--brand-accent) 50%, 
+    var(--border-subtle) 92%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 10px var(--brand-gold-glow);
+}
+
+.guideway-road-dashes {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: repeating-linear-gradient(90deg, 
+    var(--brand-gold-secondary) 0px, 
+    var(--brand-gold-secondary) 26px, 
+    transparent 26px, 
+    transparent 54px
+  );
+  opacity: 0.45;
+  animation: roadDashesMove 1.4s linear infinite;
+}
+
+.guideway-ticks {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  opacity: 0.65;
+  user-select: none;
+}
+
+/* 3. Realistic Moving GT Sports Coupe */
+.highway-moving-car {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 260px;
+  height: 70px;
+  z-index: 10;
+  animation: realisticCarCruise 13s linear infinite;
+  cursor: pointer;
+  will-change: transform;
+  pointer-events: auto;
+  transition: filter 0.3s ease;
+}
+
+.highway-moving-car:hover {
+  filter: brightness(1.15) drop-shadow(0 0 12px var(--brand-gold-glow));
+}
+
+.car-top-svg-realistic {
+  width: 260px;
+  height: 70px;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.22));
+  animation: carChassisSuspension 2.2s ease-in-out infinite;
+}
+
+[data-theme="dark"] .car-top-svg-realistic {
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 14px var(--brand-gold-glow));
+}
+
+.car-light-cone {
+  animation: headlightPulse 2.8s ease-in-out infinite;
+}
+
+/* Realistic Wheels Rotation */
+.wheel-spokes.rear-spokes {
+  transform-origin: 52px 54px;
+  animation: wheelSpinForward 0.42s linear infinite;
+}
+
+.wheel-spokes.front-spokes {
+  transform-origin: 198px 54px;
+  animation: wheelSpinForward 0.42s linear infinite;
+}
+
+/* Keyframe Animations */
+@keyframes telemetryTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes roadDashesMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -54px 0;
+  }
+}
+
+@keyframes realisticCarCruise {
+  0% {
+    transform: translateX(-310px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 310px));
+  }
+}
+
+@keyframes carChassisSuspension {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  22% {
+    transform: translateY(-0.8px) rotate(-0.12deg);
+  }
+  48% {
+    transform: translateY(0.5px) rotate(0.1deg);
+  }
+  74% {
+    transform: translateY(-0.5px) rotate(-0.06deg);
+  }
+}
+
+@keyframes wheelSpinForward {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes telemPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    box-shadow: 0 0 10px #2ECC71;
+  }
+}
+
+@keyframes headlightPulse {
+  0%, 100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  75% {
+    opacity: 0.7;
+  }
+}
+
+/* RTL: Reverse Telemetry & Car Direction */
+[dir="rtl"] .highway-moving-car {
+  animation: realisticCarCruiseRTL 13s linear infinite;
+}
+
+[dir="rtl"] .highway-moving-car .car-top-svg-realistic {
+  transform: scaleX(-1);
+}
+
+@keyframes realisticCarCruiseRTL {
+  0% {
+    transform: translateX(calc(100vw + 310px));
+  }
+  100% {
+    transform: translateX(-310px);
+  }
+}
+
+[dir="rtl"] .wheel-spokes.rear-spokes,
+[dir="rtl"] .wheel-spokes.front-spokes {
+  animation: wheelSpinBackward 0.42s linear infinite;
+}
+
+@keyframes wheelSpinBackward {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+[dir="rtl"] .telemetry-live-badge {
+  border-right: none;
+  border-left: 1px solid var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   05. MAIN 404 STAGE (STRICTLY FITS WITHIN 100VH - ZERO SCROLL)
+   -------------------------------------------------------------------------- */
+.p404-screen-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.p404-screen-card {
+  max-width: 780px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Home 1 Eyebrow Style */
+.hero-eyebrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: clamp(0.35rem, 1.1vh, 0.65rem);
+}
+
+.eyebrow-dash {
+  width: 32px;
+  height: 1px;
+  background-color: var(--brand-accent);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+/* 404 Big Number */
+.p404-num-wrap {
+  position: relative;
+  margin-bottom: clamp(0.2rem, 0.8vh, 0.45rem);
+  user-select: none;
+}
+
+.p404-big-num {
+  font-family: var(--font-serif);
+  font-size: clamp(4.4rem, 10vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  text-shadow: 0 4px 20px var(--brand-gold-glow);
+  position: relative;
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.p404-big-num:hover {
+  transform: scale(1.02);
+}
+
+/* Home 1 Headline Typography & Highlighted Color */
+.hero-headline.p404-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.8vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: clamp(0.5rem, 1.4vh, 0.85rem);
+}
+
+.headline-line {
+  display: block;
+}
+
+/* EXACT HOME 1 HIGHLIGHTED COLOR & TYPOGRAPHY */
+.highlight-gold {
+  color: var(--brand-accent);
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* 2 Paragraphs of Content (Home 1 Body Styling) */
+.p404-paragraphs-block {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 1vh, 0.65rem);
+  max-width: 620px;
+  margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+}
+
+.hero-description.p404-para-1,
+.hero-description.p404-para-2 {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.15vw, 0.96rem);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.hero-description.p404-para-2 {
+  color: var(--text-muted);
+  font-size: clamp(0.82rem, 1.05vw, 0.9rem);
+}
+
+/* --------------------------------------------------------------------------
+   06. BACK TO SITE ACTION BUTTON WITH SMALL CAR ANIMATION
+   -------------------------------------------------------------------------- */
+.p404-action-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Matches Home 1 .btn-primary-hero with micro car animation */
+.btn-primary-hero.p404-btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--brand-accent);
+  color: #FFFFFF;
+  padding: clamp(0.64rem, 1.5vh, 0.82rem) clamp(1.6rem, 3.2vw, 2.4rem);
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 3px 14px var(--brand-gold-glow);
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-primary-hero.p404-btn-back:hover {
+  background-color: var(--brand-gold-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--brand-gold-glow);
+}
+
+/* Back to Site Button Arrow (Exact Home 1 Button Style) */
+.btn-primary-hero.p404-btn-back .arrow {
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+.btn-primary-hero.p404-btn-back:hover .arrow {
+  transform: translateX(-4px);
+}
+
+.btn-back-text {
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   07. RTL SUPPORT
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .hero-headline.p404-headline,
+[dir="rtl"] .hero-description {
+  text-align: center;
+}
+
+/* RTL Button: flip arrow facing left */
+[dir="rtl"] .btn-primary-hero.p404-btn-back .arrow {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .btn-primary-hero.p404-btn-back:hover .arrow {
+  transform: rotate(180deg) translateX(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   08. RESPONSIVE COMPACT DISPLAY (MOBILE & SMALL SCREENS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .logo-symbol {
+    width: 46px;
+    height: 30px;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-subline {
+    font-size: 0.44rem;
+    letter-spacing: 0.18em;
+  }
+
+  .p404-big-num {
+    font-size: clamp(3.8rem, 12vw, 5.5rem);
+  }
+
+  .highway-moving-car {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-symbol {
+    width: 38px;
+    height: 24px;
+  }
+
+  .brand-name {
+    font-size: 1.02rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-subline {
+    display: none;
+  }
+
+  .p404-topbar-right {
+    gap: 0.45rem;
+  }
+
+  .header-rtl-btn {
+    padding: 0 0.55rem;
+    font-size: 0.65rem;
+  }
+
+  .theme-mode-btn {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .p404-para-2 {
+    display: none;
+  }
+}

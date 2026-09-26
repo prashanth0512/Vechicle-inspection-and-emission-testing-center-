@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEXA | Enterprise Fleet &amp; Client Telemetry Dashboard</title>
+    <meta name="description"
+        content="ORVEXA Enterprise Client Dashboard. Manage vehicle inspection slots, download certified digital passports, monitor emissions compliance, and track renewals.">
+
+    <!-- Precision Editorial & Sans Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- ==================================================
+         PORTAL WRAPPER (SIDEBAR + MAIN CONTENT AREA)
+         ================================================== -->
+    <div class="portal-wrapper">
+
+        <!-- ==================================================
+             LEFT SIDEBAR PANEL
+             ================================================== -->
+        <aside class="portal-sidebar" id="portalSidebar">
+            <!-- Sidebar Header / Brand -->
+            <div class="sidebar-brand-block">
+                <a href="index.html" class="sidebar-brand-link" title="Return to ORVEXA Home">
+                    <div class="sidebar-logo-symbol">
+                        <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+                    </div>
+                    <div class="sidebar-brand-text">
+                        <span class="sidebar-brand-name">ORVEXA</span>
+                        <span class="sidebar-brand-sub">INSPECTION &amp; TESTING</span>
+                    </div>
+                </a>
+                <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar navigation">&times;</button>
+            </div>
+
+            <!-- Portal Navigation Label -->
+            <div class="sidebar-nav-label">PORTAL NAVIGATION</div>
+
+            <!-- Sidebar Navigation Links -->
+            <nav class="sidebar-nav" aria-label="Dashboard Navigation">
+                <ul class="sidebar-nav-list">
+                    <!-- 1. Overview & Analytics -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link active" data-tab="overview">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                                    <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Overview &amp; Analytics</span>
+                        </button>
+                    </li>
+
+                    <!-- 2. Bookings & Slots -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link" data-tab="bookings">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Bookings &amp; Slots</span>
+                            <span class="nav-badge nav-badge-gold" id="badgeBookingCount">3 Active</span>
+                        </button>
+                    </li>
+
+                    <!-- 3. Inspection Results & Certificates -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link" data-tab="certificates">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Results &amp; Certificates</span>
+                            <span class="nav-badge nav-badge-green">12 Valid</span>
+                        </button>
+                    </li>
+
+                    <!-- 4. Renewal Due Dates & Reminders -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link" data-tab="reminders">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Renewals &amp; Reminders</span>
+                            <span class="nav-badge nav-badge-amber">2 Due</span>
+                        </button>
+                    </li>
+
+                    <!-- 5. Digital Compliance Documents -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link" data-tab="documents">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Compliance Docs</span>
+                        </button>
+                    </li>
+
+                    <!-- 6. Payment & Billing History -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link" data-tab="payments">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                    <line x1="1" y1="10" x2="23" y2="10" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Billing &amp; Invoices</span>
+                        </button>
+                    </li>
+
+                    <!-- 7. Settings & Preferences -->
+                    <li class="sidebar-nav-item">
+                        <button type="button" class="sidebar-nav-link" data-tab="settings">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                </svg>
+                            </span>
+                            <span class="nav-text">Settings &amp; Prefs</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Bottom VIP / Entity Card -->
+            <div class="sidebar-bottom-block">
+                <div class="vip-account-card">
+                    <div class="vip-card-header">
+                        <span class="vip-shield-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                            </svg>
+                        </span>
+                        <div class="vip-info">
+                            <span class="vip-title">ENTERPRISE CLIENT</span>
+                            <span class="vip-id">Account #ORV-8849</span>
+                        </div>
+                    </div>
+                    <div class="vip-meta">Fleet: Sterling Mobility LLC</div>
+                </div>
+
+                <a href="index.html" class="btn-return-home" title="Return to Main Website">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                    <span>Return to Main Website</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Sidebar Backdrop for Mobile Screens -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- ==================================================
+             RIGHT MAIN VIEWPORT AREA
+             ================================================== -->
+        <div class="portal-main-area">
+
+            <!-- ==================================================
+                 TOP UTILITY / WELCOME BAR (Matches Reference Layout)
+                 ================================================== -->
+            <header class="portal-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open sidebar menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="topbar-welcome-block">
+                        <h1 class="topbar-welcome-title">
+                            Welcome, <span class="client-name-highlight">Jonathan</span>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- Search Input -->
+                    <div class="topbar-search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="topbarSearchInput" class="topbar-search-input" placeholder="Search VIN, certificates, records..." aria-label="Search records">
+                        <span class="search-kbd">⌘K</span>
+                    </div>
+
+                    <!-- RTL Toggle -->
+                    <button type="button" class="topbar-btn rtl-toggle-btn" id="portalRtlToggle" title="Toggle Text Direction (RTL / LTR)">
+                        <span id="portalRtlText">RTL</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button type="button" class="topbar-btn theme-toggle-btn" id="portalThemeToggle" title="Toggle Color Theme (Light / Dark)">
+                        <span class="theme-icon-sun" title="Light Theme">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5" />
+                                <line x1="12" y1="1" x2="12" y2="3" />
+                                <line x1="12" y1="21" x2="12" y2="23" />
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                <line x1="1" y1="12" x2="3" y2="12" />
+                                <line x1="21" y1="12" x2="23" y2="12" />
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                            </svg>
+                        </span>
+                        <span class="theme-icon-moon" title="Dark Theme">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                            </svg>
+                        </span>
+                    </button>
+
+                </div>
+            </header>
+
+            <!-- ==================================================
+                 DYNAMIC MAIN CONTENT SECTIONS (SWAPPED VIA JS TABS)
+                 ================================================== -->
+            <main class="portal-content-body">
+
+                <!-- ==============================================
+                     TAB 1: OVERVIEW & ANALYTICS (DEFAULT VIEW)
+                     ============================================== -->
+                <section class="portal-tab-panel active" id="tab-overview">
+                    <!-- 4 TOP KPI METRIC CARDS (Strict Alignment With Reference) -->
+                    <div class="kpi-metrics-grid">
+                        <!-- KPI Card 1: Monthly Inspection Revenue / Spend -->
+                        <div class="kpi-card">
+                            <div class="kpi-card-header">
+                                <div class="kpi-label-block">
+                                    <span class="kpi-super-title">MONTHLY INSPECTION</span>
+                                    <span class="kpi-sub-title">SPEND / REVENUE</span>
+                                </div>
+                                <div class="kpi-icon-pill icon-pill-amber">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23" />
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="kpi-value-row">
+                                <span class="kpi-value-num">$48,250.00</span>
+                            </div>
+                            <div class="kpi-footer-row">
+                                <span class="trend-badge trend-up">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+                                    <span>+18.4%</span>
+                                </span>
+                                <span class="trend-caption">vs last month</span>
+                            </div>
+                        </div>
+
+                        <!-- KPI Card 2: Total Tests Conducted -->
+                        <div class="kpi-card">
+                            <div class="kpi-card-header">
+                                <div class="kpi-label-block">
+                                    <span class="kpi-super-title">TOTAL COMPLIANCE</span>
+                                    <span class="kpi-sub-title">TESTS CONDUCTED</span>
+                                </div>
+                                <div class="kpi-icon-pill icon-pill-emerald">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                                        <line x1="3" y1="6" x2="21" y2="6" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="kpi-value-row">
+                                <span class="kpi-value-num">1,420</span>
+                            </div>
+                            <div class="kpi-footer-row">
+                                <span class="trend-badge trend-up">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+                                    <span>+12.1%</span>
+                                </span>
+                                <span class="trend-caption">vs last month</span>
+                            </div>
+                        </div>
+
+                        <!-- KPI Card 3: Compliant Fleet Vehicles -->
+                        <div class="kpi-card">
+                            <div class="kpi-card-header">
+                                <div class="kpi-label-block">
+                                    <span class="kpi-super-title">COMPLIANT FLEET</span>
+                                    <span class="kpi-sub-title">REGISTERED VEHICLES</span>
+                                </div>
+                                <div class="kpi-icon-pill icon-pill-gold">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="kpi-value-row">
+                                <span class="kpi-value-num">3,890</span>
+                            </div>
+                            <div class="kpi-footer-row">
+                                <span class="trend-badge trend-up">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+                                    <span>+24.8%</span>
+                                </span>
+                                <span class="trend-caption">statutory pass rate</span>
+                            </div>
+                        </div>
+
+                        <!-- KPI Card 4: Fleet Emissions Health -->
+                        <div class="kpi-card">
+                            <div class="kpi-card-header">
+                                <div class="kpi-label-block">
+                                    <span class="kpi-super-title">FLEET OPACITY &amp;</span>
+                                    <span class="kpi-sub-title">EMISSIONS HEALTH</span>
+                                </div>
+                                <div class="kpi-icon-pill icon-pill-cyan">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93V15a1 1 0 0 0-2 0v1.93A8 8 0 0 1 4.07 11H6a1 1 0 0 0 0-2H4.07A8 8 0 0 1 11 4.07V6a1 1 0 0 0 2 0V4.07A8 8 0 0 1 19.93 11H18a1 1 0 0 0 0 2h1.93A8 8 0 0 1 13 16.93z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="kpi-value-row">
+                                <span class="kpi-value-num">98.4%</span>
+                            </div>
+                            <div class="kpi-footer-row">
+                                <span class="trend-badge trend-optimal">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                    <span>Optimal</span>
+                                </span>
+                                <span class="trend-caption">42 active bays</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DUAL CHART ROW (Strict Alignment With Reference Image) -->
+                    <div class="portal-charts-grid">
+                        <!-- Chart Card 1: Revenue & Inspection Growth (Wider Card) -->
+                        <div class="chart-card chart-card-wide">
+                            <div class="chart-card-top">
+                                <div>
+                                    <h3 class="chart-title">Revenue &amp; Inspection Growth</h3>
+                                    <p class="chart-desc">Monthly trend comparison for statutory certifications &amp; diagnostic telemetry</p>
+                                </div>
+
+                            </div>
+
+                            <!-- Legend Strip -->
+                            <div class="chart-legend-strip">
+                                <div class="legend-item">
+                                    <span class="legend-box legend-purple"></span>
+                                    <span class="legend-text">Monthly Spend ($)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-box legend-cyan"></span>
+                                    <span class="legend-text">Inspections Completed</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive SVG Waveform / Line Chart -->
+                            <div class="chart-svg-viewport" id="growthChartContainer">
+                                <svg class="growth-chart-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#E8A045" stop-opacity="0.40" />
+                                            <stop offset="100%" stop-color="#E8A045" stop-opacity="0.0" />
+                                        </linearGradient>
+                                        <linearGradient id="cyanGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#00D4C8" stop-opacity="0.28" />
+                                            <stop offset="100%" stop-color="#00D4C8" stop-opacity="0.0" />
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- Grid Lines -->
+                                    <line x1="40" y1="40" x2="680" y2="40" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
+                                    <line x1="40" y1="90" x2="680" y2="90" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
+                                    <line x1="40" y1="140" x2="680" y2="140" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
+                                    <line x1="40" y1="190" x2="680" y2="190" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
+
+                                    <!-- Left Y-Axis Values -->
+                                    <text x="32" y="44" class="chart-axis-text" text-anchor="end">$50k</text>
+                                    <text x="32" y="94" class="chart-axis-text" text-anchor="end">$40k</text>
+                                    <text x="32" y="144" class="chart-axis-text" text-anchor="end">$30k</text>
+                                    <text x="32" y="194" class="chart-axis-text" text-anchor="end">$20k</text>
+
+                                    <!-- Area Fills -->
+                                    <path id="purpleArea" d="M 60 190 Q 180 180 280 160 T 480 110 T 660 45 L 660 210 L 60 210 Z" fill="url(#purpleGrad)" />
+                                    <path id="cyanArea" d="M 60 200 Q 180 190 280 175 T 480 140 T 660 85 L 660 210 L 60 210 Z" fill="url(#cyanGrad)" />
+
+                                    <!-- Smooth Trend Lines -->
+                                    <path id="purpleLine" d="M 60 190 Q 180 180 280 160 T 480 110 T 660 45" fill="none" stroke="#E8A045" stroke-width="3.5" stroke-linecap="round" />
+                                    <path id="cyanLine" d="M 60 200 Q 180 190 280 175 T 480 140 T 660 85" fill="none" stroke="#00D4C8" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,4" />
+
+                                    <!-- Interactive Data Knots with Tooltips -->
+                                    <circle cx="60" cy="190" r="5" class="chart-dot chart-dot-purple" data-tooltip="Apr: $21,400" />
+                                    <circle cx="180" cy="178" r="5" class="chart-dot chart-dot-purple" data-tooltip="May: $24,800" />
+                                    <circle cx="300" cy="155" r="5" class="chart-dot chart-dot-purple" data-tooltip="Jun: $29,200" />
+                                    <circle cx="420" cy="125" r="5" class="chart-dot chart-dot-purple" data-tooltip="Jul: $36,100" />
+                                    <circle cx="540" cy="90" r="5" class="chart-dot chart-dot-purple" data-tooltip="Aug: $41,900" />
+                                    <circle cx="660" cy="45" r="6" class="chart-dot chart-dot-purple active-knot" data-tooltip="Sep: $48,250" />
+
+                                    <circle cx="60" cy="200" r="4" class="chart-dot chart-dot-cyan" data-tooltip="Apr: 180 Tests" />
+                                    <circle cx="180" cy="190" r="4" class="chart-dot chart-dot-cyan" data-tooltip="May: 210 Tests" />
+                                    <circle cx="300" cy="175" r="4" class="chart-dot chart-dot-cyan" data-tooltip="Jun: 245 Tests" />
+                                    <circle cx="420" cy="140" r="4" class="chart-dot chart-dot-cyan" data-tooltip="Jul: 310 Tests" />
+                                    <circle cx="540" cy="115" r="4" class="chart-dot chart-dot-cyan" data-tooltip="Aug: 360 Tests" />
+                                    <circle cx="660" cy="85" r="5" class="chart-dot chart-dot-cyan active-knot" data-tooltip="Sep: 420 Tests" />
+
+                                    <!-- X-Axis Labels -->
+                                    <text x="60" y="230" class="chart-month-text" text-anchor="middle">Apr</text>
+                                    <text x="180" y="230" class="chart-month-text" text-anchor="middle">May</text>
+                                    <text x="300" y="230" class="chart-month-text" text-anchor="middle">Jun</text>
+                                    <text x="420" y="230" class="chart-month-text" text-anchor="middle">Jul</text>
+                                    <text x="540" y="230" class="chart-month-text" text-anchor="middle">Aug</text>
+                                    <text x="660" y="230" class="chart-month-text" text-anchor="middle">Sep</text>
+                                </svg>
+
+                                <!-- Floating Interactive Tooltip -->
+                                <div class="chart-floating-tooltip" id="chartTooltip">
+                                    <div class="tooltip-month">Sep 2026</div>
+                                    <div class="tooltip-stat">$48,250.00 &bull; 420 Tests</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chart Card 2: Category Inspections Bar Chart (Right Card) -->
+                        <div class="chart-card chart-card-narrow">
+                            <div class="chart-card-top">
+                                <div>
+                                    <h3 class="chart-title">Testing Categories</h3>
+                                    <p class="chart-desc">Volume across specialized compliance disciplines</p>
+                                </div>
+                            </div>
+
+                            <!-- SVG Bar Chart -->
+                            <div class="barchart-viewport">
+                                <svg class="barchart-svg" viewBox="0 0 320 220" preserveAspectRatio="none">
+                                    <!-- Background Bar Tracks -->
+                                    <rect x="25" y="20" width="45" height="170" rx="8" class="bar-track" />
+                                    <rect x="100" y="20" width="45" height="170" rx="8" class="bar-track" />
+                                    <rect x="175" y="20" width="45" height="170" rx="8" class="bar-track" />
+                                    <rect x="250" y="20" width="45" height="170" rx="8" class="bar-track" />
+
+                                    <!-- Active Bar Fills -->
+                                    <!-- Bar 1: Safety (580 tests - 85% height) -->
+                                    <rect x="25" y="45" width="45" height="145" rx="8" class="bar-fill bar-fill-amber" data-bar-label="Safety Inspection: 580" />
+                                    <!-- Bar 2: Emissions (420 tests - 65% height) -->
+                                    <rect x="100" y="80" width="45" height="110" rx="8" class="bar-fill bar-fill-teal" data-bar-label="5-Gas Emissions: 420" />
+                                    <!-- Bar 3: EV Telemetry (280 tests - 45% height) -->
+                                    <rect x="175" y="115" width="45" height="75" rx="8" class="bar-fill bar-fill-coral" data-bar-label="EV Battery Health: 280" />
+                                    <!-- Bar 4: Fleet Combined (140 tests - 25% height) -->
+                                    <rect x="250" y="150" width="45" height="40" rx="8" class="bar-fill bar-fill-slate" data-bar-label="Combined Protocol: 140" />
+
+                                    <!-- Value Labels -->
+                                    <text x="47.5" y="38" class="bar-value-text" text-anchor="middle">580</text>
+                                    <text x="122.5" y="73" class="bar-value-text" text-anchor="middle">420</text>
+                                    <text x="197.5" y="108" class="bar-value-text" text-anchor="middle">280</text>
+                                    <text x="272.5" y="143" class="bar-value-text" text-anchor="middle">140</text>
+
+                                    <!-- Category Column Labels -->
+                                    <text x="47.5" y="210" class="bar-cat-text" text-anchor="middle">Safety</text>
+                                    <text x="122.5" y="210" class="bar-cat-text" text-anchor="middle">Emissions</text>
+                                    <text x="197.5" y="210" class="bar-cat-text" text-anchor="middle">EV Pack</text>
+                                    <text x="272.5" y="210" class="bar-cat-text" text-anchor="middle">Combined</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RECENT ACTIVITY & UPCOMING FLEET SLOTS (Quick Table) -->
+                    <div class="portal-grid-2col">
+                        <!-- Table Card -->
+                        <div class="panel-card">
+                            <div class="panel-card-header">
+                                <div>
+                                    <h3 class="pch-card-title">Recent Fleet Inspection Results</h3>
+                                    <p class="pch-card-desc">Verified laboratory pass records with digital passport hashes</p>
+                                </div>
+                                <button type="button" class="btn-outline-sm" onclick="switchTab('certificates')">View All Passports &rarr;</button>
+                            </div>
+                            <div class="table-responsive table-scrollable custom-scrollbar">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Vehicle &amp; VIN</th>
+                                            <th>Protocol Type</th>
+                                            <th>Testing Hub</th>
+                                            <th>Status</th>
+                                            <th>Certificate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="quickRecentTbody">
+                                        <tr>
+                                            <td>
+                                                <div class="tbl-veh-title">2024 Porsche Taycan Turbo</div>
+                                                <span class="tbl-vin">WP0AC2Y15RSA9821</span>
+                                            </td>
+                                            <td>EV High-Voltage Telemetry</td>
+                                            <td>Metro EV Facility (Bay 02)</td>
+                                            <td><span class="status-pill status-pass">PASSED</span></td>
+                                            <td><button type="button" class="btn-view-token" onclick="openCertModal('WP0AC2Y15RSA9821', '2024 Porsche Taycan Turbo', 'EV High-Voltage Telemetry', 'ORV-2026-X9821')">Passport &rarr;</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="tbl-veh-title">2023 Tesla Model S Plaid</div>
+                                                <span class="tbl-vin">5YJSA1E28PF8120</span>
+                                            </td>
+                                            <td>5-Gas Spectrometry &amp; Chassis</td>
+                                            <td>Central HQ (Bay 01)</td>
+                                            <td><span class="status-pill status-pass">PASSED</span></td>
+                                            <td><button type="button" class="btn-view-token" onclick="openCertModal('5YJSA1E28PF8120', '2023 Tesla Model S Plaid', '5-Gas Spectrometry', 'ORV-2026-X8120')">Passport &rarr;</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="tbl-veh-title">2024 Mercedes EQS 450+</div>
+                                                <span class="tbl-vin">W1KCG2EB6PA0452</span>
+                                            </td>
+                                            <td>Full Statutory Safety</td>
+                                            <td>Central HQ (Bay 04)</td>
+                                            <td><span class="status-pill status-pass">PASSED</span></td>
+                                            <td><button type="button" class="btn-view-token" onclick="openCertModal('W1KCG2EB6PA0452', '2024 Mercedes EQS 450+', 'Full Statutory Safety', 'ORV-2026-X0452')">Passport &rarr;</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="tbl-veh-title">2024 Lucid Gravity SUV</div>
+                                                <span class="tbl-vin">7SPSG3F24RA0882</span>
+                                            </td>
+                                            <td>CARB Optical Spectrometry</td>
+                                            <td>Metro EV Facility (Bay 03)</td>
+                                            <td><span class="status-pill status-pass">PASSED</span></td>
+                                            <td><button type="button" class="btn-view-token" onclick="openCertModal('7SPSG3F24RA0882', '2024 Lucid Gravity SUV', 'CARB Optical Spectrometry', 'ORV-2026-X0882')">Passport &rarr;</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="tbl-veh-title">2023 BMW i7 xDrive60</div>
+                                                <span class="tbl-vin">WBA53EJ08PCA3901</span>
+                                            </td>
+                                            <td>1000V Galvanic Isolation</td>
+                                            <td>Central HQ (Bay 02)</td>
+                                            <td><span class="status-pill status-pass">PASSED</span></td>
+                                            <td><button type="button" class="btn-view-token" onclick="openCertModal('WBA53EJ08PCA3901', '2023 BMW i7 xDrive60', '1000V Galvanic Isolation', 'ORV-2026-X3901')">Passport &rarr;</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="tbl-veh-title">2022 Rivian R1T Launch Edition</div>
+                                                <span class="tbl-vin">7PDSGABA4NN0038</span>
+                                            </td>
+                                            <td>High-Voltage Isolation Check</td>
+                                            <td>Metro EV Facility (Bay 01)</td>
+                                            <td><span class="status-pill status-pass">PASSED</span></td>
+                                            <td><button type="button" class="btn-view-token" onclick="openCertModal('7PDSGABA4NN0038', '2022 Rivian R1T Launch Edition', 'High-Voltage Isolation', 'ORV-2026-X0038')">Passport &rarr;</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Renewal Deadlines Card -->
+                        <div class="panel-card">
+                            <div class="panel-card-header">
+                                <div>
+                                    <h3 class="pch-card-title">Expiring Statutory Certifications</h3>
+                                    <p class="pch-card-desc">Vehicles requiring re-certification to maintain street compliance</p>
+                                </div>
+                                <button type="button" class="btn-outline-sm" onclick="switchTab('bookings')">Book Slot &rarr;</button>
+                            </div>
+
+                            <div class="renewals-quick-list custom-scrollbar">
+                                <div class="renewal-item urgent">
+                                    <div class="renewal-urgency-dot"></div>
+                                    <div class="renewal-body">
+                                        <div class="renewal-name-row">
+                                            <span class="renewal-veh">Ford Transit Commercial 3500</span>
+                                            <span class="renewal-badge-urgent">Expires in 6 Days</span>
+                                        </div>
+                                        <div class="renewal-sub">VIN: 1FTBR1Y80PKA9401 &bull; 5-Gas Emissions &amp; Opacity</div>
+                                    </div>
+                                    <button type="button" class="btn-renew-pill" onclick="prefillBooking('1FTBR1Y80PKA9401', 'Ford Transit Commercial 3500', '5-Gas Optical Spectrometry')">Renew Slot</button>
+                                </div>
+
+                                <div class="renewal-item warning">
+                                    <div class="renewal-urgency-dot"></div>
+                                    <div class="renewal-body">
+                                        <div class="renewal-name-row">
+                                            <span class="renewal-veh">2022 Rivian R1T Launch Edition</span>
+                                            <span class="renewal-badge-warning">Expires in 18 Days</span>
+                                        </div>
+                                        <div class="renewal-sub">VIN: 7PDSGABA4NN0038 &bull; High-Voltage Pack Isolation</div>
+                                    </div>
+                                    <button type="button" class="btn-renew-pill" onclick="prefillBooking('7PDSGABA4NN0038', '2022 Rivian R1T Launch Edition', 'EV & Hybrid Telemetry')">Renew Slot</button>
+                                </div>
+
+                                <div class="renewal-item normal">
+                                    <div class="renewal-urgency-dot"></div>
+                                    <div class="renewal-body">
+                                        <div class="renewal-name-row">
+                                            <span class="renewal-veh">2023 Lucid Air Touring</span>
+                                            <span class="renewal-badge-safe">Expires in 45 Days</span>
+                                        </div>
+                                        <div class="renewal-sub">VIN: 7SPSG2E13PA0129 &bull; Annual Safety Recertification</div>
+                                    </div>
+                                    <button type="button" class="btn-renew-pill" onclick="prefillBooking('7SPSG2E13PA0129', '2023 Lucid Air Touring', 'Safety Inspection')">Schedule</button>
+                                </div>
+
+                                <div class="renewal-item normal">
+                                    <div class="renewal-urgency-dot"></div>
+                                    <div class="renewal-body">
+                                        <div class="renewal-name-row">
+                                            <span class="renewal-veh">Mercedes Sprinter 2500 Cargo</span>
+                                            <span class="renewal-badge-safe">Expires in 52 Days</span>
+                                        </div>
+                                        <div class="renewal-sub">VIN: WD3PF0CD8RP2189 &bull; Annual Brake Adhesion Audit</div>
+                                    </div>
+                                    <button type="button" class="btn-renew-pill" onclick="prefillBooking('WD3PF0CD8RP2189', 'Mercedes Sprinter 2500 Cargo', 'Safety Inspection')">Schedule</button>
+                                </div>
+
+                                <div class="renewal-item normal">
+                                    <div class="renewal-urgency-dot"></div>
+                                    <div class="renewal-body">
+                                        <div class="renewal-name-row">
+                                            <span class="renewal-veh">2024 Tesla Model S Plaid Fleet</span>
+                                            <span class="renewal-badge-safe">Expires in 64 Days</span>
+                                        </div>
+                                        <div class="renewal-sub">VIN: 5YJSA1E28PF8120 &bull; High-Voltage Telemetry</div>
+                                    </div>
+                                    <button type="button" class="btn-renew-pill" onclick="prefillBooking('5YJSA1E28PF8120', '2024 Tesla Model S Plaid Fleet', 'EV & Hybrid Telemetry')">Schedule</button>
+                                </div>
+
+                                <div class="renewal-item normal">
+                                    <div class="renewal-urgency-dot"></div>
+                                    <div class="renewal-body">
+                                        <div class="renewal-name-row">
+                                            <span class="renewal-veh">Freightliner eCascadia Semi #12</span>
+                                            <span class="renewal-badge-safe">Expires in 78 Days</span>
+                                        </div>
+                                        <div class="renewal-sub">VIN: 1FUJBBCK4RP4012 &bull; Heavy Commercial Dyno</div>
+                                    </div>
+                                    <button type="button" class="btn-renew-pill" onclick="prefillBooking('1FUJBBCK4RP4012', 'Freightliner eCascadia Semi #12', 'Heavy Commercial Dyno')">Schedule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==============================================
+                     TAB 2: BOOKINGS & SLOTS
+                     ============================================== -->
+                <section class="portal-tab-panel" id="tab-bookings">
+                    <div class="tab-header-banner">
+                        <div>
+                            <span class="banner-eyebrow">CUSTOMER TESTING DISPATCH CONSOLE</span>
+                            <h2 class="banner-title">Book an Inspection Appointment Slot</h2>
+                            <p class="banner-desc">Reserve priority bay access for statutory emissions, Horiba gas optical analysis, or EV chassis certification.</p>
+                        </div>
+                    </div>
+
+                    <div class="portal-grid-2col">
+                        <!-- Left: Interactive Slot Booking Form -->
+                        <div class="panel-card">
+                            <h3 class="form-section-title">Schedule New Appointment Slot</h3>
+                            <div class="booking-form-scroll custom-scrollbar">
+                            <form id="dashBookingForm" onsubmit="handleDashBookingSubmit(event)" class="booking-form-inner">
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label for="dbHub" class="dash-label">Testing Facility Hub</label>
+                                        <select id="dbHub" class="dash-select" required>
+                                            <option value="Central Metrology HQ (48 Calibration Dr)">Central Metrology HQ (Tech District)</option>
+                                            <option value="Metro EV &amp; Telemetry Hub (128 Precision Way)">Metro EV &amp; Telemetry Hub (Suite A)</option>
+                                            <option value="Commercial Freight Bay (70 Aviation Blvd)">Commercial Freight Bay (Bay 4)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dbProtocol" class="dash-label">Inspection Protocol Tier</label>
+                                        <select id="dbProtocol" class="dash-select" required>
+                                            <option value="Combined Safety &amp; 5-Gas Emissions">Combined Safety &amp; 5-Gas Emissions ($320)</option>
+                                            <option value="5-Gas Optical Spectrometry">5-Gas Optical Spectrometry ($180)</option>
+                                            <option value="Full Statutory Safety Protocol">Full Statutory Safety Protocol ($160)</option>
+                                            <option value="EV Battery &amp; High-Voltage Telemetry">EV Battery &amp; High-Voltage Telemetry ($240)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label for="dbDate" class="dash-label">Preferred Date</label>
+                                        <input type="date" id="dbDate" class="dash-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dbTime" class="dash-label">Bay Arrival Window</label>
+                                        <select id="dbTime" class="dash-select" required>
+                                            <option value="08:30 AM – 09:30 AM (Priority Slot)">08:30 AM – 09:30 AM (Priority Slot)</option>
+                                            <option value="10:00 AM – 11:00 AM">10:00 AM – 11:00 AM</option>
+                                            <option value="01:30 PM – 02:30 PM">01:30 PM – 02:30 PM</option>
+                                            <option value="03:30 PM – 04:30 PM">03:30 PM – 04:30 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label for="dbVehicle" class="dash-label">Vehicle Make &amp; Model</label>
+                                        <input type="text" id="dbVehicle" class="dash-input" placeholder="e.g. 2024 Porsche Taycan Turbo" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dbVin" class="dash-label">17-Digit VIN Number</label>
+                                        <input type="text" id="dbVin" class="dash-input" placeholder="e.g. WP0AC2Y15RSA9821" maxlength="17" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dbNotes" class="dash-label">Special Telemetry Instructions (Optional)</label>
+                                    <textarea id="dbNotes" class="dash-textarea" rows="2" placeholder="Specify dyno load requirements, high-voltage disconnect steps, or fleet ID codes..."></textarea>
+                                </div>
+
+                                <div class="form-actions-row">
+                                    <button type="submit" class="btn-primary-hero btn-dash-submit" id="btnSubmitSlot">
+                                        <span>Confirm &amp; Lock Inspection Slot</span>
+                                        <span class="btn-arrow">&rarr;</span>
+                                    </button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+
+                        <!-- Right: Currently Scheduled Slots List -->
+                        <div class="panel-card">
+                            <div class="panel-card-header">
+                                <h3 class="form-section-title">Your Scheduled Inspection Slots</h3>
+                                <span class="badge-record-count">5 Active Bookings</span>
+                            </div>
+                            <div class="scheduled-slots-list custom-scrollbar" id="scheduledSlotsContainer">
+                                <!-- Slot Item 1 -->
+                                <div class="slot-card active-slot">
+                                    <div class="slot-time-col">
+                                        <span class="slot-day">SEPT 28</span>
+                                        <span class="slot-hour">09:30 AM</span>
+                                    </div>
+                                    <div class="slot-details-col">
+                                        <div class="slot-veh-title">2024 Porsche Taycan Turbo</div>
+                                        <div class="slot-meta-strip">
+                                            <span>VIN: WP0AC2Y15RSA9821</span>
+                                            <span>&bull;</span>
+                                            <span>Central HQ Bay 04</span>
+                                        </div>
+                                        <span class="slot-tier-pill">EV High-Voltage Telemetry</span>
+                                    </div>
+                                    <div class="slot-actions-col">
+                                        <span class="status-pill status-scheduled">CONFIRMED</span>
+                                        <button type="button" class="btn-slot-cancel" onclick="cancelSlot(this)">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- Slot Item 2 -->
+                                <div class="slot-card active-slot">
+                                    <div class="slot-time-col">
+                                        <span class="slot-day">OCT 02</span>
+                                        <span class="slot-hour">01:30 PM</span>
+                                    </div>
+                                    <div class="slot-details-col">
+                                        <div class="slot-veh-title">Ford Transit Commercial 3500</div>
+                                        <div class="slot-meta-strip">
+                                            <span>VIN: 1FTBR1Y80PKA9401</span>
+                                            <span>&bull;</span>
+                                            <span>Commercial Freight Bay</span>
+                                        </div>
+                                        <span class="slot-tier-pill">5-Gas Opacity Protocol</span>
+                                    </div>
+                                    <div class="slot-actions-col">
+                                        <span class="status-pill status-scheduled">CONFIRMED</span>
+                                        <button type="button" class="btn-slot-cancel" onclick="cancelSlot(this)">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- Slot Item 3 -->
+                                <div class="slot-card active-slot">
+                                    <div class="slot-time-col">
+                                        <span class="slot-day">OCT 08</span>
+                                        <span class="slot-hour">11:00 AM</span>
+                                    </div>
+                                    <div class="slot-details-col">
+                                        <div class="slot-veh-title">2023 Tesla Model S Plaid</div>
+                                        <div class="slot-meta-strip">
+                                            <span>VIN: 5YJSA1E28PF8120</span>
+                                            <span>&bull;</span>
+                                            <span>Metro EV Hub Suite A</span>
+                                        </div>
+                                        <span class="slot-tier-pill">Sub-Millimeter Chassis Dyno</span>
+                                    </div>
+                                    <div class="slot-actions-col">
+                                        <span class="status-pill status-scheduled">CONFIRMED</span>
+                                        <button type="button" class="btn-slot-cancel" onclick="cancelSlot(this)">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- Slot Item 4 -->
+                                <div class="slot-card active-slot">
+                                    <div class="slot-time-col">
+                                        <span class="slot-day">OCT 14</span>
+                                        <span class="slot-hour">02:00 PM</span>
+                                    </div>
+                                    <div class="slot-details-col">
+                                        <div class="slot-veh-title">2022 Rivian R1T Launch Edition</div>
+                                        <div class="slot-meta-strip">
+                                            <span>VIN: 7PDSGABA4NN0038</span>
+                                            <span>&bull;</span>
+                                            <span>High-Voltage Pack Bay</span>
+                                        </div>
+                                        <span class="slot-tier-pill">EV &amp; Hybrid Telemetry</span>
+                                    </div>
+                                    <div class="slot-actions-col">
+                                        <span class="status-pill status-scheduled">CONFIRMED</span>
+                                        <button type="button" class="btn-slot-cancel" onclick="cancelSlot(this)">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- Slot Item 5 -->
+                                <div class="slot-card active-slot">
+                                    <div class="slot-time-col">
+                                        <span class="slot-day">OCT 22</span>
+                                        <span class="slot-hour">10:30 AM</span>
+                                    </div>
+                                    <div class="slot-details-col">
+                                        <div class="slot-veh-title">2023 Lucid Air Grand Touring</div>
+                                        <div class="slot-meta-strip">
+                                            <span>VIN: 7SPSG2E13PA0129</span>
+                                            <span>&bull;</span>
+                                            <span>Central HQ Bay 03</span>
+                                        </div>
+                                        <span class="slot-tier-pill">Statutory Safety Protocol</span>
+                                    </div>
+                                    <div class="slot-actions-col">
+                                        <span class="status-pill status-scheduled">CONFIRMED</span>
+                                        <button type="button" class="btn-slot-cancel" onclick="cancelSlot(this)">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==============================================
+                     TAB 3: RESULTS & CERTIFICATES (DIGITAL PASSPORT)
+                     ============================================== -->
+                <section class="portal-tab-panel" id="tab-certificates">
+                    <div class="tab-header-banner">
+                        <div>
+                            <span class="banner-eyebrow">IMMUTABLE METROLOGY ARCHIVE</span>
+                            <h2 class="banner-title">Past Inspection Results &amp; Certificates</h2>
+                            <p class="banner-desc">Review certified emissions curves, chassis laser scores, and generate encrypted digital passports.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-card">
+                        <div class="filter-controls-row">
+                            <div class="filter-search-wrap">
+                                <input type="text" id="certSearchInput" class="dash-input filter-input" placeholder="Filter by VIN, model, or inspector..." onkeyup="filterCertificatesTable()">
+                            </div>
+                            <div class="filter-buttons-group">
+                                <button type="button" class="btn-filter-tag active" data-filter="all">All Certificates (12)</button>
+                                <button type="button" class="btn-filter-tag" data-filter="passed">Passed (11)</button>
+                                <button type="button" class="btn-filter-tag" data-filter="reinspect">Re-Inspection (1)</button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive table-scrollable custom-scrollbar">
+                            <table class="portal-table" id="certTable">
+                                <thead>
+                                    <tr>
+                                        <th>Vehicle &amp; VIN</th>
+                                        <th>Inspection Date</th>
+                                        <th>Officer / Hub</th>
+                                        <th>Emissions &amp; Metrics</th>
+                                        <th>Result</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-status="passed">
+                                        <td>
+                                            <div class="tbl-veh-title">2024 Porsche Taycan Turbo</div>
+                                            <span class="tbl-vin">WP0AC2Y15RSA9821</span>
+                                        </td>
+                                        <td>Sept 18, 2026</td>
+                                        <td>Dr. H. Sterling &bull; Metro EV</td>
+                                        <td>
+                                            <span class="metric-chip">HC: 4 ppm</span>
+                                            <span class="metric-chip">CO: 0.01%</span>
+                                            <span class="metric-chip">Pack: 99.4%</span>
+                                        </td>
+                                        <td><span class="status-pill status-pass">CERTIFIED</span></td>
+                                        <td>
+                                            <button type="button" class="btn-view-token" onclick="openCertModal('WP0AC2Y15RSA9821', '2024 Porsche Taycan Turbo', 'EV Battery & HV Isolation', 'ORV-2026-X9821')">View Passport</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="passed">
+                                        <td>
+                                            <div class="tbl-veh-title">2023 Tesla Model S Plaid</div>
+                                            <span class="tbl-vin">5YJSA1E28PF8120</span>
+                                        </td>
+                                        <td>Sept 12, 2026</td>
+                                        <td>Elena Vance &bull; Central HQ</td>
+                                        <td>
+                                            <span class="metric-chip">Laser: &plusmn;0.02mm</span>
+                                            <span class="metric-chip">Brakes: 98%</span>
+                                        </td>
+                                        <td><span class="status-pill status-pass">CERTIFIED</span></td>
+                                        <td>
+                                            <button type="button" class="btn-view-token" onclick="openCertModal('5YJSA1E28PF8120', '2023 Tesla Model S Plaid', '5-Gas Optical Spectrometry', 'ORV-2026-X8120')">View Passport</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="passed">
+                                        <td>
+                                            <div class="tbl-veh-title">2024 Mercedes EQS 450+</div>
+                                            <span class="tbl-vin">W1KCG2EB6PA0452</span>
+                                        </td>
+                                        <td>Aug 29, 2026</td>
+                                        <td>Marcus Vance &bull; Central HQ</td>
+                                        <td>
+                                            <span class="metric-chip">HC: 6 ppm</span>
+                                            <span class="metric-chip">CO: 0.02%</span>
+                                            <span class="metric-chip">NOx: 8 ppm</span>
+                                        </td>
+                                        <td><span class="status-pill status-pass">CERTIFIED</span></td>
+                                        <td>
+                                            <button type="button" class="btn-view-token" onclick="openCertModal('W1KCG2EB6PA0452', '2024 Mercedes EQS 450+', 'Statutory Safety & Combined', 'ORV-2026-X0452')">View Passport</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="passed">
+                                        <td>
+                                            <div class="tbl-veh-title">2023 Lucid Air Grand Touring</div>
+                                            <span class="tbl-vin">7SPSG2E13PA0129</span>
+                                        </td>
+                                        <td>Aug 14, 2026</td>
+                                        <td>David Thorne &bull; Central HQ</td>
+                                        <td>
+                                            <span class="metric-chip">Chassis: 100%</span>
+                                            <span class="metric-chip">Dyno: 512kW</span>
+                                        </td>
+                                        <td><span class="status-pill status-pass">CERTIFIED</span></td>
+                                        <td>
+                                            <button type="button" class="btn-view-token" onclick="openCertModal('7SPSG2E13PA0129', '2023 Lucid Air Grand Touring', 'High-Voltage Isolation', 'ORV-2026-X0129')">View Passport</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="reinspect">
+                                        <td>
+                                            <div class="tbl-veh-title">Ford Transit 3500 Commercial</div>
+                                            <span class="tbl-vin">1FTBR1Y80PKA9401</span>
+                                        </td>
+                                        <td>July 22, 2026</td>
+                                        <td>Marcus Vance &bull; West Corridor</td>
+                                        <td>
+                                            <span class="metric-chip metric-alert">NOx: 182 ppm (Elevated)</span>
+                                            <span class="metric-chip">Opacity: 14%</span>
+                                        </td>
+                                        <td><span class="status-pill status-reinspect">RE-INSPECT</span></td>
+                                        <td>
+                                            <button type="button" class="btn-view-token" onclick="prefillBooking('1FTBR1Y80PKA9401', 'Ford Transit 3500 Commercial', 'Re-Inspection Protocol')">Book Re-Test</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==============================================
+                     TAB 4: RENEWALS & REMINDERS
+                     ============================================== -->
+                <section class="portal-tab-panel" id="tab-reminders">
+                    <div class="tab-header-banner">
+                        <div>
+                            <span class="banner-eyebrow">AUTOMATED FLEET COMPLIANCE TIMELINE</span>
+                            <h2 class="banner-title">Renewal Due Dates &amp; Compliance Reminders</h2>
+                            <p class="banner-desc">Ensure zero operational downtime by dispatching vehicles before statutory permits and smog certificates expire.</p>
+                        </div>
+                    </div>
+
+                    <div class="portal-grid-3col">
+                        <!-- Card 1: Critical (6 Days) -->
+                        <div class="reminder-card reminder-card-critical">
+                            <div class="rc-header">
+                                <span class="rc-badge-critical">CRITICAL &bull; 6 DAYS</span>
+                                <span class="rc-date">Due: Oct 01, 2026</span>
+                            </div>
+                            <div class="rc-body">
+                                <h4 class="rc-veh-name">Ford Transit Commercial 3500</h4>
+                                <div class="rc-vin">VIN: 1FTBR1Y80PKA9401</div>
+                                <div class="rc-type-tag">CARB Regulated Heavy Smog Audit</div>
+                                <p class="rc-desc">Annual diesel opacity verification required to prevent municipal fleet registration lock.</p>
+                                <div class="rc-checkpoints-wrap">
+                                    <span class="rc-checkpoints-title">Required Audit Protocol Checkpoints:</span>
+                                    <div class="rc-checkpoints custom-scrollbar">
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Exhaust Opacity Spectrometry (ISO 11614)</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>NOx Catalytic Reduction Efficiency</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>DPF Differential Backpressure Sensor Check</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>CARB Heavy-Duty OBD-II Readiness Monitors</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>ECU Firmware Cryptographic Stamp</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rc-footer">
+                                <button type="button" class="btn-primary-hero btn-sm w-full" onclick="prefillBooking('1FTBR1Y80PKA9401', 'Ford Transit Commercial 3500', '5-Gas Optical Spectrometry')">
+                                    <span>Schedule Renewal Slot</span>
+                                    <span class="btn-arrow">&rarr;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Warning (18 Days) -->
+                        <div class="reminder-card reminder-card-warning">
+                            <div class="rc-header">
+                                <span class="rc-badge-warning">UPCOMING &bull; 18 DAYS</span>
+                                <span class="rc-date">Due: Oct 13, 2026</span>
+                            </div>
+                            <div class="rc-body">
+                                <h4 class="rc-veh-name">2022 Rivian R1T Launch Edition</h4>
+                                <div class="rc-vin">VIN: 7PDSGABA4NN0038</div>
+                                <div class="rc-type-tag">1000V DC Galvanic Isolation Check</div>
+                                <p class="rc-desc">Annual high-voltage telemetry recertification for corporate commercial transport.</p>
+                                <div class="rc-checkpoints-wrap">
+                                    <span class="rc-checkpoints-title">Required Audit Protocol Checkpoints:</span>
+                                    <div class="rc-checkpoints custom-scrollbar">
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>1000V DC Galvanic Isolation Resistance</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>HV Battery Pack Cell Delta Variance (&lt;8mV)</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Dual Motor Inverter Phase Admittance</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Regenerative Deceleration Torque Mapping</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>CCS2 Pyro-Fuse Thermal Continuity</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rc-footer">
+                                <button type="button" class="btn-outline-sm w-full" onclick="prefillBooking('7PDSGABA4NN0038', '2022 Rivian R1T Launch Edition', 'EV & Hybrid Telemetry')">Schedule Renewal</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Compliant Safe (45 Days) -->
+                        <div class="reminder-card reminder-card-safe">
+                            <div class="rc-header">
+                                <span class="rc-badge-safe">COMPLIANT &bull; 45 DAYS</span>
+                                <span class="rc-date">Due: Nov 09, 2026</span>
+                            </div>
+                            <div class="rc-body">
+                                <h4 class="rc-veh-name">2023 Lucid Air Grand Touring</h4>
+                                <div class="rc-vin">VIN: 7SPSG2E13PA0129</div>
+                                <div class="rc-type-tag">Statutory Roadworthiness Test</div>
+                                <p class="rc-desc">Brake balance, sub-millimeter chassis alignment, and tire adhesion verification.</p>
+                                <div class="rc-checkpoints-wrap">
+                                    <span class="rc-checkpoints-title">Required Audit Protocol Checkpoints:</span>
+                                    <div class="rc-checkpoints custom-scrollbar">
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Sub-Millimeter 3D Laser Chassis Geometry</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Dynamic Roller Dyno Brake Force Imbalance (&lt;4%)</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Steering Knuckle &amp; Suspension Play Tolerance</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Tire Surface Adhesion &amp; Tread Metrology</span></div>
+                                        <div class="rc-check-item"><span class="check-icon">&#10003;</span><span>Camera &amp; LiDAR Calibrated Bore-Sight</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rc-footer">
+                                <button type="button" class="btn-outline-sm w-full" onclick="prefillBooking('7SPSG2E13PA0129', '2023 Lucid Air Grand Touring', 'Safety Inspection')">Pre-Book Bay</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reminder Preferences Strip -->
+                    <div class="panel-card mt-6">
+                        <div class="panel-card-header">
+                            <div>
+                                <h3 class="pch-card-title">Automated Dispatch Notification Channels</h3>
+                                <p class="pch-card-desc">Configure automated alerts dispatched before statutory inspection due dates</p>
+                            </div>
+                        </div>
+                        <div class="reminder-settings-grid">
+                            <label class="setting-toggle-card">
+                                <input type="checkbox" checked>
+                                <span class="stc-content">
+                                    <span class="stc-title">Email Dispatch Alerts (30d, 15d, 7d)</span>
+                                    <span class="stc-sub">Sent to j.sterling@sterlingfleet.com &amp; dispatch team</span>
+                                </span>
+                            </label>
+                            <label class="setting-toggle-card">
+                                <input type="checkbox" checked>
+                                <span class="stc-content">
+                                    <span class="stc-title">SMS Urgent Priority Pings</span>
+                                    <span class="stc-sub">Dispatched 72 hours before certification lapse</span>
+                                </span>
+                            </label>
+                            <label class="setting-toggle-card">
+                                <input type="checkbox">
+                                <span class="stc-content">
+                                    <span class="stc-title">Fleet Telemetry Webhook API</span>
+                                    <span class="stc-sub">POST payload to Sterling ERP compliance endpoints</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming 90-Day Renewal Schedule & Audit Queue Card -->
+                    <div class="panel-card mt-6">
+                        <div class="panel-card-header">
+                            <div>
+                                <h3 class="pch-card-title">90-Day Fleet Regulatory Renewal Queue</h3>
+                                <p class="pch-card-desc">Comprehensive compliance dispatch timeline, certificate deadlines, and lane bookings</p>
+                            </div>
+                            <span class="badge-record-count">7 Vehicles Tracked</span>
+                        </div>
+                        <div class="table-responsive table-scrollable custom-scrollbar">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Vehicle &amp; Fleet Unit</th>
+                                        <th>VIN Identifier</th>
+                                        <th>Statutory Audit Category</th>
+                                        <th>Cert Expiry</th>
+                                        <th>Days Left</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">Ford Transit Commercial 3500</div>
+                                            <span class="tbl-vin">Fleet Van #104</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">1FTBR1Y80PKA9401</span></td>
+                                        <td>CARB Opacity &amp; 5-Gas</td>
+                                        <td>Oct 01, 2026</td>
+                                        <td><span class="status-pill status-reinspect">6 Days</span></td>
+                                        <td><span class="status-pill status-reinspect">CRITICAL</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('1FTBR1Y80PKA9401', 'Ford Transit Commercial 3500', '5-Gas Optical Spectrometry')">Book Slot</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">2022 Rivian R1T Launch Edition</div>
+                                            <span class="tbl-vin">Fleet Truck #082</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">7PDSGABA4NN0038</span></td>
+                                        <td>1000V DC Galvanic Isolation</td>
+                                        <td>Oct 13, 2026</td>
+                                        <td><span class="status-pill status-scheduled">18 Days</span></td>
+                                        <td><span class="status-pill status-scheduled">UPCOMING</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('7PDSGABA4NN0038', '2022 Rivian R1T Launch Edition', 'EV & Hybrid Telemetry')">Book Slot</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">2023 Lucid Air Grand Touring</div>
+                                            <span class="tbl-vin">Executive Sedan #012</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">7SPSG2E13PA0129</span></td>
+                                        <td>Statutory Roadworthiness</td>
+                                        <td>Nov 09, 2026</td>
+                                        <td><span class="status-pill status-pass">45 Days</span></td>
+                                        <td><span class="status-pill status-pass">COMPLIANT</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('7SPSG2E13PA0129', '2023 Lucid Air Grand Touring', 'Safety Inspection')">Pre-Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">Mercedes Sprinter 2500 High-Roof</div>
+                                            <span class="tbl-vin">Fleet Van #118</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">WD3PF0CD8RP2189</span></td>
+                                        <td>Annual Brake Adhesion Dyno</td>
+                                        <td>Nov 16, 2026</td>
+                                        <td><span class="status-pill status-pass">52 Days</span></td>
+                                        <td><span class="status-pill status-pass">COMPLIANT</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('WD3PF0CD8RP2189', 'Mercedes Sprinter 2500', 'Safety Inspection')">Pre-Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">2024 Tesla Model S Plaid</div>
+                                            <span class="tbl-vin">VIP Transport #005</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">5YJSA1E28PF8120</span></td>
+                                        <td>High-Voltage Telemetry &amp; Dyno</td>
+                                        <td>Nov 28, 2026</td>
+                                        <td><span class="status-pill status-pass">64 Days</span></td>
+                                        <td><span class="status-pill status-pass">COMPLIANT</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('5YJSA1E28PF8120', '2024 Tesla Model S Plaid', 'EV & Hybrid Telemetry')">Pre-Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">Freightliner eCascadia Semi Unit 12</div>
+                                            <span class="tbl-vin">Heavy Hauler #012</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">1FUJBBCK4RP4012</span></td>
+                                        <td>Heavy Duty Brake &amp; Steering</td>
+                                        <td>Dec 12, 2026</td>
+                                        <td><span class="status-pill status-pass">78 Days</span></td>
+                                        <td><span class="status-pill status-pass">COMPLIANT</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('1FUJBBCK4RP4012', 'Freightliner eCascadia', 'Heavy Commercial Dyno')">Pre-Book</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tbl-veh-title">2024 Porsche Macan EV Turbo</div>
+                                            <span class="tbl-vin">Executive Fleet #029</span>
+                                        </td>
+                                        <td><span class="tbl-vin font-mono">WP1AC2A52RL8931</span></td>
+                                        <td>800V Architecture Telemetry</td>
+                                        <td>Dec 24, 2026</td>
+                                        <td><span class="status-pill status-pass">90 Days</span></td>
+                                        <td><span class="status-pill status-pass">COMPLIANT</span></td>
+                                        <td><button type="button" class="btn-renew-pill" onclick="prefillBooking('WP1AC2A52RL8931', '2024 Porsche Macan EV Turbo', 'EV & Hybrid Telemetry')">Pre-Book</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==============================================
+                     TAB 5: COMPLIANCE DOCUMENTS
+                     ============================================== -->
+                <section class="portal-tab-panel" id="tab-documents">
+                    <div class="tab-header-banner">
+                        <div>
+                            <span class="banner-eyebrow">OFFICIAL DIGITAL REGULATORY ARCHIVE</span>
+                            <h2 class="banner-title">Digital Compliance Documents</h2>
+                            <p class="banner-desc">Download cryptographically signed certificates, Horiba chromatogram printouts, and ISO 17020 laboratory records.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-card">
+                        <div class="table-responsive docs-table-wrapper">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Document Title</th>
+                                        <th>Associated Vehicle</th>
+                                        <th>Standard / Node</th>
+                                        <th>Issuance Date</th>
+                                        <th>File Size</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="doc-title-row">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="doc-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+                                                <span class="doc-name">ISO-17020-Inspection-Passport-9821.pdf</span>
+                                            </div>
+                                        </td>
+                                        <td>Porsche Taycan (WP0AC2Y15RSA9821)</td>
+                                        <td>ISO/IEC 17020:2012</td>
+                                        <td>Sept 18, 2026</td>
+                                        <td>2.4 MB</td>
+                                        <td><button type="button" class="btn-download-doc" onclick="simulateDownload('ISO-17020-Inspection-Passport-9821.pdf')">Download PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="doc-title-row">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="doc-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+                                                <span class="doc-name">5-Gas-Optical-Chromatogram-8120.pdf</span>
+                                            </div>
+                                        </td>
+                                        <td>Tesla Model S (5YJSA1E28PF8120)</td>
+                                        <td>CARB Low-Emission IV</td>
+                                        <td>Sept 12, 2026</td>
+                                        <td>4.1 MB</td>
+                                        <td><button type="button" class="btn-download-doc" onclick="simulateDownload('5-Gas-Optical-Chromatogram-8120.pdf')">Download PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="doc-title-row">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="doc-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+                                                <span class="doc-name">Chassis-Laser-Metrology-Report-0452.pdf</span>
+                                            </div>
+                                        </td>
+                                        <td>Mercedes EQS 450+ (W1KCG2EB6PA0452)</td>
+                                        <td>Sub-Millimeter 3D Rig</td>
+                                        <td>Aug 29, 2026</td>
+                                        <td>3.8 MB</td>
+                                        <td><button type="button" class="btn-download-doc" onclick="simulateDownload('Chassis-Laser-Metrology-Report-0452.pdf')">Download PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="doc-title-row">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="doc-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+                                                <span class="doc-name">Galvanic-HighVoltage-Isolation-0129.pdf</span>
+                                            </div>
+                                        </td>
+                                        <td>Lucid Air Touring (7SPSG2E13PA0129)</td>
+                                        <td>1000V DC Telemetry</td>
+                                        <td>Aug 14, 2026</td>
+                                        <td>1.9 MB</td>
+                                        <td><button type="button" class="btn-download-doc" onclick="simulateDownload('Galvanic-HighVoltage-Isolation-0129.pdf')">Download PDF</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==============================================
+                     TAB 6: PAYMENT & BILLING HISTORY
+                     ============================================== -->
+                <section class="portal-tab-panel" id="tab-payments">
+                    <div class="tab-header-banner">
+                        <div>
+                            <span class="banner-eyebrow">FINANCIAL TELEMETRY &amp; TAX COMPLIANCE</span>
+                            <h2 class="banner-title">Payment &amp; Billing History</h2>
+                            <p class="banner-desc">Access automated corporate receipts, track credit line balances, and download monthly statements.</p>
+                        </div>
+                    </div>
+
+                    <!-- Payment Overview Cards -->
+                    <div class="portal-grid-3col">
+                        <div class="panel-card payment-stat-card">
+                            <span class="psc-label">LIFETIME INSPECTION SPEND</span>
+                            <div class="psc-val">$248,600.00</div>
+                            <span class="psc-sub">Account active since March 2024</span>
+                        </div>
+                        <div class="panel-card payment-stat-card">
+                            <span class="psc-label">CURRENT CYCLE OUTSTANDING</span>
+                            <div class="psc-val">$0.00</div>
+                            <span class="psc-sub status-pass">Paid in full (Auto-debit active)</span>
+                        </div>
+                        <div class="panel-card payment-stat-card">
+                            <span class="psc-label">PRIMARY PAYMENT METHOD</span>
+                            <div class="psc-val">Amex Corp &bull; 9104</div>
+                            <span class="psc-sub">Expires 09/2028</span>
+                        </div>
+                    </div>
+
+                    <!-- Invoices Table -->
+                    <div class="panel-card mt-6">
+                        <h3 class="form-section-title">Verified Invoices &amp; Receipts</h3>
+                        <div class="table-responsive table-scrollable custom-scrollbar">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice ID</th>
+                                        <th>Service Rendered</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Payment Method</th>
+                                        <th>Status</th>
+                                        <th>Receipt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="tbl-vin">#INV-2026-0941</span></td>
+                                        <td>Combined Protocol &bull; Porsche Taycan</td>
+                                        <td>Sept 18, 2026</td>
+                                        <td>$320.00</td>
+                                        <td>Corporate Amex (*9104)</td>
+                                        <td><span class="status-pill status-pass">PAID</span></td>
+                                        <td><button type="button" class="btn-outline-sm" onclick="simulateDownload('Receipt-INV-2026-0941.pdf')">PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="tbl-vin">#INV-2026-0912</span></td>
+                                        <td>5-Gas Spectrometry &bull; Tesla Model S</td>
+                                        <td>Sept 12, 2026</td>
+                                        <td>$180.00</td>
+                                        <td>Corporate Amex (*9104)</td>
+                                        <td><span class="status-pill status-pass">PAID</span></td>
+                                        <td><button type="button" class="btn-outline-sm" onclick="simulateDownload('Receipt-INV-2026-0912.pdf')">PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="tbl-vin">#INV-2026-0884</span></td>
+                                        <td>Safety &amp; Laser Alignment &bull; Mercedes EQS</td>
+                                        <td>Aug 29, 2026</td>
+                                        <td>$280.00</td>
+                                        <td>Corporate Amex (*9104)</td>
+                                        <td><span class="status-pill status-pass">PAID</span></td>
+                                        <td><button type="button" class="btn-outline-sm" onclick="simulateDownload('Receipt-INV-2026-0884.pdf')">PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="tbl-vin">#INV-2026-0850</span></td>
+                                        <td>High-Voltage Telemetry &bull; Lucid Air</td>
+                                        <td>Aug 14, 2026</td>
+                                        <td>$240.00</td>
+                                        <td>Corporate Amex (*9104)</td>
+                                        <td><span class="status-pill status-pass">PAID</span></td>
+                                        <td><button type="button" class="btn-outline-sm" onclick="simulateDownload('Receipt-INV-2026-0850.pdf')">PDF</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==============================================
+                     TAB 7: SETTINGS & PREFERENCES
+                     ============================================== -->
+                <section class="portal-tab-panel" id="tab-settings">
+                    <div class="tab-header-banner">
+                        <div>
+                            <span class="banner-eyebrow">ENTERPRISE CLIENT CONFIGURATION</span>
+                            <h2 class="banner-title">Settings &amp; Security Preferences</h2>
+                            <p class="banner-desc">Manage fleet profile, cryptographic hardware keys, team access roles, and automated reminders.</p>
+                        </div>
+                    </div>
+
+                    <div class="portal-grid-2col">
+                        <!-- Profile Details -->
+                        <div class="panel-card">
+                            <h3 class="form-section-title">Organization &amp; Dispatch Contact</h3>
+                            <form onsubmit="handleSettingsSave(event)">
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label class="dash-label">Director Full Name</label>
+                                        <input type="text" class="dash-input" value="Jonathan Sterling" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dash-label">Company / Fleet Entity</label>
+                                        <input type="text" class="dash-input" value="Sterling Mobility &amp; Logistics LLC" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row-2">
+                                    <div class="form-group">
+                                        <label class="dash-label">Official Work Email</label>
+                                        <input type="email" class="dash-input" value="j.sterling@sterlingfleet.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="dash-label">Direct Dispatch Phone</label>
+                                        <input type="tel" class="dash-input" value="+1 (415) 880-9214" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="dash-label">Fleet Billing Address</label>
+                                    <input type="text" class="dash-input" value="4800 Silicon Parkway, Building C, San Jose, CA 95134">
+                                </div>
+
+                                <button type="submit" class="btn-primary-hero btn-dash-submit">Save Organization Profile</button>
+                            </form>
+                        </div>
+
+                        <!-- Security & Authentication -->
+                        <div class="panel-card">
+                            <h3 class="form-section-title">Security &amp; API Cryptographic Tokens</h3>
+                            <div class="security-item-card">
+                                <div class="sic-info">
+                                    <span class="sic-title">Two-Factor Authentication (2FA)</span>
+                                    <span class="sic-sub">Hardware FIDO2 Security Key enabled</span>
+                                </div>
+                                <span class="status-pill status-pass">ENABLED</span>
+                            </div>
+
+                            <div class="security-item-card">
+                                <div class="sic-info">
+                                    <span class="sic-title">ORVEXA Telemetry API Key</span>
+                                    <span class="sic-sub font-mono">orv_live_9f88a2e19d084c7b8e192</span>
+                                </div>
+                                <button type="button" class="btn-outline-sm" onclick="copyApiKey()">Copy Key</button>
+                            </div>
+
+                            <div class="security-item-card">
+                                <div class="sic-info">
+                                    <span class="sic-title">Auto-Renew Passports</span>
+                                    <span class="sic-sub">Auto-book recurring statutory compliance slots</span>
+                                </div>
+                                <input type="checkbox" checked class="dash-checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         DIGITAL CERTIFICATE PASSPORT MODAL (FULL QR & METRICS)
+         ================================================== -->
+    <div class="modal-backdrop" id="certModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container cert-modal-container">
+            <div class="cert-modal-header">
+                <div>
+                    <span class="modal-eyebrow">STATUTORY METROLOGY PASSPORT</span>
+                    <h3 class="modal-title" id="certModalTitle">Digital Compliance Certificate</h3>
+                </div>
+                <button type="button" class="modal-close" onclick="closeCertModal()">&times;</button>
+            </div>
+
+            <div class="cert-modal-body">
+                <div class="cert-passport-card">
+                    <div class="cpc-header-row">
+                        <div class="cpc-brand">
+                            <span class="cpc-brand-name">ORVEXA METROLOGY</span>
+                            <span class="cpc-brand-sub">ISO/IEC 17020 ACCREDITED LABORATORY</span>
+                        </div>
+                        <div class="cpc-badge-passed">OFFICIALLY PASSED</div>
+                    </div>
+
+                    <div class="cpc-grid-info">
+                        <div class="cpc-field">
+                            <span class="cpc-label">Vehicle Identity</span>
+                            <span class="cpc-val" id="cmVehicle">2024 Porsche Taycan Turbo</span>
+                        </div>
+                        <div class="cpc-field">
+                            <span class="cpc-label">17-Digit VIN</span>
+                            <span class="cpc-val font-mono" id="cmVin">WP0AC2Y15RSA9821</span>
+                        </div>
+                        <div class="cpc-field">
+                            <span class="cpc-label">Inspection Protocol</span>
+                            <span class="cpc-val" id="cmProtocol">EV High-Voltage Telemetry</span>
+                        </div>
+                        <div class="cpc-field">
+                            <span class="cpc-label">Certificate Token ID</span>
+                            <span class="cpc-val font-mono" id="cmToken">ORV-2026-X9821</span>
+                        </div>
+                    </div>
+
+                    <!-- Telemetry Metrics Strip -->
+                    <div class="cpc-metrics-block">
+                        <div class="cpc-metric-col">
+                            <span class="cm-name">Hydrocarbons (HC)</span>
+                            <span class="cm-val">4 ppm <span class="cm-stat-ok">&bull; PASSED</span></span>
+                        </div>
+                        <div class="cpc-metric-col">
+                            <span class="cm-name">Carbon Monoxide (CO)</span>
+                            <span class="cm-val">0.01% <span class="cm-stat-ok">&bull; PASSED</span></span>
+                        </div>
+                        <div class="cpc-metric-col">
+                            <span class="cm-name">Brake Force Balance</span>
+                            <span class="cm-val">99.2% <span class="cm-stat-ok">&bull; PASSED</span></span>
+                        </div>
+                        <div class="cpc-metric-col">
+                            <span class="cm-name">Chassis Alignment</span>
+                            <span class="cm-val">&plusmn;0.02 mm <span class="cm-stat-ok">&bull; PASSED</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Cryptographic Hash & Simulated QR Bar -->
+                    <div class="cpc-crypto-bar">
+                        <div class="cpc-qr-box">
+                            <svg viewBox="0 0 100 100" class="qr-svg">
+                                <rect width="100" height="100" fill="#FFFFFF" />
+                                <rect x="10" y="10" width="25" height="25" fill="#000000" />
+                                <rect x="15" y="15" width="15" height="15" fill="#FFFFFF" />
+                                <rect x="18" y="18" width="9" height="9" fill="#000000" />
+                                <rect x="65" y="10" width="25" height="25" fill="#000000" />
+                                <rect x="70" y="15" width="15" height="15" fill="#FFFFFF" />
+                                <rect x="73" y="18" width="9" height="9" fill="#000000" />
+                                <rect x="10" y="65" width="25" height="25" fill="#000000" />
+                                <rect x="15" y="70" width="15" height="15" fill="#FFFFFF" />
+                                <rect x="18" y="73" width="9" height="9" fill="#000000" />
+                                <rect x="42" y="12" width="6" height="6" fill="#000000" />
+                                <rect x="52" y="18" width="6" height="6" fill="#000000" />
+                                <rect x="42" y="32" width="6" height="6" fill="#000000" />
+                                <rect x="12" y="45" width="6" height="6" fill="#000000" />
+                                <rect x="25" y="48" width="6" height="6" fill="#000000" />
+                                <rect x="45" y="45" width="10" height="10" fill="#000000" />
+                                <rect x="65" y="45" width="6" height="6" fill="#000000" />
+                                <rect x="78" y="52" width="6" height="6" fill="#000000" />
+                                <rect x="45" y="65" width="8" height="8" fill="#000000" />
+                                <rect x="65" y="68" width="12" height="6" fill="#000000" />
+                                <rect x="80" y="75" width="8" height="8" fill="#000000" />
+                                <rect x="45" y="82" width="6" height="6" fill="#000000" />
+                                <rect x="60" y="85" width="8" height="8" fill="#000000" />
+                            </svg>
+                        </div>
+                        <div class="cpc-hash-info">
+                            <span class="chi-label">CRYPTOGRAPHIC SHA-256 SIGNATURE</span>
+                            <div class="chi-hash font-mono">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</div>
+                            <span class="chi-sub">Verified by ORVEXA Metrology Autonomous Validation Node #08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-modal-footer">
+                <button type="button" class="btn-outline-sm" onclick="window.print()">Print Official Certificate</button>
+                <button type="button" class="btn-primary-hero btn-sm" onclick="closeCertModal()">Dismiss Record</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         LOGOUT CONFIRMATION MODAL
+         ================================================== -->
+    <div class="modal-backdrop" id="logoutModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container logout-modal-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">PORTAL SESSION TERMINATION</span>
+                    <h3 class="modal-title">Sign Out of Client Console?</h3>
+                </div>
+                <button type="button" class="modal-close" onclick="closeLogoutModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to end your active telemetry session? All currently booked slots and verified digital certificates remain securely saved.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-outline-sm" onclick="closeLogoutModal()">Cancel</button>
+                <a href="index.html" class="btn-primary-hero btn-sm" style="background:#C62828; border-color:#C62828;">Log Out &amp; Return Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

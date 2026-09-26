@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEXA | Service Detail</title>
+    <meta name="description"
+        content="Detailed information, pricing, and booking for ORVEXA vehicle inspection services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="service-detail.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body>
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+                <div class="brand-text-block">
+                    <span class="brand-name">ORVEXA</span>
+                    <span class="brand-subline">INSPECTION &amp; TESTING</span>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item has-dropdown">
+                        <a href="index.html" class="nav-link">
+                            <span>Home</span>
+                            <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="index.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 1</span>
+                                <span class="dropdown-desc">Daylight &amp; Night Luxury Center</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 2</span>
+                                <span class="dropdown-desc">High-Tech Diagnostic Laboratory</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="service.html" class="nav-link active">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="journal.html" class="nav-link">Journals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon-sun" title="Light Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                    </span>
+                    <span class="theme-icon-moon" title="Dark Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="header-rtl-btn" id="rtlToggle">
+                    <span id="rtlBtnText">RTL</span>
+                </button>
+                <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
+                <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn" onclick="openBookingModal()">
+                    <span>Book Now</span>
+                    <span class="btn-arrow">&#x2192;</span>
+                </button>
+                <button type="button" class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="drawer-brand-block">
+                <span class="drawer-brand">ORVEXA</span>
+                <span class="drawer-tagline">INSPECTION &amp; TESTING</span>
+            </div>
+            <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="drawer-links">
+            <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
+            <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
+            <li><a href="about.html" class="drawer-link"><span>About Us</span></a></li>
+            <li><a href="service.html" class="drawer-link active"><span>Services</span></a></li>
+            <li><a href="journal.html" class="drawer-link"><span>Journals</span></a></li>
+            <li><a href="contact.html" class="drawer-link"><span>Contact</span></a></li>
+            <li><a href="dashboard.html" class="drawer-link"><span>Dashboard</span></a></li>
+        </ul>
+
+        <div class="drawer-actions">
+            <a href="login.html" class="drawer-btn-login">Login</a>
+            <button type="button" class="btn-primary-hero btn-sm w-full" id="drawerBookBtn" onclick="openBookingModal()">Book Now &rarr;</button>
+        </div>
+    </div>
+    <main>
+        <section class="sd-hero" id="sdHeroSection">
+            <div class="svc-container">
+                <div class="sd-hero-grid">
+                    <div class="sd-hero-content">
+                        <div class="sd-hero-breadcrumb">
+                            <a href="service.html" id="sdBackLink" class="sd-breadcrumb-link">
+                                <span class="sd-breadcrumb-arrow">&#x2190;</span>
+                                <span>ALL SERVICES</span>
+                            </a>
+                        </div>
+                        <div class="sd-hero-eyebrow-wrap">
+                            <span class="svc-eyebrow-line"></span>
+                            <span class="svc-eyebrow-text" id="sdHeroEyebrow">SERVICE</span>
+                        </div>
+                        <h1 class="sd-hero-title">
+                            <span id="sdHeroTitle">Service</span>
+                            <em id="sdHeroTitleItalic">Name.</em>
+                        </h1>
+                        <p class="sd-hero-tagline" id="sdHeroTagline">Service tagline</p>
+                        <div class="sd-hero-meta">
+                            <div class="sd-meta-card">
+                                <span class="sd-meta-label">STARTING FROM</span>
+                                <div class="sd-meta-val-row">
+                                    <span class="sd-meta-val" id="sdHeroPrice">$185</span>
+                                    <span class="sd-meta-note" id="sdHeroPriceNote">per vehicle</span>
+                                </div>
+                            </div>
+                            <div class="sd-meta-card">
+                                <span class="sd-meta-label">BAY DWELL TIME</span>
+                                <span class="sd-meta-val" id="sdHeroDuration">15&ndash;20 min</span>
+                            </div>
+                            <div class="sd-meta-card">
+                                <span class="sd-meta-label">ACCREDITATION</span>
+                                <span class="sd-meta-val sd-meta-badge" id="sdHeroBadge">ISO 17020</span>
+                            </div>
+                        </div>
+                        <div class="sd-hero-cta">
+                            <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                <span>Book This Service</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                            <a href="service.html" class="btn-secondary-hero">
+                                <span>Browse All Services</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sd-hero-showcase">
+                        <div class="sd-hero-card">
+                            <span class="sd-card-corner top-left"></span>
+                            <span class="sd-card-corner top-right"></span>
+                            <span class="sd-card-corner bottom-left"></span>
+                            <span class="sd-card-corner bottom-right"></span>
+                            <div class="sd-card-viewport">
+                                <img id="sdHeroImg" src="" alt="" loading="eager">
+                                <div class="sd-card-overlay"></div>
+                            </div>
+                            <div class="sd-card-tag">
+                                <span class="sd-tag-dot"></span>
+                                <span class="sd-tag-text" id="sdCardTagText">ISO 17020 // BAY ACTIVE</span>
+                            </div>
+                            <div class="sd-card-footer-badge">
+                                <div class="sd-badge-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        <polyline points="9 12 11 14 15 10"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="sd-badge-info">
+                                    <span class="sd-badge-title">OFFICIAL PROTOCOL</span>
+                                    <span class="sd-badge-desc">Digital Hash &amp; Authority Validated</span>
+                                </div>
+                            </div>
+                            <div class="sd-card-accent-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 1. ENHANCED OVERVIEW SECTION -->
+        <section class="sd-overview-section">
+            <div class="svc-container">
+                <div class="sd-overview-grid">
+                    <div class="sd-overview-left">
+                        <div class="svc-eyebrow-wrap">
+                            <span class="svc-eyebrow-line"></span>
+                            <span class="svc-eyebrow-text">SERVICE OVERVIEW</span>
+                        </div>
+                        <h2 class="svc-section-title" id="sdOverviewTitle" style="text-align:left;">Service Name</h2>
+                        <p class="sd-overview-text" id="sdOverviewText">Loading...</p>
+                        
+                        <!-- Technical Specs Matrix -->
+                        <div class="sd-specs-matrix" id="sdSpecsMatrix">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+
+                        <div class="sd-overview-actions">
+                            <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                <span>Book This Protocol</span>
+                                <span class="btn-arrow">&#x2192;</span>
+                            </button>
+                            <a href="#sdProcessSection" class="sd-scroll-link">
+                                <span>View 4-Step Process</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 13l5 5 5-5M12 4v14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sd-overview-right">
+                        <div class="sd-highlights-card">
+                            <div class="sd-highlights-badge">
+                                <span class="sd-h-dot"></span>
+                                <span>UKAS TRACEABLE // AUDITED</span>
+                            </div>
+                            <div class="sd-highlights-head">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>Scope of Verification</span>
+                            </div>
+                            <p class="sd-highlights-sub">Mandatory compliance checkpoints audited during bay session:</p>
+                            <ul class="sd-highlights-list" id="sdHighlights">
+                                <li>
+                                    <span>Loading...</span>
+                                </li>
+                            </ul>
+                            <div class="sd-highlights-footer">
+                                <div class="sd-hf-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="sd-hf-text">
+                                    <strong>Statutory Pass Guarantee</strong>
+                                    <span>Full re-test free if advisory items rectified within 30 days.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. NEW: 4-STEP TECHNICAL BAY WORKFLOW PROTOCOL -->
+        <section class="sd-process-section" id="sdProcessSection">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">INSPECTION WORKFLOW</span>
+                    </div>
+                    <h2 class="svc-section-title">Execution Sequence</h2>
+                    <p class="svc-section-desc">From initial optical scanning to statutory cloud sync &mdash; our calibrated 4-stage protocol ensures zero margin for error.</p>
+                </div>
+                <div class="sd-process-grid" id="sdProcessGrid">
+                    <!-- Populated dynamically via JS per service -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. NEW: CERTIFIED DELIVERABLES & DOSSIER -->
+        <section class="sd-deliverables-section">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">CERTIFICATION PACKAGE</span>
+                    </div>
+                    <h2 class="svc-section-title">Official Deliverables</h2>
+                    <p class="svc-section-desc">Upon bay exit, you receive physical and cryptographically secured records recognized by all regional transport authorities.</p>
+                </div>
+                <div class="sd-deliverables-grid" id="sdDeliverablesGrid">
+                    <!-- Populated dynamically via JS per service -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. UPGRADED: WHY CHOOSE THIS SERVICE -->
+        <section class="sd-why-section">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">THE ORVEXA ADVANTAGE</span>
+                    </div>
+                    <h2 class="svc-section-title">Precision Standards</h2>
+                    <p class="svc-section-desc">Why premium fleets and discerning owners trust ORVEXA verification over standard testing lanes.</p>
+                </div>
+                <div class="sd-why-grid" id="sdWhyGrid"></div>
+            </div>
+        </section>
+
+        <!-- 5. UPGRADED: TRANSPARENT PRICING -->
+        <section class="sd-pricing-section">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">TRANSPARENT SCHEDULE</span>
+                    </div>
+                    <h2 class="svc-section-title">Service Pricing &amp; Bundles</h2>
+                    <p class="svc-section-desc">Guaranteed upfront rates. Every tier includes calibration fees, bay dwell time, and encrypted digital certificate upload.</p>
+                </div>
+                <div class="sd-pricing-grid" id="sdPricingGrid"></div>
+            </div>
+        </section>
+
+        <!-- 6. UPGRADED: FREQUENTLY ASKED QUESTIONS -->
+        <section class="svc-faq-section">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">COMMON INQUIRIES</span>
+                    </div>
+                    <h2 class="svc-section-title">Protocol Questions</h2>
+                    <p class="svc-section-desc">Detailed answers regarding test criteria, preparation recommendations, and regulatory recognition.</p>
+                </div>
+                <div class="sd-faq-inner">
+                    <div class="faq-list" id="sdFaqList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. UPGRADED: OTHER SERVICES -->
+        <section class="sd-other-section">
+            <div class="svc-container">
+                <div class="svc-section-head">
+                    <div class="svc-eyebrow-wrap">
+                        <span class="svc-eyebrow-line"></span>
+                        <span class="svc-eyebrow-text">EXPLORE THE SUITE</span>
+                    </div>
+                    <h2 class="svc-section-title">Complementary Protocols</h2>
+                    <p class="svc-section-desc">Explore other ISO/IEC 17020 certified inspection disciplines offered at our centres.</p>
+                </div>
+                <div class="sd-other-services" id="sdOtherServices"></div>
+            </div>
+        </section>
+
+        <!-- 8. PERFECTLY STYLED LUXURY CTA CARD (Matching service.css) -->
+        <section class="svc-cta-section" id="svcCTA">
+            <div class="svc-container">
+                <div class="svc-cta-card">
+                    <div class="cta-scan-lines"></div>
+                    <span class="cta-bracket cta-bracket-tl"></span>
+                    <span class="cta-bracket cta-bracket-tr"></span>
+                    <span class="cta-bracket cta-bracket-bl"></span>
+                    <span class="cta-bracket cta-bracket-br"></span>
+                    <div class="svc-cta-content">
+                        <div class="svc-cta-left">
+                            <div class="cta-live-pill">
+                                <span class="cta-live-dot"></span>
+                                <span class="cta-live-text">DIRECT BAY ACCESS &bull; LANES CLEAR</span>
+                            </div>
+                            <h2 class="svc-cta-title">
+                                Schedule This
+                                <span class="italic-serif highlight-gold">Service Today</span>
+                            </h2>
+                            <p class="svc-cta-desc">Walk in or reserve your bay online. Complete precision verification and depart with an encrypted digital compliance certificate in under 20 minutes.</p>
+                            <div class="svc-cta-specs">
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
+                                    ISO/IEC 17020
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    15&ndash;20 Min Turnaround
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    Digital Pass
+                                </span>
+                            </div>
+                            <div class="svc-cta-btns">
+                                <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                    <span>Book Appointment</span>
+                                    <span class="btn-arrow">&#x2192;</span>
+                                </button>
+                                <a href="service.html" class="btn-secondary-hero">Browse All Services</a>
+                            </div>
+                        </div>
+                        <div class="svc-cta-seal-wrap">
+                            <div class="cta-seal">
+                                <div class="seal-dash-ring"></div>
+                                <div class="seal-gold-orbit"></div>
+                                <div class="seal-core">
+                                    <div class="seal-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                            <path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="seal-brand">ORVEXA</span>
+                                    <span class="seal-meta">VERIFIED BAY</span>
+                                </div>
+                            </div>
+                            <div class="seal-badge-caption">
+                                <span class="sbc-dot"></span>
+                                <span>FAST-TRACK INTAKE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
+                        <div class="brand-text-block">
+                            <span class="footer-brand-name">ORVEXA</span>
+                            <span class="footer-tagline brand-subline">INSPECTION &amp; TESTING</span>
+                        </div>
+                    </div>
+                    <p class="footer-positioning">
+                        Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital
+                        Certification.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on X / Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="View on YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 1: Services -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="service-detail.html?service=safety-inspection">Safety Inspection</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=emissions-testing">Emissions Testing</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=re-inspection">Re-Inspection</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=fleet-compliance">Fleet Compliance</a>
+                        </li>
+                        <li>
+                            <a href="service-detail.html?service=ev-hybrid">EV &amp; Hybrid Telemetry</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="about.html">About ORVEXA</a>
+                        </li>
+                        <li>
+                            <a href="service.html">All Services</a>
+                        </li>
+                        <li>
+                            <a href="journal.html">Metrology Journal</a>
+                        </li>
+                        <li>
+                            <a href="home2.html">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="index.html#gallery">Visual Archive</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Additional Links -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Additional Links</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#booking" onclick="openBookingModal(); return false;">Pricing &amp; Rates</a>
+                        </li>
+                        <li>
+                            <a href="404.html" class="footer-link-pill">404 Error <span class="link-pill-tag">PAGE</span></a>
+                        </li>
+                        <li>
+                            <a href="coming-soon.html" class="footer-link-pill">Coming Soon <span class="link-pill-tag tag-gold">SOON</span></a>
+                        </li>
+                        <li>
+                            <a href="login.html">Client Login</a>
+                        </li>
+                        <li>
+                            <a href="signup.html">Create Account</a>
+                        </li>
+                        <li>
+                            <a href="dashboard.html">Inspector Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-nav-col footer-contact-col">
+                    <h4 class="footer-col-title">Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <span class="footer-contact-text">
+                                48 Calibration Drive,
+                                <br>
+                                Tech District, CA 90210
+                            </span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </span>
+                            <a href="mailto:verify@orvexa.com" class="footer-contact-link">verify@orvexa.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </span>
+                            <a href="tel:+18005550199" class="footer-contact-link">+1 (800) 555-0199</a>
+                        </li>
+                        <li class="footer-contact-item footer-hours-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </span>
+                            <div class="footer-hours-block">
+                                <span class="footer-hours-row">
+                                    <span class="footer-hours-day">Mon &ndash; Fri</span>
+                                    <span class="footer-hours-time">7:00 AM &ndash; 7:00 PM</span>
+                                </span>
+                                <span class="footer-hours-row">
+                                    <span class="footer-hours-day">Saturday</span>
+                                    <span class="footer-hours-time">8:00 AM &ndash; 5:00 PM</span>
+                                </span>
+                                <span class="footer-hours-row">
+                                    <span class="footer-hours-day">Sunday</span>
+                                    <span class="footer-hours-time footer-closed">Closed</span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+            <!-- Bottom Footer Row -->
+            <div class="footer-bottom-row">
+                <p class="footer-copyright">
+                    &copy;
+                    <span id="currentYear">2026</span>
+                    ORVEXA. Vehicle Inspection &amp; Emissions Testing. All rights reserved.
+                </p>
+                <div class="footer-badges">
+                    <span class="badge-item">CALIBRATED SENSORS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">ENCRYPTED DIGITAL RECORDS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">STATUTORY COMPLIANCE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="modalTitle">
+        <div class="modal-container" style="max-width:480px;">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">ORVEXA APPOINTMENT PORTAL</span>
+                    <h3 class="modal-title" id="modalTitle">Book This Service</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn">&#x2715;</button>
+            </div>
+            <div class="modal-body">
+                <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.65;">To confirm your booking,
+                    please contact our scheduling team or use our online portal link below.</p>
+                <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;">
+                    <a href="mailto:verify@orvexa.com" class="btn-primary-hero" style="text-align:center;">Email:
+                        verify@orvexa.com</a>
+                    <a href="tel:+18005550199" class="btn-secondary-hero" style="text-align:center;">Call: +1 (800)
+                        555-0199</a>
+                    <a href="service.html" class="btn-secondary-hero" style="text-align:center;">Browse All Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container portal-notice-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow" id="portalNoticeEyebrow">ORVEXA DIGITAL ARCHIVE</span>
+                    <h3 class="modal-title" id="portalNoticeTitle">Portal Notification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closePortalNotice()">&#x2715;</button>
+            </div>
+            <div class="modal-body">
+                <div class="portal-notice-content">
+                    <div class="portal-notice-icon-wrap" id="portalNoticeIcon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <p class="portal-notice-message" id="portalNoticeMsg">Information preview.</p>
+                    <div class="portal-notice-details" id="portalNoticeDetails"></div>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button type="button" class="btn-secondary-hero" onclick="closePortalNotice()">Dismiss</button>
+                <button type="button" class="btn-primary-hero" id="portalNoticeActionBtn"
+                    onclick="closePortalNotice()">Return</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="service-detail.js"></script>
+</body>
+
+</html>

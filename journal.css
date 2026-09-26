@@ -1,0 +1,744 @@
+/* ==========================================================
+   JOURNAL.CSS - ORVEXA Research & Metrology Journal Styles
+   Premium Editorial Layout, 2-Image Architectural Duo & Compact Cards
+   ========================================================== */
+
+/* ---- 01. REDESIGNED HERO BANNER (ARCHITECTURAL DUAL-IMAGE COMPOSITION) ---- */
+.journal-hero {
+  position: relative;
+  min-height: auto;
+  padding: calc(var(--header-height, 60px) + 3.5rem) 0 4.75rem;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 82% 28%, rgba(164, 119, 67, 0.09) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .journal-hero {
+  background-color: #080909;
+  background-image: 
+    radial-gradient(circle at 82% 28%, rgba(164, 119, 67, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, #080909 0%, #0F1012 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.journal-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+/* Left Hero Content — Matches Home 1 Content Alignment & Hierarchy */
+.journal-hero-left {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  padding: 0;
+}
+
+.journal-hero-left .hero-eyebrow-wrapper {
+  margin-bottom: 0.65rem;
+}
+
+.journal-hero-left .hero-headline {
+  margin-bottom: 0.95rem;
+}
+
+.journal-hero-left .hero-description {
+  max-width: 480px;
+  margin-bottom: 1.35rem;
+  line-height: 1.6;
+}
+
+.journal-hero-left .hero-cta-group {
+  margin-bottom: 1.65rem;
+}
+
+.journal-hero-left .hero-micro-features {
+  padding-top: 1.15rem;
+  max-width: 500px;
+}
+
+/* Catalog Header with Category Filters */
+.journal-catalog-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  margin-bottom: 2.75rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.catalog-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.catalog-title-group .hero-eyebrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.catalog-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  text-align: center;
+}
+
+.catalog-section-desc {
+  font-size: clamp(0.9rem, 1.1vw, 1.02rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.journal-filter-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.j-filter-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+}
+
+[data-theme="dark"] .j-filter-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.09);
+  color: rgba(247, 244, 239, 0.7);
+}
+
+.j-filter-btn:hover {
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+  transform: translateY(-1px);
+}
+
+.j-filter-btn.active {
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(164, 119, 67, 0.35);
+}
+
+/* ---- 02. UNIQUE DUAL-IMAGE COMPOSITION (Right Hero Showcase) ---- */
+.journal-hero-duo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.journal-duo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  padding-bottom: 45px;
+}
+
+/* Primary Main Showcase Frame (AWD Dyno Cell) */
+.duo-card-main {
+  position: relative;
+  width: 88%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .duo-card-main {
+  background: #111315;
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.duo-bracket {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--brand-accent);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.duo-bracket.top-left {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid var(--brand-accent);
+  border-left: 2px solid var(--brand-accent);
+}
+
+.duo-bracket.top-right {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid var(--brand-accent);
+  border-right: 2px solid var(--brand-accent);
+}
+
+.duo-bracket.bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid var(--brand-accent);
+  border-left: 2px solid var(--brand-accent);
+}
+
+.duo-bracket.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 2px solid var(--brand-accent);
+  border-right: 2px solid var(--brand-accent);
+}
+
+.duo-viewport-main {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  background: #000;
+}
+
+.duo-viewport-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.duo-card-main:hover .duo-viewport-main img {
+  transform: scale(1.04);
+}
+
+.duo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+
+.duo-tag {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  background: rgba(10, 11, 13, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(164, 119, 67, 0.35);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #F7F4EF;
+  text-transform: uppercase;
+}
+
+.duo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px #22C55E;
+  display: inline-block;
+  animation: pulseGreen 2s infinite ease-in-out;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.duo-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1.35rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .duo-footer-bar {
+  background: #111315;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.duo-bar-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+}
+
+.duo-bar-val {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.duo-gold-line {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--brand-accent) 0%, rgba(164, 119, 67, 0.2) 100%);
+}
+
+/* Secondary Floating Offset Frame (EV Battery Telemetry) - UNIQUE ALIGNMENT */
+.duo-card-sub {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 58%;
+  background: var(--bg-surface);
+  border: 1px solid rgba(164, 119, 67, 0.4);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.22);
+  z-index: 5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .duo-card-sub {
+  background: #15181C;
+  border-color: rgba(164, 119, 67, 0.5);
+  box-shadow: 0 28px 70px -15px rgba(0, 0, 0, 0.85);
+}
+
+.duo-card-sub:hover {
+  transform: translateY(-4px);
+}
+
+.duo-viewport-sub {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #000;
+}
+
+.duo-viewport-sub img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.duo-card-sub:hover .duo-viewport-sub img {
+  transform: scale(1.05);
+}
+
+.duo-sub-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+}
+
+.duo-sub-tag {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  background: rgba(10, 11, 13, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(164, 119, 67, 0.4);
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #F7F4EF;
+  text-transform: uppercase;
+}
+
+.duo-sec-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  box-shadow: 0 0 6px var(--brand-accent);
+  display: inline-block;
+}
+
+.duo-sub-caption {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  z-index: 4;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.duo-sub-val {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.duo-sub-lbl {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+}
+
+/* ---- 03. COMPACT JOURNAL CARDS SECTION (REDUCED IN SIZE) ---- */
+.journal-grid-section {
+  padding: 5rem 0 5.5rem;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.journal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.journal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.25s ease;
+}
+
+[data-theme="dark"] .journal-card {
+  background: #111419;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.journal-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(164, 119, 67, 0.5);
+  box-shadow: 0 18px 40px rgba(164, 119, 67, 0.12);
+}
+
+/* Card Media - Sleeker Height */
+.jc-media {
+  position: relative;
+  width: 100%;
+  height: 175px;
+  overflow: hidden;
+  background: #16181D;
+}
+
+.jc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journal-card:hover .jc-img {
+  transform: scale(1.05);
+}
+
+.jc-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 11, 0.1) 0%, rgba(8, 9, 11, 0.6) 100%);
+  pointer-events: none;
+}
+
+.jc-issue-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  background: rgba(10, 12, 16, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  padding: 0.25rem 0.55rem;
+}
+
+.jc-cert-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-accent);
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(164, 119, 67, 0.35);
+  border-radius: 4px;
+  padding: 0.25rem 0.55rem;
+}
+
+/* Card Body - Tightened Spacing */
+.jc-body {
+  padding: 1.25rem 1.35rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.jc-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.jc-cat-pill {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+}
+
+.jc-date, .jc-read-time {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.jc-title {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin: 0 0 0.55rem;
+}
+
+.jc-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.jc-title a:hover {
+  color: var(--brand-accent);
+}
+
+.jc-excerpt {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 0 1rem;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Author Byline Chip */
+.jc-author-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .jc-author-row {
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+.jc-author-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--brand-accent);
+}
+
+.jc-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.jc-author-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.jc-author-role {
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+/* Card Action Footer */
+.jc-footer {
+  padding: 0.85rem 1.35rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-surface);
+}
+
+[data-theme="dark"] .jc-footer {
+  background: #111419;
+  border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-journal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand-accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-journal-link svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.btn-journal-link:hover {
+  color: var(--text-primary);
+}
+
+.btn-journal-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---- 04. FAQS SECTION ---- */
+.journal-faq-section {
+  padding: 5.5rem 0;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .journal-faq-section {
+  background-color: #0B0C0E;
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.j-faq-inner {
+  max-width: 860px;
+  margin: 3rem auto 0;
+}
+
+/* ---- 05. RESPONSIVE BREAKPOINTS ---- */
+@media (max-width: 1024px) {
+  .journal-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .journal-hero-left {
+    align-items: flex-start;
+  }
+
+  .journal-duo-wrap {
+    max-width: 500px;
+  }
+
+  .journal-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .journal-hero {
+    padding: calc(var(--header-height, 60px) + 2.5rem) 0 3.5rem;
+  }
+
+  .journal-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .duo-card-main {
+    width: 94%;
+  }
+
+  .duo-viewport-main {
+    height: 250px;
+  }
+
+  .duo-card-sub {
+    width: 68%;
+    height: 160px;
+  }
+
+  .duo-viewport-sub {
+    height: 160px;
+  }
+
+  .journal-hero-badges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

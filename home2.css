@@ -1,0 +1,2006 @@
+/* ==========================================================================
+   ORVEXA — HOME 2: HIGH-TECH DIAGNOSTIC LABORATORY & INSPECTION INTELLIGENCE
+   Bespoke Editorial Stylesheet for home2.html
+   Inherits core variables, design tokens, header & footer from index.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. GLOBAL PAGE ARCHITECTURE & ACCENTS FOR HOME 2
+   -------------------------------------------------------------------------- */
+.home2-body {
+  overflow-x: hidden;
+}
+
+/* Subtle tech grid background pattern */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(197, 160, 89, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 160, 89, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Home 2 Hero Image Custom Presentation — Classy Right-Aligned Balance */
+.hero-image-container-h2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-img-h2 {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+[data-theme="dark"] .hero-img-h2 {
+  display: block !important;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.hero-section:hover .hero-img-h2 {
+  transform: scale(1.015);
+}
+
+/* Subtle, Classy Gradient Scrim for Supreme Text Legibility */
+.hero-image-container-h2 .hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to right,
+      var(--bg-primary) 0%,
+      rgba(247, 244, 239, 0.94) 22%,
+      rgba(247, 244, 239, 0.70) 38%,
+      rgba(247, 244, 239, 0.20) 54%,
+      transparent 72%);
+}
+
+[data-theme="dark"] .hero-image-container-h2 .hero-gradient-overlay {
+  background: linear-gradient(to right,
+      var(--bg-primary) 0%,
+      rgba(8, 9, 9, 0.94) 22%,
+      rgba(8, 9, 9, 0.72) 38%,
+      rgba(8, 9, 9, 0.20) 54%,
+      transparent 72%);
+}
+
+/* Home 2 RTL Gradient Overlays */
+[dir="rtl"] .hero-image-container-h2 .hero-gradient-overlay {
+  background: linear-gradient(to left,
+      var(--bg-primary) 0%,
+      rgba(247, 244, 239, 0.94) 22%,
+      rgba(247, 244, 239, 0.70) 38%,
+      rgba(247, 244, 239, 0.20) 54%,
+      transparent 72%);
+}
+
+[dir="rtl"][data-theme="dark"] .hero-image-container-h2 .hero-gradient-overlay {
+  background: linear-gradient(to left,
+      var(--bg-primary) 0%,
+      rgba(8, 9, 9, 0.94) 22%,
+      rgba(8, 9, 9, 0.72) 38%,
+      rgba(8, 9, 9, 0.20) 54%,
+      transparent 72%);
+}
+
+@media (max-width: 992px) {
+  .hero-img-h2 {
+    object-position: center center;
+  }
+
+  .hero-image-container-h2 .hero-gradient-overlay {
+    background: linear-gradient(to bottom,
+        var(--bg-primary) 0%,
+        rgba(247, 244, 239, 0.92) 50%,
+        rgba(247, 244, 239, 0.40) 80%,
+        transparent 100%);
+  }
+
+  [data-theme="dark"] .hero-image-container-h2 .hero-gradient-overlay {
+    background: linear-gradient(to bottom,
+        var(--bg-primary) 0%,
+        rgba(8, 9, 9, 0.94) 50%,
+        rgba(8, 9, 9, 0.45) 80%,
+        transparent 100%);
+  }
+}
+
+/* Common Section Header Typography for Home 2 */
+.h2-section-header {
+  margin-bottom: clamp(1.75rem, 2.5vw, 2.25rem);
+}
+
+.h2-section-header.text-center {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h2-section-header .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 0.35rem;
+}
+
+.h2-section-header.text-center .section-eyebrow,
+.section-eyebrow.justify-center {
+  justify-content: center;
+}
+
+.h2-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 1.25rem 0 1.25rem;
+}
+
+.h2-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0.35rem 0 0.45rem;
+}
+
+.h2-section-header.text-center .h2-section-title {
+  text-align: center;
+}
+
+.h2-section-desc {
+  font-size: clamp(0.78rem, 0.88vw, 0.86rem);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  max-width: 560px;
+}
+
+.h2-section-header.text-center .h2-section-desc {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.h2-tag-accent {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   02. SECTION 01 — THE INSPECTION INTELLIGENCE
+   -------------------------------------------------------------------------- */
+.intelligence-section {
+  position: relative;
+  padding: clamp(3.2rem, 4vw, 4.2rem) 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.intelligence-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-top: 0.5rem;
+}
+
+/* Car Stage Visual Canvas */
+.inspection-car-stage {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 55%, rgba(197, 160, 89, 0.08) 0%, rgba(10, 11, 14, 0.98) 75%);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.04) inset;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inspection-car-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.inspection-car-stage::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(197, 160, 89, 0.12);
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+.inspection-car-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+/* Animated Laser Sweep Beam */
+.laser-sweep-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, var(--brand-accent) 45%, #FFFFFF 50%, var(--brand-accent) 55%, transparent 100%);
+  box-shadow: 0 0 12px var(--brand-accent), 0 0 24px var(--brand-accent);
+  opacity: 0.75;
+  pointer-events: none;
+  animation: laserSweep 7s infinite ease-in-out alternate;
+  z-index: 5;
+}
+
+@keyframes laserSweep {
+  0% { left: 6%; opacity: 0.25; }
+  50% { opacity: 0.95; }
+  100% { left: 94%; opacity: 0.25; }
+}
+
+/* Interactive Hotspot Nodes */
+.car-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+.hotspot-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--brand-accent);
+  box-shadow: 0 0 8px var(--brand-accent), 0 0 16px var(--brand-accent);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hotspot-ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--brand-accent);
+  border-radius: 50%;
+  animation: hotspotPulse 2.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hotspot-label {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(10, 11, 13, 0.94);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.car-hotspot:hover .hotspot-label,
+.car-hotspot.active .hotspot-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.car-hotspot.active .hotspot-dot {
+  background-color: #FFFFFF;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px #FFFFFF, 0 0 20px var(--brand-accent);
+}
+
+.car-hotspot.active .hotspot-ring {
+  border-color: #FFFFFF;
+  animation-duration: 1.5s;
+}
+
+@keyframes hotspotPulse {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.3); opacity: 0; }
+}
+
+/* Stage Bottom Telemetry Strip */
+.stage-telemetry-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 11, 14, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  z-index: 6;
+}
+
+.stage-stat-item strong {
+  color: var(--brand-accent);
+  font-weight: 700;
+}
+
+/* Right HUD Telemetry Card */
+.inspection-hud-card {
+  background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.35rem 1.5rem;
+  box-shadow: 0 12px 28px rgba(11, 11, 10, 0.06);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+[data-theme="dark"] .inspection-hud-card {
+  background: linear-gradient(165deg, rgba(20, 22, 26, 0.98) 0%, rgba(12, 13, 16, 0.98) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(197, 160, 89, 0.12) inset;
+}
+
+.inspection-hud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-accent), transparent 75%);
+}
+
+.hud-domain-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.hud-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .hud-title {
+  color: #FFFFFF;
+}
+
+.hud-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  color: var(--brand-accent);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2.5px 8px;
+  border-radius: 3px;
+  margin-bottom: 0.85rem;
+  align-self: flex-start;
+}
+
+.hud-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  box-shadow: 0 0 6px var(--brand-accent);
+}
+
+.hud-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme="dark"] .hud-metrics-grid {
+  border-top-color: rgba(255, 255, 255, 0.06);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.hud-metric-box {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.55rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .hud-metric-box {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.hud-metric-box:hover {
+  background: rgba(197, 160, 89, 0.06);
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+.hud-metric-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+.hud-metric-val {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .hud-metric-val {
+  color: #FFFFFF;
+}
+
+.hud-metric-target {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.hud-description {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+[data-theme="dark"] .hud-description {
+  color: #C8CDD2;
+}
+
+.hud-footer-code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-subtle);
+  margin-top: auto;
+}
+
+[data-theme="dark"] .hud-footer-code {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Quick Domain Selector Pills */
+.domain-pills-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.35rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.domain-pill-btn {
+  padding: 5px 14px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.domain-pill-btn:hover {
+  border-color: var(--brand-accent);
+  color: var(--text-primary);
+  background: rgba(197, 160, 89, 0.08);
+  transform: translateY(-1px);
+}
+
+.domain-pill-btn.active {
+  background: var(--brand-accent);
+  color: #0B0C0E;
+  font-weight: 700;
+  border-color: var(--brand-accent);
+  box-shadow: 0 2px 10px rgba(197, 160, 89, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   03. SECTION 02 — THE EMISSIONS INDEX
+   -------------------------------------------------------------------------- */
+.emissions-section {
+  position: relative;
+  padding: clamp(2.8rem, 3.5vw, 3.8rem) 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.emissions-cockpit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-top: 1.25rem;
+}
+
+/* Left Photo Pane with Laser Probe */
+.emissions-visual-frame {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.04) inset;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emissions-visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.emissions-visual-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(8, 9, 11, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: var(--brand-accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.emissions-flow-meter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(8, 9, 11, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: #FFFFFF;
+}
+
+/* Right Emissions Instrument Console — Compact & Sleek */
+.emissions-console-card {
+  background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 12px 28px rgba(11, 11, 10, 0.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .emissions-console-card {
+  background: linear-gradient(165deg, rgba(20, 22, 26, 0.98) 0%, rgba(12, 13, 16, 0.98) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(197, 160, 89, 0.12) inset;
+}
+
+.console-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.console-title-group h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .console-title-group h3 {
+  color: #FFFFFF;
+}
+
+.console-title-group span {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* RPM Mode Selector */
+.rpm-selector-group {
+  display: flex;
+  gap: 3px;
+  background: var(--bg-secondary);
+  padding: 2px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .rpm-selector-group {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.rpm-btn {
+  padding: 3px 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all var(--transition-fast);
+}
+
+.rpm-btn.active {
+  background: var(--brand-accent);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(197, 160, 89, 0.35);
+}
+
+[data-theme="dark"] .rpm-btn.active {
+  color: #0B0C0E;
+}
+
+/* 4 Gas Telemetry Bars — Compact */
+.gas-gauges-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.gas-row-item {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.45rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.gas-row-item:hover {
+  border-color: var(--brand-accent);
+  background: rgba(197, 160, 89, 0.04);
+}
+
+[data-theme="dark"] .gas-row-item {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .gas-row-item:hover {
+  border-color: rgba(197, 160, 89, 0.25);
+  background: rgba(197, 160, 89, 0.03);
+}
+
+.gas-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+
+.gas-name-block {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.gas-symbol {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .gas-symbol {
+  color: #FFFFFF;
+}
+
+.gas-full-name {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gas-readout-block {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.gas-value-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand-accent);
+}
+
+.gas-limit-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+
+.gas-bar-track {
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .gas-bar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.gas-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, var(--brand-accent));
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gas-row-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+
+.gas-status-tag {
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+/* Console Diagnostics Log Footer */
+.console-diag-footer {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.45rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.console-diag-footer strong {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .console-diag-footer {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .console-diag-footer strong {
+  color: var(--brand-accent);
+}
+
+.diag-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #4CAF50;
+  font-weight: 700;
+}
+
+.diag-blink-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4CAF50;
+  animation: diagBlink 1.5s infinite;
+}
+
+@keyframes diagBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --------------------------------------------------------------------------
+   04. SECTION 03 — VEHICLE PASSPORT (ASYMMETRICAL SPLIT EDITORIAL)
+   -------------------------------------------------------------------------- */
+.passport-section {
+  position: relative;
+  padding: clamp(3.2rem, 4vw, 4.2rem) 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  background-image: radial-gradient(ellipse at 85% 45%, rgba(197, 160, 89, 0.04) 0%, transparent 60%);
+}
+
+.passport-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+/* Left Column: Editorial Side-Rail & Provenance Credentials */
+.passport-editorial-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.passport-editorial-col .section-eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.passport-split-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0.35rem 0 0.65rem;
+}
+
+.passport-split-desc {
+  font-size: clamp(0.78rem, 0.88vw, 0.86rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  max-width: 480px;
+}
+
+/* Verification Provenance Widget Box */
+.passport-provenance-box {
+  background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 24px rgba(11, 11, 10, 0.05);
+}
+
+[data-theme="dark"] .passport-provenance-box {
+  background: linear-gradient(165deg, rgba(20, 22, 26, 0.98) 0%, rgba(12, 13, 16, 0.98) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(197, 160, 89, 0.1) inset;
+}
+
+.provenance-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme="dark"] .provenance-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.provenance-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2E7D32;
+  box-shadow: 0 0 6px rgba(46, 125, 50, 0.4);
+}
+
+[data-theme="dark"] .provenance-dot {
+  background: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+}
+
+.provenance-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #2E7D32;
+}
+
+[data-theme="dark"] .provenance-title {
+  color: #81C784;
+}
+
+.provenance-code-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  margin-bottom: 0.35rem;
+}
+
+.prov-label {
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+
+.prov-val {
+  color: var(--brand-accent);
+  font-weight: 600;
+}
+
+.provenance-qr-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+[data-theme="dark"] .provenance-qr-row {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.provenance-qr-box {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .provenance-qr-box {
+  background: #FFFFFF;
+  color: #000000;
+  border: none;
+}
+
+.qr-svg-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.provenance-qr-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.provenance-qr-text strong {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+}
+
+[data-theme="dark"] .provenance-qr-text strong {
+  color: #FFFFFF;
+}
+
+.provenance-qr-text span {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+[data-theme="dark"] .provenance-qr-text span {
+  color: #8C9298;
+}
+
+.passport-side-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Right Column: Interactive Digital Vehicle Passport Dossier Card */
+.passport-dossier-col {
+  width: 100%;
+}
+
+.passport-ledger-card {
+  background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 14px 32px rgba(11, 11, 10, 0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="dark"] .passport-ledger-card {
+  background: linear-gradient(165deg, rgba(20, 22, 26, 0.98) 0%, rgba(12, 13, 16, 0.98) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(197, 160, 89, 0.12) inset;
+}
+
+.passport-header-bar {
+  background: linear-gradient(135deg, #FAF8F5 0%, #F0EAE1 100%);
+  color: var(--text-primary);
+  padding: 1.15rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+[data-theme="dark"] .passport-header-bar {
+  background: linear-gradient(135deg, rgba(25, 28, 33, 0.98) 0%, rgba(14, 15, 18, 0.98) 100%);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.passport-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.passport-brand-group span {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .passport-brand-group span {
+  color: #FFFFFF;
+}
+
+.passport-token-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--brand-accent);
+  font-weight: 700;
+}
+
+.passport-status-tag {
+  background: rgba(76, 175, 80, 0.12);
+  border: 1px solid rgba(76, 175, 80, 0.35);
+  color: #2E7D32;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 3px;
+}
+
+[data-theme="dark"] .passport-status-tag {
+  color: #81C784;
+}
+
+.passport-identity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  padding: 1rem 1.4rem;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme="dark"] .passport-identity-grid {
+  background: rgba(255, 255, 255, 0.015);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.id-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.id-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+.id-value {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .id-value {
+  color: #F4F0E9;
+}
+
+.vin-copyable {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--brand-accent);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.vin-copyable:hover {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .vin-copyable:hover {
+  color: #FFFFFF;
+}
+
+.passport-timeline-block {
+  padding: 1.25rem 1.4rem;
+}
+
+.timeline-block-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme="dark"] .timeline-block-title {
+  color: #8C9298;
+}
+
+.passport-timeline-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  position: relative;
+}
+
+.passport-timeline-flow::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  right: 15px;
+  height: 1.5px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+[data-theme="dark"] .passport-timeline-flow::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timeline-step-card {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.75rem 0.65rem;
+  box-shadow: 0 2px 6px rgba(11, 11, 10, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-step-card:hover {
+  border-color: var(--brand-accent);
+  transform: translateY(-2px);
+}
+
+.timeline-step-card.active {
+  border-color: rgba(76, 175, 80, 0.45);
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.timeline-step-card.scheduled {
+  border-style: dashed;
+  border-color: var(--border-color);
+  background: var(--bg-surface-elevated);
+}
+
+[data-theme="dark"] .timeline-step-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .timeline-step-card.active {
+  border-color: rgba(76, 175, 80, 0.35);
+  background: rgba(76, 175, 80, 0.04);
+}
+
+[data-theme="dark"] .timeline-step-card.scheduled {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: transparent;
+}
+
+.step-node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--brand-accent);
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0 0 3px #FFFFFF;
+}
+
+.timeline-step-card.active .step-node-dot {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50, 0 0 0 3px #FFFFFF;
+}
+
+.timeline-step-card.scheduled .step-node-dot {
+  border-style: dashed;
+  border-color: var(--text-muted);
+}
+
+[data-theme="dark"] .step-node-dot {
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px var(--bg-surface);
+}
+
+[data-theme="dark"] .timeline-step-card.active .step-node-dot {
+  box-shadow: 0 0 8px #4CAF50, 0 0 0 3px var(--bg-surface);
+}
+
+.step-date {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.timeline-step-card.active .step-date {
+  color: #2E7D32;
+}
+
+[data-theme="dark"] .timeline-step-card.active .step-date {
+  color: #81C784;
+}
+
+.step-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  line-height: 1.25;
+}
+
+[data-theme="dark"] .step-name {
+  color: #F4F0E9;
+}
+
+.step-station {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.45rem;
+}
+
+[data-theme="dark"] .step-station {
+  color: #8C9298;
+}
+
+.step-badge-mini {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 2px;
+  display: inline-block;
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--brand-accent);
+}
+
+.passport-footer-actions {
+  background: var(--bg-surface-elevated);
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+[data-theme="dark"] .passport-footer-actions {
+  background: rgba(255, 255, 255, 0.015);
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+.passport-seal-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.seal-icon-svg {
+  width: 22px;
+  height: 22px;
+  color: var(--brand-accent);
+}
+
+.seal-text-block span {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .seal-text-block span {
+  color: #8C9298;
+}
+
+.seal-text-block strong {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: var(--brand-accent);
+}
+
+.passport-seal-badge {
+  padding: 3px 8px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 3px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--brand-accent);
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   05. SECTION 04 — INSIDE THE INSPECTION BAY (SPATIAL TELEMETRY)
+   -------------------------------------------------------------------------- */
+.bay-section {
+  position: relative;
+  padding: clamp(2.4rem, 3.2vw, 3.2rem) 0;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+[data-theme="dark"] .bay-section {
+  background-color: #070809;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.bay-section .h2-section-title {
+  color: var(--text-primary);
+  text-align: center;
+}
+
+[data-theme="dark"] .bay-section .h2-section-title {
+  color: #FFFFFF;
+}
+
+.bay-section .h2-section-desc {
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-theme="dark"] .bay-section .h2-section-desc {
+  color: #A0A5AA;
+}
+
+.bay-stage-stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1.25rem auto 1.4rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  overflow-x: auto;
+  gap: 0.65rem;
+  max-width: 820px;
+}
+
+[data-theme="dark"] .bay-stage-stepper {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.bay-step-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.42rem 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.bay-step-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-elevated);
+  border-color: var(--brand-accent);
+}
+
+.bay-step-btn.active {
+  color: #FFFFFF;
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 16px rgba(197, 160, 89, 0.35);
+}
+
+[data-theme="dark"] .bay-step-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #8C9298;
+}
+
+[data-theme="dark"] .bay-step-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(197, 160, 89, 0.4);
+}
+
+[data-theme="dark"] .bay-step-btn.active {
+  color: #070809;
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+}
+
+/* Compact Cinematic Bay Visual Canvas */
+.bay-canvas-container {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 30px rgba(11, 11, 10, 0.08);
+  max-width: 1040px;
+  margin: 0 auto;
+  height: clamp(300px, 28vw, 380px);
+}
+
+[data-theme="dark"] .bay-canvas-container {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.75);
+}
+
+.bay-canvas-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Compact Spatial Bay Telemetry HUD */
+.bay-hud-overlay {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 12px 28px rgba(11, 11, 10, 0.12);
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="dark"] .bay-hud-overlay {
+  background: rgba(10, 12, 14, 0.92);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.bay-hud-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brand-accent);
+  margin-bottom: 0.25rem;
+}
+
+.bay-hud-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+[data-theme="dark"] .bay-hud-title {
+  color: #FFFFFF;
+}
+
+.bay-hud-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+
+[data-theme="dark"] .bay-hud-desc {
+  color: #C8CDD2;
+}
+
+.bay-hud-meta-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.66rem;
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .bay-hud-meta-row {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: #8C9298;
+}
+
+.bay-hud-meta-row strong {
+  color: var(--brand-accent);
+}
+
+.bay-hud-equipment {
+  margin-top: 0.5rem;
+  font-size: 0.68rem;
+  font-family: var(--font-mono, monospace);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .bay-hud-equipment {
+  color: #A0A5AA;
+}
+
+/* --------------------------------------------------------------------------
+   06. SECTION 05 — THE ROAD AHEAD (COMPACT EDITORIAL TRIAD)
+   -------------------------------------------------------------------------- */
+.ahead-section {
+  position: relative;
+  padding: clamp(2.4rem, 3.2vw, 3.2rem) 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+[data-theme="dark"] .ahead-section {
+  background-color: #060708;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+/* Background Atmospheric Photo */
+.ahead-backdrop-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ahead-backdrop-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.12;
+  filter: saturate(1.1) brightness(1.05);
+  transition: opacity var(--transition-smooth);
+}
+
+[data-theme="dark"] .ahead-backdrop-image img {
+  opacity: 0.25;
+  filter: saturate(1.1) brightness(0.85);
+}
+
+.ahead-backdrop-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 30%, transparent 0%, rgba(247, 244, 239, 0.92) 75%),
+    linear-gradient(180deg, var(--bg-primary) 0%, transparent 20%, transparent 80%, var(--bg-primary) 100%);
+  z-index: 2;
+  transition: background var(--transition-smooth);
+}
+
+[data-theme="dark"] .ahead-backdrop-gradient {
+  background: 
+    radial-gradient(ellipse at 50% 30%, transparent 0%, rgba(6, 7, 8, 0.9) 75%),
+    linear-gradient(180deg, #060708 0%, transparent 20%, transparent 80%, #060708 100%);
+}
+
+.ahead-content-wrapper {
+  position: relative;
+  z-index: 5;
+}
+
+.ahead-eyebrow-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.h2-closing-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 1.85rem;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .h2-closing-headline {
+  color: #FFFFFF;
+}
+
+/* 3 Asymmetrical Closing Concept Columns - Compact & Refined */
+.ahead-concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 0;
+}
+
+.ahead-concept-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.35rem 1.45rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.ahead-concept-card:hover {
+  border-color: var(--brand-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(11, 11, 10, 0.08);
+}
+
+[data-theme="dark"] .ahead-concept-card {
+  background: rgba(12, 14, 16, 0.72);
+  border-color: rgba(197, 160, 89, 0.2);
+}
+
+[data-theme="dark"] .ahead-concept-card:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.concept-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brand-accent);
+  margin-bottom: 0.4rem;
+}
+
+.concept-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .concept-title {
+  color: #FFFFFF;
+}
+
+.concept-subhead {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--brand-accent);
+  margin-bottom: 0.55rem;
+}
+
+.concept-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+[data-theme="dark"] .concept-text {
+  color: #BAC0C6;
+}
+
+/* --------------------------------------------------------------------------
+   07. FINAL CTA CARD (LUXURY ARCHITECTURAL CARD FOR HOME 2)
+   -------------------------------------------------------------------------- */
+.home2-body .final-cta-section {
+  background-color: var(--bg-secondary);
+  padding: clamp(2.2rem, 3.5vw, 3.25rem) 0;
+  border-top: 1px solid var(--border-color);
+  transition: background-color var(--transition-smooth);
+}
+
+[data-theme="dark"] .home2-body .final-cta-section {
+  background-color: #0E0F0F;
+  border-top: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.home2-body .final-cta-card {
+  border: 1px solid rgba(184, 138, 82, 0.32);
+  box-shadow: 0 14px 44px rgba(11, 11, 10, 0.06), 0 2px 10px rgba(184, 138, 82, 0.05);
+  background-color: var(--bg-surface);
+}
+
+[data-theme="dark"] .home2-body .final-cta-card {
+  border: 1px solid rgba(197, 160, 89, 0.38);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55), 0 0 30px rgba(197, 160, 89, 0.08);
+  background-color: #0C0E10;
+}
+
+/* --------------------------------------------------------------------------
+   08. RESPONSIVE BREAKPOINTS FOR HOME 2
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .intelligence-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .inspection-car-stage {
+    min-height: 280px;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .inspection-hud-card {
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .emissions-cockpit-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .emissions-visual-frame {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .emissions-console-card {
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .passport-split-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .passport-identity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .passport-timeline-flow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .passport-timeline-flow::before {
+    display: none;
+  }
+
+  .ahead-concepts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .stage-telemetry-bar {
+    display: none;
+  }
+
+  .passport-identity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .passport-timeline-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .bay-hud-overlay {
+    position: static;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .console-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rpm-selector-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Fix image card overflow on mobile */
+  .inspection-car-stage {
+    width: 100%;
+    max-width: 100%;
+    min-height: 240px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .inspection-car-stage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .emissions-visual-frame {
+    width: 100%;
+    max-width: 100%;
+    min-height: 220px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .emissions-visual-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Hide hotspot labels on small screens — they overflow */
+  .hotspot-label {
+    display: none;
+  }
+
+  /* Ensure grids don't overflow */
+  .intelligence-grid,
+  .emissions-cockpit-grid {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Inspection HUD card full width */
+  .inspection-hud-card,
+  .emissions-console-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>404 Page Not Found | Vehicle Inspection & Emissions Testing — ORVEXA</title>
+  <meta name="description"
+    content="The requested vehicle inspection lane or diagnostic record could not be located. Return to ORVEXA luxury automotive metrology center.">
+  <meta name="keywords" content="404, not found, vehicle inspection, emissions testing, ORVEXA">
+
+  <!-- Modern Editorial & Precision Typography (Exact Home 1 Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="404.css">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="p404-body">
+  <!-- Subtle Ambient Glow & Grid -->
+  <div class="p404-ambient-glow" aria-hidden="true"></div>
+  <div class="p404-grid-overlay" aria-hidden="true"></div>
+
+  <!-- ==================================================
+       TOP UTILITY BAR (Brand Left, RTL & Theme Toggle Right)
+       ================================================== -->
+  <header class="p404-topbar" id="p404Topbar">
+    <div class="p404-topbar-inner">
+      <!-- 1. LEFT: Brand Name & Logo (Exact Home 1 Style) -->
+      <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
+        <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">ORVEXA</span>
+          <span class="brand-subline">INSPECTION &amp; TESTING</span>
+        </div>
+      </a>
+
+      <!-- 2. RIGHT CORNER: RTL Switch Button & Theme Mode Toggle (Exact Home 1 Specs) -->
+      <div class="p404-topbar-right">
+        <!-- RTL Toggle Button -->
+        <button type="button" class="header-rtl-btn" id="rtlToggle" aria-label="Toggle text direction RTL / LTR" title="Toggle RTL / LTR">
+          <span id="rtlBtnText">RTL</span>
+        </button>
+
+        <!-- Theme Mode Toggle Button -->
+        <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode" title="Toggle Dark / Light Theme">
+          <span class="theme-icon-sun" title="Light Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </span>
+          <span class="theme-icon-moon" title="Dark Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================
+       TOP REALISTIC VEHICLE HIGHWAY & TELEMETRY TRACK
+       ================================================== -->
+  <div class="top-highway-track" id="topHighwayTrack" aria-label="Automated Telemetry Highway">
+    <!-- 1. Live Telemetry Stream Running Along the Highway Line -->
+    <div class="telemetry-line-strip" aria-hidden="true">
+      <div class="telemetry-live-badge">
+        <span class="telemetry-live-dot"></span>
+        <span class="telemetry-live-title">TELEMETRY LINE</span>
+      </div>
+      <div class="telemetry-scroll-wrapper">
+        <div class="telemetry-scroll-track" id="telemetryStream">
+          <span class="telem-item"><strong class="telem-key">OBD-II:</strong> ACTIVE TELEMETRY</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">SPEED:</strong> <span id="telemetrySpeed" class="telem-val">118 KM/H</span></span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">LANE:</strong> ACTIVE DOCK 04</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">GPS:</strong> 37&deg;46'29.7"N 122&deg;25'09.8"W</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">CALIBRATION:</strong> SEARCHING DESTINATION [404]</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">METROLOGY:</strong> ISO/IEC 17020 ACCREDITED</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">RADAR:</strong> SCANNING ROAD</span>
+          <span class="telem-sep">&bull;</span>
+          <!-- Duplicate for seamless continuous ticker loop -->
+          <span class="telem-item"><strong class="telem-key">OBD-II:</strong> ACTIVE TELEMETRY</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">SPEED:</strong> 118 KM/H</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">LANE:</strong> ACTIVE DOCK 04</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">GPS:</strong> 37&deg;46'29.7"N 122&deg;25'09.8"W</span>
+          <span class="telem-sep">&bull;</span>
+          <span class="telem-item"><strong class="telem-key">CALIBRATION:</strong> SEARCHING DESTINATION [404]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Dual Road Guide Laser Line with Metric Distance Markers -->
+    <div class="highway-guideway" aria-hidden="true">
+      <div class="guideway-laser-line"></div>
+      <div class="guideway-road-dashes"></div>
+      <div class="guideway-ticks">
+        <span>00m</span><span>50m</span><span>100m</span><span>150m</span><span>200m</span><span>250m</span><span>300m</span><span>350m</span>
+      </div>
+    </div>
+
+    <!-- 3. Realistic Luxury GT Sports Coupe Moving Across Screen -->
+    <div class="highway-moving-car" id="highwayCar" title="ORVEXA GT-Coupe Telemetry Prototype (Click for Turbo Boost)" aria-label="Realistic animated vehicle moving left to right">
+      <svg class="car-top-svg-realistic" viewBox="0 0 260 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Realistic Metallic Champagne Bronze Body Paint Gradient -->
+          <linearGradient id="realCarPaint" x1="0" y1="18" x2="245" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#6F4D24" />
+            <stop offset="25%" stop-color="#C5A059" />
+            <stop offset="50%" stop-color="#E5C77A" />
+            <stop offset="72%" stop-color="#A47743" />
+            <stop offset="100%" stop-color="#4B3317" />
+          </linearGradient>
+
+          <!-- Windshield & Window Glass Tint with Angle Glare -->
+          <linearGradient id="realGlassTint" x1="135" y1="16" x2="135" y2="34" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#2D3238" />
+            <stop offset="45%" stop-color="#14181B" />
+            <stop offset="100%" stop-color="#0B0D0F" />
+          </linearGradient>
+          <linearGradient id="glassGlare" x1="80" y1="16" x2="165" y2="34" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+            <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.05" />
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.25" />
+          </linearGradient>
+
+          <!-- Long Realistic Laser Headlight Light Cone Beam -->
+          <linearGradient id="realHeadlightBeam" x1="234" y1="40" x2="390" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFF5D6" stop-opacity="0.95" />
+            <stop offset="25%" stop-color="#FCE192" stop-opacity="0.6" />
+            <stop offset="65%" stop-color="#E5C77A" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="#E5C77A" stop-opacity="0" />
+          </linearGradient>
+
+          <!-- Ground Contact Shadow -->
+          <radialGradient id="realCarShadow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#000000" stop-opacity="0.65" />
+            <stop offset="60%" stop-color="#000000" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+          </radialGradient>
+
+          <!-- Alloy Rim Gradient -->
+          <linearGradient id="alloyRimGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8E2D7" />
+            <stop offset="50%" stop-color="#726D64" />
+            <stop offset="100%" stop-color="#2A2722" />
+          </linearGradient>
+        </defs>
+
+        <!-- 1. Ambient Ground Contact Shadow -->
+        <ellipse cx="125" cy="62" rx="112" ry="4" fill="url(#realCarShadow)" />
+
+        <!-- 2. Realistic Headlight Forward Illuminating Beam -->
+        <polygon points="234,40 380,22 380,58 234,43" fill="url(#realHeadlightBeam)" class="car-light-cone" />
+
+        <!-- 3. Rear Taillight Glow Flare (Red) -->
+        <circle cx="21" cy="38" r="8" fill="#FF2E4D" opacity="0.45" filter="blur(3px)" />
+
+        <!-- 4. Carbon Fiber Aerodynamic Front Splitter & Rear Diffuser -->
+        <path d="M20,53 L34,53 L38,51 L24,51 Z" fill="#151515" />
+        <path d="M216,53 L245,53 L242,50 L214,50 Z" fill="#151515" />
+
+        <!-- 5. Realistic Sculpted GT Body Chassis -->
+        <path d="M242,52 C244,52 245,51 245,49 C244,46 242,43 238,41 L234,39 C228,37 206,34 172,31 L134,16 C124,15 96,15 86,16 L42,32 C34,33 25,35 22,37 C20,39 20,42 20,44 C20,47 22,50 25,52 L38,52 C39,46 45,41 52,41 C59,41 65,46 66,52 L184,52 C185,46 191,41 198,41 C205,41 211,46 212,52 Z" 
+              fill="url(#realCarPaint)" 
+              stroke="#A47743" 
+              stroke-width="0.8" 
+              class="car-body-chassis" />
+
+        <!-- 6. Dark Roof Arch & Tinted Glass Greenhouse -->
+        <path d="M168,31 L133,17 C124,16 98,16 88,17 L44,32 C58,31 140,30 168,31 Z" fill="url(#realGlassTint)" />
+        <path d="M168,31 L133,17 C124,16 98,16 88,17 L44,32 C58,31 140,30 168,31 Z" fill="url(#glassGlare)" />
+
+        <!-- Windshield Pillars & Interior Cockpit Silhouette -->
+        <line x1="133" y1="17" x2="168" y2="31" stroke="#2B2824" stroke-width="1.8" />
+        <line x1="104" y1="17" x2="104" y2="31" stroke="#1D1A16" stroke-width="2.2" /> <!-- B-Pillar -->
+        <circle cx="140" cy="27" r="3.5" fill="#3D3A35" opacity="0.7" /> <!-- Driver Headrest -->
+        <path d="M152,29 L148,25" stroke="#4A463F" stroke-width="1.6" /> <!-- Steering Column -->
+
+        <!-- 7. Body Sculpting & Aerodynamic Shoulder Crease Lines -->
+        <path d="M236,40 C200,37 120,36 23,37" stroke="#FFE7A3" stroke-width="0.65" opacity="0.6" />
+        <path d="M178,39 L175,47" stroke="#3A2814" stroke-width="1.2" /> <!-- Air Intake Vent -->
+        <path d="M104,33 L104,50" stroke="#3A2814" stroke-width="0.75" /> <!-- Door Shut Line -->
+        <path d="M164,32 L161,50" stroke="#3A2814" stroke-width="0.75" /> <!-- Front Door Cutline -->
+        <rect x="114" y="38" width="7" height="1.8" rx="0.9" fill="#2E2010" /> <!-- Flush Door Handle -->
+
+        <!-- 8. Aerodynamic Wing Mirror -->
+        <path d="M163,30 L156,29 C155,29 154,30 155,31 L162,32 Z" fill="#221D17" stroke="#A47743" stroke-width="0.6" />
+        <line x1="157" y1="30.5" x2="161" y2="30.5" stroke="#FFEAA7" stroke-width="0.8" />
+
+        <!-- 9. Front Laser LED Headlamp Projector & Dynamic Eyebrow -->
+        <path d="M235,39 L241,41 L234,42 Z" fill="#FFFFFF" filter="drop-shadow(0 0 3px #FFF9E6)" />
+        <circle cx="236" cy="40.5" r="1.6" fill="#FFFFFF" />
+        <circle cx="236" cy="40.5" r="0.8" fill="#FCE192" />
+        <circle cx="242" cy="42" r="1.1" fill="#FF9F43" /> <!-- Amber Corner Marker -->
+
+        <!-- 10. Rear Ultra-Slim Full-Width OLED Tail Light Bar -->
+        <path d="M21,37 L29,37" stroke="#FF2E4D" stroke-width="2" stroke-linecap="round" filter="drop-shadow(0 0 3px #FF2E4D)" />
+        <line x1="22" y1="39" x2="25" y2="39" stroke="#FF4757" stroke-width="1.2" />
+
+        <!-- 11. REAR WHEEL ASSEMBLY (Brake Rotor + Caliper + 10-Spoke Alloy Rim) -->
+        <g class="wheel-unit wheel-unit-rear">
+          <!-- Dark Performance Rubber Tire with Tread -->
+          <circle cx="52" cy="54" r="13.5" fill="#171614" stroke="#0D0D0C" stroke-width="1" />
+          <circle cx="52" cy="54" r="12" fill="#22201D" />
+          
+          <!-- Cross-Drilled Steel Brake Rotor Disc -->
+          <circle cx="52" cy="54" r="9.5" fill="#4B4741" stroke="#68635B" stroke-width="0.6" />
+          <!-- Champagne Gold Racing Brake Caliper (Stationary at Top-Front) -->
+          <path d="M54,46 C58,47 60,49 61,52 L58,53 C57,51 55,49 52,48 Z" fill="#D4AF37" stroke="#9A7B1C" stroke-width="0.5" />
+
+          <!-- Rotating 10-Spoke Alloy Rim (Spins around center 52, 54) -->
+          <g class="wheel-spokes rear-spokes">
+            <circle cx="52" cy="54" r="8.2" fill="none" stroke="url(#alloyRimGrad)" stroke-width="1.2" />
+            <circle cx="52" cy="54" r="2.8" fill="#1C1A17" stroke="#D4AF37" stroke-width="0.7" />
+            <!-- Multi-spoke pattern -->
+            <line x1="52" y1="46" x2="52" y2="62" stroke="#D9D1C5" stroke-width="0.9" />
+            <line x1="44" y1="54" x2="60" y2="54" stroke="#D9D1C5" stroke-width="0.9" />
+            <line x1="46.3" y1="48.3" x2="57.7" y2="59.7" stroke="#BFB5A5" stroke-width="0.8" />
+            <line x1="46.3" y1="59.7" x2="57.7" y2="48.3" stroke="#BFB5A5" stroke-width="0.8" />
+            <line x1="48" y1="46.5" x2="56" y2="61.5" stroke="#8E877C" stroke-width="0.7" />
+            <line x1="48" y1="61.5" x2="56" y2="46.5" stroke="#8E877C" stroke-width="0.7" />
+          </g>
+        </g>
+
+        <!-- 12. FRONT WHEEL ASSEMBLY (Brake Rotor + Caliper + 10-Spoke Alloy Rim) -->
+        <g class="wheel-unit wheel-unit-front">
+          <!-- Dark Performance Rubber Tire with Tread -->
+          <circle cx="198" cy="54" r="13.5" fill="#171614" stroke="#0D0D0C" stroke-width="1" />
+          <circle cx="198" cy="54" r="12" fill="#22201D" />
+          
+          <!-- Cross-Drilled Steel Brake Rotor Disc -->
+          <circle cx="198" cy="54" r="9.5" fill="#4B4741" stroke="#68635B" stroke-width="0.6" />
+          <!-- Champagne Gold Racing Brake Caliper (Stationary at Top-Front) -->
+          <path d="M200,46 C204,47 206,49 207,52 L204,53 C203,51 201,49 198,48 Z" fill="#D4AF37" stroke="#9A7B1C" stroke-width="0.5" />
+
+          <!-- Rotating 10-Spoke Alloy Rim (Spins around center 198, 54) -->
+          <g class="wheel-spokes front-spokes">
+            <circle cx="198" cy="54" r="8.2" fill="none" stroke="url(#alloyRimGrad)" stroke-width="1.2" />
+            <circle cx="198" cy="54" r="2.8" fill="#1C1A17" stroke="#D4AF37" stroke-width="0.7" />
+            <!-- Multi-spoke pattern -->
+            <line x1="198" y1="46" x2="198" y2="62" stroke="#D9D1C5" stroke-width="0.9" />
+            <line x1="190" y1="54" x2="206" y2="54" stroke="#D9D1C5" stroke-width="0.9" />
+            <line x1="192.3" y1="48.3" x2="203.7" y2="59.7" stroke="#BFB5A5" stroke-width="0.8" />
+            <line x1="192.3" y1="59.7" x2="203.7" y2="48.3" stroke="#BFB5A5" stroke-width="0.8" />
+            <line x1="194" y1="46.5" x2="202" y2="61.5" stroke="#8E877C" stroke-width="0.7" />
+            <line x1="194" y1="61.5" x2="202" y2="46.5" stroke="#8E877C" stroke-width="0.7" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ==================================================
+       MAIN 404 STAGE (STRICTLY FIT IN 100VH - ZERO SCROLL)
+       ================================================== -->
+  <main class="p404-screen-stage">
+    <div class="p404-screen-card">
+
+      <!-- Home 1 Eyebrow Style -->
+      <div class="hero-eyebrow-wrapper">
+        <span class="eyebrow-dash"></span>
+        <span class="hero-eyebrow">TELEMETRY ERROR 404 &bull; ROUTE UNCALIBRATED</span>
+      </div>
+
+      <!-- Grand 404 Big Number -->
+      <div class="p404-num-wrap">
+        <div class="p404-big-num" data-num="404">404</div>
+      </div>
+
+      <!-- Home 1 Headline Typography & Highlighted Color -->
+      <h1 class="hero-headline p404-headline">
+        <span class="headline-line">Trajectory Lost:</span>
+        <span class="headline-line highlight-gold">Calibration Not Found</span>
+      </h1>
+
+      <!-- 2 Paragraphs of Content (Exact Home 1 Body Styling) -->
+      <div class="p404-paragraphs-block">
+        <p class="hero-description p404-para-1">
+          The vehicle inspection dock, regulated emissions report, or digital compliance passport URL you requested is not mapped to an active testing bay within our metrology center.
+        </p>
+        <p class="hero-description p404-para-2">
+          Our telemetry suggests this record may have been re-calibrated, securely archived, or moved during facility updates. Return to the primary testing center to proceed with safety certification.
+        </p>
+      </div>
+
+      <!-- Action: BACK TO SITE BUTTON (Exact Home 1 Button Style) -->
+      <div class="p404-action-wrap">
+        <a href="index.html" class="btn-primary-hero p404-btn-back" id="backToSiteBtn" aria-label="Return to the main ORVEXA website">
+          <span class="arrow" aria-hidden="true">&larr;</span>
+          <span class="btn-back-text">BACK TO SITE</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive Engine (Theme Toggle, RTL Management, Micro Interactions) -->
+  <script src="404.js"></script>
+</body>
+
+</html>

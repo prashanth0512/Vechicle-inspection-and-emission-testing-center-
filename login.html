@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEXA | Client &amp; Partner Authentication — Metrology Laboratory</title>
+    <meta name="description"
+        content="Sign in to your ORVEXA client portal. Access certified vehicle emissions passports, manage appointment slots, and view enterprise fleet telemetry.">
+
+    <!-- Precision Editorial & Sans Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="login.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="auth-body">
+
+    <!-- ==================================================
+         AUTH SPLIT CONTAINER (NO SITE HEADER OR FOOTER)
+         ================================================== -->
+    <div class="auth-split-container">
+
+        <!-- ==================================================
+             LEFT COLUMN: PREMIUM IMAGE + 3 LINES OF METROLOGY
+             (Hidden on Mobile)
+             ================================================== -->
+        <div class="auth-visual-col">
+            <div class="auth-visual-bg" style="background-image: url('assets/archive_dyno_cell.jpg');"></div>
+            <div class="auth-visual-overlay"></div>
+
+            <!-- CNC Reticles & Framing -->
+            <div class="visual-corner visual-corner-tl"></div>
+            <div class="visual-corner visual-corner-tr"></div>
+            <div class="visual-corner visual-corner-bl"></div>
+            <div class="visual-corner visual-corner-br"></div>
+
+            <!-- Clean 3-Line Review Paragraph -->
+            <div class="visual-bottom-content">
+                <blockquote class="auth-review-quote">
+                    “ORVEXA’s automated vehicle metrology reduced our fleet compliance downtime by 65% while delivering
+                    certified, unalterable digital passports.”
+                </blockquote>
+                <div class="auth-reviewer-meta">
+                    <span class="reviewer-name">Marcus Vance</span>
+                    <span class="reviewer-role">Fleet Operations Director &bull; Apex Logistics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================
+             RIGHT COLUMN: FORM CARD (Fits in 90vh on Mobile)
+             ================================================== -->
+        <div class="auth-form-col">
+
+            <!-- Floating Top Utilities (Back to Site Removed) -->
+            <div class="auth-floating-top">
+                <div class="auth-top-actions">
+                    <!-- RTL Toggle -->
+                    <button type="button" class="auth-util-btn rtl-toggle" id="authRtlToggle" title="Toggle RTL / LTR">
+                        <span id="authRtlText">RTL</span>
+                    </button>
+                    <!-- Theme Toggle -->
+                    <button type="button" class="auth-util-btn theme-toggle" id="authThemeToggle"
+                        title="Toggle Light / Dark Mode">
+                        <span class="theme-icon-sun" title="Light Mode">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="4" />
+                                <line x1="12" y1="2" x2="12" y2="5" />
+                                <line x1="12" y1="19" x2="12" y2="22" />
+                                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+                                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+                                <line x1="2" y1="12" x2="5" y2="12" />
+                                <line x1="19" y1="12" x2="22" y2="12" />
+                                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
+                                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
+                            </svg>
+                        </span>
+                        <span class="theme-icon-moon" title="Dark Mode">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form Card Wrapper -->
+            <div class="auth-card-wrapper">
+                <div class="auth-card">
+
+                    <!-- Top Center-Aligned Brand Block & Tagline -->
+                    <div class="auth-brand-center">
+                        <a href="index.html" class="auth-brand-logo" aria-label="ORVEXA Homepage">
+                            <div class="auth-symbol">
+                                <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+                            </div>
+                            <div class="auth-brand-text">
+                                <span class="auth-brand-name">ORVEXA</span>
+                                <span class="auth-brand-sub">INSPECTION &amp; TESTING</span>
+                            </div>
+                        </a>
+
+                        <h2 class="auth-card-title">Client Login</h2>
+                        <p class="auth-card-tagline">Authenticate to manage inspection bay slots and download certified
+                            digital passports.</p>
+                    </div>
+
+                    <!-- Login Form (Only Two Fields as Requested) -->
+                    <form id="loginForm" class="auth-form" onsubmit="handleLoginSubmit(event)">
+                        <!-- Field 1: Email -->
+                        <div class="form-group-auth">
+                            <label for="loginEmail" class="auth-label">Work / Direct Email</label>
+                            <div class="input-icon-wrap">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <input type="email" id="loginEmail" class="auth-input" placeholder="Enter Your mail"
+                                    value="Enter Your Mail" required autocomplete="username">
+                            </div>
+                        </div>
+
+                        <!-- Field 2: Password with Interactive Eye Toggle -->
+                        <div class="form-group-auth">
+                            <div class="label-row-between">
+                                <label for="loginPassword" class="auth-label">Password</label>
+                                <button type="button" class="forgot-link" onclick="openForgotModal()">Forgot
+                                    password?</button>
+                            </div>
+                            <div class="input-icon-wrap">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                                <input type="password" id="loginPassword" class="auth-input has-toggle"
+                                    placeholder="Enter your password" value="PrecisionMetrology2026!" required
+                                    autocomplete="current-password">
+                                <button type="button" class="eye-toggle-btn" aria-label="Toggle password visibility"
+                                    onclick="togglePasswordVisibility('loginPassword', this)">
+                                    <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    <svg class="eye-icon eye-closed" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="1.8">
+                                        <path
+                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                                        <line x1="1" y1="1" x2="23" y2="23" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Remember Me Row -->
+                        <div class="auth-remember-row">
+                            <label class="auth-checkbox-label">
+                                <input type="checkbox" id="loginRemember" checked>
+                                <span>Remember this workstation for 30 days</span>
+                            </label>
+                        </div>
+
+                        <!-- Primary Submit Button -->
+                        <button type="submit" class="btn-primary-hero btn-auth-submit" id="btnSubmitLogin">
+                            <span>Sign In to Console</span>
+                            <span class="btn-arrow">&rarr;</span>
+                        </button>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="auth-divider">
+                        <span class="divider-text">OR CONTINUE WITH</span>
+                    </div>
+
+                    <!-- Google & Apple Social Login Buttons -->
+                    <div class="social-login-grid">
+                        <button type="button" class="btn-social-auth" onclick="simulateSocialAuth('Google')">
+                            <svg class="social-icon" viewBox="0 0 24 24">
+                                <path fill="#4285F4"
+                                    d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" />
+                                <path fill="#34A853"
+                                    d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z" />
+                                <path fill="#FBBC05"
+                                    d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
+                                <path fill="#EA4335"
+                                    d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+                            </svg>
+                            <span>Google</span>
+                        </button>
+
+                        <button type="button" class="btn-social-auth" onclick="simulateSocialAuth('Apple')">
+                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.72-.93 2.74 1.01.08 2.01-.49 2.63-1.24z" />
+                            </svg>
+                            <span>Apple</span>
+                        </button>
+                    </div>
+
+                    <!-- New to this? Create account link -->
+                    <div class="auth-switch-row">
+                        <span class="switch-prompt">New to this?</span>
+                        <a href="signup.html" class="switch-link" id="createAccountBtn">Create an account &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Reset Modal -->
+    <div class="modal-backdrop" id="forgotModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container forgot-modal-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">RECOVERY PROTOCOL</span>
+                    <h3 class="modal-title">Reset Access Password</h3>
+                </div>
+                <button type="button" class="modal-close" onclick="closeForgotModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your authenticated fleet email address. A one-time cryptographic reset token will be dispatched
+                    to your inbox.</p>
+                <div class="form-group-auth" style="margin-top: 1rem;">
+                    <label for="recoveryEmail" class="auth-label">Registered Email</label>
+                    <input type="email" id="recoveryEmail" class="auth-input"
+                        placeholder="e.g. j.sterling@sterlingfleet.com" value="j.sterling@sterlingfleet.com">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-outline-sm" onclick="closeForgotModal()">Cancel</button>
+                <button type="button" class="btn-primary-hero btn-sm" onclick="handleSendRecoveryToken()">Dispatch
+                    Token</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="login.js"></script>
+</body>
+
+</html>

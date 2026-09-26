@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Coming Soon | Vehicle Inspection & Emissions Testing Center — ORVEXA</title>
+  <meta name="description"
+    content="ORVEXA is launching a next-generation automated vehicle safety inspection, dynamic emissions laboratory, and ISO/IEC 17020 metrology facility. Opening countdown in progress.">
+  <meta name="keywords"
+    content="vehicle inspection, emission testing center, automotive metrology, EV diagnostic bay, ISO 17020 certification">
+
+  <!-- Modern Editorial & Precision Typography (Exact Home 1 Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./coming-soon.css">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="cs-body">
+  <!-- Subtle Ambient Glow & Grid -->
+  <div class="cs-ambient-glow" aria-hidden="true"></div>
+  <div class="cs-grid-overlay" aria-hidden="true"></div>
+
+  <!-- ==================================================
+       TOP UTILITY BAR (Brand Left, Utilities in Right Corner)
+       ================================================== -->
+  <header class="cs-topbar" id="csTopbar">
+    <div class="cs-topbar-inner">
+      <!-- 1. LEFT: Brand Name & Logo (Exact Home 1 Style) -->
+      <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
+        <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">ORVEXA</span>
+          <span class="brand-subline">INSPECTION &amp; TESTING</span>
+        </div>
+      </a>
+
+      <!-- 2. RIGHT CORNER: RTL Switch Button & Theme Mode Toggle (Exact Home 1 Specs) -->
+      <div class="cs-topbar-right">
+        <!-- RTL Toggle Button -->
+        <button type="button" class="header-rtl-btn" id="rtlToggle" aria-label="Toggle text direction RTL / LTR"
+          title="Toggle RTL / LTR">
+          <span id="rtlBtnText">RTL</span>
+        </button>
+
+        <!-- Theme Mode Toggle Button -->
+        <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode"
+          title="Toggle Dark / Light Theme">
+          <span class="theme-icon-sun" title="Light Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </span>
+          <span class="theme-icon-moon" title="Dark Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================
+       MAIN CONTENT (STRICTLY FIT IN 100VH - NO SCROLL)
+       ================================================== -->
+  <main class="cs-screen-stage">
+    <div class="cs-screen-card">
+
+      <!-- Home 1 Eyebrow Style -->
+      <div class="hero-eyebrow-wrapper">
+        <span class="eyebrow-dash"></span>
+        <span class="hero-eyebrow">FACILITY UNDER ADVANCED CONSTRUCTION &bull; ISO/IEC 17020</span>
+      </div>
+
+      <!-- Home 1 Headline Typography & Highlighted Color -->
+      <h1 class="hero-headline cs-headline">
+        <span class="headline-line">Vehicle Inspection &amp;</span>
+        <span class="headline-line highlight-gold">Emission Testing Center</span>
+      </h1>
+
+      <!-- Home 1 Body Description -->
+      <p class="hero-description cs-description">
+        Professional vehicle inspections and regulated emissions testing designed to keep vehicles safe, compliant, and
+        certified for the road.
+      </p>
+
+      <!-- Backward Countdown ("numbers goes to backword") -->
+      <div class="cs-countdown-wrap" aria-label="Launch Countdown Timer">
+        <div class="cs-countdown-grid" id="countdownGrid">
+          <!-- Days Card -->
+          <div class="cs-timer-card" data-unit="days">
+            <div class="cs-timer-box">
+              <span class="cs-timer-num" id="cdDays">48</span>
+              <span class="cs-timer-label">DAYS</span>
+            </div>
+            <div class="cs-timer-progress">
+              <div class="cs-progress-bar" id="barDays" style="width: 78%;"></div>
+            </div>
+          </div>
+
+          <!-- Colon -->
+          <div class="cs-timer-colon" aria-hidden="true">:</div>
+
+          <!-- Hours Card -->
+          <div class="cs-timer-card" data-unit="hours">
+            <div class="cs-timer-box">
+              <span class="cs-timer-num" id="cdHours">14</span>
+              <span class="cs-timer-label">HOURS</span>
+            </div>
+            <div class="cs-timer-progress">
+              <div class="cs-progress-bar" id="barHours" style="width: 58%;"></div>
+            </div>
+          </div>
+
+          <!-- Colon -->
+          <div class="cs-timer-colon" aria-hidden="true">:</div>
+
+          <!-- Minutes Card -->
+          <div class="cs-timer-card" data-unit="minutes">
+            <div class="cs-timer-box">
+              <span class="cs-timer-num" id="cdMinutes">36</span>
+              <span class="cs-timer-label">MINUTES</span>
+            </div>
+            <div class="cs-timer-progress">
+              <div class="cs-progress-bar" id="barMinutes" style="width: 60%;"></div>
+            </div>
+          </div>
+
+          <!-- Colon -->
+          <div class="cs-timer-colon" aria-hidden="true">:</div>
+
+          <!-- Seconds Card -->
+          <div class="cs-timer-card cs-timer-seconds" data-unit="seconds">
+            <div class="cs-timer-box">
+              <span class="cs-timer-num" id="cdSeconds">24</span>
+              <span class="cs-timer-label">SECONDS</span>
+            </div>
+            <div class="cs-timer-progress">
+              <div class="cs-progress-bar cs-progress-sec" id="barSeconds" style="width: 40%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action: BACK TO SITE BUTTON (Exact Home 1 Button Style) -->
+      <div class="cs-action-wrap">
+        <a href="index.html" class="btn-primary-hero cs-btn-back" id="backToSiteBtn"
+          aria-label="Return to the main ORVEXA website">
+          <span class="arrow" aria-hidden="true">&larr;</span>
+          <span>BACK TO SITE</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive Engine (Backward Countdown, Theme Toggle, RTL) -->
+  <script src="coming-soon.js"></script>
+</body>
+
+</html>

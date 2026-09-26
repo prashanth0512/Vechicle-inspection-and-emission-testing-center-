@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORVEXA | Metrology Journal Issue Details</title>
+    <meta name="description"
+        content="In-depth empirical research, technical testing methodology, why choose this verification protocol, laboratory pricing, and FAQs from ORVEXA Inspection &amp; Testing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="journal.css">
+    <link rel="stylesheet" href="journal-detail.css">
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body>
+    <!-- ==================================================
+         01. LUXURY SITE HEADER (Matching Home 1)
+         ================================================== -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
+                <div class="logo-symbol">
+          <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
+        </div>
+                <div class="brand-text-block">
+                    <span class="brand-name">ORVEXA</span>
+                    <span class="brand-subline">INSPECTION &amp; TESTING</span>
+                </div>
+            </a>
+
+            <!-- Primary Navigation -->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li class="nav-item has-dropdown">
+                        <a href="index.html" class="nav-link">
+                            <span>Home</span>
+                            <svg class="dropdown-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="index.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 1</span>
+                                <span class="dropdown-desc">Daylight &amp; Night Luxury Center</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-item">
+                                <span class="dropdown-title">Home 2</span>
+                                <span class="dropdown-desc">High-Tech Diagnostic Laboratory</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="journal.html" class="nav-link active">Journals</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Utilities -->
+            <div class="header-actions">
+                <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
+                    <span class="theme-icon-sun" title="Light Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                    </span>
+                    <span class="theme-icon-moon" title="Dark Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </span>
+                </button>
+                <button type="button" class="header-rtl-btn" id="rtlToggle"
+                    aria-label="Toggle text direction RTL / LTR">
+                    <span id="rtlBtnText">RTL</span>
+                </button>
+                <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
+                <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn" onclick="openBookingModal()">
+                    <span>Book Now</span>
+                </button>
+                <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="drawer-brand-block">
+                <span class="drawer-brand">ORVEXA</span>
+                <span class="drawer-tagline">INSPECTION &amp; TESTING</span>
+            </div>
+            <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="drawer-links">
+            <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
+            <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
+            <li><a href="about.html" class="drawer-link"><span>About Us</span></a></li>
+            <li><a href="service.html" class="drawer-link"><span>Services</span></a></li>
+            <li><a href="journal.html" class="drawer-link active"><span>Journals</span></a></li>
+            <li><a href="contact.html" class="drawer-link"><span>Contact</span></a></li>
+            <li><a href="dashboard.html" class="drawer-link"><span>Dashboard</span></a></li>
+        </ul>
+
+        <div class="drawer-actions">
+            <a href="login.html" class="drawer-btn-login">Login</a>
+            <button type="button" class="btn-primary-hero btn-sm w-full" id="drawerBookBtn" onclick="openBookingModal()">Book Now &rarr;</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- ==================================================
+             02. PREMIUM HERO BANNER (2-Column Architectural Layout)
+             ================================================== -->
+        <!-- ==================================================
+             02. PREMIUM HERO BANNER (Full-Bleed HUD Frame & Aligned Container)
+             ================================================== -->
+        <section class="jd-hero" id="jdHeroSection">
+            <div class="container">
+                <div class="jd-hero-grid">
+                    <!-- Left Hero Content -->
+                    <div class="jd-hero-content">
+                        <div class="jd-hero-breadcrumb">
+                            <a href="journal.html" class="jd-breadcrumb-link">
+                                <span class="jd-breadcrumb-arrow">&larr;</span>
+                                <span>ALL JOURNAL ISSUES</span>
+                            </a>
+                        </div>
+                        <div class="hero-eyebrow-wrapper">
+                            <span class="eyebrow-dash"></span>
+                            <span class="hero-eyebrow" id="jdHeroEyebrow">ISSUE 01 // HIGH-VOLTAGE EV METROLOGY</span>
+                        </div>
+                        <h1 class="jd-hero-title">
+                            <span id="jdHeroTitle">Next-Generation EV Battery</span>
+                            <em id="jdHeroTitleItalic">SOH Telemetry.</em>
+                        </h1>
+                        <p class="jd-hero-tagline" id="jdHeroTagline">
+                            Beyond Dashboard Estimates: Direct CANbus Cell Diagnostics &amp; 1000V DC Isolation
+                        </p>
+
+                        <!-- Hero Meta Row: Date, Read Time, Author Chip -->
+                        <div class="jd-hero-meta-row">
+                            <div class="jd-meta-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span id="jdDate">October 2025</span>
+                            </div>
+                            <span class="jd-meta-chip-divider"></span>
+                            <div class="jd-meta-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span id="jdReadTime">8 min read</span>
+                            </div>
+                            <span class="jd-meta-chip-divider"></span>
+                            <div class="jd-author-chip">
+                                <img id="jdAuthorImg" src="assets/team_marcus.jpg" alt="Author Avatar"
+                                    class="jd-author-avatar">
+                                <div class="jd-author-meta">
+                                    <span class="jd-author-name" id="jdAuthorName">Dr. Marcus Vance</span>
+                                    <span class="jd-author-role" id="jdAuthorRole">Chief Metrology Engineer</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero CTA Actions -->
+                        <div class="hero-cta-group">
+                            <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                <span>Schedule Lab Protocol</span>
+                            </button>
+                            <a href="journal.html" class="btn-secondary-hero">
+                                <span>Browse Research Library</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Showcase Card (Ultra-Premium Full-Bleed HUD Frame) -->
+                    <div class="jd-hero-showcase">
+                        <div class="jd-hero-card">
+                            <!-- Ambient Luxury Gold Aura Glow -->
+                            <div class="jd-card-glow"></div>
+
+                            <!-- 4 Precision HUD CNC Gold Corner Brackets -->
+                            <span class="jd-card-corner top-left"></span>
+                            <span class="jd-card-corner top-right"></span>
+                            <span class="jd-card-corner bottom-left"></span>
+                            <span class="jd-card-corner bottom-right"></span>
+
+                            <!-- Top-Left Lab Station Pill -->
+                            <div class="jd-card-node-pill">
+                                <span class="jd-node-radar"></span>
+                                <span>BAY 01 // METROLOGY NODE</span>
+                            </div>
+
+                            <!-- Top-Right Live Statutory Standard Pill -->
+                            <div class="jd-card-tag">
+                                <span class="jd-tag-dot"></span>
+                                <span id="jdCardTagText">UNECE R100 REV 3</span>
+                            </div>
+
+                            <!-- Full-Bleed Viewport with Telemetry Watermark (No half image cut!) -->
+                            <div class="jd-card-viewport">
+                                <img id="jdHeroImg" src="assets/service_card_ev.jpg" alt="Journal Topic Visual"
+                                    loading="eager">
+                                <div class="jd-card-grid-watermark"></div>
+                                <div class="jd-card-overlay"></div>
+                            </div>
+
+                            <!-- Floating Frosted Glass HUD Telemetry Overlay Strip -->
+                            <div class="jd-card-hud-strip">
+                                <div class="jd-hud-left">
+                                    <span class="jd-hud-label">CALIBRATED APPARATUS</span>
+                                    <span class="jd-hud-val" id="jdHudApparatus">Fluke 1587 FC (1000V DC)</span>
+                                </div>
+                                <div class="jd-hud-right">
+                                    <span class="jd-hud-status-dot"></span>
+                                    <span class="jd-hud-status-text">LIVE LAB DATA</span>
+                                </div>
+                            </div>
+                            <div class="jd-card-accent-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             03. EXTENSIVE RESEARCH ARTICLE (Scrolling Content Left + Sticky Card Right)
+             ================================================== -->
+        <section class="jd-article-layout-section">
+            <div class="container">
+                <div class="jd-layout-grid">
+                    <!-- LEFT COLUMN: RICH SCHOLARLY ARTICLE CONTENT (Reads like a real research paper) -->
+                    <div class="jd-main-scroll">
+                        <!-- 1. Executive Abstract & Scope -->
+                        <div class="jd-block jd-block-abstract">
+                            <div class="hero-eyebrow-wrapper">
+                                <span class="eyebrow-dash"></span>
+                                <span class="hero-eyebrow">RESEARCH ABSTRACT &amp; EMPIRICAL SCOPE</span>
+                            </div>
+                            <h2 class="jd-block-title">Investigation Thesis &amp; Failure Modes</h2>
+                            <p class="jd-context-lead" id="jdContextLead">
+                                Loading empirical context data...
+                            </p>
+                        </div>
+
+                        <!-- 2. Calibrated Apparatus & Benchmark Matrix (4 Chips) -->
+                        <div class="jd-block jd-block-specs">
+                            <h3 class="jd-subheading">Calibrated Testing Apparatus &amp; Baseline Tolerances</h3>
+                            <div class="jd-specs-matrix" id="jdSpecsMatrix">
+                                <!-- Populated dynamically via journal-detail.js -->
+                            </div>
+                        </div>
+
+                        <!-- 3. Physical Failure Modes & Diagnostic Thesis (Article Paragraphs) -->
+                        <div class="jd-block jd-block-problem">
+                            <h3 class="jd-subheading" id="jdProblemHeading">The Problem of Hidden Component Degradation
+                            </h3>
+                            <p class="jd-body-text" id="jdProblemText">Loading problem analysis...</p>
+                            <p class="jd-article-p">
+                                Laboratory metrology reveals that static visual checks and high-level vehicle instrument
+                                displays routinely mask catastrophic component wear. By dynamically masking physical
+                                degradation through algorithmic software smoothing and software-adjusted reserve
+                                buffers, vehicle owners and fleet managers are consistently presented with reassuring
+                                dashboards while mechanical or electrical safety margins deteriorate toward critical
+                                failure points.
+                            </p>
+                        </div>
+
+                        <!-- 4. Laboratory Verification Protocol & Sequencing (Continuous Article Prose) -->
+                        <div class="jd-block jd-block-workflow">
+                            <h3 class="jd-subheading">Laboratory Verification Protocol &amp; Multi-Phase Sequencing</h3>
+                            <p class="jd-body-text">
+                                To establish genuine physical certainty without algorithmic interference, ORVEXA
+                                laboratory protocols execute an accredited multi-phase testing workflow:
+                            </p>
+                            <div class="jd-phase-flow">
+                                <div class="jd-phase-item">
+                                    <div class="jd-phase-header">
+                                        <span class="jd-phase-badge">PHASE 01</span>
+                                        <h4 class="jd-phase-name">Sensor Baseline Normalization</h4>
+                                    </div>
+                                    <p class="jd-phase-desc">Bay environmental stabilization is held at 20&deg;C
+                                        &plusmn; 1.5&deg;C with automated zero-drift transducer calibration prior to
+                                        physical probe coupling, ensuring absolute zero-point baseline accuracy.</p>
+                                </div>
+                                <div class="jd-phase-item">
+                                    <div class="jd-phase-header">
+                                        <span class="jd-phase-badge">PHASE 02</span>
+                                        <h4 class="jd-phase-name">Direct Hardware Interrogation</h4>
+                                    </div>
+                                    <p class="jd-phase-desc">Diagnostic interfaces tap directly into low-level
+                                        powertrain communication buses, completely bypassing manufacturer instrument
+                                        cluster smoothing algorithms to poll raw uncompressed telemetry at 1.0 mV
+                                        resolution.</p>
+                                </div>
+                                <div class="jd-phase-item">
+                                    <div class="jd-phase-header">
+                                        <span class="jd-phase-badge">PHASE 03</span>
+                                        <h4 class="jd-phase-name">Dynamic Road-Load Stress Testing</h4>
+                                    </div>
+                                    <p class="jd-phase-desc">Simulated operational road resistance and high-voltage
+                                        excitation signals measure dynamic impedance spikes, insulation breakdown
+                                        thresholds, and localized micro-thermal runaway risks.</p>
+                                </div>
+                                <div class="jd-phase-item">
+                                    <div class="jd-phase-header">
+                                        <span class="jd-phase-badge">PHASE 04</span>
+                                        <h4 class="jd-phase-name">Cryptographic Provenance Sign-Off</h4>
+                                    </div>
+                                    <p class="jd-phase-desc">The complete verification payload is compiled, signed with
+                                        ISO 17020 metrologist public keys, and hashed via SHA-256 onto a distributed
+                                        ledger for permanent unalterable compliance verification.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Diagnostic Methodology Details -->
+                        <div class="jd-block jd-block-methodology">
+                            <h3 class="jd-subheading" id="jdMethodologyHeading">Diagnostic Methodology &amp; Laboratory
+                                Controls</h3>
+                            <p class="jd-body-text" id="jdMethodologyText">Loading methodology details...</p>
+                            <p class="jd-article-p">
+                                All diagnostic readings are benchmarked in real time against manufacturer engineering
+                                boundaries and statutory inspection thresholds. By subjecting each component assembly to
+                                calibrated physical stress under controlled laboratory conditions, metrology teams
+                                isolate electrochemical and mechanical degradation that typical software scans
+                                consistently fail to detect.
+                            </p>
+                        </div>
+
+                        <!-- 6. Diagnostic Benchmark Tolerance Matrix Table -->
+                        <div class="jd-block jd-block-benchmarks">
+                            <h3 class="jd-subheading">Empirical Diagnostic Benchmark Tolerances</h3>
+                            <p class="jd-body-text" style="margin-bottom: 1.25rem;">Direct comparative telemetry mapped
+                                against international statutory thresholds:</p>
+                            <div class="jd-table-wrap">
+                                <table class="jd-benchmark-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Verification Parameter</th>
+                                            <th>Statutory Benchmark</th>
+                                            <th>Measured Laboratory Value</th>
+                                            <th>Compliance Verdict</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="jdBenchmarkTbody">
+                                        <!-- Populated dynamically via journal-detail.js -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 7. Metrology Pullquote (With Fixed Sized 28px SVG Icon!) -->
+                        <blockquote class="jd-quote-box">
+                            <svg class="jd-quote-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor"
+                                aria-hidden="true">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p class="jd-quote-text" id="jdQuoteText">Loading quote...</p>
+                            <cite class="jd-quote-author" id="jdQuoteAuthor">Author Name</cite>
+                        </blockquote>
+
+                        <!-- 8. Key Empirical Lab Findings -->
+                        <div class="jd-findings-card">
+                            <h4 class="jd-findings-title">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Key Empirical Lab Findings &amp; Statistical Deductions</span>
+                            </h4>
+                            <ul class="jd-findings-list" id="jdFindingsList">
+                                <!-- Populated dynamically via journal-detail.js -->
+                            </ul>
+                        </div>
+
+                        <!-- 9. Why Choose This Protocol (4 Cards) -->
+                        <div class="jd-block jd-block-why">
+                            <div class="hero-eyebrow-wrapper">
+                                <span class="eyebrow-dash"></span>
+                                <span class="hero-eyebrow">TECHNICAL SUPERIORITY</span>
+                            </div>
+                            <h3 class="jd-section-heading">Why Choose This Testing Protocol?</h3>
+                            <div class="jd-why-grid" id="jdWhyGrid">
+                                <!-- Populated dynamically via journal-detail.js -->
+                            </div>
+                        </div>
+
+                        <!-- 10. Pricing of This Service & Packages -->
+                        <div class="jd-block jd-block-pricing">
+                            <div class="hero-eyebrow-wrapper">
+                                <span class="eyebrow-dash"></span>
+                                <span class="hero-eyebrow">TRANSPARENT RATES</span>
+                            </div>
+                            <h3 class="jd-section-heading">Laboratory Packages &amp; Rates</h3>
+                            <div class="jd-pricing-grid" id="jdPricingGrid">
+                                <!-- Populated dynamically via journal-detail.js -->
+                            </div>
+                        </div>
+
+                        <!-- 11. Protocol FAQs -->
+                        <div class="jd-block jd-block-faq">
+                            <div class="hero-eyebrow-wrapper">
+                                <span class="eyebrow-dash"></span>
+                                <span class="hero-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+                            </div>
+                            <h3 class="jd-section-heading">Technical Questions &amp; Answers</h3>
+                            <div class="jd-faq-list" id="jdFaqList">
+                                <!-- Populated dynamically via journal-detail.js -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: STICKY SIDEBAR (ONLY ONE CARD, DOES NOT MOVE AS LEFT SCROLLS!) -->
+                    <aside class="jd-sidebar-sticky">
+                        <div class="jd-sticky-action-card">
+                            <!-- 4 Precision Corner Brackets -->
+                            <span class="jd-card-corner top-left"></span>
+                            <span class="jd-card-corner top-right"></span>
+                            <span class="jd-card-corner bottom-left"></span>
+                            <span class="jd-card-corner bottom-right"></span>
+
+                            <!-- Card Header -->
+                            <div class="sticky-card-head">
+                                <div class="sticky-live-pill">
+                                    <span class="sticky-live-dot"></span>
+                                    <span>ISO 17020 ACTIVE BAY</span>
+                                </div>
+                                <span class="sticky-ref-code" id="stickyRefCode">REF // LAB-EV-800V</span>
+                            </div>
+
+                            <!-- Service Title & Primary Rate -->
+                            <h3 class="sticky-service-title" id="stickyServiceTitle">High-Voltage EV Telemetry</h3>
+                            <p class="sticky-service-subtitle" id="stickyServiceSubtitle">Statutory Laboratory
+                                Verification Protocol</p>
+
+                            <div class="sticky-rate-block">
+                                <div class="sticky-rate-main">
+                                    <span class="sticky-rate-currency">$</span>
+                                    <span class="sticky-rate-val" id="stickyRateVal">220</span>
+                                    <span class="sticky-rate-sub">/ full sweep</span>
+                                </div>
+                                <span class="sticky-rate-badge">FAST TRACK</span>
+                            </div>
+                            <p class="sticky-rate-desc" id="stickyRateDesc">Direct CANbus cell delta analysis + 1000V DC
+                                insulation stress test with encrypted digital certificate.</p>
+
+                            <!-- Key Specs Quick List -->
+                            <div class="sticky-specs-list">
+                                <div class="sticky-spec-row">
+                                    <span class="ssr-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <polyline points="12 6 12 12 16 14" />
+                                        </svg>
+                                    </span>
+                                    <div class="ssr-info">
+                                        <span class="ssr-label">Bay Turnaround</span>
+                                        <span class="ssr-val">20–30 Minutes</span>
+                                    </div>
+                                </div>
+                                <div class="sticky-spec-row">
+                                    <span class="ssr-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        </svg>
+                                    </span>
+                                    <div class="ssr-info">
+                                        <span class="ssr-label">Statutory Standard</span>
+                                        <span class="ssr-val" id="stickyStatutoryVal">UNECE Regulation 100</span>
+                                    </div>
+                                </div>
+                                <div class="sticky-spec-row">
+                                    <span class="ssr-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                        </svg>
+                                    </span>
+                                    <div class="ssr-info">
+                                        <span class="ssr-label">Verification Record</span>
+                                        <span class="ssr-val">SHA-256 Signed Passport</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Primary CTA Buttons -->
+                            <div class="sticky-cta-wrap">
+                                <button type="button" class="btn-primary-hero w-full" onclick="openBookingModal()">
+                                    <span>BOOK THIS PROTOCOL</span>
+                                </button>
+                                <button type="button" class="btn-secondary-hero w-full"
+                                    onclick="openPortalNotice('whitepaper', 'Technical Research Paper', 'Full uncompressed laboratory telemetry dataset, CSV sensor logs, and statutory compliance documentation available via authenticated client ledger.');">
+                                    <span>Download Whitepaper (PDF)</span>
+                                </button>
+                            </div>
+
+                            <!-- Verified Inspector Attribution -->
+                            <div class="sticky-inspector-chip">
+                                <img id="stickyInspectorImg" src="assets/team_marcus.jpg" alt="Inspector"
+                                    class="sticky-ins-avatar">
+                                <div class="sticky-ins-info">
+                                    <span class="sticky-ins-name" id="stickyInspectorName">Dr. Marcus Vance</span>
+                                    <span class="sticky-ins-role">Lead Sign-Off Engineer &bull; ISO 17020</span>
+                                </div>
+                            </div>
+
+                            <!-- Contact / Bay Info -->
+                            <div class="sticky-footer-contact">
+                                <span>Bay 01–04 &bull; 48 Calibration Drive</span>
+                                <a href="tel:+18005550199">+1 (800) 555-0199</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             04. RELATED RESEARCH ISSUES
+             ================================================== -->
+        <section class="jd-other-section">
+            <div class="container">
+                <div class="svc-section-head">
+                    <div class="hero-eyebrow-wrapper" style="justify-content:center;">
+                        <span class="eyebrow-dash"></span>
+                        <span class="hero-eyebrow">CONTINUE READING</span>
+                    </div>
+                    <h2 class="svc-section-title">Other Technical Metrology Issues</h2>
+                    <p class="svc-section-desc">
+                        Expand your automotive compliance knowledge across other inspection domains.
+                    </p>
+                </div>
+
+                <div class="jd-other-grid" id="jdOtherArticles">
+                    <!-- Populated dynamically via journal-detail.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================
+             05. LUXURY CTA CARD (Matching Home 1 & Services)
+             ================================================== -->
+        <section class="svc-cta-section" id="svcCTA">
+            <div class="container">
+                <div class="svc-cta-card">
+                    <!-- Luxury Grid Scan Lines Background -->
+                    <div class="cta-scan-lines"></div>
+
+                    <!-- Precision Corner Brackets -->
+                    <span class="cta-bracket cta-bracket-tl"></span>
+                    <span class="cta-bracket cta-bracket-tr"></span>
+                    <span class="cta-bracket cta-bracket-bl"></span>
+                    <span class="cta-bracket cta-bracket-br"></span>
+
+                    <div class="svc-cta-content">
+                        <div class="svc-cta-left">
+                            <!-- Live Status Indicator -->
+                            <div class="cta-live-pill">
+                                <span class="cta-live-dot"></span>
+                                <span class="cta-live-text">ISO 17020 ACCREDITED BAY ACTIVE</span>
+                            </div>
+
+                            <h2 class="svc-cta-title">
+                                Verify Your Vehicle with <span class="cta-title-gold italic-serif">Scientific
+                                    Certainty.</span>
+                            </h2>
+                            <p class="svc-cta-desc">
+                                Connect directly with our certified metrology engineers. Secure your priority inspection
+                                slot, receive immediate diagnostic telemetry, and obtain unalterable cryptographic
+                                certification.
+                            </p>
+
+                            <!-- Micro Feature Indicators -->
+                            <div class="svc-cta-specs">
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Direct CANbus &amp; Optical Spectrometry
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    15&ndash;20 Min Turnaround
+                                </span>
+                                <span class="cta-spec-pill">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    Encrypted Passport
+                                </span>
+                            </div>
+
+                            <div class="svc-cta-btns">
+                                <button type="button" class="btn-primary-hero" onclick="openBookingModal()">
+                                    <span>Book Laboratory Appointment</span>
+                                </button>
+                                <a href="journal.html" class="btn-secondary-hero">Explore All Journals</a>
+                            </div>
+                        </div>
+
+                        <!-- Circular Active Bay Visual with Glowing Gold HUD Orbit -->
+                        <div class="svc-cta-seal-wrap">
+                            <div class="cta-circle-frame">
+                                <div class="cta-circle-dash-ring"></div>
+                                <div class="cta-circle-gold-orbit"></div>
+                                <div class="cta-circle-img-wrap">
+                                    <img src="assets/h2_inspection_car.jpg" alt="ORVEXA Active Inspection Bay"
+                                        class="cta-circle-img">
+                                    <div class="cta-circle-overlay"></div>
+                                    <div class="cta-circle-scan-line"></div>
+                                </div>
+                                <div class="cta-circle-status-pill">
+                                    <span class="cta-circle-live-dot"></span>
+                                    <span>ACTIVE BAY</span>
+                                </div>
+                            </div>
+                            <div class="seal-badge-caption">
+                                <span class="sbc-dot"></span>
+                                <span>ISO 17020 ACCREDITED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================================================
+         10. SITE FOOTER (Exact Reference to Home 1)
+         ================================================== -->
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <!-- Top Footer Row -->
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
+                        <div class="brand-text-block">
+                            <span class="footer-brand-name">ORVEXA</span>
+                            <span class="footer-tagline brand-subline">INSPECTION &amp; TESTING</span>
+                        </div>
+                    </div>
+                    <p class="footer-positioning">
+                        Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital
+                        Certification.
+                    </p>
+
+                    <!-- Social Icons (Instagram, X, LinkedIn, YouTube) -->
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on X / Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="Follow on LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-social-btn" aria-label="View on YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 00-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 1: Services -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="service-detail.html?service=safety-inspection">Safety Inspection</a></li>
+                        <li><a href="service-detail.html?service=emissions-testing">Emissions Testing</a></li>
+                        <li><a href="service-detail.html?service=combined-protocol">Re-Inspection &amp; Combined</a>
+                        </li>
+                        <li><a href="service-detail.html?service=fleet-compliance">Fleet Compliance</a></li>
+                        <li><a href="service-detail.html?service=ev-hybrid">EV &amp; Hybrid Telemetry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About ORVEXA</a></li>
+                        <li><a href="service.html">All Services</a></li>
+                        <li><a href="journal.html">Metrology Journal</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="index.html#gallery">Visual Archive</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Additional Links -->
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Additional Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#booking" onclick="openBookingModal(); return false;">Pricing &amp; Rates</a></li>
+                        <li><a href="404.html" class="footer-link-pill">404 Error <span class="link-pill-tag">PAGE</span></a></li>
+                        <li><a href="coming-soon.html" class="footer-link-pill">Coming Soon <span class="link-pill-tag tag-gold">SOON</span></a></li>
+                        <li><a href="login.html">Client Login</a></li>
+                        <li><a href="signup.html">Create Account</a></li>
+                        <li><a href="dashboard.html">Inspector Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-nav-col footer-contact-col">
+                    <h4 class="footer-col-title">Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <span class="footer-contact-text">48 Calibration Drive,<br>Tech District, CA 90210</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </span>
+                            <a href="mailto:verify@orvexa.com" class="footer-contact-link">verify@orvexa.com</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </span>
+                            <a href="tel:+18005550199" class="footer-contact-link">+1 (800) 555-0199</a>
+                        </li>
+                        <li class="footer-contact-item footer-hours-item">
+                            <span class="footer-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </span>
+                            <div class="footer-hours-block">
+                                <span class="footer-hours-row"><span class="footer-hours-day">Mon &ndash;
+                                        Fri</span><span class="footer-hours-time">7:00 AM &ndash; 7:00 PM</span></span>
+                                <span class="footer-hours-row"><span class="footer-hours-day">Saturday</span><span
+                                        class="footer-hours-time">8:00 AM &ndash; 5:00 PM</span></span>
+                                <span class="footer-hours-row"><span class="footer-hours-day">Sunday</span><span
+                                        class="footer-hours-time footer-closed">Closed</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Bottom Footer Row -->
+            <div class="footer-bottom-row">
+                <p class="footer-copyright">
+                    &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All
+                    rights reserved.
+                </p>
+                <div class="footer-badges">
+                    <span class="badge-item">CALIBRATED SENSORS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">ENCRYPTED DIGITAL RECORDS</span>
+                    <span class="badge-dot">&bull;</span>
+                    <span class="badge-item">STATUTORY COMPLIANCE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow">ORVEXA APPOINTMENT PORTAL</span>
+                    <h3 class="modal-title">Schedule Vehicle Verification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn"
+                    aria-label="Close booking modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1.5rem;">Select your required
+                    protocol to secure your priority bay slot:</p>
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <a href="service-detail.html?service=safety-inspection" class="btn-primary-hero"
+                        style="justify-content:center;">Statutory Safety Inspection</a>
+                    <a href="service-detail.html?service=emissions-testing" class="btn-secondary-hero"
+                        style="justify-content:center;">5-Gas Emissions Spectrometry</a>
+                    <a href="service-detail.html?service=combined-protocol" class="btn-secondary-hero"
+                        style="justify-content:center;">Combined Comprehensive Protocol</a>
+                    <a href="service-detail.html?service=ev-hybrid" class="btn-secondary-hero"
+                        style="justify-content:center;">EV &amp; Hybrid Telemetry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portal Notice Modal (404, Coming Soon, Login, Dashboard) -->
+    <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container portal-notice-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow" id="portalNoticeEyebrow">ORVEXA DIGITAL ARCHIVE</span>
+                    <h3 class="modal-title" id="portalNoticeTitle">Portal Notification</h3>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closePortalNotice()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="portal-notice-content">
+                    <div class="portal-notice-icon-wrap" id="portalNoticeIcon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                    </div>
+                    <p class="portal-notice-message" id="portalNoticeMsg">Information preview.</p>
+                    <div class="portal-notice-details" id="portalNoticeDetails"></div>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button type="button" class="btn-secondary-hero" onclick="closePortalNotice()">Dismiss</button>
+                <button type="button" class="btn-primary-hero" id="portalNoticeActionBtn"
+                    onclick="closePortalNotice()">Return to Platform</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="journal-detail.js"></script>
+</body>
+
+</html>

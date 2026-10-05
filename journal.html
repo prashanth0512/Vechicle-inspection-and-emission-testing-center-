@@ -3,6 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Metrology Journal &amp; Technical Research</title>
     <meta name="description"
@@ -15,18 +31,13 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="service.css">
     <link rel="stylesheet" href="journal.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body>
-    <!-- ==================================================
-         01. LUXURY HEADER (Matching Home 1)
-         ================================================== -->
     <header class="site-header" id="siteHeader">
         <div class="header-inner">
-            <!-- Brand Logo -->
             <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
                 <div class="logo-symbol">
           <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
@@ -37,7 +48,6 @@
                 </div>
             </a>
 
-            <!-- Primary Navigation -->
             <nav class="main-nav" aria-label="Main Navigation">
                 <ul class="nav-list">
                     <li class="nav-item has-dropdown">
@@ -67,7 +77,6 @@
                 </ul>
             </nav>
 
-            <!-- Header Utilities -->
             <div class="header-actions">
                 <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
                     <span class="theme-icon-sun" title="Light Mode">
@@ -109,7 +118,6 @@
         </div>
     </header>
 
-    <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="drawer-header">
             <div class="drawer-brand-block">
@@ -119,7 +127,6 @@
             <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
         </div>
 
-        <!-- Navigation Links -->
         <ul class="drawer-links">
             <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
             <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
@@ -137,13 +144,9 @@
     </div>
 
     <main>
-        <!-- ==================================================
-             02. PREMIUM HERO BANNER (Home 1 Text Alignment & Structure + 2 Images)
-             ================================================== -->
         <section class="journal-hero" id="hero">
             <div class="container">
                 <div class="journal-hero-grid">
-                    <!-- Left Hero Content Column (Exact Home 1 Text Alignment & Hierarchy) -->
                     <div class="hero-content journal-hero-left">
                         <div class="hero-eyebrow-wrapper">
                             <span class="eyebrow-dash"></span>
@@ -176,9 +179,7 @@
                             </button>
                         </div>
 
-                        <!-- 4 Micro Feature Indicators (Visible in both Light and Dark Modes) -->
                         <div class="hero-micro-features">
-                            <!-- 1. Safety / ISO Accreditation -->
                             <div class="micro-feature-item">
                                 <span class="micro-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -190,7 +191,6 @@
                                 <span class="micro-sub">Accredited Bay</span>
                             </div>
 
-                            <!-- 2. High-Voltage EV Telemetry -->
                             <div class="micro-feature-item">
                                 <span class="micro-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -203,7 +203,6 @@
                                 <span class="micro-sub">Dielectric Stress</span>
                             </div>
 
-                            <!-- 3. Emissions Spectrometry -->
                             <div class="micro-feature-item">
                                 <span class="micro-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -216,7 +215,6 @@
                                 <span class="micro-sub">Spectrometry</span>
                             </div>
 
-                            <!-- 4. Digital Passport / SHA-256 -->
                             <div class="micro-feature-item">
                                 <span class="micro-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -234,10 +232,8 @@
                         </div>
                     </div>
 
-                    <!-- Right Hero Showcase Column (Dual-Image Composition) -->
                     <div class="journal-hero-duo">
                         <div class="journal-duo-wrap">
-                            <!-- Image 1: Main Architectural Bay Frame -->
                             <div class="duo-card-main">
                                 <span class="duo-bracket top-left"></span>
                                 <span class="duo-bracket top-right"></span>
@@ -261,7 +257,6 @@
                                 <div class="duo-gold-line"></div>
                             </div>
 
-                            <!-- Image 2: Secondary Floating Offset Frame (Unique Overlapping Alignment) -->
                             <div class="duo-card-sub">
                                 <div class="duo-viewport-sub">
                                     <img src="assets/service_card_ev.jpg"
@@ -283,9 +278,6 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             03. 6 JOURNAL CARDS GRID
-             ================================================== -->
         <section class="journal-grid-section" id="journalGridSection">
             <div class="container">
                 <div class="journal-catalog-header">
@@ -300,7 +292,6 @@
                         </p>
                     </div>
 
-                    <!-- Category Filter Navigation -->
                     <div class="journal-filter-nav">
                         <button type="button" class="j-filter-btn active" data-filter="all">All Issues</button>
                         <button type="button" class="j-filter-btn" data-filter="ev">High-Voltage EV</button>
@@ -312,14 +303,10 @@
                 </div>
 
                 <div class="journal-cards-grid" id="journalGrid">
-                    <!-- Populated dynamically via journal.js -->
                 </div>
             </div>
         </section>
 
-        <!-- ==================================================
-             04. FAQS SECTION
-             ================================================== -->
         <section class="journal-faq-section">
             <div class="container">
                 <div class="svc-section-head">
@@ -405,9 +392,6 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             05. LUXURY CTA CARD (Matching Home 1 / Service)
-             ================================================== -->
         <section class="svc-cta-section" id="svcCTA">
             <div class="container">
                 <div class="svc-cta-card">
@@ -488,17 +472,9 @@
         </section>
     </main>
 
-    <!-- ==================================================
-         06. SITE FOOTER (Matching Home 1)
-         ================================================== -->
-    <!-- ==================================================
-         06. SITE FOOTER (Exact Reference to Home 1)
-         ================================================== -->
     <footer class="site-footer" id="contact">
         <div class="container">
-            <!-- Top Footer Row -->
             <div class="footer-top-grid">
-                <!-- Brand Column -->
                 <div class="footer-brand-col">
                     <div class="footer-logo">
                         <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
@@ -512,7 +488,6 @@
                         Certification.
                     </p>
 
-                    <!-- Social Icons (Instagram, X, LinkedIn, YouTube) -->
                     <div class="footer-socials">
                         <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -545,7 +520,6 @@
                     </div>
                 </div>
 
-                <!-- Column 1: Services -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Services</h4>
                     <ul class="footer-links">
@@ -558,7 +532,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 2: Company -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Company</h4>
                     <ul class="footer-links">
@@ -571,7 +544,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Additional Links -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Additional Links</h4>
                     <ul class="footer-links">
@@ -584,7 +556,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Contact -->
                 <div class="footer-nav-col footer-contact-col">
                     <h4 class="footer-col-title">Contact</h4>
                     <ul class="footer-contact-list">
@@ -640,10 +611,8 @@
                 </div>
             </div>
 
-            <!-- Divider -->
             <div class="footer-divider"></div>
 
-            <!-- Bottom Footer Row -->
             <div class="footer-bottom-row">
                 <p class="footer-copyright">
                     &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All
@@ -660,7 +629,6 @@
         </div>
     </footer>
 
-    <!-- Booking Modal -->
     <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container">
             <div class="modal-header">
@@ -688,7 +656,6 @@
         </div>
     </div>
 
-    <!-- Portal Notice Modal (404, Coming Soon, Login, Dashboard) -->
     <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container portal-notice-container">
             <div class="modal-header">

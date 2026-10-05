@@ -1,7 +1,3 @@
-/* ==========================================================================
-   ORVEXA — HOME 2 INTERACTIVE LOGIC & TELEMETRY CONTROLLERS
-   Bespoke Scripts for home2.html
-   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initInspectionIntelligence();
@@ -10,9 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initPassportTools();
 });
 
-/* --------------------------------------------------------------------------
-   01. INSPECTION INTELLIGENCE CONTROLLER
-   -------------------------------------------------------------------------- */
 const inspectionDomains = {
   braking: {
     num: "01/07",
@@ -104,17 +97,14 @@ function initInspectionIntelligence() {
     const data = inspectionDomains[key];
     if (!data) return;
 
-    // Update Hotspot buttons
     hotspots.forEach(spot => {
       spot.classList.toggle('active', spot.getAttribute('data-spot') === key);
     });
 
-    // Update bottom pills
     pills.forEach(pill => {
       pill.classList.toggle('active', pill.getAttribute('data-domain') === key);
     });
 
-    // Animate HUD update
     hudCard.style.opacity = '0.4';
     hudCard.style.transform = 'translateY(4px)';
 
@@ -160,9 +150,6 @@ function initInspectionIntelligence() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   02. EMISSIONS INDEX CONTROLLER (RPM TEST CYCLES)
-   -------------------------------------------------------------------------- */
 const rpmProfiles = {
   idle: {
     rpm: "750 RPM",
@@ -206,7 +193,6 @@ function initEmissionsConsole() {
 
     if (flowMeterEl) flowMeterEl.textContent = `EXHAUST FLOW: ${data.flow}`;
 
-    // Update CO
     const coVal = document.getElementById('coValue');
     const coBar = document.getElementById('coBar');
     const coMeta = document.getElementById('coMeta');
@@ -214,7 +200,6 @@ function initEmissionsConsole() {
     if (coBar) coBar.style.width = `${data.co.pct}%`;
     if (coMeta) coMeta.textContent = data.co.note;
 
-    // Update HC
     const hcVal = document.getElementById('hcValue');
     const hcBar = document.getElementById('hcBar');
     const hcMeta = document.getElementById('hcMeta');
@@ -222,7 +207,6 @@ function initEmissionsConsole() {
     if (hcBar) hcBar.style.width = `${data.hc.pct}%`;
     if (hcMeta) hcMeta.textContent = data.hc.note;
 
-    // Update NOx
     const noxVal = document.getElementById('noxValue');
     const noxBar = document.getElementById('noxBar');
     const noxMeta = document.getElementById('noxMeta');
@@ -230,7 +214,6 @@ function initEmissionsConsole() {
     if (noxBar) noxBar.style.width = `${data.nox.pct}%`;
     if (noxMeta) noxMeta.textContent = data.nox.note;
 
-    // Update CO2
     const co2Val = document.getElementById('co2Value');
     const co2Bar = document.getElementById('co2Bar');
     const co2Meta = document.getElementById('co2Meta');
@@ -246,11 +229,6 @@ function initEmissionsConsole() {
   });
 }
 
-
-
-/* --------------------------------------------------------------------------
-   04. INSIDE THE INSPECTION BAY CONTROLLER (5 STAGES)
-   -------------------------------------------------------------------------- */
 const bayStages = {
   1: {
     name: "01 — ARRIVAL",
@@ -313,7 +291,6 @@ function initBayStageStepper() {
     hudOverlay.style.transform = 'translateY(4px)';
 
     if (bayImage) {
-      // Subtle cinematic zoom effect based on stage
       const scales = { 1: 'scale(1)', 2: 'scale(1.03)', 3: 'scale(1.05)', 4: 'scale(1.04)', 5: 'scale(1.02)' };
       bayImage.style.transform = scales[stageNum] || 'scale(1)';
     }
@@ -338,9 +315,6 @@ function initBayStageStepper() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   05. VEHICLE PASSPORT COPY & QR TOOLS
-   -------------------------------------------------------------------------- */
 function initPassportTools() {
   const vinCopyBtn = document.getElementById('copyVinBtn');
   if (vinCopyBtn) {
@@ -362,9 +336,6 @@ function initPassportTools() {
   }
 }
 
-/* --------------------------------------------------------------------------
-   06. SEARCH MODAL DISPATCHER FOR HOME 2
-   -------------------------------------------------------------------------- */
 function searchFor(query) {
   if (typeof closeSearchModal === 'function') closeSearchModal();
   const q = (query || '').toLowerCase();

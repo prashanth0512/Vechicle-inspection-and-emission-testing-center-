@@ -1,11 +1,4 @@
-/* ==========================================================
-   SIGNUP.JS - ORVEXA Enterprise Client Registration Logic
-   Password Visibility Toggle, Form Validation, Theme & RTL
-   ========================================================== */
 
-// ----------------------------------------------------------
-// 01. PASSWORD VISIBILITY TOGGLE (Eye Icon)
-// ----------------------------------------------------------
 function togglePasswordVisibility(inputId, btn) {
   const input = document.getElementById(inputId);
   if (!input) return;
@@ -22,9 +15,6 @@ function togglePasswordVisibility(inputId, btn) {
   }
 }
 
-// ----------------------------------------------------------
-// 02. SIGNUP FORM SUBMISSION & VALIDATION
-// ----------------------------------------------------------
 function handleSignupSubmit(e) {
   e.preventDefault();
 
@@ -64,9 +54,6 @@ function handleSignupSubmit(e) {
   }, 900);
 }
 
-// ----------------------------------------------------------
-// 03. SOCIAL LOGIN SIMULATION (Google / Apple)
-// ----------------------------------------------------------
 function simulateSocialAuth(provider) {
   showAuthToast(`Connecting to ${provider} Identity Provider...`);
   setTimeout(() => {
@@ -77,9 +64,6 @@ function simulateSocialAuth(provider) {
   }, 800);
 }
 
-// ----------------------------------------------------------
-// 04. TOAST NOTIFICATION UTILITY
-// ----------------------------------------------------------
 function showAuthToast(msg, isError = false) {
   let toast = document.getElementById('authToast');
   if (!toast) {
@@ -126,17 +110,13 @@ function showAuthToast(msg, isError = false) {
   }, 3500);
 }
 
-// ----------------------------------------------------------
-// 05. THEME & RTL MANAGEMENT
-// ----------------------------------------------------------
 function initAuthThemeAndRTL() {
   const themeToggle = document.getElementById('authThemeToggle');
   const rtlToggle = document.getElementById('authRtlToggle');
   const rtlText = document.getElementById('authRtlText');
   const htmlRoot = document.documentElement;
 
-  // Saved theme
-  const savedTheme = localStorage.getItem('orvexa_theme') || 'light';
+  const savedTheme = localStorage.getItem('orvexa-theme') || 'light';
   htmlRoot.setAttribute('data-theme', savedTheme);
 
   if (themeToggle) {
@@ -144,11 +124,10 @@ function initAuthThemeAndRTL() {
       const current = htmlRoot.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       htmlRoot.setAttribute('data-theme', next);
-      localStorage.setItem('orvexa_theme', next);
+      localStorage.setItem('orvexa-theme', next);
     });
   }
 
-  // Saved RTL
   const savedDir = localStorage.getItem('orvexa-dir') || 'ltr';
   htmlRoot.setAttribute('dir', savedDir);
   if (rtlText) rtlText.textContent = savedDir === 'rtl' ? 'LTR' : 'RTL';
@@ -167,7 +146,6 @@ function initAuthThemeAndRTL() {
 document.addEventListener('DOMContentLoaded', () => {
   initAuthThemeAndRTL();
 
-  // Log in navigation guarantee
   const loginLink = document.getElementById('loginLink');
   if (loginLink) {
     loginLink.addEventListener('click', (e) => {

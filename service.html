@@ -3,6 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Inspection Services</title>
     <meta name="description" content="ORVEXA vehicle inspection and emissions testing services.">
@@ -13,7 +29,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="service.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
@@ -116,7 +131,6 @@
             <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
         </div>
 
-        <!-- Navigation Links -->
         <ul class="drawer-links">
             <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
             <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
@@ -221,7 +235,7 @@
                     <article class="svc-card" data-service="safety-inspection">
                         <div class="svc-card-glow"></div>
                         <div class="svc-card-media">
-                            <img src="assets/real_test_undercarriage_lift.png" alt="Statutory Safety Inspection - Hoist & Underbody Diagnostics" class="svc-card-img" loading="lazy">
+                            <img src="assets/service_safety.jpg" alt="Statutory Safety Inspection - Precision Chassis & Deceleration Diagnostics" class="svc-card-img" loading="lazy">
                             <div class="svc-card-media-overlay"></div>
                             <span class="svc-card-num-badge">01</span>
                             <div class="svc-card-icon-badge">
@@ -231,16 +245,25 @@
                             </div>
                         </div>
                         <div class="svc-card-body">
-                            <div class="svc-card-eyebrow">CORE SERVICE</div>
+                            <div class="svc-card-eyebrow">CORE SERVICE // STATUTORY PROTOCOL</div>
                             <h3 class="svc-card-title">Statutory Safety Inspection</h3>
-                            <p class="svc-card-desc">48-point physical verification of braking balance, chassis
-                                alignment, lighting systems, tyre integrity, and structural compliance.</p>
+                            <p class="svc-card-desc">48-point physical verification of braking balance, chassis alignment, lighting systems, tyre integrity, and structural compliance.</p>
+                            
+                            <div class="svc-card-included-label">WHAT'S INCLUDED</div>
                             <ul class="svc-card-features">
-                                <li>Brake force distribution analysis</li>
-                                <li>Chassis geometry laser scan</li>
-                                <li>Lighting &amp; signalling check</li>
-                                <li>Steering &amp; suspension audit</li>
+                                <li>Brake force distribution &amp; drag torque analysis</li>
+                                <li>Chassis geometry laser plane alignment scan</li>
+                                <li>Lighting &amp; signalling cut-off angle verification</li>
+                                <li>Steering &amp; suspension pneumatic joint audit</li>
                             </ul>
+
+                            <div class="svc-card-duration-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Est. Bay Time: 15&ndash;20 mins</span>
+                            </div>
                         </div>
                         <div class="svc-card-footer">
                             <div class="svc-card-price">
@@ -250,16 +273,20 @@
                                 </div>
                                 <span class="price-note">per vehicle</span>
                             </div>
-                            <a href="service-detail.html?service=safety-inspection" class="svc-view-btn">
-                                View Service
-                                <span>&#x2192;</span>
-                            </a>
+                            <div class="svc-card-actions">
+                                <a href="service-detail.html?service=safety-inspection" class="svc-view-btn">
+                                    View Service
+                                    <span>&#x2192;</span>
+                                </a>
+                                <button type="button" class="svc-book-btn" onclick="openBookingModal()">Book Bay</button>
+                            </div>
                         </div>
                     </article>
+
                     <article class="svc-card" data-service="emissions-testing">
                         <div class="svc-card-glow"></div>
                         <div class="svc-card-media">
-                            <img src="assets/service_emissions.jpg" alt="5-Gas Emissions Spectrometry" class="svc-card-img" loading="lazy">
+                            <img src="assets/h2_emissions_sensor.jpg" alt="5-Gas Emissions Spectrometry - Tailpipe Optical Gas Chromatography" class="svc-card-img" loading="lazy">
                             <div class="svc-card-media-overlay"></div>
                             <span class="svc-card-num-badge">02</span>
                             <div class="svc-card-icon-badge">
@@ -270,16 +297,25 @@
                             </div>
                         </div>
                         <div class="svc-card-body">
-                            <div class="svc-card-eyebrow">EMISSIONS PROTOCOL</div>
+                            <div class="svc-card-eyebrow">EMISSIONS PROTOCOL // CLEAN AIR STANDARDS</div>
                             <h3 class="svc-card-title">5-Gas Emissions Spectrometry</h3>
-                            <p class="svc-card-desc">Dyno-loaded tailpipe optical gas chromatography measuring CO, HC,
-                                O&#8322;, and NOx with full OBD-II monitor status readout.</p>
+                            <p class="svc-card-desc">Dyno-loaded tailpipe optical gas chromatography measuring CO, HC, O&#8322;, CO&#8322;, and NOx with full OBD-II monitor status readout.</p>
+                            
+                            <div class="svc-card-included-label">WHAT'S INCLUDED</div>
                             <ul class="svc-card-features">
-                                <li>5-gas optical analysis</li>
-                                <li>OBD-II readiness monitors</li>
-                                <li>Lambda &amp; AFR measurement</li>
-                                <li>Smoke opacity (diesel)</li>
+                                <li>5-gas optical chromatography (CO, HC, O&#8322;, CO&#8322;, NOx)</li>
+                                <li>Full OBD-II readiness monitor bus verification</li>
+                                <li>Lambda (&lambda;) stoichiometric combustion analysis</li>
+                                <li>Smoke opacity index for diesel engines</li>
                             </ul>
+
+                            <div class="svc-card-duration-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Est. Bay Time: 15&ndash;20 mins</span>
+                            </div>
                         </div>
                         <div class="svc-card-footer">
                             <div class="svc-card-price">
@@ -289,16 +325,20 @@
                                 </div>
                                 <span class="price-note">per vehicle</span>
                             </div>
-                            <a href="service-detail.html?service=emissions-testing" class="svc-view-btn">
-                                View Service
-                                <span>&#x2192;</span>
-                            </a>
+                            <div class="svc-card-actions">
+                                <a href="service-detail.html?service=emissions-testing" class="svc-view-btn">
+                                    View Service
+                                    <span>&#x2192;</span>
+                                </a>
+                                <button type="button" class="svc-book-btn" onclick="openBookingModal()">Book Bay</button>
+                            </div>
                         </div>
                     </article>
+
                     <article class="svc-card svc-card-featured" data-service="combined-protocol">
                         <div class="svc-card-glow"></div>
                         <div class="svc-card-media">
-                            <img src="assets/real_test_mechanic_tablet.png" alt="Combined Comprehensive Protocol - Certified Technician Diagnostic Interrogation" class="svc-card-img" loading="lazy">
+                            <img src="assets/service_combined_protocol.jpg" alt="Combined Comprehensive Protocol - Synchronized Safety & Emissions Bay" class="svc-card-img" loading="lazy">
                             <div class="svc-card-media-overlay"></div>
                             <span class="svc-card-num-badge">03</span>
                             <span class="svc-card-badge-feat">BEST VALUE</span>
@@ -312,16 +352,25 @@
                             </div>
                         </div>
                         <div class="svc-card-body">
-                            <div class="svc-card-eyebrow">COMPREHENSIVE</div>
+                            <div class="svc-card-eyebrow">COMPREHENSIVE PROTOCOL // DUAL TESTING</div>
                             <h3 class="svc-card-title">Combined Protocol</h3>
-                            <p class="svc-card-desc">Full statutory safety inspection + 5-gas emissions + instant
-                                digital certificate in a single 20-minute bay session.</p>
+                            <p class="svc-card-desc">Full statutory safety inspection + 5-gas emissions + instant digital certificate in a single synchronized express bay session.</p>
+                            
+                            <div class="svc-card-included-label">WHAT'S INCLUDED</div>
                             <ul class="svc-card-features">
-                                <li>Complete 48-point safety check</li>
-                                <li>Full 5-gas emissions suite</li>
-                                <li>Instant digital certificate</li>
-                                <li>Priority lane access</li>
+                                <li>Complete 48-point physical safety check</li>
+                                <li>Full 5-gas optical tailpipe emissions suite</li>
+                                <li>Priority express lane dispatch (zero queue)</li>
+                                <li>Instant cryptographic dual-clearance certificate</li>
                             </ul>
+
+                            <div class="svc-card-duration-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Est. Bay Time: 20&ndash;25 mins</span>
+                            </div>
                         </div>
                         <div class="svc-card-footer">
                             <div class="svc-card-price">
@@ -329,18 +378,22 @@
                                     <span class="price-label">FROM</span>
                                     <span class="price-val">$295</span>
                                 </div>
-                                <span class="price-note">save $35</span>
+                                <span class="price-note">save $35 bundle</span>
                             </div>
-                            <a href="service-detail.html?service=combined-protocol" class="svc-view-btn">
-                                View Service
-                                <span>&#x2192;</span>
-                            </a>
+                            <div class="svc-card-actions">
+                                <a href="service-detail.html?service=combined-protocol" class="svc-view-btn">
+                                    View Service
+                                    <span>&#x2192;</span>
+                                </a>
+                                <button type="button" class="svc-book-btn" onclick="openBookingModal()">Book Bay</button>
+                            </div>
                         </div>
                     </article>
+
                     <article class="svc-card" data-service="fleet-compliance">
                         <div class="svc-card-glow"></div>
                         <div class="svc-card-media">
-                            <img src="assets/card_clean_road.jpg" alt="Fleet Compliance Management" class="svc-card-img" loading="lazy">
+                            <img src="assets/service_fleet_compliance.jpg" alt="Fleet Compliance Management - Commercial Multi-Bay Logistics" class="svc-card-img" loading="lazy">
                             <div class="svc-card-media-overlay"></div>
                             <span class="svc-card-num-badge">04</span>
                             <div class="svc-card-icon-badge">
@@ -353,16 +406,25 @@
                             </div>
                         </div>
                         <div class="svc-card-body">
-                            <div class="svc-card-eyebrow">FLEET SERVICES</div>
+                            <div class="svc-card-eyebrow">COMMERCIAL FLEET // SCHEDULED ASSURANCE</div>
                             <h3 class="svc-card-title">Fleet Compliance Management</h3>
-                            <p class="svc-card-desc">Scheduled multi-vehicle compliance for commercial fleets, corporate
-                                pools, and transport authorities with automated reporting.</p>
+                            <p class="svc-card-desc">Scheduled multi-vehicle compliance for commercial fleets, corporate pools, and logistics operators with automated regulatory reporting.</p>
+                            
+                            <div class="svc-card-included-label">WHAT'S INCLUDED</div>
                             <ul class="svc-card-features">
-                                <li>Bulk scheduling portal</li>
-                                <li>Automated compliance reports</li>
-                                <li>Fleet-wide expiry tracking</li>
-                                <li>Dedicated account manager</li>
+                                <li>Bulk enterprise scheduling &amp; lane allocation</li>
+                                <li>Automated 30/14/7-day statutory expiry alerts</li>
+                                <li>Real-time corporate compliance dashboard</li>
+                                <li>Consolidated monthly tax ledger &amp; volume rates</li>
                             </ul>
+
+                            <div class="svc-card-duration-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Duration varies by vehicle and inspection scope.</span>
+                            </div>
                         </div>
                         <div class="svc-card-footer">
                             <div class="svc-card-price">
@@ -372,16 +434,20 @@
                                 </div>
                                 <span class="price-note">per fleet/mo</span>
                             </div>
-                            <a href="service-detail.html?service=fleet-compliance" class="svc-view-btn">
-                                View Service
-                                <span>&#x2192;</span>
-                            </a>
+                            <div class="svc-card-actions">
+                                <a href="service-detail.html?service=fleet-compliance" class="svc-view-btn">
+                                    View Service
+                                    <span>&#x2192;</span>
+                                </a>
+                                <button type="button" class="svc-book-btn" onclick="openBookingModal()">Request Plan</button>
+                            </div>
                         </div>
                     </article>
+
                     <article class="svc-card" data-service="digital-certification">
                         <div class="svc-card-glow"></div>
                         <div class="svc-card-media">
-                            <img src="assets/card_tablet_cert.jpg" alt="Digital Certification" class="svc-card-img" loading="lazy">
+                            <img src="assets/service_digital_certification.jpg" alt="Digital Certification - Cryptographic QR Vehicle Passport" class="svc-card-img" loading="lazy">
                             <div class="svc-card-media-overlay"></div>
                             <span class="svc-card-num-badge">05</span>
                             <div class="svc-card-icon-badge">
@@ -394,16 +460,25 @@
                             </div>
                         </div>
                         <div class="svc-card-body">
-                            <div class="svc-card-eyebrow">DIGITAL RECORDS</div>
+                            <div class="svc-card-eyebrow">DIGITAL RECORDS // REGULATORY VERIFICATION</div>
                             <h3 class="svc-card-title">Digital Certification</h3>
-                            <p class="svc-card-desc">Blockchain-secured digital vehicle certificates with 64-character
-                                QR verification hash. Instantly shareable and permanently archived.</p>
+                            <p class="svc-card-desc">Blockchain-secured digital vehicle certificates with 64-character QR verification hash. Instantly shareable, transport-synced, and permanently archived.</p>
+                            
+                            <div class="svc-card-included-label">WHAT'S INCLUDED</div>
                             <ul class="svc-card-features">
-                                <li>QR + 64-char hash token</li>
-                                <li>Blockchain-anchored record</li>
-                                <li>Instant email delivery</li>
-                                <li>10-year archive access</li>
+                                <li>64-character SHA-256 cryptographic verification token</li>
+                                <li>Direct electronic transport registry handshake</li>
+                                <li>Apple Wallet &amp; Google Wallet digital passes</li>
+                                <li>10-year redundant encrypted cloud archive</li>
                             </ul>
+
+                            <div class="svc-card-duration-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Turnaround: Instant digital delivery</span>
+                            </div>
                         </div>
                         <div class="svc-card-footer">
                             <div class="svc-card-price">
@@ -413,16 +488,20 @@
                                 </div>
                                 <span class="price-note">per certificate</span>
                             </div>
-                            <a href="service-detail.html?service=digital-certification" class="svc-view-btn">
-                                View Service
-                                <span>&#x2192;</span>
-                            </a>
+                            <div class="svc-card-actions">
+                                <a href="service-detail.html?service=digital-certification" class="svc-view-btn">
+                                    View Service
+                                    <span>&#x2192;</span>
+                                </a>
+                                <button type="button" class="svc-book-btn" onclick="openBookingModal()">Issue Pass</button>
+                            </div>
                         </div>
                     </article>
+
                     <article class="svc-card" data-service="ev-hybrid">
                         <div class="svc-card-glow"></div>
                         <div class="svc-card-media">
-                            <img src="assets/real_test_obd_engine.png" alt="EV &amp; Hybrid Telemetry - Battery &amp; Electrical Diagnostic Testing" class="svc-card-img" loading="lazy">
+                            <img src="assets/service_card_ev.jpg" alt="EV &amp; Hybrid Telemetry - High-Voltage Battery &amp; Inverter Lab" class="svc-card-img" loading="lazy">
                             <div class="svc-card-media-overlay"></div>
                             <span class="svc-card-num-badge">06</span>
                             <span class="svc-card-badge-new">NEW</span>
@@ -433,16 +512,25 @@
                             </div>
                         </div>
                         <div class="svc-card-body">
-                            <div class="svc-card-eyebrow">EV &amp; HYBRID</div>
+                            <div class="svc-card-eyebrow">EV &amp; HYBRID // ADVANCED DIAGNOSTICS</div>
                             <h3 class="svc-card-title">EV &amp; Hybrid Telemetry</h3>
-                            <p class="svc-card-desc">Advanced battery health analysis, regenerative brake efficiency
-                                testing, HV insulation resistance checks, and motor output dyno validation.</p>
+                            <p class="svc-card-desc">Advanced high-voltage battery state-of-health analysis, 1000V insulation resistance testing, regenerative braking dyno profiling, and BMS audit.</p>
+                            
+                            <div class="svc-card-included-label">WHAT'S INCLUDED</div>
                             <ul class="svc-card-features">
-                                <li>Battery state-of-health (SOH)</li>
-                                <li>HV insulation resistance test</li>
-                                <li>Regen brake efficiency</li>
-                                <li>Motor torque dyno profile</li>
+                                <li>Battery state-of-health (SOH%) degradation analysis</li>
+                                <li>High-voltage insulation resistance test up to 1000V DC</li>
+                                <li>Regenerative braking kinetic energy recapture audit</li>
+                                <li>Direct BMS CANbus cell balance &amp; thermal verification</li>
                             </ul>
+
+                            <div class="svc-card-duration-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Est. Bay Time: 20&ndash;30 mins</span>
+                            </div>
                         </div>
                         <div class="svc-card-footer">
                             <div class="svc-card-price">
@@ -452,143 +540,365 @@
                                 </div>
                                 <span class="price-note">per vehicle</span>
                             </div>
-                            <a href="service-detail.html?service=ev-hybrid" class="svc-view-btn">
-                                View Service
-                                <span>&#x2192;</span>
-                            </a>
+                            <div class="svc-card-actions">
+                                <a href="service-detail.html?service=ev-hybrid" class="svc-view-btn">
+                                    View Service
+                                    <span>&#x2192;</span>
+                                </a>
+                                <button type="button" class="svc-book-btn" onclick="openBookingModal()">Book Bay</button>
+                            </div>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-        <section class="svc-gallery-section" id="svcGallery">
+                <section class="svc-gallery-section" id="svcGallery">
             <div class="svc-container">
                 <div class="svc-section-head">
                     <div class="svc-eyebrow-wrap">
                         <span class="svc-eyebrow-line"></span>
-                        <span class="svc-eyebrow-text">VISUAL ARCHIVE</span>
+                        <span class="svc-eyebrow-text">TECHNICAL ARCHIVE // FACILITY METROLOGY</span>
                     </div>
                     <h2 class="svc-section-title">
-                        PRECISION,<br>
-                        <span class="italic-serif highlight-gold">THROUGH A DIFFERENT LENS.</span>
+                        DIAGNOSTIC TEST BAYS,<br>
+                        <span class="italic-serif highlight-gold">WHERE CALIBRATION MEETS CERTAINTY.</span>
                     </h2>
-                    <p class="svc-section-desc">A visual documentation of precision equipment, calibrated dynamometer cells, and immaculate architectural testing bays.</p>
+                    <p class="svc-section-desc">An inside look at our certified laboratory infrastructure—featuring high-frequency roller dynamometers, multi-gas infrared spectrometry cells, 3D laser wheel alignment towers, and dynamic axle play detectors.</p>
                 </div>
-                <div class="editorial-gallery-grid">
-                    <!-- Tile 01: Hero Featured AWD Dynamometer Cell (Occupies 2 cols x 2 rows) -->
-                    <div class="gallery-tile tile-featured-hero">
-                        <div class="tile-inner">
-                            <img src="assets/archive_dyno_cell.jpg" alt="AWD Dynamometer acoustic testing cell with laser wheel alignment" class="gallery-img" loading="lazy">
-                            <span class="tile-corner-tag">01 // DYNO CELL</span>
-                            <div class="gallery-overlay"></div>
-                            <div class="gallery-caption">
-                                <span class="caption-category">DYNAMOMETER TESTING</span>
-                                <h4 class="caption-name">AWD Acoustic Dynamometer Cell &amp; Laser Alignment</h4>
-                                <p class="caption-desc">Full-power torque verification, acoustic dampening, and automated dynamic tire contact sensors under simulated highway load.</p>
-                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
+
+                <div class="svc-bay-filters" role="tablist" aria-label="Testing Bay Categories">
+                    <button type="button" class="bay-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                        <span class="filter-dot"></span> All Stations (04)
+                    </button>
+                    <button type="button" class="bay-filter-btn" data-filter="emissions" role="tab" aria-selected="false">
+                        <span class="filter-dot"></span> Emissions &amp; Gas
+                    </button>
+                    <button type="button" class="bay-filter-btn" data-filter="chassis" role="tab" aria-selected="false">
+                        <span class="filter-dot"></span> 3D Laser Chassis
+                    </button>
+                    <button type="button" class="bay-filter-btn" data-filter="optics" role="tab" aria-selected="false">
+                        <span class="filter-dot"></span> Optical Photometry
+                    </button>
+                    <button type="button" class="bay-filter-btn" data-filter="suspension" role="tab" aria-selected="false">
+                        <span class="filter-dot"></span> Suspension &amp; Axle
+                    </button>
+                </div>
+
+                <div class="svc-bay-grid" id="svcBayGrid">
+
+                    <article class="svc-bay-card" data-category="emissions" tabindex="0" onclick="openBayModal(1)">
+                        <div class="bay-media-wrap">
+                            <img src="assets/service_bay_spectrometry.jpg" alt="Certified emission testing lane with dual probe AVL exhaust gas analyzer" class="bay-media-img" loading="lazy">
+                            <div class="bay-gradient-scrim"></div>
+                            
+                            <div class="bay-top-bar">
+                                <div class="bay-num-badge">
+                                    <span class="bay-id">BAY 01</span>
+                                    <span class="bay-sep">//</span>
+                                    <span class="bay-spec-name">EMISSIONS METROLOGY</span>
+                                </div>
+                                <div class="bay-live-status">
+                                    <span class="pulse-indicator"></span>
+                                    <span class="status-txt">ONLINE // CALIBRATED</span>
+                                </div>
                             </div>
-                            <div class="gallery-gold-line"></div>
+                        </div>
+
+                        <div class="bay-content-body">
+                            <div class="bay-hardware-tag">
+                                <svg class="tech-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                                <span>AVL SCHENCK &bull; NDIR 5-GAS SPECTROMETRY</span>
+                            </div>
+                            <h3 class="bay-card-heading">Dual-Probe Infrared Gas Spectrometry &amp; Opacity Bench</h3>
+                            <p class="bay-card-summary">Real-time raw exhaust gas extraction measuring CO, CO₂, HC, O₂, and NOx under simulated dynamic load cycles with automated Euro 6d / Tier 3 pass certification.</p>
+                            
+                            <div class="bay-telemetry-strip">
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">TOLERANCE</span>
+                                    <span class="t-data">&plusmn;0.01% CO</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">RESPONSE</span>
+                                    <span class="t-data">&lt; 0.9s NDIR</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">STANDARD</span>
+                                    <span class="t-data">ISO/IEC 17025</span>
+                                </div>
+                            </div>
+
+                            <div class="bay-action-footer">
+                                <span class="bay-action-link">
+                                    <span>EXAMINE BAY BENCH SPECS</span>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bay-bottom-highlight"></div>
+                    </article>
+
+                    <article class="svc-bay-card" data-category="chassis" tabindex="0" onclick="openBayModal(2)">
+                        <div class="bay-media-wrap">
+                            <img src="assets/service_bay_chassis_laser.jpg" alt="Precision 3D stereo optical laser wheel and chassis geometry alignment" class="bay-media-img" loading="lazy">
+                            <div class="bay-gradient-scrim"></div>
+                            
+                            <div class="bay-top-bar">
+                                <div class="bay-num-badge">
+                                    <span class="bay-id">BAY 02</span>
+                                    <span class="bay-sep">//</span>
+                                    <span class="bay-spec-name">3D CHASSIS GEOMETRY</span>
+                                </div>
+                                <div class="bay-live-status">
+                                    <span class="pulse-indicator"></span>
+                                    <span class="status-txt">ONLINE // CALIBRATED</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bay-content-body">
+                            <div class="bay-hardware-tag">
+                                <svg class="tech-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="22" y1="12" x2="18" y2="12"></line>
+                                    <line x1="6" y1="12" x2="2" y2="12"></line>
+                                    <line x1="12" y1="6" x2="12" y2="2"></line>
+                                    <line x1="12" y1="22" x2="12" y2="18"></line>
+                                </svg>
+                                <span>HUNTER HAWKEYE ELITE &bull; 4X OPTICAL TARGETS</span>
+                            </div>
+                            <h3 class="bay-card-heading">Stereo Optical 3D Multi-Axis Wheel &amp; Chassis Alignment</h3>
+                            <p class="bay-card-summary">High-resolution stereo cameras triangulating four clamp-mounted optical targets on a flush scissor lift, verifying camber, caster, toe, and thrust angle in seconds.</p>
+                            
+                            <div class="bay-telemetry-strip">
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">ANGULAR RES</span>
+                                    <span class="t-data">&plusmn;0.01&deg; Laser</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">OPTICAL CORE</span>
+                                    <span class="t-data">4x CMOS Towers</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">LIFT CAPACITY</span>
+                                    <span class="t-data">5,000 kg Flush</span>
+                                </div>
+                            </div>
+
+                            <div class="bay-action-footer">
+                                <span class="bay-action-link">
+                                    <span>EXAMINE BAY BENCH SPECS</span>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bay-bottom-highlight"></div>
+                    </article>
+
+                    <article class="svc-bay-card" data-category="optics" tabindex="0" onclick="openBayModal(3)">
+                        <div class="bay-media-wrap">
+                            <img src="assets/service_bay_optical_headlamp.jpg" alt="Digital photometric headlamp aimer analyzing beam cutoff on floor precision rails" class="bay-media-img" loading="lazy">
+                            <div class="bay-gradient-scrim"></div>
+                            
+                            <div class="bay-top-bar">
+                                <div class="bay-num-badge">
+                                    <span class="bay-id">BAY 03</span>
+                                    <span class="bay-sep">//</span>
+                                    <span class="bay-spec-name">PHOTOMETRIC OPTICS</span>
+                                </div>
+                                <div class="bay-live-status">
+                                    <span class="pulse-indicator"></span>
+                                    <span class="status-txt">ONLINE // CALIBRATED</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bay-content-body">
+                            <div class="bay-hardware-tag">
+                                <svg class="tech-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                                <span>DIGITAL CMOS COLLIMATOR &bull; FLOOR RAIL RIG</span>
+                            </div>
+                            <h3 class="bay-card-heading">Digital Matrix LED &amp; Laser Headlamp Photometric Aiming</h3>
+                            <p class="bay-card-summary">Precision floor-rail mounted optical collector analyzing high-beam luminous flux, glare cutoff gradients, and adaptive matrix masking to ECE Reg. 48 standards.</p>
+                            
+                            <div class="bay-telemetry-strip">
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">INTENSITY</span>
+                                    <span class="t-data">0–150k cd Lux</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">CUTOFF SLOPE</span>
+                                    <span class="t-data">0.1% Gradient</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">STANDARD</span>
+                                    <span class="t-data">ECE R48 / SAE</span>
+                                </div>
+                            </div>
+
+                            <div class="bay-action-footer">
+                                <span class="bay-action-link">
+                                    <span>EXAMINE BAY BENCH SPECS</span>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bay-bottom-highlight"></div>
+                    </article>
+
+                    <article class="svc-bay-card" data-category="suspension" tabindex="0" onclick="openBayModal(4)">
+                        <div class="bay-media-wrap">
+                            <img src="assets/service_bay_suspension_pit.jpg" alt="Underbody vehicle suspension wishbone and hydraulic play detector inspection" class="bay-media-img" loading="lazy">
+                            <div class="bay-gradient-scrim"></div>
+                            
+                            <div class="bay-top-bar">
+                                <div class="bay-num-badge">
+                                    <span class="bay-id">BAY 04</span>
+                                    <span class="bay-sep">//</span>
+                                    <span class="bay-spec-name">UNDERBODY &amp; SUSPENSION</span>
+                                </div>
+                                <div class="bay-live-status">
+                                    <span class="pulse-indicator"></span>
+                                    <span class="status-txt">ONLINE // CALIBRATED</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bay-content-body">
+                            <div class="bay-hardware-tag">
+                                <svg class="tech-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                                <span>HYDRAULIC SHAKER &bull; DUAL-LIFT ILLUMINATED PIT</span>
+                            </div>
+                            <h3 class="bay-card-heading">Multi-Directional Hydraulic Suspension Play Detector</h3>
+                            <p class="bay-card-summary">Multi-directional hydraulic shaker plates subjecting ball joints, tie-rod ends, wishbones, and anti-roll bar bushings to simulated high-stress road forces.</p>
+                            
+                            <div class="bay-telemetry-strip">
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">PLATE FORCE</span>
+                                    <span class="t-data">12 kN Hydraulic</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">MULTI-AXIS</span>
+                                    <span class="t-data">100 mm Travel</span>
+                                </div>
+                                <div class="telemetry-sep"></div>
+                                <div class="telemetry-item">
+                                    <span class="t-lbl">DIRECTIVE</span>
+                                    <span class="t-data">2014/45/EU</span>
+                                </div>
+                            </div>
+
+                            <div class="bay-action-footer">
+                                <span class="bay-action-link">
+                                    <span>EXAMINE BAY BENCH SPECS</span>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bay-bottom-highlight"></div>
+                    </article>
+
+                </div>
+
+                <div class="svc-bay-stats-matrix">
+                    <div class="bay-stat-cell">
+                        <div class="bay-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="bay-stat-info">
+                            <span class="bay-stat-value">ISO/IEC 17020</span>
+                            <span class="bay-stat-label">Type-A Testing Body</span>
+                            <span class="bay-stat-sub">Independent Third-Party Authority</span>
                         </div>
                     </div>
-                    <!-- Tile 02: Carbon Ceramic Braking Rig -->
-                    <div class="gallery-tile tile-companion-1">
-                        <div class="tile-inner">
-                            <img src="assets/card_brake_disc.jpg" alt="Carbon ceramic brake disc rotor test rig" class="gallery-img" loading="lazy">
-                            <span class="tile-corner-tag">02 // BRAKES</span>
-                            <div class="gallery-overlay"></div>
-                            <div class="gallery-caption">
-                                <span class="caption-category">VEHICLE DETAIL</span>
-                                <h4 class="caption-name">Carbon Ceramic Deceleration &amp; Thermal Analysis</h4>
-                                <p class="caption-desc">Rotor surface thermal profiling and dynamic caliper clamping pressure calibration.</p>
-                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
-                            </div>
-                            <div class="gallery-gold-line"></div>
+
+                    <div class="bay-stat-divider"></div>
+
+                    <div class="bay-stat-cell">
+                        <div class="bay-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="bay-stat-info">
+                            <span class="bay-stat-value">&plusmn;0.01% CO</span>
+                            <span class="bay-stat-label">Spectrometry Accuracy</span>
+                            <span class="bay-stat-sub">Daily NIST Traceable Cylinder Bumps</span>
                         </div>
                     </div>
-                    <!-- Tile 03: Automated Laser Alignment Lift -->
-                    <div class="gallery-tile tile-companion-2">
-                        <div class="tile-inner">
-                            <img src="assets/real_test_undercarriage_lift.png" alt="Hydraulic vehicle lift and underbody chassis inspection" class="gallery-img" loading="lazy">
-                            <span class="tile-corner-tag">03 // CHASSIS</span>
-                            <div class="gallery-overlay"></div>
-                            <div class="gallery-caption">
-                                <span class="caption-category">VEHICLE INSPECTION</span>
-                                <h4 class="caption-name">Multi-Axis Laser Alignment &amp; Chassis Diagnostic</h4>
-                                <p class="caption-desc">Precision optical sensors detecting sub-millimeter structural variances against OEM specifications.</p>
-                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
-                            </div>
-                            <div class="gallery-gold-line"></div>
+
+                    <div class="bay-stat-divider"></div>
+
+                    <div class="bay-stat-cell">
+                        <div class="bay-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            </svg>
+                        </div>
+                        <div class="bay-stat-info">
+                            <span class="bay-stat-value">&plusmn;0.01&deg; Laser</span>
+                            <span class="bay-stat-label">Optical Alignment Res</span>
+                            <span class="bay-stat-sub">Sub-Millimeter 3D Kinematics</span>
                         </div>
                     </div>
-                    <!-- Tile 04: Exhaust Quad Tips -->
-                    <div class="gallery-tile tile-triplet-1">
-                        <div class="tile-inner">
-                            <img src="assets/card_exhaust_tips.jpg" alt="High performance exhaust tips tailpipe gas analysis" class="gallery-img" loading="lazy">
-                            <span class="tile-corner-tag">04 // EMISSIONS</span>
-                            <div class="gallery-overlay"></div>
-                            <div class="gallery-caption">
-                                <span class="caption-category">EMISSIONS TESTING</span>
-                                <h4 class="caption-name">Particulate &amp; Gas Telemetry</h4>
-                                <p class="caption-desc">NDIR non-dispersive infrared detection measuring exact hydrocarbons, CO, and NOx.</p>
-                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
-                            </div>
-                            <div class="gallery-gold-line"></div>
+
+                    <div class="bay-stat-divider"></div>
+
+                    <div class="bay-stat-cell">
+                        <div class="bay-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
                         </div>
-                    </div>
-                    <!-- Tile 05: Tablet Digital Certification -->
-                    <div class="gallery-tile tile-triplet-2">
-                        <div class="tile-inner">
-                            <img src="assets/real_test_mechanic_tablet.png" alt="Certified technician OBD-II diagnostic scanner interrogation" class="gallery-img" loading="lazy">
-                            <span class="tile-corner-tag">05 // VAULT</span>
-                            <div class="gallery-overlay"></div>
-                            <div class="gallery-caption">
-                                <span class="caption-category">DIGITAL CERTIFICATION</span>
-                                <h4 class="caption-name">Encrypted Telemetry Passport</h4>
-                                <p class="caption-desc">Paperless verification synchronized to driver wallet and official licensing authorities.</p>
-                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
-                            </div>
-                            <div class="gallery-gold-line"></div>
-                        </div>
-                    </div>
-                    <!-- Tile 06: EV Battery Telemetry Lab -->
-                    <div class="gallery-tile tile-triplet-3">
-                        <div class="tile-inner">
-                            <img src="assets/real_test_obd_engine.png" alt="Hands-on engine battery &amp; electrical subsystem testing" class="gallery-img" loading="lazy">
-                            <span class="tile-corner-tag">06 // EV LAB</span>
-                            <div class="gallery-overlay"></div>
-                            <div class="gallery-caption">
-                                <span class="caption-category">BATTERY TELEMETRY</span>
-                                <h4 class="caption-name">High-Voltage EV Battery Diagnostics</h4>
-                                <p class="caption-desc">State-of-health analysis, insulation resistance validation, and regenerative braking profiling.</p>
-                                <span class="caption-action">EXPLORE ARCHIVE &rarr;</span>
-                            </div>
-                            <div class="gallery-gold-line"></div>
+                        <div class="bay-stat-info">
+                            <span class="bay-stat-value">SHA-256</span>
+                            <span class="bay-stat-label">Cryptographic Token</span>
+                            <span class="bay-stat-sub">Tamper-Proof Digital Passport</span>
                         </div>
                     </div>
                 </div>
-                <div class="svc-gallery-stats-row">
-                    <div class="gstat">
-                        <span class="gstat-num">12,400+</span>
-                        <span class="gstat-lbl">Vehicles Inspected</span>
-                    </div>
-                    <div class="gstat-sep"></div>
-                    <div class="gstat">
-                        <span class="gstat-num">99.7%</span>
-                        <span class="gstat-lbl">Pass Accuracy</span>
-                    </div>
-                    <div class="gstat-sep"></div>
-                    <div class="gstat">
-                        <span class="gstat-num">3</span>
-                        <span class="gstat-lbl">Certified Centres</span>
-                    </div>
-                    <div class="gstat-sep"></div>
-                    <div class="gstat">
-                        <span class="gstat-num">100%</span>
-                        <span class="gstat-lbl">Regulatory Compliance</span>
-                    </div>
-                </div>
+
             </div>
         </section>
+
         <section class="svc-faq-section" id="svcFAQ">
             <div class="svc-container">
                 <div class="svc-faq-grid">
@@ -777,7 +1087,6 @@
     <footer class="site-footer" id="contact">
         <div class="container">
             <div class="footer-top-grid">
-                <!-- Brand Column -->
                 <div class="footer-brand-col">
                     <div class="footer-logo">
                         <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
@@ -789,7 +1098,6 @@
                     <p class="footer-positioning">
                         Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital Certification.
                     </p>
-                    <!-- Social Icons -->
                     <div class="footer-socials">
                         <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -818,7 +1126,6 @@
                     </div>
                 </div>
 
-                <!-- Column 1: Services -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Services</h4>
                     <ul class="footer-links">
@@ -840,7 +1147,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 2: Company -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Company</h4>
                     <ul class="footer-links">
@@ -865,7 +1171,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Additional Links -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Additional Links</h4>
                     <ul class="footer-links">
@@ -890,7 +1195,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Contact -->
                 <div class="footer-nav-col footer-contact-col">
                     <h4 class="footer-col-title">Contact</h4>
                     <ul class="footer-contact-list">
@@ -949,9 +1253,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Divider -->
             <div class="footer-divider"></div>
-            <!-- Bottom Footer Row -->
             <div class="footer-bottom-row">
                 <p class="footer-copyright">
                     &copy;
@@ -1026,7 +1328,43 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
+    <div class="modal-backdrop" id="bayModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container bay-modal-container">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-eyebrow" id="bayModalEyebrow">STATION TELEMETRY SPECIFICATION</span>
+                    <h3 class="modal-title" id="bayModalTitle">Bay Diagnostic Bench</h3>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closeBayModal()">&#x2715;</button>
+            </div>
+            <div class="modal-body">
+                <div class="bay-modal-image-wrap">
+                    <img id="bayModalImg" src="assets/service_bay_spectrometry.jpg" alt="Bay Diagnostic Bench" class="bay-modal-img">
+                    <div class="bay-modal-img-badge" id="bayModalImgBadge">BAY 01 // ACTIVE</div>
+                </div>
+                <div class="bay-modal-details">
+                    <p class="bay-modal-desc" id="bayModalDesc">Comprehensive multi-gas spectrometry analysis.</p>
+                    
+                    <h4 class="bay-modal-subhead">CALIBRATION &amp; HARDWARE PARAMETERS</h4>
+                    <div class="bay-specs-table-wrap">
+                        <table class="bay-specs-table" id="baySpecsTable">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="bay-modal-subhead">OFFICIAL INSPECTION PROTOCOL</h4>
+                    <ul class="bay-protocol-steps" id="bayProtocolSteps">
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer-btns">
+                <button type="button" class="btn-secondary-hero" onclick="closeBayModal()">Close Telemetry</button>
+                <a href="#servicesGrid" class="btn-primary-hero" onclick="closeBayModal()">Book Inspection in This Bay</a>
+            </div>
+        </div>
+    </div>
+        <script src="index.js"></script>
     <script src="service.js"></script>
 </body>
 

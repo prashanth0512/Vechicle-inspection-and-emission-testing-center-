@@ -1,7 +1,3 @@
-/* ==========================================================
-   JOURNAL-DETAIL.JS - ORVEXA Research Journal Detail Logic
-   6 distinct technical issues with full empirical datasets
-   ========================================================== */
 
 const JOURNAL_DETAILS = {
   'ev-battery-soh-telemetry': {
@@ -318,9 +314,6 @@ const JOURNAL_DETAILS = {
   }
 };
 
-// ==========================================================
-//  PAGE POPULATION
-// ==========================================================
 function getArticleSlug() {
   const params = new URLSearchParams(window.location.search);
   return params.get('article') || params.get('journal') || 'ev-battery-soh-telemetry';
@@ -332,10 +325,8 @@ function populateJournalDetail() {
 
   document.title = 'ORVEXA | ' + article.title.replace(/&amp;/g, '&');
 
-  // Breadcrumbs
   setHTML('jdBreadcrumbTitle', article.title);
 
-  // Hero Section
   setHTML('jdHeroEyebrow', article.issue + ' // ' + article.category);
   setHTML('jdHeroTitle', article.title);
   setHTML('jdHeroTitleItalic', article.titleItalic);
@@ -356,7 +347,6 @@ function populateJournalDetail() {
 
   setHTML('jdCardTagText', article.badge);
 
-  // Telemetry Specs Chips
   const specsEl = document.getElementById('jdSpecsMatrix');
   if (specsEl && article.specs) {
     specsEl.innerHTML = article.specs.map(sp => `
@@ -367,7 +357,6 @@ function populateJournalDetail() {
     `).join('');
   }
 
-  // Article Context
   setHTML('jdContextLead', article.context.lead);
   setHTML('jdProblemHeading', article.context.problemHeading);
   setHTML('jdProblemText', article.context.problemText);
@@ -376,7 +365,6 @@ function populateJournalDetail() {
   setHTML('jdQuoteText', article.context.quote);
   setHTML('jdQuoteAuthor', article.author + ', ' + article.authorRole);
 
-  // Key Findings
   const findingsEl = document.getElementById('jdFindingsList');
   if (findingsEl && article.context.findings) {
     findingsEl.innerHTML = article.context.findings.map(f => `
@@ -389,7 +377,6 @@ function populateJournalDetail() {
     `).join('');
   }
 
-  // Why Choose Protocol Cards
   const whyEl = document.getElementById('jdWhyGrid');
   if (whyEl && article.whyChoose) {
     whyEl.innerHTML = article.whyChoose.map((w, i) => `
@@ -401,7 +388,6 @@ function populateJournalDetail() {
     `).join('');
   }
 
-  // Service Pricing Packages
   const pricingEl = document.getElementById('jdPricingGrid');
   if (pricingEl && article.pricing) {
     pricingEl.innerHTML = article.pricing.map(p => `
@@ -422,7 +408,6 @@ function populateJournalDetail() {
     `).join('');
   }
 
-  // FAQs
   const faqEl = document.getElementById('jdFaqList');
   if (faqEl && article.faqs) {
     faqEl.innerHTML = article.faqs.map((f, i) => `
@@ -444,7 +429,6 @@ function populateJournalDetail() {
     initFaqAccordion();
   }
 
-  // Other Articles Grid
   const othersEl = document.getElementById('jdOtherArticles');
   if (othersEl) {
     const detailPage = 'journal-detail.html';
@@ -472,10 +456,8 @@ function populateJournalDetail() {
       `;
     }).join('');
   }
-  // Apparatus in Hero Card HUD
   setHTML('jdHudApparatus', (article.specs && article.specs[0]) ? article.specs[0].val : 'ISO/IEC 17020 Class-A Sensor Bench');
 
-  // Benchmark Tolerances Table
   const tbody = document.getElementById('jdBenchmarkTbody');
   if (tbody) {
     const benchmarks = article.benchmarks || [
@@ -494,7 +476,6 @@ function populateJournalDetail() {
     `).join('');
   }
 
-  // Right-Side Sticky Action Card Population
   setHTML('stickyRefCode', 'REF // ' + (article.specs && article.specs[0] ? article.specs[0].val.split(' ')[0] : 'LAB') + '-2026');
   setHTML('stickyServiceTitle', article.title + ' ' + article.titleItalic);
   setHTML('stickyServiceSubtitle', article.category);
@@ -553,9 +534,6 @@ function closeBookingModal() {
   }
 }
 
-// ==========================================================
-//  RTL LOGIC
-// ==========================================================
 function initRTL() {
   const rtlToggle = document.getElementById('rtlToggle');
   const htmlRoot = document.documentElement;
@@ -581,9 +559,6 @@ function applyDir(dir) {
   }
 }
 
-// ==========================================================
-//  PORTAL NOTICE MODAL
-// ==========================================================
 function openPortalNotice(type, title, msg) {
   const modal = document.getElementById('portalNoticeModal');
   if (!modal) return;
@@ -651,14 +626,13 @@ function closePortalNotice() {
   }
 }
 
-// DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   populateJournalDetail();
   initRTL();
 
   const toggleBtn = document.getElementById('themeToggle');
   const html = document.documentElement;
-  const savedTheme = localStorage.getItem('orvexa_theme') || 'light';
+  const savedTheme = localStorage.getItem('orvexa-theme') || 'light';
   html.setAttribute('data-theme', savedTheme);
 
   if (toggleBtn) {
@@ -666,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
-      localStorage.setItem('orvexa_theme', next);
+      localStorage.setItem('orvexa-theme', next);
     });
   }
 

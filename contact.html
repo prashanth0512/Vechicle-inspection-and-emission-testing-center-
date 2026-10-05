@@ -3,6 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Contact &amp; Testing Bay Priority Intake — Metrology Laboratory</title>
     <meta name="description"
@@ -10,28 +26,21 @@
     <meta name="keywords"
         content="contact ORVEXA, book vehicle inspection, automotive metrology bay, emissions testing appointment, EV telemetry intake, statutory compliance testing">
 
-    <!-- Modern Editorial & Precision Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="contact.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body class="contact-page">
-    <!-- ==================================================
-         01. GLOBAL LUXURY NAVIGATION (Identical to Home 1)
-         ================================================== -->
     <header class="site-header" id="siteHeader">
         <div class="header-inner">
-            <!-- Brand Logo -->
             <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
                 <div class="logo-symbol">
           <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
@@ -42,7 +51,6 @@
                 </div>
             </a>
 
-            <!-- Primary Navigation -->
             <nav class="main-nav" aria-label="Main Navigation">
                 <ul class="nav-list">
                     <li class="nav-item has-dropdown">
@@ -72,7 +80,6 @@
                 </ul>
             </nav>
 
-            <!-- Header Utilities -->
             <div class="header-actions">
                 <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
                     <span class="theme-icon-sun" title="Light Mode">
@@ -114,7 +121,6 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
         <div class="drawer-header">
             <div class="drawer-brand-block">
@@ -124,7 +130,6 @@
             <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
         </div>
 
-        <!-- Navigation Links -->
         <ul class="drawer-links">
             <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
             <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
@@ -142,13 +147,9 @@
     </div>
 
     <main>
-        <!-- ==================================================
-             02. PREMIUM HERO BANNER (Architectural 2-Image Layout)
-             ================================================== -->
         <section class="contact-hero">
             <div class="container">
                 <div class="contact-hero-grid">
-                    <!-- Left Hero Content -->
                     <div class="contact-hero-content">
                         <div class="hero-eyebrow-wrapper">
                             <span class="eyebrow-dash"></span>
@@ -164,7 +165,6 @@
                             telemetry or schedule priority intake with an accredited testing officer.
                         </p>
 
-                        <!-- Quick Trust Metric Chips -->
                         <div class="contact-hero-metrics">
                             <div class="contact-metric-pill">
                                 <span class="cmp-dot"></span>
@@ -180,7 +180,6 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
                         <div class="contact-hero-actions">
                             <a href="#intake-form" class="btn-primary-hero">
                                 <span>Reserve a Testing Bay</span>
@@ -191,29 +190,23 @@
                         </div>
                     </div>
 
-                    <!-- Right Hero Dual-Image Architectural Showcase -->
                     <div class="contact-hero-showcase">
-                        <!-- Primary Main Visual Card -->
                         <div class="contact-main-card">
                             <div class="contact-card-glow"></div>
-                            <!-- 4 Precision CNC Gold Corner Reticles -->
                             <span class="hud-bracket top-left"></span>
                             <span class="hud-bracket top-right"></span>
                             <span class="hud-bracket bottom-left"></span>
                             <span class="hud-bracket bottom-right"></span>
 
-                            <!-- Top Live Station Tag -->
                             <div class="contact-card-tag">
                                 <span class="cct-radar"></span>
                                 <span>BAY 01 // METROLOGY HEADQUARTERS</span>
                             </div>
 
-                            <!-- Live Standard Pill -->
                             <div class="contact-card-standard">
                                 <span>UNECE R100 &bull; ISO 17020</span>
                             </div>
 
-                            <!-- Full-Bleed Viewport with Telemetry Mesh -->
                             <div class="contact-card-viewport">
                                 <img src="assets/h2_inspection_bay.jpg" alt="ORVEXA Central Metrology Bay"
                                     class="contact-viewport-img" loading="eager">
@@ -221,7 +214,6 @@
                                 <div class="contact-viewport-overlay"></div>
                             </div>
 
-                            <!-- Floating Glass HUD Strip -->
                             <div class="contact-card-hud">
                                 <div class="hud-left-meta">
                                     <span class="hud-label">APPARATUS STATUS</span>
@@ -235,9 +227,7 @@
                             <div class="contact-card-accent-line"></div>
                         </div>
 
-                        <!-- Secondary Overlapping Floating Visual Card -->
                         <div class="contact-secondary-card">
-                            <!-- 4 Corner Reticles -->
                             <span class="hud-bracket top-left"></span>
                             <span class="hud-bracket top-right"></span>
                             <span class="hud-bracket bottom-left"></span>
@@ -262,9 +252,6 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             03. FORM CARD SECTION (High-End Laboratory Intake)
-             ================================================== -->
         <section class="contact-form-section" id="intake-form">
             <div class="container">
                 <div class="section-header-center">
@@ -282,19 +269,15 @@
                     </p>
                 </div>
 
-                <!-- Form Card -->
                 <div class="contact-form-card">
-                    <!-- Luxury Background Elements -->
                     <div class="form-scan-lines"></div>
                     <div class="form-card-ambient"></div>
 
-                    <!-- 4 Precision CNC Gold Corner Brackets -->
                     <span class="cta-bracket cta-bracket-tl"></span>
                     <span class="cta-bracket cta-bracket-tr"></span>
                     <span class="cta-bracket cta-bracket-bl"></span>
                     <span class="cta-bracket cta-bracket-br"></span>
 
-                    <!-- Form Header Header Bar -->
                     <div class="cfc-header">
                         <div class="cfc-status">
                             <span class="cfc-dot"></span>
@@ -305,7 +288,6 @@
 
                     <form id="contactIntakeForm" class="contact-form-grid" novalidate
                         onsubmit="handleContactSubmit(event)">
-                        <!-- Column 1: Client & Booking Metadata -->
                         <div class="form-col">
                             <h3 class="form-col-title">
                                 <span class="fct-num">01</span>
@@ -324,7 +306,7 @@
                                 <label for="cfOrgName" class="form-label">Company / Fleet Entity <span
                                         class="opt">(Optional)</span></label>
                                 <input type="text" id="cfOrgName" class="form-input"
-                                    placeholder="e.g. Sterling Logistics LLC / Private">
+                                    placeholder="e.g. Sterling Logistics LLC">
                             </div>
 
                             <div class="form-row-2">
@@ -378,7 +360,6 @@
                             </div>
                         </div>
 
-                        <!-- Column 2: Vehicle & Diagnostic Protocol -->
                         <div class="form-col">
                             <h3 class="form-col-title">
                                 <span class="fct-num">02</span>
@@ -409,7 +390,7 @@
                                     <label for="cfMakeModel" class="form-label">Vehicle Make &amp; Model <span
                                             class="req">*</span></label>
                                     <input type="text" id="cfMakeModel" class="form-input"
-                                        placeholder="e.g. Porsche 911 / Tesla Model S" required>
+                                        placeholder="e.g. Porsche 911, Model S" required>
                                     <span class="form-err-msg">Make &amp; model required.</span>
                                 </div>
                                 <div class="form-group">
@@ -441,7 +422,7 @@
                                 <label for="cfNotes" class="form-label">Technical Symptoms / Statutory Deadlines <span
                                         class="opt">(Optional)</span></label>
                                 <textarea id="cfNotes" class="form-textarea" rows="3"
-                                    placeholder="Specify any known OBD error codes, steering pulsation, previous inspection citations, or custom fleet requirements..."></textarea>
+                                    placeholder="Specify OBD codes, steering pulsation, citations, or fleet requirements..."></textarea>
                             </div>
 
                             <div class="form-checkbox-group">
@@ -454,7 +435,6 @@
                             </div>
                         </div>
 
-                        <!-- Full Width Submit Action Row -->
                         <div class="form-actions-full">
                             <div class="form-submit-wrap">
                                 <button type="submit" class="btn-primary-hero btn-submit-intake" id="formSubmitBtn">
@@ -475,9 +455,6 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             04. MAP AND ADDRESS CARDS SECTION
-             ================================================== -->
         <section class="contact-locations-section" id="locations">
             <div class="container">
                 <div class="section-header-center">
@@ -495,9 +472,7 @@
                     </p>
                 </div>
 
-                <!-- 3 Address Hub Cards -->
                 <div class="locations-cards-grid">
-                    <!-- Hub 1: Central HQ -->
                     <div class="hub-card active" data-hub-id="central" onclick="selectHub('central')">
                         <div class="hub-card-header">
                             <div class="hub-status-badge">
@@ -541,7 +516,6 @@
                         </div>
                     </div>
 
-                    <!-- Hub 2: Metro EV Facility -->
                     <div class="hub-card" data-hub-id="metro" onclick="selectHub('metro')">
                         <div class="hub-card-header">
                             <div class="hub-status-badge">
@@ -585,7 +559,6 @@
                         </div>
                     </div>
 
-                    <!-- Hub 3: West Fleet Corridor -->
                     <div class="hub-card" data-hub-id="west" onclick="selectHub('west')">
                         <div class="hub-card-header">
                             <div class="hub-status-badge">
@@ -630,7 +603,6 @@
                     </div>
                 </div>
 
-                <!-- Interactive Architectural Map HUD Container -->
                 <div class="contact-map-card">
                     <div class="map-hud-bar">
                         <div class="map-hud-left">
@@ -643,15 +615,12 @@
                         </div>
                     </div>
 
-                    <!-- Visual Blueprint / Satellite SVG Map Stage -->
                     <div class="map-stage-viewport">
                         <div class="map-grid-overlay"></div>
                         <div class="map-radar-sweep"></div>
 
-                        <!-- Central SVG Metrology Map Visual -->
                         <svg class="map-blueprint-svg" viewBox="0 0 1000 480" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-                            <!-- Background Roads / Arterials -->
                             <path d="M50 240 Q 250 120 500 240 T 950 240" stroke="rgba(164, 119, 67, 0.25)"
                                 stroke-width="3" stroke-dasharray="6 6" />
                             <path d="M220 50 L 220 430" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
@@ -661,7 +630,6 @@
                             <circle cx="500" cy="240" r="90" stroke="rgba(164, 119, 67, 0.25)" stroke-width="1"
                                 stroke-dasharray="4 4" />
 
-                            <!-- Location Pin 1: Central HQ (x: 500, y: 240) -->
                             <g id="mapPinCentral" class="map-pin-group active" onclick="selectHub('central')">
                                 <circle cx="500" cy="240" r="28" class="pin-radar-ring" />
                                 <circle cx="500" cy="240" r="12" fill="var(--brand-accent)" />
@@ -671,7 +639,6 @@
                                     letter-spacing="1">CENTRAL HQ (48 CALIBRATION DR)</text>
                             </g>
 
-                            <!-- Location Pin 2: Metro EV (x: 220, y: 160) -->
                             <g id="mapPinMetro" class="map-pin-group" onclick="selectHub('metro')">
                                 <circle cx="220" cy="160" r="22" class="pin-radar-ring" />
                                 <circle cx="220" cy="160" r="10" fill="rgba(164, 119, 67, 0.7)" />
@@ -681,7 +648,6 @@
                                     letter-spacing="0.5">METRO EV HUB (128 PRECISION)</text>
                             </g>
 
-                            <!-- Location Pin 3: West Fleet (x: 780, y: 310) -->
                             <g id="mapPinWest" class="map-pin-group" onclick="selectHub('west')">
                                 <circle cx="780" cy="310" r="22" class="pin-radar-ring" />
                                 <circle cx="780" cy="310" r="10" fill="rgba(164, 119, 67, 0.7)" />
@@ -692,7 +658,6 @@
                             </g>
                         </svg>
 
-                        <!-- Floating Live Info Card on Map -->
                         <div class="map-floating-panel" id="mapFloatingPanel">
                             <span class="mfp-eyebrow" id="mfpEyebrow">ACTIVE METROLOGY NODE</span>
                             <h4 class="mfp-title" id="mfpTitle">48 Calibration Drive</h4>
@@ -710,9 +675,6 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             05. FAQS SECTION (Interactive Accordion)
-             ================================================== -->
         <section class="contact-faq-section" id="faqs">
             <div class="container">
                 <div class="section-header-center">
@@ -853,16 +815,11 @@
             </div>
         </section>
 
-        <!-- ==================================================
-             06. LUXURY CTA CARD (Matching Home 1 & Circular Image)
-             ================================================== -->
         <section class="svc-cta-section" id="svcCTA">
             <div class="container">
                 <div class="svc-cta-card">
-                    <!-- Luxury Grid Scan Lines Background -->
                     <div class="cta-scan-lines"></div>
 
-                    <!-- Precision Corner Brackets -->
                     <span class="cta-bracket cta-bracket-tl"></span>
                     <span class="cta-bracket cta-bracket-tr"></span>
                     <span class="cta-bracket cta-bracket-bl"></span>
@@ -870,7 +827,6 @@
 
                     <div class="svc-cta-content">
                         <div class="svc-cta-left">
-                            <!-- Live Status Indicator -->
                             <div class="cta-live-pill">
                                 <span class="cta-live-dot"></span>
                                 <span class="cta-live-text">ISO 17020 ACCREDITED BAY ACTIVE</span>
@@ -886,7 +842,6 @@
                                 certification.
                             </p>
 
-                            <!-- Micro Feature Indicators -->
                             <div class="svc-cta-specs">
                                 <span class="cta-spec-pill">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -921,7 +876,6 @@
                             </div>
                         </div>
 
-                        <!-- Circular Active Bay Visual with Glowing Gold HUD Orbit -->
                         <div class="svc-cta-seal-wrap">
                             <div class="cta-circle-frame">
                                 <div class="cta-circle-dash-ring"></div>
@@ -948,15 +902,10 @@
         </section>
     </main>
 
-    <!-- ==================================================
-         07. SITE FOOTER (Exact Reference to Home 1)
-         ================================================== -->
     <footer class="site-footer" id="contact">
         <div class="container">
-            <!-- Top Footer Row -->
             <div class="footer-top-grid">
 
-                <!-- Brand Column -->
                 <div class="footer-brand-col">
                     <div class="footer-logo">
                         <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
@@ -970,7 +919,6 @@
                         Certification.
                     </p>
 
-                    <!-- Social Icons -->
                     <div class="footer-socials">
                         <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -1003,7 +951,6 @@
                     </div>
                 </div>
 
-                <!-- Column 1: Services -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Services</h4>
                     <ul class="footer-links">
@@ -1016,7 +963,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 2: Company -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Company</h4>
                     <ul class="footer-links">
@@ -1029,7 +975,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Additional Links -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Additional Links</h4>
                     <ul class="footer-links">
@@ -1044,7 +989,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Contact -->
                 <div class="footer-nav-col footer-contact-col">
                     <h4 class="footer-col-title">Contact</h4>
                     <ul class="footer-contact-list">
@@ -1100,10 +1044,8 @@
                 </div>
             </div>
 
-            <!-- Divider -->
             <div class="footer-divider"></div>
 
-            <!-- Bottom Footer Row -->
             <div class="footer-bottom-row">
                 <p class="footer-copyright">
                     &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All
@@ -1120,9 +1062,6 @@
         </div>
     </footer>
 
-    <!-- ==================================================
-         08. SUCCESS CONFIRMATION MODAL
-         ================================================== -->
     <div class="modal-backdrop" id="intakeSuccessModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container success-receipt-modal">
             <div class="modal-header">
@@ -1165,7 +1104,6 @@
         </div>
     </div>
 
-    <!-- Booking Modal -->
     <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container">
             <div class="modal-header">
@@ -1193,7 +1131,6 @@
         </div>
     </div>
 
-    <!-- Portal Notice Modal (404, Coming Soon, Login, Dashboard) -->
     <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container portal-notice-container">
             <div class="modal-header">
@@ -1225,7 +1162,7 @@
         </div>
     </div>
 
-    <!-- Core Javascript Engines -->
+    <script src="index.js"></script>
     <script src="contact.js"></script>
 </body>
 

@@ -3,6 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Service Detail</title>
     <meta name="description"
@@ -15,7 +31,6 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="service.css">
     <link rel="stylesheet" href="service-detail.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
@@ -118,7 +133,6 @@
             <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
         </div>
 
-        <!-- Navigation Links -->
         <ul class="drawer-links">
             <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
             <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
@@ -139,12 +153,6 @@
             <div class="svc-container">
                 <div class="sd-hero-grid">
                     <div class="sd-hero-content">
-                        <div class="sd-hero-breadcrumb">
-                            <a href="service.html" id="sdBackLink" class="sd-breadcrumb-link">
-                                <span class="sd-breadcrumb-arrow">&#x2190;</span>
-                                <span>ALL SERVICES</span>
-                            </a>
-                        </div>
                         <div class="sd-hero-eyebrow-wrap">
                             <span class="svc-eyebrow-line"></span>
                             <span class="svc-eyebrow-text" id="sdHeroEyebrow">SERVICE</span>
@@ -216,7 +224,6 @@
                 </div>
             </div>
         </section>
-        <!-- 1. ENHANCED OVERVIEW SECTION -->
         <section class="sd-overview-section">
             <div class="svc-container">
                 <div class="sd-overview-grid">
@@ -228,9 +235,7 @@
                         <h2 class="svc-section-title" id="sdOverviewTitle" style="text-align:left;">Service Name</h2>
                         <p class="sd-overview-text" id="sdOverviewText">Loading...</p>
                         
-                        <!-- Technical Specs Matrix -->
                         <div class="sd-specs-matrix" id="sdSpecsMatrix">
-                            <!-- Populated dynamically via JS -->
                         </div>
 
                         <div class="sd-overview-actions">
@@ -281,7 +286,6 @@
             </div>
         </section>
 
-        <!-- 2. NEW: 4-STEP TECHNICAL BAY WORKFLOW PROTOCOL -->
         <section class="sd-process-section" id="sdProcessSection">
             <div class="svc-container">
                 <div class="svc-section-head">
@@ -293,12 +297,10 @@
                     <p class="svc-section-desc">From initial optical scanning to statutory cloud sync &mdash; our calibrated 4-stage protocol ensures zero margin for error.</p>
                 </div>
                 <div class="sd-process-grid" id="sdProcessGrid">
-                    <!-- Populated dynamically via JS per service -->
                 </div>
             </div>
         </section>
 
-        <!-- 3. NEW: CERTIFIED DELIVERABLES & DOSSIER -->
         <section class="sd-deliverables-section">
             <div class="svc-container">
                 <div class="svc-section-head">
@@ -310,12 +312,10 @@
                     <p class="svc-section-desc">Upon bay exit, you receive physical and cryptographically secured records recognized by all regional transport authorities.</p>
                 </div>
                 <div class="sd-deliverables-grid" id="sdDeliverablesGrid">
-                    <!-- Populated dynamically via JS per service -->
                 </div>
             </div>
         </section>
 
-        <!-- 4. UPGRADED: WHY CHOOSE THIS SERVICE -->
         <section class="sd-why-section">
             <div class="svc-container">
                 <div class="svc-section-head">
@@ -330,7 +330,6 @@
             </div>
         </section>
 
-        <!-- 5. UPGRADED: TRANSPARENT PRICING -->
         <section class="sd-pricing-section">
             <div class="svc-container">
                 <div class="svc-section-head">
@@ -345,7 +344,6 @@
             </div>
         </section>
 
-        <!-- 6. UPGRADED: FREQUENTLY ASKED QUESTIONS -->
         <section class="svc-faq-section">
             <div class="svc-container">
                 <div class="svc-section-head">
@@ -362,7 +360,6 @@
             </div>
         </section>
 
-        <!-- 7. UPGRADED: OTHER SERVICES -->
         <section class="sd-other-section">
             <div class="svc-container">
                 <div class="svc-section-head">
@@ -377,7 +374,6 @@
             </div>
         </section>
 
-        <!-- 8. PERFECTLY STYLED LUXURY CTA CARD (Matching service.css) -->
         <section class="svc-cta-section" id="svcCTA">
             <div class="svc-container">
                 <div class="svc-cta-card">
@@ -455,7 +451,6 @@
     <footer class="site-footer" id="contact">
         <div class="container">
             <div class="footer-top-grid">
-                <!-- Brand Column -->
                 <div class="footer-brand-col">
                     <div class="footer-logo">
                         <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
@@ -469,7 +464,6 @@
                         Certification.
                     </p>
 
-                    <!-- Social Icons -->
                     <div class="footer-socials">
                         <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -502,7 +496,6 @@
                     </div>
                 </div>
 
-                <!-- Column 1: Services -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Services</h4>
                     <ul class="footer-links">
@@ -524,7 +517,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 2: Company -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Company</h4>
                     <ul class="footer-links">
@@ -549,7 +541,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Additional Links -->
                 <div class="footer-nav-col">
                     <h4 class="footer-col-title">Additional Links</h4>
                     <ul class="footer-links">
@@ -574,7 +565,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Contact -->
                 <div class="footer-nav-col footer-contact-col">
                     <h4 class="footer-col-title">Contact</h4>
                     <ul class="footer-contact-list">
@@ -639,9 +629,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Divider -->
             <div class="footer-divider"></div>
-            <!-- Bottom Footer Row -->
             <div class="footer-bottom-row">
                 <p class="footer-copyright">
                     &copy;

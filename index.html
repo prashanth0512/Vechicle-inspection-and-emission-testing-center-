@@ -3,6 +3,22 @@
 
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ORVEXA | Premium Vehicle Inspection & Emissions Testing</title>
   <meta name="description"
@@ -10,7 +26,6 @@
   <meta name="keywords"
     content="vehicle inspection, emissions testing, automotive compliance, digital vehicle certification, luxury auto inspection">
 
-  <!-- Modern Editorial & Precision Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -18,19 +33,14 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="index.css">
-  <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body>
 
-  <!-- ==================================================
-       01. LUXURY HEADER
-       ================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <!-- Brand Logo -->
       <a href="#hero" class="brand-logo" aria-label="ORVEXA Homepage">
         <div class="logo-symbol">
           <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
@@ -41,10 +51,8 @@
         </div>
       </a>
 
-      <!-- Primary Navigation -->
       <nav class="main-nav" aria-label="Main Navigation">
         <ul class="nav-list">
-          <!-- Home with Dropdown (Home 1 & Home 2) -->
           <li class="nav-item has-dropdown">
             <a href="#hero" class="nav-link active">
               <span>Home</span>
@@ -64,26 +72,19 @@
             </div>
           </li>
 
-          <!-- About -->
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 
-          <!-- Services -->
           <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
 
-          <!-- Journals -->
           <li class="nav-item"><a href="journal.html" class="nav-link">Journals</a></li>
 
-          <!-- Contact -->
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 
-          <!-- Dashboard -->
           <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
         </ul>
       </nav>
 
-      <!-- Header Utilities (Order: Theme Toggle -> RTL Button -> Login -> Book Now) -->
       <div class="header-actions">
-        <!-- 1. Refined Single-Icon Theme Toggle (Sun in Light, Moon in Dark) -->
         <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
           <span class="theme-icon-sun" title="Light Mode">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -107,21 +108,17 @@
           </span>
         </button>
 
-        <!-- 2. RTL Button -->
         <button type="button" class="header-rtl-btn" id="rtlToggle" aria-label="Toggle text direction RTL / LTR">
           <span id="rtlBtnText">RTL</span>
         </button>
 
-        <!-- 3. Client Login (Direct Page Link) -->
         <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
 
-        <!-- 4. Book Now CTA (Small) -->
         <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn">
           <span>Book Now</span>
           <span class="btn-arrow">&rarr;</span>
         </button>
 
-        <!-- Mobile Menu Toggle -->
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -131,7 +128,6 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
       <div class="drawer-brand-block">
@@ -141,7 +137,6 @@
       <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
     </div>
 
-    <!-- Navigation Links -->
     <ul class="drawer-links">
       <li><a href="index.html" class="drawer-link active"><span>Home 1</span></a></li>
       <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
@@ -160,17 +155,13 @@
   </div>
 
   <main>
-    <!-- ==================================================
-         HERO SECTION (Strictly 95vh on Desktop)
-         ================================================== -->
     <section class="hero-section" id="hero">
       <div class="hero-container">
 
-        <!-- Hero Left Content -->
         <div class="hero-content">
           <div class="hero-eyebrow-wrapper">
             <span class="eyebrow-dash"></span>
-            <span class="hero-eyebrow">VEHICLE INSPECTION & EMISSIONS TESTING</span>
+            <span class="hero-eyebrow">VEHICLE INSPECTION &amp; EMISSION TESTING CENTER</span>
           </div>
 
           <h1 class="hero-headline">
@@ -179,11 +170,9 @@
             <span class="headline-line highlight-gold">SAFER JOURNEYS.</span>
           </h1>
           <p class="hero-description">
-            Professional vehicle inspections and emissions testing designed to keep vehicle safe, compliant
-            ready for the road.
+            Accredited vehicle inspection, precision emission testing, and compliance certification engineered to keep your vehicle safe, roadworthy, and legally certified.
           </p>
 
-          <!-- Mobile Hero Banner Image (shows before buttons on small screens) -->
           <div class="hero-mobile-banner">
             <img src="assets/hero_light.jpg" alt="ORVEXA Inspection Bay"
               class="hero-mobile-banner-img hero-mobile-img-light" />
@@ -194,20 +183,23 @@
           <div class="hero-cta-group">
             <button type="button" class="btn-primary-hero" id="heroBookBtn">
               <span>BOOK AN INSPECTION</span>
-            </button>
-            <a href="#timeline" class="btn-secondary-hero">
-              <span class="play-icon-ring">
-                <svg viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M5.5 3.5L12 8L5.5 12.5V3.5Z" />
+              <span class="hero-btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
               </span>
+            </button>
+            <a href="#process" class="btn-secondary-hero" id="heroProcessBtn">
               <span>VIEW OUR PROCESS</span>
+              <span class="hero-btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="currentColor">
+                  <polygon points="5,3 13,8 5,13" />
+                </svg>
+              </span>
             </a>
-          </div><!-- /hero-cta-group -->
+          </div>
 
-          <!-- 4 Micro Feature Indicators (Visible in both Light and Dark Modes) -->
           <div class="hero-micro-features">
-            <!-- 1. Safety -->
             <div class="micro-feature-item">
               <span class="micro-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -215,11 +207,10 @@
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </span>
-              <span class="micro-title">SAFETY</span>
-              <span class="micro-sub">Comprehensive Checks</span>
+              <span class="micro-title">SAFETY INSPECTION</span>
+              <span class="micro-sub">Multi-Point Compliance</span>
             </div>
 
-            <!-- 2. Emissions -->
             <div class="micro-feature-item">
               <span class="micro-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -228,11 +219,10 @@
                     d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
                 </svg>
               </span>
-              <span class="micro-title">EMISSIONS</span>
-              <span class="micro-sub">Precision Analysis</span>
+              <span class="micro-title">EMISSION TESTING</span>
+              <span class="micro-sub">Gas Spectrometry &amp; Opacity</span>
             </div>
 
-            <!-- 3. Compliance -->
             <div class="micro-feature-item">
               <span class="micro-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -241,11 +231,10 @@
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                 </svg>
               </span>
-              <span class="micro-title">COMPLIANCE</span>
-              <span class="micro-sub">Official Benchmarks</span>
+              <span class="micro-title">COMPLIANCE &amp; QA</span>
+              <span class="micro-sub">Statutory Road Standards</span>
             </div>
 
-            <!-- 4. Digital Records -->
             <div class="micro-feature-item">
               <span class="micro-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -257,15 +246,14 @@
                   <polyline points="10 9 9 9 8 9" />
                 </svg>
               </span>
-              <span class="micro-title">DIGITAL RECORDS</span>
-              <span class="micro-sub">Instant Certificate</span>
+              <span class="micro-title">CERTIFICATION</span>
+              <span class="micro-sub">Encrypted Digital Passport</span>
             </div>
-          </div><!-- /hero-micro-features -->
+          </div>
 
-        </div><!-- /hero-content -->
-      </div><!-- /hero-container -->
+        </div>
+      </div>
 
-      <!-- Hero Integrated Photographic Environment (Dynamic for Light and Dark Modes) -->
       <div class="hero-media-wrapper">
         <div class="hero-image-container">
           <img src="assets/hero_light.jpg?v=2" alt="ORVEXA Luxury Automotive Inspection Bay in Daytime Light"
@@ -273,70 +261,62 @@
           <img src="assets/hero_dark.jpg?v=2"
             alt="ORVEXA Dark Cinematic Automotive Testing Facility with Precision Inspection Bay"
             class="hero-img hero-img-dark" id="heroDarkImg" />
-          <!-- Soft Editorial Vignette & Gradient Blends -->
           <div class="hero-gradient-overlay"></div>
         </div>
       </div>
     </section>
 
-    <!-- ==================================================
-         HERO BOTTOM PREVIEW STRIP (Reference Feature)
-         ================================================== -->
     <section class="hero-strip-section" aria-label="Feature Highlights">
       <div class="strip-container">
         <div class="strip-grid">
 
-          <!-- Strip Item 1 -->
           <div class="strip-card">
             <div class="strip-img-box">
               <img src="assets/card_brake_disc.jpg" alt="High precision brake disc safety inspection">
             </div>
             <div class="strip-card-body">
-              <span class="strip-card-title">INSPECTION</span>
-              <p class="strip-card-desc">Ensure your vehicle meets essential road safety standards.</p>
+              <span class="strip-card-title">VEHICLE INSPECTION</span>
+              <p class="strip-card-desc">Statutory safety checks covering braking balance, chassis alignment, and steering geometry.</p>
               <a href="#services" class="strip-card-link" aria-label="Learn about safety inspection">
                 <span class="circle-arrow">→</span>
               </a>
             </div>
           </div>
 
-          <!-- Strip Item 2 -->
           <div class="strip-card">
             <div class="strip-img-box">
               <img src="assets/card_exhaust_tips.jpg" alt="Tailpipe emissions analysis and compliance check">
             </div>
             <div class="strip-card-body">
-              <span class="strip-card-title">EMISSIONS</span>
-              <p class="strip-card-desc">Cleaner air through precise regulated exhaust measurement.</p>
+              <span class="strip-card-title">EMISSION TESTING</span>
+              <p class="strip-card-desc">Laboratory-grade tailpipe gas spectrometry and opacity analysis measuring regulated vehicle exhaust.</p>
               <a href="#services" class="strip-card-link" aria-label="Learn about emissions testing">
                 <span class="circle-arrow">→</span>
               </a>
             </div>
           </div>
 
-          <!-- Strip Item 3 -->
           <div class="strip-card">
             <div class="strip-img-box">
               <img src="assets/card_tablet_cert.jpg" alt="Digital inspection certification and reports">
             </div>
             <div class="strip-card-body">
-              <span class="strip-card-title">CERTIFICATION</span>
-              <p class="strip-card-desc">Receive digital compliance reports immediately to your vault.</p>
+              <span class="strip-card-title">CERTIFICATION &amp; QA</span>
+              <p class="strip-card-desc">Instant tamper-proof digital compliance certificates synced directly to transport authorities.</p>
               <a href="#services" class="strip-card-link" aria-label="Explore digital records">
                 <span class="circle-arrow">→</span>
               </a>
             </div>
           </div>
 
-          <!-- Strip Item 4 -->
           <div class="strip-card">
             <div class="strip-img-box">
               <img src="assets/card_clean_road.jpg" alt="Open pristine scenic highway">
             </div>
             <div class="strip-card-body">
-              <span class="strip-card-title">A CLEANER TOMORROW</span>
-              <p class="strip-card-desc">Safer roads and cleaner air for responsible vehicle ownership.</p>
-              <a href="#about" class="strip-card-link" aria-label="Read our mission">
+              <span class="strip-card-title">FLEET &amp; EV TESTING</span>
+              <p class="strip-card-desc">Specialized commercial fleet compliance management and high-voltage EV battery telemetry diagnostics.</p>
+              <a href="service.html" class="strip-card-link" aria-label="Read our services">
                 <span class="circle-arrow">→</span>
               </a>
             </div>
@@ -346,24 +326,18 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 02 — ABOUT ORVEXA
-         ================================================== -->
     <section class="section about-section" id="about">
       <div class="container">
         <div class="about-grid">
 
-          <!-- Left Column: Photographic Showcase with Floating Badges & Rotating Stamp -->
           <div class="about-media-col">
             <div class="about-visual-card">
 
-              <!-- Primary Image: Large, fills top-left -->
               <div class="about-image-frame about-image-primary">
                 <img src="assets/real_test_mechanic_tablet.png" alt="ORVEXA Precision Vehicle Inspection Technician"
                   class="about-showcase-img" />
               </div>
 
-              <!-- Secondary Image: Smaller, offset bottom-right, counter-tilt -->
               <div class="about-image-frame about-image-secondary">
                 <img src="assets/real_test_undercarriage_lift.png" alt="Underbody hoist and chassis inspection"
                   class="about-showcase-img" />
@@ -373,7 +347,6 @@
                 </span>
               </div>
 
-              <!-- Circular Stamp: pinned to top-right corner of primary image -->
               <div class="about-circular-stamp" aria-hidden="true">
                 <svg viewBox="0 0 140 140" class="stamp-svg-ring">
                   <path id="stampPath" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
@@ -391,7 +364,6 @@
                 </div>
               </div>
 
-              <!-- Years badge -->
               <div class="about-float-badge-top">
                 <span class="badge-accent-num">12+</span>
                 <span class="badge-accent-text">Years of Master<br>Benchmarking</span>
@@ -400,7 +372,6 @@
             </div>
           </div>
 
-          <!-- Right Column: Editorial Typography, Stacked Feature Cards & Stat Strip -->
           <div class="about-text-col">
             <div class="section-eyebrow">
               <span class="eyebrow-num">01</span>
@@ -418,9 +389,7 @@
               benchmark with zero-tolerance precision.
             </p>
 
-            <!-- Stack of 3 Numbered Feature Cards (Matching Reference Alignment) -->
             <div class="about-feature-stack">
-              <!-- Card 01 -->
               <div class="about-feature-card">
                 <span class="feature-card-num">01</span>
                 <div class="feature-card-body">
@@ -432,7 +401,6 @@
                 </div>
               </div>
 
-              <!-- Card 02 -->
               <div class="about-feature-card">
                 <span class="feature-card-num">02</span>
                 <div class="feature-card-body">
@@ -444,7 +412,6 @@
                 </div>
               </div>
 
-              <!-- Card 03 -->
               <div class="about-feature-card">
                 <span class="feature-card-num">03</span>
                 <div class="feature-card-body">
@@ -457,7 +424,6 @@
               </div>
             </div>
 
-            <!-- Horizontal Stat Counter Row (Matching Reference Bottom Strip) -->
             <div class="about-stats-row">
               <div class="about-stat-item">
                 <span class="stat-value">99.8%</span>
@@ -481,15 +447,12 @@
               </div>
             </div>
 
-          </div><!-- /about-text-col -->
+          </div>
 
-        </div><!-- /about-grid -->
-      </div><!-- /container -->
+        </div>
+      </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 03 — SERVICES (Strictly 3 Equal Cards)
-         ================================================== -->
     <section class="section services-section" id="services">
       <div class="container">
 
@@ -507,10 +470,8 @@
           </p>
         </div>
 
-        <!-- 3 Primary Service Cards -->
         <div class="services-grid">
 
-          <!-- CARD 01: SAFETY INSPECTION -->
           <article class="service-card" data-service="safety">
             <div class="service-card-media">
               <img src="assets/real_test_undercarriage_lift.png" alt="Comprehensive vehicle safety inspection on hoist">
@@ -521,10 +482,9 @@
                 <span class="service-badge">SAFETY PROTOCOL</span>
                 <span class="service-time">25 MIN ESTIMATE</span>
               </div>
-              <h3 class="service-title">SAFETY INSPECTION</h3>
+              <h3 class="service-title">STATUTORY SAFETY INSPECTION</h3>
               <p class="service-description">
-                Comprehensive checks of essential vehicle safety components including braking systems, structural
-                integrity, steering geometry, chassis alignment, and optical equipment.
+                Comprehensive physical verification of critical vehicle safety systems including brake force distribution, steering geometry, chassis alignment, suspension integrity, and optical cut-off angles.
               </p>
               <div class="service-hover-line"></div>
               <button type="button" class="service-cta-btn" onclick="openBookingWithService('Safety Inspection')">
@@ -534,7 +494,6 @@
             </div>
           </article>
 
-          <!-- CARD 02: EMISSIONS TESTING -->
           <article class="service-card" data-service="emissions">
             <div class="service-card-media">
               <img src="assets/real_test_obd_engine.png"
@@ -546,10 +505,9 @@
                 <span class="service-badge">EMISSIONS PROTOCOL</span>
                 <span class="service-time">15 MIN ESTIMATE</span>
               </div>
-              <h3 class="service-title">EMISSIONS TESTING</h3>
+              <h3 class="service-title">REGULATED EMISSION TESTING</h3>
               <p class="service-description">
-                Measure regulated vehicle emissions against applicable regional standards utilizing laboratory-grade gas
-                analyzers, OBD-II telemetry diagnostics, and opacity sensors.
+                Laboratory-grade tailpipe gas spectrometry and opacity measurement against statutory clean-air benchmarks using optical NDIR analyzers and OBD-II telemetry diagnostics.
               </p>
               <div class="service-hover-line"></div>
               <button type="button" class="service-cta-btn" onclick="openBookingWithService('Emissions Testing')">
@@ -559,7 +517,6 @@
             </div>
           </article>
 
-          <!-- CARD 03: RE-INSPECTION -->
           <article class="service-card" data-service="reinspection">
             <div class="service-card-media">
               <img src="assets/real_test_mechanic_tablet.png" alt="Vehicle re-inspection and diagnostic verification">
@@ -570,10 +527,9 @@
                 <span class="service-badge">FOLLOW-UP PROTOCOL</span>
                 <span class="service-time">10 MIN ESTIMATE</span>
               </div>
-              <h3 class="service-title">RE-INSPECTION</h3>
+              <h3 class="service-title">RE-INSPECTION &amp; VERIFICATION</h3>
               <p class="service-description">
-                Follow-up testing after identified issues have been addressed by your certified service technician.
-                Expedited verification of remediated components with instant clearance.
+                Expedited compliance re-assessment for remediated components. Verified by certified technicians with instantaneous tamper-proof digital certification sign-off.
               </p>
               <div class="service-hover-line"></div>
               <button type="button" class="service-cta-btn" onclick="openBookingWithService('Re-Inspection')">
@@ -587,9 +543,6 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 04 — VERTICAL TIMELINE
-         ================================================== -->
     <section class="section timeline-section" id="timeline">
       <div class="container">
 
@@ -607,13 +560,11 @@
           </p>
         </div>
 
-        <!-- Vertical Timeline Spine -->
         <div class="timeline-wrapper">
           <div class="timeline-spine">
             <div class="timeline-progress-bar" id="timelineProgress"></div>
           </div>
 
-          <!-- Step 01 -->
           <div class="timeline-item left-side">
             <div class="timeline-card">
               <div class="timeline-num-badge">01</div>
@@ -628,7 +579,6 @@
             <div class="timeline-spacer"></div>
           </div>
 
-          <!-- Step 02 -->
           <div class="timeline-item right-side">
             <div class="timeline-spacer"></div>
             <div class="timeline-card">
@@ -643,7 +593,6 @@
             </div>
           </div>
 
-          <!-- Step 03 -->
           <div class="timeline-item left-side">
             <div class="timeline-card">
               <div class="timeline-num-badge">03</div>
@@ -658,7 +607,6 @@
             <div class="timeline-spacer"></div>
           </div>
 
-          <!-- Step 04 -->
           <div class="timeline-item right-side">
             <div class="timeline-spacer"></div>
             <div class="timeline-card">
@@ -673,7 +621,6 @@
             </div>
           </div>
 
-          <!-- Step 05 -->
           <div class="timeline-item left-side">
             <div class="timeline-card">
               <div class="timeline-num-badge">05</div>
@@ -688,7 +635,6 @@
             <div class="timeline-spacer"></div>
           </div>
 
-          <!-- Step 06 -->
           <div class="timeline-item right-side">
             <div class="timeline-spacer"></div>
             <div class="timeline-card">
@@ -708,9 +654,6 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 05 — PROCESS (Central Visual & Diagnostics)
-         ================================================== -->
     <section class="section process-section" id="process">
       <div class="container">
 
@@ -725,8 +668,6 @@
           </h2>
         </div>
 
-        <!-- Linear Process Sequence -->
-        <!-- Linear Process Sequence (Interactive 5-Stage Stepper) -->
         <div class="process-stepper" id="processStepper">
           <button type="button" class="step-pill active" data-step="book" aria-label="Step 1: Book">
             <span class="pill-order">01</span>
@@ -754,33 +695,26 @@
           </button>
         </div>
 
-        <!-- Central Architectural Bay Visual with Dynamic Interactive HUD -->
         <div class="process-bay-visual">
           <img src="assets/method_book.jpg" alt="ORVEXA Digital Appointment Booking Interface" class="process-bay-img"
             id="methodologyImg">
 
-          <!-- HUD Architectural Corner Brackets -->
           <div class="hud-corner hud-corner-tl"></div>
           <div class="hud-corner hud-corner-tr"></div>
           <div class="hud-corner hud-corner-bl"></div>
           <div class="hud-corner hud-corner-br"></div>
 
-          <!-- HUD Luminous Laser Scanning Beam -->
           <div class="hud-scan-beam"></div>
 
-          <!-- HUD Telemetry Diagnostic Grid -->
           <div class="hud-grid-overlay"></div>
 
-          <!-- Live HUD Telemetry Status Badge -->
           <div class="hud-status-badge">
             <span class="hud-dot"></span>
             <span class="hud-status-text" id="hudStatusText">STAGE 01: DIGITAL APPOINTMENT INTAKE</span>
           </div>
 
-          <!-- Top-Right Calibration Beacon -->
           <div class="hud-calibration-badge" id="hudCalBadge">CALIBRATION: ONLINE DISPATCH</div>
 
-          <!-- Micro Telemetry Overlays -->
           <div class="bay-overlay-node node-1" id="methodNode1">
             <span class="node-pulse"></span>
             <div class="node-tooltip">
@@ -797,7 +731,6 @@
             </div>
           </div>
 
-          <!-- Bottom Micro-Information Bar (Strictly no invented numbers) -->
           <div class="process-info-bar">
             <div class="info-block">
               <span class="info-tag" id="infoTag1">ONLINE RESERVATION</span>
@@ -824,15 +757,231 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 05 — GALLERY (Editorial Masonry Grid)
-         ================================================== -->
+    <section class="section radar-section" id="diagnosticRadar">
+      <div class="container">
+
+        <div class="radar-header text-center">
+          <div class="section-eyebrow justify-center">
+            <span class="eyebrow-num">05</span>
+            <span class="eyebrow-text">150-POINT MULTI-ZONE METROLOGY SCANNER</span>
+          </div>
+          <h2 class="editorial-title">
+            DIAGNOSTIC ARCHITECTURE,<br>
+            <span class="italic-serif highlight-gold">PRECISION ACROSS EVERY SUBSYSTEM.</span>
+          </h2>
+          <p class="section-sub-desc">
+            Interact with our ISO/IEC 17020 laboratory diagnostic blueprint. Select an inspection zone to explore live sensor streams, statutory tolerance limits, and calibrated metrology hardware.
+          </p>
+        </div>
+
+        <div class="radar-zone-tabs" role="tablist" aria-label="Inspection Zones">
+          <button type="button" class="radar-tab-btn active" data-zone="emissions" role="tab" aria-selected="true">
+            <span class="tab-indicator"></span>
+            <span class="tab-zone-num">ZONE 01</span>
+            <span class="tab-zone-title">5-Gas Emissions &amp; Opacity</span>
+          </button>
+          <button type="button" class="radar-tab-btn" data-zone="braking" role="tab" aria-selected="false">
+            <span class="tab-indicator"></span>
+            <span class="tab-zone-num">ZONE 02</span>
+            <span class="tab-zone-title">4WD Dynamic Brake Force</span>
+          </button>
+          <button type="button" class="radar-tab-btn" data-zone="suspension" role="tab" aria-selected="false">
+            <span class="tab-indicator"></span>
+            <span class="tab-zone-num">ZONE 03</span>
+            <span class="tab-zone-title">3D Laser Geometry &amp; Play</span>
+          </button>
+          <button type="button" class="radar-tab-btn" data-zone="ev" role="tab" aria-selected="false">
+            <span class="tab-indicator"></span>
+            <span class="tab-zone-num">ZONE 04</span>
+            <span class="tab-zone-title">1000V High-Voltage EV Lab</span>
+          </button>
+        </div>
+
+        <div class="radar-stage-grid">
+
+          <div class="radar-media-col">
+            <div class="radar-media-frame">
+              <img src="assets/home1_diagnostic_radar.jpg" alt="ORVEXA Automotive Diagnostic Metrology Scanner" class="radar-stage-img" id="radarStageImg">
+              <div class="radar-scan-line"></div>
+              <div class="radar-hud-overlay"></div>
+
+              <div class="radar-hud-top">
+                <span class="hud-pulse-dot"></span>
+                <span class="hud-status-txt">ACTIVE INTAKE SESSION // ISO/IEC 17020 CALIBRATED</span>
+              </div>
+
+              <div class="radar-hotspot pin-emissions active" data-pin="emissions" style="top: 68%; left: 62%;">
+                <span class="pin-ring"></span>
+                <span class="pin-core"></span>
+                <div class="pin-tooltip">ZONE 01: NDIR EXHAUST CHROMATOGRAPHY</div>
+              </div>
+              <div class="radar-hotspot pin-braking" data-pin="braking" style="top: 60%; left: 39%;">
+                <span class="pin-ring"></span>
+                <span class="pin-core"></span>
+                <div class="pin-tooltip">ZONE 02: DUAL-ROLLER DYNAMOMETER</div>
+              </div>
+              <div class="radar-hotspot pin-suspension" data-pin="suspension" style="top: 52%; left: 22%;">
+                <span class="pin-ring"></span>
+                <span class="pin-core"></span>
+                <div class="pin-tooltip">ZONE 03: 3D OPTICAL STEERING TOWERS</div>
+              </div>
+              <div class="radar-hotspot pin-ev" data-pin="ev" style="top: 42%; left: 48%;">
+                <span class="pin-ring"></span>
+                <span class="pin-core"></span>
+                <div class="pin-tooltip">ZONE 04: DC GALVANIC ISOLATION</div>
+              </div>
+
+              <div class="radar-hud-bottom">
+                <span class="ticker-label">BENCH METRIC:</span>
+                <span class="ticker-val" id="radarTickerVal">AVL DiGas 4000 &bull; 100 Hz Continuous Transient Stream &bull; Traceable to NIST SRMs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="radar-telemetry-col">
+            <div class="radar-telemetry-card">
+              
+              <div class="radar-card-head">
+                <div class="radar-badge-row">
+                  <span class="radar-card-badge" id="radarCardBadge">ZONE 01 // EXHAUST GAS SPECTROMETRY</span>
+                  <span class="radar-status-badge">
+                    <span class="badge-dot"></span>
+                    <span id="radarStatusTxt">CALIBRATED COMPLIANT</span>
+                  </span>
+                </div>
+                <h3 class="radar-card-title" id="radarCardTitle">Dual-Probe Infrared Gas Chromatography &amp; Opacity Analysis</h3>
+                <p class="radar-card-desc" id="radarCardDesc">
+                  Continuous raw tailpipe sampling measuring CO, CO₂, HC, O₂, and NOx under simulated dynamic highway and transient engine cycles with automated pass-fail limit certification.
+                </p>
+              </div>
+
+              <div class="radar-gauges-grid" id="radarGaugesGrid">
+                <div class="gauge-card">
+                  <div class="gauge-meta">
+                    <span class="gauge-label">CARBON MONOXIDE (CO)</span>
+                    <span class="gauge-val highlight-gold" id="gVal1">0.08% vol</span>
+                  </div>
+                  <div class="gauge-bar-track">
+                    <div class="gauge-bar-fill" id="gBar1" style="width: 40%;"></div>
+                  </div>
+                  <div class="gauge-sub">
+                    <span class="statutory-limit">Limit: &lt; 0.20%</span>
+                    <span class="gauge-status pass">OPTIMAL PASS</span>
+                  </div>
+                </div>
+
+                <div class="gauge-card">
+                  <div class="gauge-meta">
+                    <span class="gauge-label">HYDROCARBONS (HC)</span>
+                    <span class="gauge-val highlight-gold" id="gVal2">16 PPM</span>
+                  </div>
+                  <div class="gauge-bar-track">
+                    <div class="gauge-bar-fill" id="gBar2" style="width: 16%;"></div>
+                  </div>
+                  <div class="gauge-sub">
+                    <span class="statutory-limit">Limit: &lt; 100 PPM</span>
+                    <span class="gauge-status pass">COMPLIANT</span>
+                  </div>
+                </div>
+
+                <div class="gauge-card">
+                  <div class="gauge-meta">
+                    <span class="gauge-label">LAMBDA RATIO (&lambda;)</span>
+                    <span class="gauge-val highlight-gold" id="gVal3">1.002</span>
+                  </div>
+                  <div class="gauge-bar-track">
+                    <div class="gauge-bar-fill" id="gBar3" style="width: 50%;"></div>
+                  </div>
+                  <div class="gauge-sub">
+                    <span class="statutory-limit">Range: 0.97 &ndash; 1.03</span>
+                    <span class="gauge-status pass">STOICHIOMETRIC</span>
+                  </div>
+                </div>
+
+                <div class="gauge-card">
+                  <div class="gauge-meta">
+                    <span class="gauge-label">NITROGEN OXIDES (NOx)</span>
+                    <span class="gauge-val highlight-gold" id="gVal4">26 mg/km</span>
+                  </div>
+                  <div class="gauge-bar-track">
+                    <div class="gauge-bar-fill" id="gBar4" style="width: 32%;"></div>
+                  </div>
+                  <div class="gauge-sub">
+                    <span class="statutory-limit">Euro 6d: &lt; 60 mg/km</span>
+                    <span class="gauge-status pass">ZERO EXCEEDANCE</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="radar-protocol-box">
+                <div class="protocol-row">
+                  <span class="proto-key">INSTRUMENT:</span>
+                  <span class="proto-val" id="protoHardware">AVL DiGas 4000 &bull; NDIR 5-Gas &bull; Heated Extraction Bench</span>
+                </div>
+                <div class="protocol-row">
+                  <span class="proto-key">STANDARD:</span>
+                  <span class="proto-val" id="protoStandard">UN/ECE Regulation 83 &bull; Euro 6d-ISC-FCM &bull; ISO/IEC 17025</span>
+                </div>
+                <div class="protocol-row">
+                  <span class="proto-key">LEDGER HASH:</span>
+                  <span class="proto-val proto-hash" id="protoHash">SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+                </div>
+              </div>
+
+              <div class="radar-card-footer">
+                <button type="button" class="btn-primary-hero btn-sm" onclick="openBookingModal()">
+                  <span>Schedule Calibration Intake</span>
+                  <span class="btn-arrow">&rarr;</span>
+                </button>
+                <a href="service-detail.html?service=emissions-testing" class="radar-detail-link" id="radarDetailLink">
+                  <span>Explore Protocol Specs</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="radar-stats-strip">
+          <div class="radar-stat-item">
+            <span class="r-stat-num highlight-gold">150+</span>
+            <span class="r-stat-lbl">Statutory Checkpoints</span>
+            <span class="r-stat-sub">Multi-Axis Diagnostic Scope</span>
+          </div>
+          <div class="radar-stat-sep"></div>
+          <div class="radar-stat-item">
+            <span class="r-stat-num highlight-gold">40 kHz</span>
+            <span class="r-stat-lbl">Sensor Sampling Rate</span>
+            <span class="r-stat-sub">Real-Time Data Capture</span>
+          </div>
+          <div class="radar-stat-sep"></div>
+          <div class="radar-stat-item">
+            <span class="r-stat-num highlight-gold">&plusmn;0.002%</span>
+            <span class="r-stat-lbl">Calibration Tolerance</span>
+            <span class="r-stat-sub">NIST Reference Standard</span>
+          </div>
+          <div class="radar-stat-sep"></div>
+          <div class="radar-stat-item">
+            <span class="r-stat-num highlight-gold">100%</span>
+            <span class="r-stat-lbl">Cryptographic Hash</span>
+            <span class="r-stat-sub">Tamper-Proof Audit Pass</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <section class="section gallery-section" id="gallery">
       <div class="container">
 
         <div class="gallery-header">
           <div class="section-eyebrow">
-            <span class="eyebrow-num">05</span>
+            <span class="eyebrow-num">06</span>
             <span class="eyebrow-text">VISUAL ARCHIVE</span>
           </div>
           <h2 class="editorial-title">
@@ -845,11 +994,8 @@
           </p>
         </div>
 
-        <!-- Asymmetric Editorial Grid (Images Bleed Into Layout) -->
-        <!-- Asymmetric Editorial Bento Grid (Unique Architectural Alignment) -->
         <div class="editorial-gallery-grid">
 
-          <!-- Tile 01: Hero Featured AWD Dynamometer Cell (Occupies 2 cols x 2 rows) -->
           <div class="gallery-tile tile-featured-hero">
             <div class="tile-inner">
               <img src="assets/archive_dyno_cell.jpg"
@@ -868,7 +1014,6 @@
             </div>
           </div>
 
-          <!-- Tile 02: Carbon Ceramic Braking Rig -->
           <div class="gallery-tile tile-companion-1">
             <div class="tile-inner">
               <img src="assets/card_brake_disc.jpg" alt="Carbon ceramic brake disc rotor test rig" class="gallery-img">
@@ -886,7 +1031,6 @@
             </div>
           </div>
 
-          <!-- Tile 03: Automated Laser Alignment Lift -->
           <div class="gallery-tile tile-companion-2">
             <div class="tile-inner">
               <img src="assets/real_test_undercarriage_lift.png"
@@ -905,7 +1049,6 @@
             </div>
           </div>
 
-          <!-- Tile 04: Exhaust Quad Tips -->
           <div class="gallery-tile tile-triplet-1">
             <div class="tile-inner">
               <img src="assets/card_exhaust_tips.jpg" alt="High performance exhaust tips tailpipe gas analysis"
@@ -923,7 +1066,6 @@
             </div>
           </div>
 
-          <!-- Tile 05: Tablet Digital Certification -->
           <div class="gallery-tile tile-triplet-2">
             <div class="tile-inner">
               <img src="assets/real_test_mechanic_tablet.png" alt="Digital vehicle certification report interface"
@@ -942,7 +1084,6 @@
             </div>
           </div>
 
-          <!-- Tile 06: Road Ready Horizon -->
           <div class="gallery-tile tile-triplet-3">
             <div class="tile-inner">
               <img src="assets/card_clean_road.jpg" alt="Pristine open multi-lane highway heading toward city"
@@ -966,15 +1107,12 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 06 &mdash; REGULATORY RIGOR &amp; STANDARDS
-         ================================================== -->
     <section class="section standards-section" id="standards">
       <div class="container">
 
         <div class="standards-header text-center">
           <div class="section-eyebrow justify-center">
-            <span class="eyebrow-num">06</span>
+            <span class="eyebrow-num">07</span>
             <span class="eyebrow-text">REGULATORY RIGOR</span>
           </div>
           <h2 class="editorial-title">
@@ -986,10 +1124,8 @@
           </p>
         </div>
 
-        <!-- Premium Asymmetric 4-Card Composition -->
         <div class="standards-grid">
 
-          <!-- Card 01: Inspection Protocol -->
           <article class="standard-card">
             <div class="standard-card-glow"></div>
             <div class="standard-card-top">
@@ -1019,7 +1155,6 @@
             </div>
           </article>
 
-          <!-- Card 02: Emissions Protocol -->
           <article class="standard-card">
             <div class="standard-card-glow"></div>
             <div class="standard-card-top">
@@ -1049,7 +1184,6 @@
             </div>
           </article>
 
-          <!-- Card 03: Digital Verification -->
           <article class="standard-card">
             <div class="standard-card-glow"></div>
             <div class="standard-card-top">
@@ -1081,7 +1215,6 @@
             </div>
           </article>
 
-          <!-- Card 04: Re-Inspection Fast-Track -->
           <article class="standard-card">
             <div class="standard-card-glow"></div>
             <div class="standard-card-top">
@@ -1117,15 +1250,12 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 07 &mdash; CLIENT TESTIMONIALS (Verified Experiences)
-         ================================================== -->
     <section class="section testimonials-section" id="testimonials">
       <div class="container">
 
         <div class="testimonials-header text-center">
           <div class="section-eyebrow justify-center">
-            <span class="eyebrow-num">07</span>
+            <span class="eyebrow-num">08</span>
             <span class="eyebrow-text">CLIENT EXPERIENCES</span>
           </div>
           <h2 class="editorial-title">
@@ -1140,7 +1270,6 @@
 
         <div class="testimonials-grid">
 
-          <!-- Testimonial 01 -->
           <article class="testimonial-card">
             <div class="testimonial-card-glow"></div>
             <div class="testimonial-top">
@@ -1153,7 +1282,9 @@
               leaving the bay.&rdquo;
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">JW</div>
+              <div class="author-avatar">
+                <img src="assets/client_julian.jpg" alt="Julian Wainwright - Verified Private Client" class="author-avatar-img" loading="lazy" />
+              </div>
               <div>
                 <h4 class="author-name">Julian Wainwright</h4>
                 <p class="author-meta">Porsche 911 GT3 RS &bull; Annual Statutory Clearance</p>
@@ -1161,7 +1292,6 @@
             </div>
           </article>
 
-          <!-- Testimonial 02 -->
           <article class="testimonial-card">
             <div class="testimonial-card-glow"></div>
             <div class="testimonial-top">
@@ -1174,7 +1304,9 @@
               operations.&rdquo;
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">EM</div>
+              <div class="author-avatar">
+                <img src="assets/client_elena.jpg" alt="Elena Mercer - Director of Fleet Operations" class="author-avatar-img" loading="lazy" />
+              </div>
               <div>
                 <h4 class="author-name">Elena Mercer</h4>
                 <p class="author-meta">Director of Fleet Operations &bull; Apex Executive Transport</p>
@@ -1182,7 +1314,6 @@
             </div>
           </article>
 
-          <!-- Testimonial 03 -->
           <article class="testimonial-card">
             <div class="testimonial-card-glow"></div>
             <div class="testimonial-top">
@@ -1195,7 +1326,9 @@
               zero queues.&rdquo;
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">MS</div>
+              <div class="author-avatar">
+                <img src="assets/client_marcus.jpg" alt="Marcus Sterling - Exotic Vehicle Collector" class="author-avatar-img" loading="lazy" />
+              </div>
               <div>
                 <h4 class="author-name">Marcus Sterling</h4>
                 <p class="author-meta">Ferrari 812 Superfast &bull; EPA &amp; State Compliance</p>
@@ -1205,7 +1338,6 @@
 
         </div>
 
-        <!-- Trust Highlights Bar -->
         <div class="testimonials-highlights">
           <div class="highlight-item">
             <span class="highlight-val">100%</span>
@@ -1226,17 +1358,12 @@
       </div>
     </section>
 
-    <!-- ==================================================
-         SECTION 08 &mdash; FINAL CTA (Compact Luxury Architectural Card)
-         ================================================== -->
     <section class="final-cta-section" id="booking">
       <div class="container">
         <div class="final-cta-card">
-          <!-- Subtle Luxury Ambient Glow Sheen -->
           <div class="cta-card-sheen"></div>
 
           <div class="final-cta-grid">
-            <!-- Left Column: Editorial & Left-Aligned Content -->
             <div class="final-card-content text-left">
               <div class="final-eyebrow-pill">
                 <span class="final-dot"></span>
@@ -1264,7 +1391,6 @@
                 </a>
               </div>
 
-              <!-- Micro Inspection Highlights -->
               <div class="cta-specs-strip">
                 <div class="cta-spec-item">
                   <span class="cta-spec-check">&#10003;</span>
@@ -1283,16 +1409,13 @@
               </div>
             </div>
 
-            <!-- Right Column: Animated Vehicle Inspection HUD Stage -->
             <div class="final-cta-visual">
               <div class="cta-inspector-stage">
-                <!-- HUD Precision Corner Reticles -->
                 <span class="cta-hud-corner tl"></span>
                 <span class="cta-hud-corner tr"></span>
                 <span class="cta-hud-corner bl"></span>
                 <span class="cta-hud-corner br"></span>
 
-                <!-- Top Telemetry Bar -->
                 <div class="cta-hud-header">
                   <div class="cta-hud-live">
                     <span class="cta-live-beacon"></span>
@@ -1303,14 +1426,11 @@
                   </div>
                 </div>
 
-                <!-- Central Vehicle Stage & Scanner -->
                 <div class="cta-vehicle-display">
                   <img src="assets/h2_inspection_car.jpg" alt="Vehicle Inspection Diagnostics" class="cta-car-graphic">
 
-                  <!-- Diagnostics Metrology Grid Overlay -->
                   <div class="cta-scan-grid"></div>
 
-                  <!-- Animated Laser Metrology Beam -->
                   <div class="cta-laser-scanner">
                     <div class="cta-laser-beam"></div>
                     <div class="cta-laser-flare"></div>
@@ -1318,7 +1438,6 @@
                     <span class="cta-laser-tag">METROLOGY BEAM</span>
                   </div>
 
-                  <!-- Hotspot 1: Front Caliper / Brakes -->
                   <div class="cta-hud-point pt-brakes" title="Braking System">
                     <span class="point-radar"></span>
                     <span class="point-core"></span>
@@ -1328,7 +1447,6 @@
                     </div>
                   </div>
 
-                  <!-- Hotspot 2: Chassis Geometry -->
                   <div class="cta-hud-point pt-chassis" title="Laser Chassis Alignment">
                     <span class="point-radar"></span>
                     <span class="point-core"></span>
@@ -1338,7 +1456,6 @@
                     </div>
                   </div>
 
-                  <!-- Hotspot 3: Powertrain & Emissions -->
                   <div class="cta-hud-point pt-engine" title="Emissions Diagnostics">
                     <span class="point-radar"></span>
                     <span class="point-core"></span>
@@ -1349,7 +1466,6 @@
                   </div>
                 </div>
 
-                <!-- Bottom Telemetry Readout & Verification Status -->
                 <div class="cta-hud-footer">
                   <div class="cta-hud-progress-info">
                     <span class="cta-progress-label">INSPECTION:</span>
@@ -1371,16 +1487,11 @@
     </section>
   </main>
 
-  <!-- ==================================================
-       SECTION 09 &mdash; PREMIUM EDITORIAL FOOTER
-       ================================================== -->
   <footer class="site-footer" id="contact">
     <div class="container">
 
-      <!-- Top Footer Row -->
       <div class="footer-top-grid">
 
-        <!-- Brand Column -->
         <div class="footer-brand-col">
           <div class="footer-logo">
             <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
@@ -1393,7 +1504,6 @@
             Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital Certification.
           </p>
 
-          <!-- Social Icons -->
           <div class="footer-socials">
             <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -1425,7 +1535,6 @@
           </div>
         </div>
 
-        <!-- Column 1: Services -->
         <div class="footer-nav-col">
           <h4 class="footer-col-title">Services</h4>
           <ul class="footer-links">
@@ -1437,7 +1546,6 @@
           </ul>
         </div>
 
-        <!-- Column 2: Company -->
         <div class="footer-nav-col">
           <h4 class="footer-col-title">Company</h4>
           <ul class="footer-links">
@@ -1450,7 +1558,6 @@
           </ul>
         </div>
 
-        <!-- Column 3: Additional Links -->
         <div class="footer-nav-col">
           <h4 class="footer-col-title">Additional Links</h4>
           <ul class="footer-links">
@@ -1464,7 +1571,6 @@
           </ul>
         </div>
 
-        <!-- Column 4: Contact -->
         <div class="footer-nav-col footer-contact-col">
           <h4 class="footer-col-title">Contact</h4>
           <ul class="footer-contact-list">
@@ -1525,10 +1631,8 @@
 
       </div>
 
-      <!-- Divider -->
       <div class="footer-divider"></div>
 
-      <!-- Bottom Footer Row -->
       <div class="footer-bottom-row">
         <p class="footer-copyright">
           &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All rights
@@ -1546,9 +1650,6 @@
     </div>
   </footer>
 
-  <!-- ==================================================
-       INTERACTIVE BOOKING MODAL WIZARD
-       ================================================== -->
   <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
     aria-labelledby="modalTitle">
     <div class="modal-container">
@@ -1561,7 +1662,6 @@
       </div>
 
       <div class="modal-body">
-        <!-- Booking Step Progress Bar -->
         <div class="modal-steps-indicator">
           <div class="step-indicator-item active" data-step-indicator="1">
             <span class="step-num">1</span>
@@ -1585,7 +1685,6 @@
         </div>
 
         <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
-          <!-- STEP 1: SELECT SERVICE -->
           <div class="form-step-pane active" data-step-pane="1">
             <h4 class="step-title">Select Verification Protocol</h4>
             <div class="service-select-group">
@@ -1643,7 +1742,6 @@
             </div>
           </div>
 
-          <!-- STEP 2: LOCATION & TIME -->
           <div class="form-step-pane" data-step-pane="2">
             <h4 class="step-title">Choose Facility & Time Slot</h4>
 
@@ -1685,7 +1783,6 @@
             </div>
           </div>
 
-          <!-- STEP 3: VEHICLE DETAILS -->
           <div class="form-step-pane" data-step-pane="3">
             <h4 class="step-title">Vehicle & Driver Details</h4>
 
@@ -1733,7 +1830,6 @@
             </div>
           </div>
 
-          <!-- STEP 4: CONFIRMATION -->
           <div class="form-step-pane" data-step-pane="4">
             <div class="confirm-summary-box">
               <div class="confirm-header">
@@ -1780,9 +1876,6 @@
     </div>
   </div>
 
-  <!-- ==================================================
-       DOCUMENT PREVIEW MODAL
-       ================================================== -->
   <div class="modal-backdrop" id="docModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-container doc-modal-container">
       <div class="modal-header">
@@ -1866,7 +1959,6 @@
     </div>
   </div>
 
-  <!-- Search Quick Modal -->
   <div class="modal-backdrop" id="quickSearchModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-container quick-search-container">
       <div class="modal-header">
@@ -1886,7 +1978,6 @@
       </div>
     </div>
   </div>
-  <!-- Portal Notice & Status Modal (404, Coming Soon, Login, Dashboard) -->
   <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-container portal-notice-container">
       <div class="modal-header">

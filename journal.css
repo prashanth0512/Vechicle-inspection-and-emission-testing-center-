@@ -1,9 +1,4 @@
-/* ==========================================================
-   JOURNAL.CSS - ORVEXA Research & Metrology Journal Styles
-   Premium Editorial Layout, 2-Image Architectural Duo & Compact Cards
-   ========================================================== */
 
-/* ---- 01. REDESIGNED HERO BANNER (ARCHITECTURAL DUAL-IMAGE COMPOSITION) ---- */
 .journal-hero {
   position: relative;
   min-height: auto;
@@ -31,7 +26,6 @@
   align-items: center;
 }
 
-/* Left Hero Content — Matches Home 1 Content Alignment & Hierarchy */
 .journal-hero-left {
   display: flex;
   flex-direction: column;
@@ -64,7 +58,6 @@
   max-width: 500px;
 }
 
-/* Catalog Header with Category Filters */
 .journal-catalog-header {
   display: flex;
   flex-direction: column;
@@ -158,7 +151,6 @@
   box-shadow: 0 4px 14px rgba(164, 119, 67, 0.35);
 }
 
-/* ---- 02. UNIQUE DUAL-IMAGE COMPOSITION (Right Hero Showcase) ---- */
 .journal-hero-duo {
   position: relative;
   display: flex;
@@ -173,7 +165,6 @@
   padding-bottom: 45px;
 }
 
-/* Primary Main Showcase Frame (AWD Dyno Cell) */
 .duo-card-main {
   position: relative;
   width: 88%;
@@ -324,7 +315,6 @@
   background: linear-gradient(90deg, var(--brand-accent) 0%, rgba(164, 119, 67, 0.2) 100%);
 }
 
-/* Secondary Floating Offset Frame (EV Battery Telemetry) - UNIQUE ALIGNMENT */
 .duo-card-sub {
   position: absolute;
   bottom: 0;
@@ -432,7 +422,6 @@
   text-transform: uppercase;
 }
 
-/* ---- 03. COMPACT JOURNAL CARDS SECTION (REDUCED IN SIZE) ---- */
 .journal-grid-section {
   padding: 5rem 0 5.5rem;
   background-color: var(--bg-primary);
@@ -468,7 +457,6 @@
   box-shadow: 0 18px 40px rgba(164, 119, 67, 0.12);
 }
 
-/* Card Media - Sleeker Height */
 .jc-media {
   position: relative;
   width: 100%;
@@ -531,7 +519,6 @@
   padding: 0.25rem 0.55rem;
 }
 
-/* Card Body - Tightened Spacing */
 .jc-body {
   padding: 1.25rem 1.35rem 0.95rem;
   display: flex;
@@ -592,7 +579,6 @@
   overflow: hidden;
 }
 
-/* Author Byline Chip */
 .jc-author-row {
   display: flex;
   align-items: center;
@@ -631,49 +617,68 @@
   line-height: 1.2;
 }
 
-/* Card Action Footer */
 .jc-footer {
-  padding: 0.85rem 1.35rem 1.15rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  padding: 1.25rem 2rem;
   border-top: 1px solid var(--border-color);
   background: var(--bg-surface);
+  display: flex;
+  align-items: center;
 }
 
 [data-theme="dark"] .jc-footer {
   background: #111419;
-  border-top-color: rgba(255, 255, 255, 0.05);
+  border-top-color: rgba(255, 255, 255, 0.06);
 }
 
 .btn-journal-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  min-height: 42px;
   font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--brand-accent);
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .btn-journal-link {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #FAF8F5;
 }
 
 .btn-journal-link svg {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.25s ease;
+  width: 15px;
+  height: 15px;
+  color: var(--brand-accent);
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
+.journal-card:hover .btn-journal-link,
 .btn-journal-link:hover {
-  color: var(--text-primary);
+  background: var(--brand-accent);
+  color: #0A0B0D;
+  border-color: var(--brand-accent);
+  box-shadow: 0 4px 16px rgba(184, 138, 82, 0.28);
+  transform: translateY(-1px);
 }
 
+.journal-card:hover .btn-journal-link svg,
 .btn-journal-link:hover svg {
-  transform: translateX(3px);
+  color: #0A0B0D;
+  transform: translateX(4px);
 }
 
-/* ---- 04. FAQS SECTION ---- */
 .journal-faq-section {
   padding: 5.5rem 0;
   background-color: var(--bg-secondary);
@@ -690,7 +695,6 @@
   margin: 3rem auto 0;
 }
 
-/* ---- 05. RESPONSIVE BREAKPOINTS ---- */
 @media (max-width: 1024px) {
   .journal-hero-grid {
     grid-template-columns: 1fr;

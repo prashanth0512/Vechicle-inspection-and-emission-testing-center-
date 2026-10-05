@@ -1,17 +1,8 @@
-/* ==========================================================================
-   ORVEXA — HOME 2: HIGH-TECH DIAGNOSTIC LABORATORY & INSPECTION INTELLIGENCE
-   Bespoke Editorial Stylesheet for home2.html
-   Inherits core variables, design tokens, header & footer from index.css
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   01. GLOBAL PAGE ARCHITECTURE & ACCENTS FOR HOME 2
-   -------------------------------------------------------------------------- */
 .home2-body {
   overflow-x: hidden;
 }
 
-/* Subtle tech grid background pattern */
 .tech-grid-bg {
   background-image: 
     linear-gradient(to right, rgba(197, 160, 89, 0.04) 1px, transparent 1px),
@@ -19,7 +10,6 @@
   background-size: 60px 60px;
 }
 
-/* Home 2 Hero Image Custom Presentation — Classy Right-Aligned Balance */
 .hero-image-container-h2 {
   position: relative;
   width: 100%;
@@ -31,7 +21,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: 72% center;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
@@ -44,46 +34,52 @@
   transform: scale(1.015);
 }
 
-/* Subtle, Classy Gradient Scrim for Supreme Text Legibility */
 .hero-image-container-h2 .hero-gradient-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 2;
-  background: linear-gradient(to right,
+  background: linear-gradient(90deg,
       var(--bg-primary) 0%,
-      rgba(247, 244, 239, 0.94) 22%,
-      rgba(247, 244, 239, 0.70) 38%,
-      rgba(247, 244, 239, 0.20) 54%,
-      transparent 72%);
+      rgba(247, 244, 239, 0.98) 28%,
+      rgba(247, 244, 239, 0.94) 42%,
+      rgba(247, 244, 239, 0.76) 58%,
+      rgba(247, 244, 239, 0.35) 72%,
+      rgba(247, 244, 239, 0.08) 85%,
+      transparent 100%);
 }
 
 [data-theme="dark"] .hero-image-container-h2 .hero-gradient-overlay {
-  background: linear-gradient(to right,
+  background: linear-gradient(90deg,
       var(--bg-primary) 0%,
-      rgba(8, 9, 9, 0.94) 22%,
-      rgba(8, 9, 9, 0.72) 38%,
-      rgba(8, 9, 9, 0.20) 54%,
-      transparent 72%);
+      rgba(8, 9, 9, 0.98) 28%,
+      rgba(8, 9, 9, 0.94) 42%,
+      rgba(8, 9, 9, 0.78) 58%,
+      rgba(8, 9, 9, 0.38) 72%,
+      rgba(8, 9, 9, 0.10) 85%,
+      transparent 100%);
 }
 
-/* Home 2 RTL Gradient Overlays */
 [dir="rtl"] .hero-image-container-h2 .hero-gradient-overlay {
-  background: linear-gradient(to left,
+  background: linear-gradient(270deg,
       var(--bg-primary) 0%,
-      rgba(247, 244, 239, 0.94) 22%,
-      rgba(247, 244, 239, 0.70) 38%,
-      rgba(247, 244, 239, 0.20) 54%,
-      transparent 72%);
+      rgba(247, 244, 239, 0.98) 28%,
+      rgba(247, 244, 239, 0.94) 42%,
+      rgba(247, 244, 239, 0.76) 58%,
+      rgba(247, 244, 239, 0.35) 72%,
+      rgba(247, 244, 239, 0.08) 85%,
+      transparent 100%);
 }
 
 [dir="rtl"][data-theme="dark"] .hero-image-container-h2 .hero-gradient-overlay {
-  background: linear-gradient(to left,
+  background: linear-gradient(270deg,
       var(--bg-primary) 0%,
-      rgba(8, 9, 9, 0.94) 22%,
-      rgba(8, 9, 9, 0.72) 38%,
-      rgba(8, 9, 9, 0.20) 54%,
-      transparent 72%);
+      rgba(8, 9, 9, 0.98) 28%,
+      rgba(8, 9, 9, 0.94) 42%,
+      rgba(8, 9, 9, 0.78) 58%,
+      rgba(8, 9, 9, 0.38) 72%,
+      rgba(8, 9, 9, 0.10) 85%,
+      transparent 100%);
 }
 
 @media (max-width: 992px) {
@@ -92,23 +88,133 @@
   }
 
   .hero-image-container-h2 .hero-gradient-overlay {
-    background: linear-gradient(to bottom,
+    background: linear-gradient(180deg,
         var(--bg-primary) 0%,
-        rgba(247, 244, 239, 0.92) 50%,
-        rgba(247, 244, 239, 0.40) 80%,
+        rgba(247, 244, 239, 0.98) 45%,
+        rgba(247, 244, 239, 0.85) 70%,
+        rgba(247, 244, 239, 0.35) 90%,
         transparent 100%);
   }
 
   [data-theme="dark"] .hero-image-container-h2 .hero-gradient-overlay {
-    background: linear-gradient(to bottom,
+    background: linear-gradient(180deg,
         var(--bg-primary) 0%,
-        rgba(8, 9, 9, 0.94) 50%,
-        rgba(8, 9, 9, 0.45) 80%,
+        rgba(8, 9, 9, 0.98) 45%,
+        rgba(8, 9, 9, 0.88) 70%,
+        rgba(8, 9, 9, 0.40) 90%,
         transparent 100%);
   }
 }
 
-/* Common Section Header Typography for Home 2 */
+.home2-body .hero-content {
+  position: relative;
+  z-index: 10;
+  background: radial-gradient(circle at 10% 45%, rgba(247, 244, 239, 0.92) 0%, rgba(247, 244, 239, 0.65) 55%, transparent 100%);
+  border-radius: 12px;
+  padding: clamp(1rem, 2vh, 1.75rem) clamp(0.5rem, 1.5vw, 1.25rem) clamp(1rem, 2vh, 1.5rem) 0;
+}
+
+[data-theme="dark"] .home2-body .hero-content {
+  background: radial-gradient(circle at 10% 45%, rgba(8, 9, 9, 0.92) 0%, rgba(8, 9, 9, 0.68) 55%, transparent 100%);
+}
+
+.home2-body .hero-eyebrow {
+  color: #7D551A;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+[data-theme="dark"] .home2-body .hero-eyebrow {
+  color: #DDA843;
+  font-weight: 700;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+}
+
+.home2-body .hero-headline {
+  color: #0A0A09;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .home2-body .hero-headline {
+  color: #FFFFFF;
+  font-weight: 500;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+}
+
+.home2-body .highlight-gold {
+  color: #8E601C;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .home2-body .highlight-gold {
+  color: #E2B75B;
+  font-weight: 500;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 16px rgba(226, 183, 91, 0.25);
+}
+
+.home2-body .hero-description {
+  color: #24221E;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  max-width: 520px;
+}
+
+[data-theme="dark"] .home2-body .hero-description {
+  color: #E5E1D8;
+  font-weight: 400;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+}
+
+.home2-body .micro-title {
+  color: #0E0F10;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .home2-body .micro-title {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.home2-body .micro-sub {
+  color: #4A463F;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .home2-body .micro-sub {
+  color: #B5B0A4;
+  font-weight: 400;
+}
+
+.home2-body .hero-cta-group .btn-secondary-hero {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(164, 119, 67, 0.45);
+  color: #0A0A09;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.home2-body .hero-cta-group .btn-secondary-hero:hover {
+  background-color: rgba(164, 119, 67, 0.12);
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+}
+
+[data-theme="dark"] .home2-body .hero-cta-group .btn-secondary-hero {
+  background-color: rgba(14, 16, 18, 0.65);
+  border-color: rgba(197, 160, 89, 0.38);
+  color: #F0ECE3;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="dark"] .home2-body .hero-cta-group .btn-secondary-hero:hover {
+  background-color: rgba(197, 160, 89, 0.18);
+  border-color: var(--brand-gold-secondary);
+  color: var(--brand-gold-secondary);
+}
+
 .h2-section-header {
   margin-bottom: clamp(1.75rem, 2.5vw, 2.25rem);
 }
@@ -185,9 +291,6 @@
   text-transform: uppercase;
 }
 
-/* --------------------------------------------------------------------------
-   02. SECTION 01 — THE INSPECTION INTELLIGENCE
-   -------------------------------------------------------------------------- */
 .intelligence-section {
   position: relative;
   padding: clamp(3.2rem, 4vw, 4.2rem) 0;
@@ -204,7 +307,6 @@
   margin-top: 0.5rem;
 }
 
-/* Car Stage Visual Canvas */
 .inspection-car-stage {
   position: relative;
   background: radial-gradient(ellipse at 50% 55%, rgba(197, 160, 89, 0.08) 0%, rgba(10, 11, 14, 0.98) 75%);
@@ -250,7 +352,6 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
 }
 
-/* Animated Laser Sweep Beam */
 .laser-sweep-line {
   position: absolute;
   top: 0;
@@ -270,7 +371,6 @@
   100% { left: 94%; opacity: 0.25; }
 }
 
-/* Interactive Hotspot Nodes */
 .car-hotspot {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -349,7 +449,6 @@
   100% { transform: scale(2.3); opacity: 0; }
 }
 
-/* Stage Bottom Telemetry Strip */
 .stage-telemetry-bar {
   position: absolute;
   bottom: 10px;
@@ -375,7 +474,6 @@
   font-weight: 700;
 }
 
-/* Right HUD Telemetry Card */
 .inspection-hud-card {
   background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
   border: 1px solid var(--border-color);
@@ -546,7 +644,6 @@
   border-top-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Quick Domain Selector Pills */
 .domain-pills-bar {
   display: flex;
   gap: 0.5rem;
@@ -584,9 +681,6 @@
   box-shadow: 0 2px 10px rgba(197, 160, 89, 0.35);
 }
 
-/* --------------------------------------------------------------------------
-   03. SECTION 02 — THE EMISSIONS INDEX
-   -------------------------------------------------------------------------- */
 .emissions-section {
   position: relative;
   padding: clamp(2.8rem, 3.5vw, 3.8rem) 0;
@@ -603,7 +697,6 @@
   margin-top: 1.25rem;
 }
 
-/* Left Photo Pane with Laser Probe */
 .emissions-visual-frame {
   position: relative;
   border-radius: 6px;
@@ -656,7 +749,6 @@
   color: #FFFFFF;
 }
 
-/* Right Emissions Instrument Console — Compact & Sleek */
 .emissions-console-card {
   background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
   border: 1px solid var(--border-color);
@@ -705,7 +797,6 @@
   text-transform: uppercase;
 }
 
-/* RPM Mode Selector */
 .rpm-selector-group {
   display: flex;
   gap: 3px;
@@ -744,7 +835,6 @@
   color: #0B0C0E;
 }
 
-/* 4 Gas Telemetry Bars — Compact */
 .gas-gauges-stack {
   display: flex;
   flex-direction: column;
@@ -858,7 +948,6 @@
   color: #4CAF50;
 }
 
-/* Console Diagnostics Log Footer */
 .console-diag-footer {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
@@ -909,9 +998,6 @@
   50% { opacity: 0.3; }
 }
 
-/* --------------------------------------------------------------------------
-   04. SECTION 03 — VEHICLE PASSPORT (ASYMMETRICAL SPLIT EDITORIAL)
-   -------------------------------------------------------------------------- */
 .passport-section {
   position: relative;
   padding: clamp(3.2rem, 4vw, 4.2rem) 0;
@@ -927,7 +1013,6 @@
   align-items: start;
 }
 
-/* Left Column: Editorial Side-Rail & Provenance Credentials */
 .passport-editorial-col {
   display: flex;
   flex-direction: column;
@@ -955,7 +1040,6 @@
   max-width: 480px;
 }
 
-/* Verification Provenance Widget Box */
 .passport-provenance-box {
   background: linear-gradient(165deg, #FFFFFF 0%, #FAF8F5 100%);
   border: 1px solid var(--border-color);
@@ -1099,7 +1183,6 @@
   flex-wrap: wrap;
 }
 
-/* Right Column: Interactive Digital Vehicle Passport Dossier Card */
 .passport-dossier-col {
   width: 100%;
 }
@@ -1452,9 +1535,6 @@
   letter-spacing: 0.08em;
 }
 
-/* --------------------------------------------------------------------------
-   05. SECTION 04 — INSIDE THE INSPECTION BAY (SPATIAL TELEMETRY)
-   -------------------------------------------------------------------------- */
 .bay-section {
   position: relative;
   padding: clamp(2.4rem, 3.2vw, 3.2rem) 0;
@@ -1556,7 +1636,6 @@
   border-color: var(--brand-accent);
 }
 
-/* Compact Cinematic Bay Visual Canvas */
 .bay-canvas-container {
   position: relative;
   border-radius: 6px;
@@ -1581,7 +1660,6 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Compact Spatial Bay Telemetry HUD */
 .bay-hud-overlay {
   position: absolute;
   bottom: 1.2rem;
@@ -1667,9 +1745,6 @@
   color: #A0A5AA;
 }
 
-/* --------------------------------------------------------------------------
-   06. SECTION 05 — THE ROAD AHEAD (COMPACT EDITORIAL TRIAD)
-   -------------------------------------------------------------------------- */
 .ahead-section {
   position: relative;
   padding: clamp(2.4rem, 3.2vw, 3.2rem) 0;
@@ -1686,7 +1761,6 @@
   border-top: 1px solid rgba(197, 160, 89, 0.2);
 }
 
-/* Background Atmospheric Photo */
 .ahead-backdrop-image {
   position: absolute;
   inset: 0;
@@ -1751,7 +1825,6 @@
   color: #FFFFFF;
 }
 
-/* 3 Asymmetrical Closing Concept Columns - Compact & Refined */
 .ahead-concepts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1824,9 +1897,6 @@
   color: #BAC0C6;
 }
 
-/* --------------------------------------------------------------------------
-   07. FINAL CTA CARD (LUXURY ARCHITECTURAL CARD FOR HOME 2)
-   -------------------------------------------------------------------------- */
 .home2-body .final-cta-section {
   background-color: var(--bg-secondary);
   padding: clamp(2.2rem, 3.5vw, 3.25rem) 0;
@@ -1851,9 +1921,6 @@
   background-color: #0C0E10;
 }
 
-/* --------------------------------------------------------------------------
-   08. RESPONSIVE BREAKPOINTS FOR HOME 2
-   -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .intelligence-grid {
     grid-template-columns: 1fr;
@@ -1950,7 +2017,6 @@
     justify-content: space-between;
   }
 
-  /* Fix image card overflow on mobile */
   .inspection-car-stage {
     width: 100%;
     max-width: 100%;
@@ -1983,12 +2049,10 @@
     object-fit: cover;
   }
 
-  /* Hide hotspot labels on small screens — they overflow */
   .hotspot-label {
     display: none;
   }
 
-  /* Ensure grids don't overflow */
   .intelligence-grid,
   .emissions-cockpit-grid {
     width: 100%;
@@ -1996,7 +2060,6 @@
     overflow: hidden;
   }
 
-  /* Inspection HUD card full width */
   .inspection-hud-card,
   .emissions-console-card {
     width: 100%;

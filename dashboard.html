@@ -3,38 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Enterprise Fleet &amp; Client Telemetry Dashboard</title>
     <meta name="description"
         content="ORVEXA Enterprise Client Dashboard. Manage vehicle inspection slots, download certified digital passports, monitor emissions compliance, and track renewals.">
 
-    <!-- Precision Editorial & Sans Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="dashboard.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body class="dashboard-body">
 
-    <!-- ==================================================
-         PORTAL WRAPPER (SIDEBAR + MAIN CONTENT AREA)
-         ================================================== -->
     <div class="portal-wrapper">
 
-        <!-- ==================================================
-             LEFT SIDEBAR PANEL
-             ================================================== -->
         <aside class="portal-sidebar" id="portalSidebar">
-            <!-- Sidebar Header / Brand -->
             <div class="sidebar-brand-block">
                 <a href="index.html" class="sidebar-brand-link" title="Return to ORVEXA Home">
                     <div class="sidebar-logo-symbol">
@@ -48,13 +54,10 @@
                 <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar navigation">&times;</button>
             </div>
 
-            <!-- Portal Navigation Label -->
             <div class="sidebar-nav-label">PORTAL NAVIGATION</div>
 
-            <!-- Sidebar Navigation Links -->
             <nav class="sidebar-nav" aria-label="Dashboard Navigation">
                 <ul class="sidebar-nav-list">
-                    <!-- 1. Overview & Analytics -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link active" data-tab="overview">
                             <span class="nav-icon">
@@ -67,7 +70,6 @@
                         </button>
                     </li>
 
-                    <!-- 2. Bookings & Slots -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link" data-tab="bookings">
                             <span class="nav-icon">
@@ -83,7 +85,6 @@
                         </button>
                     </li>
 
-                    <!-- 3. Inspection Results & Certificates -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link" data-tab="certificates">
                             <span class="nav-icon">
@@ -96,7 +97,6 @@
                         </button>
                     </li>
 
-                    <!-- 4. Renewal Due Dates & Reminders -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link" data-tab="reminders">
                             <span class="nav-icon">
@@ -110,7 +110,6 @@
                         </button>
                     </li>
 
-                    <!-- 5. Digital Compliance Documents -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link" data-tab="documents">
                             <span class="nav-icon">
@@ -126,7 +125,6 @@
                         </button>
                     </li>
 
-                    <!-- 6. Payment & Billing History -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link" data-tab="payments">
                             <span class="nav-icon">
@@ -139,7 +137,6 @@
                         </button>
                     </li>
 
-                    <!-- 7. Settings & Preferences -->
                     <li class="sidebar-nav-item">
                         <button type="button" class="sidebar-nav-link" data-tab="settings">
                             <span class="nav-icon">
@@ -154,7 +151,6 @@
                 </ul>
             </nav>
 
-            <!-- Bottom VIP / Entity Card -->
             <div class="sidebar-bottom-block">
                 <div class="vip-account-card">
                     <div class="vip-card-header">
@@ -181,17 +177,10 @@
             </div>
         </aside>
 
-        <!-- Sidebar Backdrop for Mobile Screens -->
         <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-        <!-- ==================================================
-             RIGHT MAIN VIEWPORT AREA
-             ================================================== -->
         <div class="portal-main-area">
 
-            <!-- ==================================================
-                 TOP UTILITY / WELCOME BAR (Matches Reference Layout)
-                 ================================================== -->
             <header class="portal-topbar">
                 <div class="topbar-left">
                     <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open sidebar menu">
@@ -207,7 +196,6 @@
                 </div>
 
                 <div class="topbar-right">
-                    <!-- Search Input -->
                     <div class="topbar-search-box">
                         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8" />
@@ -217,12 +205,10 @@
                         <span class="search-kbd">⌘K</span>
                     </div>
 
-                    <!-- RTL Toggle -->
                     <button type="button" class="topbar-btn rtl-toggle-btn" id="portalRtlToggle" title="Toggle Text Direction (RTL / LTR)">
                         <span id="portalRtlText">RTL</span>
                     </button>
 
-                    <!-- Theme Toggle -->
                     <button type="button" class="topbar-btn theme-toggle-btn" id="portalThemeToggle" title="Toggle Color Theme (Light / Dark)">
                         <span class="theme-icon-sun" title="Light Theme">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -247,18 +233,10 @@
                 </div>
             </header>
 
-            <!-- ==================================================
-                 DYNAMIC MAIN CONTENT SECTIONS (SWAPPED VIA JS TABS)
-                 ================================================== -->
             <main class="portal-content-body">
 
-                <!-- ==============================================
-                     TAB 1: OVERVIEW & ANALYTICS (DEFAULT VIEW)
-                     ============================================== -->
                 <section class="portal-tab-panel active" id="tab-overview">
-                    <!-- 4 TOP KPI METRIC CARDS (Strict Alignment With Reference) -->
                     <div class="kpi-metrics-grid">
-                        <!-- KPI Card 1: Monthly Inspection Revenue / Spend -->
                         <div class="kpi-card">
                             <div class="kpi-card-header">
                                 <div class="kpi-label-block">
@@ -284,7 +262,6 @@
                             </div>
                         </div>
 
-                        <!-- KPI Card 2: Total Tests Conducted -->
                         <div class="kpi-card">
                             <div class="kpi-card-header">
                                 <div class="kpi-label-block">
@@ -311,7 +288,6 @@
                             </div>
                         </div>
 
-                        <!-- KPI Card 3: Compliant Fleet Vehicles -->
                         <div class="kpi-card">
                             <div class="kpi-card-header">
                                 <div class="kpi-label-block">
@@ -336,7 +312,6 @@
                             </div>
                         </div>
 
-                        <!-- KPI Card 4: Fleet Emissions Health -->
                         <div class="kpi-card">
                             <div class="kpi-card-header">
                                 <div class="kpi-label-block">
@@ -362,9 +337,7 @@
                         </div>
                     </div>
 
-                    <!-- DUAL CHART ROW (Strict Alignment With Reference Image) -->
                     <div class="portal-charts-grid">
-                        <!-- Chart Card 1: Revenue & Inspection Growth (Wider Card) -->
                         <div class="chart-card chart-card-wide">
                             <div class="chart-card-top">
                                 <div>
@@ -374,7 +347,6 @@
 
                             </div>
 
-                            <!-- Legend Strip -->
                             <div class="chart-legend-strip">
                                 <div class="legend-item">
                                     <span class="legend-box legend-purple"></span>
@@ -386,7 +358,6 @@
                                 </div>
                             </div>
 
-                            <!-- Interactive SVG Waveform / Line Chart -->
                             <div class="chart-svg-viewport" id="growthChartContainer">
                                 <svg class="growth-chart-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
                                     <defs>
@@ -400,27 +371,22 @@
                                         </linearGradient>
                                     </defs>
 
-                                    <!-- Grid Lines -->
                                     <line x1="40" y1="40" x2="680" y2="40" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
                                     <line x1="40" y1="90" x2="680" y2="90" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
                                     <line x1="40" y1="140" x2="680" y2="140" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
                                     <line x1="40" y1="190" x2="680" y2="190" stroke="var(--border-subtle)" stroke-dasharray="4,4" />
 
-                                    <!-- Left Y-Axis Values -->
                                     <text x="32" y="44" class="chart-axis-text" text-anchor="end">$50k</text>
                                     <text x="32" y="94" class="chart-axis-text" text-anchor="end">$40k</text>
                                     <text x="32" y="144" class="chart-axis-text" text-anchor="end">$30k</text>
                                     <text x="32" y="194" class="chart-axis-text" text-anchor="end">$20k</text>
 
-                                    <!-- Area Fills -->
                                     <path id="purpleArea" d="M 60 190 Q 180 180 280 160 T 480 110 T 660 45 L 660 210 L 60 210 Z" fill="url(#purpleGrad)" />
                                     <path id="cyanArea" d="M 60 200 Q 180 190 280 175 T 480 140 T 660 85 L 660 210 L 60 210 Z" fill="url(#cyanGrad)" />
 
-                                    <!-- Smooth Trend Lines -->
                                     <path id="purpleLine" d="M 60 190 Q 180 180 280 160 T 480 110 T 660 45" fill="none" stroke="#E8A045" stroke-width="3.5" stroke-linecap="round" />
                                     <path id="cyanLine" d="M 60 200 Q 180 190 280 175 T 480 140 T 660 85" fill="none" stroke="#00D4C8" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,4" />
 
-                                    <!-- Interactive Data Knots with Tooltips -->
                                     <circle cx="60" cy="190" r="5" class="chart-dot chart-dot-purple" data-tooltip="Apr: $21,400" />
                                     <circle cx="180" cy="178" r="5" class="chart-dot chart-dot-purple" data-tooltip="May: $24,800" />
                                     <circle cx="300" cy="155" r="5" class="chart-dot chart-dot-purple" data-tooltip="Jun: $29,200" />
@@ -435,7 +401,6 @@
                                     <circle cx="540" cy="115" r="4" class="chart-dot chart-dot-cyan" data-tooltip="Aug: 360 Tests" />
                                     <circle cx="660" cy="85" r="5" class="chart-dot chart-dot-cyan active-knot" data-tooltip="Sep: 420 Tests" />
 
-                                    <!-- X-Axis Labels -->
                                     <text x="60" y="230" class="chart-month-text" text-anchor="middle">Apr</text>
                                     <text x="180" y="230" class="chart-month-text" text-anchor="middle">May</text>
                                     <text x="300" y="230" class="chart-month-text" text-anchor="middle">Jun</text>
@@ -444,7 +409,6 @@
                                     <text x="660" y="230" class="chart-month-text" text-anchor="middle">Sep</text>
                                 </svg>
 
-                                <!-- Floating Interactive Tooltip -->
                                 <div class="chart-floating-tooltip" id="chartTooltip">
                                     <div class="tooltip-month">Sep 2026</div>
                                     <div class="tooltip-stat">$48,250.00 &bull; 420 Tests</div>
@@ -452,7 +416,6 @@
                             </div>
                         </div>
 
-                        <!-- Chart Card 2: Category Inspections Bar Chart (Right Card) -->
                         <div class="chart-card chart-card-narrow">
                             <div class="chart-card-top">
                                 <div>
@@ -461,32 +424,23 @@
                                 </div>
                             </div>
 
-                            <!-- SVG Bar Chart -->
                             <div class="barchart-viewport">
                                 <svg class="barchart-svg" viewBox="0 0 320 220" preserveAspectRatio="none">
-                                    <!-- Background Bar Tracks -->
                                     <rect x="25" y="20" width="45" height="170" rx="8" class="bar-track" />
                                     <rect x="100" y="20" width="45" height="170" rx="8" class="bar-track" />
                                     <rect x="175" y="20" width="45" height="170" rx="8" class="bar-track" />
                                     <rect x="250" y="20" width="45" height="170" rx="8" class="bar-track" />
 
-                                    <!-- Active Bar Fills -->
-                                    <!-- Bar 1: Safety (580 tests - 85% height) -->
                                     <rect x="25" y="45" width="45" height="145" rx="8" class="bar-fill bar-fill-amber" data-bar-label="Safety Inspection: 580" />
-                                    <!-- Bar 2: Emissions (420 tests - 65% height) -->
                                     <rect x="100" y="80" width="45" height="110" rx="8" class="bar-fill bar-fill-teal" data-bar-label="5-Gas Emissions: 420" />
-                                    <!-- Bar 3: EV Telemetry (280 tests - 45% height) -->
                                     <rect x="175" y="115" width="45" height="75" rx="8" class="bar-fill bar-fill-coral" data-bar-label="EV Battery Health: 280" />
-                                    <!-- Bar 4: Fleet Combined (140 tests - 25% height) -->
                                     <rect x="250" y="150" width="45" height="40" rx="8" class="bar-fill bar-fill-slate" data-bar-label="Combined Protocol: 140" />
 
-                                    <!-- Value Labels -->
                                     <text x="47.5" y="38" class="bar-value-text" text-anchor="middle">580</text>
                                     <text x="122.5" y="73" class="bar-value-text" text-anchor="middle">420</text>
                                     <text x="197.5" y="108" class="bar-value-text" text-anchor="middle">280</text>
                                     <text x="272.5" y="143" class="bar-value-text" text-anchor="middle">140</text>
 
-                                    <!-- Category Column Labels -->
                                     <text x="47.5" y="210" class="bar-cat-text" text-anchor="middle">Safety</text>
                                     <text x="122.5" y="210" class="bar-cat-text" text-anchor="middle">Emissions</text>
                                     <text x="197.5" y="210" class="bar-cat-text" text-anchor="middle">EV Pack</text>
@@ -496,9 +450,7 @@
                         </div>
                     </div>
 
-                    <!-- RECENT ACTIVITY & UPCOMING FLEET SLOTS (Quick Table) -->
                     <div class="portal-grid-2col">
-                        <!-- Table Card -->
                         <div class="panel-card">
                             <div class="panel-card-header">
                                 <div>
@@ -584,7 +536,6 @@
                             </div>
                         </div>
 
-                        <!-- Upcoming Renewal Deadlines Card -->
                         <div class="panel-card">
                             <div class="panel-card-header">
                                 <div>
@@ -671,9 +622,6 @@
                     </div>
                 </section>
 
-                <!-- ==============================================
-                     TAB 2: BOOKINGS & SLOTS
-                     ============================================== -->
                 <section class="portal-tab-panel" id="tab-bookings">
                     <div class="tab-header-banner">
                         <div>
@@ -684,7 +632,6 @@
                     </div>
 
                     <div class="portal-grid-2col">
-                        <!-- Left: Interactive Slot Booking Form -->
                         <div class="panel-card">
                             <h3 class="form-section-title">Schedule New Appointment Slot</h3>
                             <div class="booking-form-scroll custom-scrollbar">
@@ -751,14 +698,12 @@
                             </div>
                         </div>
 
-                        <!-- Right: Currently Scheduled Slots List -->
                         <div class="panel-card">
                             <div class="panel-card-header">
                                 <h3 class="form-section-title">Your Scheduled Inspection Slots</h3>
                                 <span class="badge-record-count">5 Active Bookings</span>
                             </div>
                             <div class="scheduled-slots-list custom-scrollbar" id="scheduledSlotsContainer">
-                                <!-- Slot Item 1 -->
                                 <div class="slot-card active-slot">
                                     <div class="slot-time-col">
                                         <span class="slot-day">SEPT 28</span>
@@ -779,7 +724,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Slot Item 2 -->
                                 <div class="slot-card active-slot">
                                     <div class="slot-time-col">
                                         <span class="slot-day">OCT 02</span>
@@ -800,7 +744,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Slot Item 3 -->
                                 <div class="slot-card active-slot">
                                     <div class="slot-time-col">
                                         <span class="slot-day">OCT 08</span>
@@ -821,7 +764,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Slot Item 4 -->
                                 <div class="slot-card active-slot">
                                     <div class="slot-time-col">
                                         <span class="slot-day">OCT 14</span>
@@ -842,7 +784,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Slot Item 5 -->
                                 <div class="slot-card active-slot">
                                     <div class="slot-time-col">
                                         <span class="slot-day">OCT 22</span>
@@ -867,9 +808,6 @@
                     </div>
                 </section>
 
-                <!-- ==============================================
-                     TAB 3: RESULTS & CERTIFICATES (DIGITAL PASSPORT)
-                     ============================================== -->
                 <section class="portal-tab-panel" id="tab-certificates">
                     <div class="tab-header-banner">
                         <div>
@@ -992,9 +930,6 @@
                     </div>
                 </section>
 
-                <!-- ==============================================
-                     TAB 4: RENEWALS & REMINDERS
-                     ============================================== -->
                 <section class="portal-tab-panel" id="tab-reminders">
                     <div class="tab-header-banner">
                         <div>
@@ -1005,7 +940,6 @@
                     </div>
 
                     <div class="portal-grid-3col">
-                        <!-- Card 1: Critical (6 Days) -->
                         <div class="reminder-card reminder-card-critical">
                             <div class="rc-header">
                                 <span class="rc-badge-critical">CRITICAL &bull; 6 DAYS</span>
@@ -1035,7 +969,6 @@
                             </div>
                         </div>
 
-                        <!-- Card 2: Warning (18 Days) -->
                         <div class="reminder-card reminder-card-warning">
                             <div class="rc-header">
                                 <span class="rc-badge-warning">UPCOMING &bull; 18 DAYS</span>
@@ -1062,7 +995,6 @@
                             </div>
                         </div>
 
-                        <!-- Card 3: Compliant Safe (45 Days) -->
                         <div class="reminder-card reminder-card-safe">
                             <div class="rc-header">
                                 <span class="rc-badge-safe">COMPLIANT &bull; 45 DAYS</span>
@@ -1090,7 +1022,6 @@
                         </div>
                     </div>
 
-                    <!-- Reminder Preferences Strip -->
                     <div class="panel-card mt-6">
                         <div class="panel-card-header">
                             <div>
@@ -1123,7 +1054,6 @@
                         </div>
                     </div>
 
-                    <!-- Upcoming 90-Day Renewal Schedule & Audit Queue Card -->
                     <div class="panel-card mt-6">
                         <div class="panel-card-header">
                             <div>
@@ -1236,9 +1166,6 @@
                     </div>
                 </section>
 
-                <!-- ==============================================
-                     TAB 5: COMPLIANCE DOCUMENTS
-                     ============================================== -->
                 <section class="portal-tab-panel" id="tab-documents">
                     <div class="tab-header-banner">
                         <div>
@@ -1320,9 +1247,6 @@
                     </div>
                 </section>
 
-                <!-- ==============================================
-                     TAB 6: PAYMENT & BILLING HISTORY
-                     ============================================== -->
                 <section class="portal-tab-panel" id="tab-payments">
                     <div class="tab-header-banner">
                         <div>
@@ -1332,7 +1256,6 @@
                         </div>
                     </div>
 
-                    <!-- Payment Overview Cards -->
                     <div class="portal-grid-3col">
                         <div class="panel-card payment-stat-card">
                             <span class="psc-label">LIFETIME INSPECTION SPEND</span>
@@ -1351,7 +1274,6 @@
                         </div>
                     </div>
 
-                    <!-- Invoices Table -->
                     <div class="panel-card mt-6">
                         <h3 class="form-section-title">Verified Invoices &amp; Receipts</h3>
                         <div class="table-responsive table-scrollable custom-scrollbar">
@@ -1410,9 +1332,6 @@
                     </div>
                 </section>
 
-                <!-- ==============================================
-                     TAB 7: SETTINGS & PREFERENCES
-                     ============================================== -->
                 <section class="portal-tab-panel" id="tab-settings">
                     <div class="tab-header-banner">
                         <div>
@@ -1423,7 +1342,6 @@
                     </div>
 
                     <div class="portal-grid-2col">
-                        <!-- Profile Details -->
                         <div class="panel-card">
                             <h3 class="form-section-title">Organization &amp; Dispatch Contact</h3>
                             <form onsubmit="handleSettingsSave(event)">
@@ -1458,7 +1376,6 @@
                             </form>
                         </div>
 
-                        <!-- Security & Authentication -->
                         <div class="panel-card">
                             <h3 class="form-section-title">Security &amp; API Cryptographic Tokens</h3>
                             <div class="security-item-card">
@@ -1492,9 +1409,6 @@
         </div>
     </div>
 
-    <!-- ==================================================
-         DIGITAL CERTIFICATE PASSPORT MODAL (FULL QR & METRICS)
-         ================================================== -->
     <div class="modal-backdrop" id="certModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container cert-modal-container">
             <div class="cert-modal-header">
@@ -1502,7 +1416,7 @@
                     <span class="modal-eyebrow">STATUTORY METROLOGY PASSPORT</span>
                     <h3 class="modal-title" id="certModalTitle">Digital Compliance Certificate</h3>
                 </div>
-                <button type="button" class="modal-close" onclick="closeCertModal()">&times;</button>
+                <button type="button" class="modal-close modal-close-btn" onclick="closeCertModal()" aria-label="Close Certificate Modal">&times;</button>
             </div>
 
             <div class="cert-modal-body">
@@ -1534,7 +1448,6 @@
                         </div>
                     </div>
 
-                    <!-- Telemetry Metrics Strip -->
                     <div class="cpc-metrics-block">
                         <div class="cpc-metric-col">
                             <span class="cm-name">Hydrocarbons (HC)</span>
@@ -1554,7 +1467,6 @@
                         </div>
                     </div>
 
-                    <!-- Cryptographic Hash & Simulated QR Bar -->
                     <div class="cpc-crypto-bar">
                         <div class="cpc-qr-box">
                             <svg viewBox="0 0 100 100" class="qr-svg">
@@ -1599,9 +1511,6 @@
         </div>
     </div>
 
-    <!-- ==================================================
-         LOGOUT CONFIRMATION MODAL
-         ================================================== -->
     <div class="modal-backdrop" id="logoutModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container logout-modal-container">
             <div class="modal-header">
@@ -1609,7 +1518,7 @@
                     <span class="modal-eyebrow">PORTAL SESSION TERMINATION</span>
                     <h3 class="modal-title">Sign Out of Client Console?</h3>
                 </div>
-                <button type="button" class="modal-close" onclick="closeLogoutModal()">&times;</button>
+                <button type="button" class="modal-close modal-close-btn" onclick="closeLogoutModal()" aria-label="Close Logout Modal">&times;</button>
             </div>
             <div class="modal-body">
                 <p>Are you sure you want to end your active telemetry session? All currently booked slots and verified digital certificates remain securely saved.</p>
@@ -1621,7 +1530,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="dashboard.js"></script>
 </body>
 

@@ -1,16 +1,7 @@
-/* ==========================================================================
-   ORVEXA — COMING SOON: SINGLE SCREEN (ZERO SCROLL)
-   Vehicle Inspection & Emission Testing Center
-   Strict Home 1 Design System, Typography & Highlighted Color Matching
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   01. HOME 1 DESIGN TOKENS (EXACT MATCH)
-   -------------------------------------------------------------------------- */
 :root,
 [data-theme="light"],
 html[data-theme="light"] {
-  /* LIGHT MODE (Default) - Warm Luxury Ivory */
   --bg-primary: #F7F4EF;
   --bg-secondary: #EEE9E1;
   --bg-surface: #FFFFFF;
@@ -27,30 +18,25 @@ html[data-theme="light"] {
   --border-subtle: #E8E2D7;
   --border-focus: #A47743;
 
-  /* Primary Champagne Bronze & Muted Gold from Home 1 */
   --brand-accent: #A47743;
   --brand-gold-secondary: #C49A62;
   --brand-gold-glow: rgba(164, 119, 67, 0.18);
   --dark-accent: #171512;
 
-  /* Shadows & Depth */
   --shadow-sm: 0 2px 8px rgba(11, 11, 10, 0.04);
   --shadow-md: 0 8px 24px rgba(11, 11, 10, 0.06);
 
-  /* Typography */
   --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-editorial: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'Space Grotesk', monospace;
 
-  /* Layout */
   --header-height: 72px;
   --transition-fast: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="dark"],
 html[data-theme="dark"] {
-  /* DARK MODE - Architectural Night Inspection Environment */
   --bg-primary: #080909;
   --bg-secondary: #101110;
   --bg-surface: #161715;
@@ -67,7 +53,6 @@ html[data-theme="dark"] {
   --border-subtle: #22201C;
   --border-focus: #B88A52;
 
-  /* Champagne Bronze in Dark Mode from Home 1 */
   --brand-accent: #B88A52;
   --brand-gold-secondary: #D1A86E;
   --brand-gold-glow: rgba(184, 138, 82, 0.25);
@@ -77,9 +62,6 @@ html[data-theme="dark"] {
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* --------------------------------------------------------------------------
-   02. STRICT 100VH NO-SCROLL RESET
-   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -110,7 +92,6 @@ body.cs-body {
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-/* Subtle Dynamic Ambient Background */
 .cs-ambient-glow {
   position: fixed;
   top: 20%;
@@ -141,9 +122,6 @@ body.cs-body {
   opacity: 0.16;
 }
 
-/* --------------------------------------------------------------------------
-   03. TOP UTILITY BAR (Brand Left, Utilities in Right Corner)
-   -------------------------------------------------------------------------- */
 .cs-topbar {
   flex-shrink: 0;
   width: 100%;
@@ -165,7 +143,6 @@ body.cs-body {
   justify-content: space-between;
 }
 
-/* Brand Logo (Exact Home 1 Styling) */
 .brand-logo {
   display: flex;
   align-items: center;
@@ -231,14 +208,12 @@ body.cs-body {
   text-transform: uppercase;
 }
 
-/* Utilities in Right Corner (Exact Home 1 Buttons) */
 .cs-topbar-right {
   display: flex;
   align-items: center;
   gap: 0.65rem;
 }
 
-/* Home 1 RTL Button */
 .header-rtl-btn {
   height: 34px;
   min-height: 34px;
@@ -272,7 +247,6 @@ body.cs-body {
   border-color: var(--brand-accent);
 }
 
-/* Home 1 Theme Mode Toggle */
 .theme-mode-btn {
   width: 34px;
   min-width: 34px;
@@ -312,7 +286,6 @@ body.cs-body {
   box-shadow: 0 0 10px var(--brand-gold-glow);
 }
 
-/* In Light Mode: Show Sun icon only */
 html[data-theme="light"] .theme-icon-moon {
   display: none !important;
 }
@@ -321,7 +294,6 @@ html[data-theme="light"] .theme-icon-sun {
   display: flex !important;
 }
 
-/* In Dark Mode: Show Moon icon only */
 html[data-theme="dark"] .theme-icon-sun {
   display: none !important;
 }
@@ -330,9 +302,6 @@ html[data-theme="dark"] .theme-icon-moon {
   display: flex !important;
 }
 
-/* --------------------------------------------------------------------------
-   04. MAIN STAGE (CENTERED, STRICTLY FITS WITHIN 100VH)
-   -------------------------------------------------------------------------- */
 .cs-screen-stage {
   flex: 1;
   display: flex;
@@ -353,7 +322,6 @@ html[data-theme="dark"] .theme-icon-moon {
   text-align: center;
 }
 
-/* Home 1 Eyebrow Style */
 .hero-eyebrow-wrapper {
   display: flex;
   align-items: center;
@@ -377,7 +345,6 @@ html[data-theme="dark"] .theme-icon-moon {
   color: var(--brand-accent);
 }
 
-/* Home 1 Headline Typography & Highlighted Color */
 .hero-headline.cs-headline {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4.4vw, 3.4rem);
@@ -392,7 +359,6 @@ html[data-theme="dark"] .theme-icon-moon {
   display: block;
 }
 
-/* EXACT HOME 1 HIGHLIGHTED COLOR & TYPOGRAPHY */
 .highlight-gold {
   color: var(--brand-accent);
   font-family: var(--font-editorial);
@@ -401,7 +367,6 @@ html[data-theme="dark"] .theme-icon-moon {
   letter-spacing: 0.01em;
 }
 
-/* Home 1 Body Description */
 .hero-description.cs-description {
   font-family: var(--font-sans);
   font-size: clamp(0.88rem, 1.2vw, 1rem);
@@ -411,9 +376,6 @@ html[data-theme="dark"] .theme-icon-moon {
   max-width: 580px;
 }
 
-/* --------------------------------------------------------------------------
-   05. COUNTDOWN SECTION (HOME 1 ARCHITECTURAL CARDS)
-   -------------------------------------------------------------------------- */
 .cs-countdown-wrap {
   width: 100%;
   max-width: 620px;
@@ -506,16 +468,12 @@ html[data-theme="dark"] .theme-icon-moon {
   user-select: none;
 }
 
-/* --------------------------------------------------------------------------
-   06. BACK TO SITE ACTION BUTTON (EXACT HOME 1 BUTTON SPEC)
-   -------------------------------------------------------------------------- */
 .cs-action-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Matches Home 1 .btn-primary-hero */
 .btn-primary-hero.cs-btn-back {
   display: inline-flex;
   align-items: center;
@@ -552,9 +510,6 @@ html[data-theme="dark"] .theme-icon-moon {
   transform: translateX(-4px);
 }
 
-/* --------------------------------------------------------------------------
-   07. RTL SUPPORT
-   -------------------------------------------------------------------------- */
 [dir="rtl"] .hero-headline.cs-headline,
 [dir="rtl"] .hero-description.cs-description {
   text-align: center;
@@ -568,9 +523,6 @@ html[data-theme="dark"] .theme-icon-moon {
   transform: rotate(180deg) translateX(-4px);
 }
 
-/* --------------------------------------------------------------------------
-   08. RESPONSIVE COMPACT DISPLAY (MOBILE & SMALL SCREENS)
-   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   :root {
     --header-height: 64px;

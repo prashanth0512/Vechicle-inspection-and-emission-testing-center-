@@ -1,31 +1,111 @@
-/* ==========================================================
-   DASHBOARD.CSS - ORVEXA Enterprise Client & Telemetry Portal
-   Layout Alignment Matching Reference Image & Luxury Design System
-   ========================================================== */
 
-/* ----------------------------------------------------------
-   01. PORTAL CORE WRAPPER & RESET
-   ---------------------------------------------------------- */
+:root,
+[data-theme="light"],
+html[data-theme="light"] {
+  --dash-bg: #F7F5F0;
+  --dash-surface: #FFFFFF;
+  --dash-surface-elevated: #FAF8F5;
+  --dash-surface-card: #FFFFFF;
+  --dash-surface-input: #F1ECE3;
+  --dash-surface-hover: rgba(164, 119, 67, 0.08);
+  --dash-surface-active: rgba(164, 119, 67, 0.14);
+  
+  --dash-text-primary: #121110;
+  --dash-text-secondary: #47433D;
+  --dash-text-muted: #736E65;
+  --dash-text-inverse: #FFFFFF;
+
+  --dash-border: #DCD4C7;
+  --dash-border-subtle: #E8E2D6;
+  --dash-border-focus: #A47743;
+
+  --dash-accent: #9A6C35;
+  --dash-accent-hover: #7E5424;
+  --dash-accent-bg: rgba(154, 108, 53, 0.10);
+  --dash-gold: #C59A5A;
+  
+  --dash-success: #0B7A60;
+  --dash-success-bg: rgba(11, 122, 96, 0.12);
+  --dash-success-border: rgba(11, 122, 96, 0.30);
+  
+  --dash-warning: #B36B00;
+  --dash-warning-bg: rgba(179, 107, 0, 0.12);
+  --dash-warning-border: rgba(179, 107, 0, 0.30);
+  
+  --dash-danger: #C5221F;
+  --dash-danger-bg: rgba(197, 34, 31, 0.12);
+  --dash-danger-border: rgba(197, 34, 31, 0.30);
+  
+  --dash-info: #1865AB;
+  --dash-info-bg: rgba(24, 101, 171, 0.12);
+  --dash-info-border: rgba(24, 101, 171, 0.30);
+
+  --dash-chart-grid: #E6DFD4;
+  --dash-chart-axis: #6B655A;
+  --dash-chart-month: #22201D;
+  --dash-chart-purple: #8738D5;
+  --dash-chart-cyan: #00998C;
+}
+
+[data-theme="dark"],
+html[data-theme="dark"] {
+  --dash-bg: #090A0C;
+  --dash-surface: #121417;
+  --dash-surface-elevated: #181B1F;
+  --dash-surface-card: #121417;
+  --dash-surface-input: #1A1D22;
+  --dash-surface-hover: rgba(197, 160, 89, 0.09);
+  --dash-surface-active: rgba(197, 160, 89, 0.16);
+  
+  --dash-text-primary: #F7F5F0;
+  --dash-text-secondary: #C8C2B7;
+  --dash-text-muted: #918B80;
+  --dash-text-inverse: #090A0C;
+
+  --dash-border: #292D33;
+  --dash-border-subtle: #1F2228;
+  --dash-border-focus: #C5A059;
+
+  --dash-accent: #C5A059;
+  --dash-accent-hover: #DFC08A;
+  --dash-accent-bg: rgba(197, 160, 89, 0.14);
+  --dash-gold: #D8B273;
+  
+  --dash-success: #00E5BD;
+  --dash-success-bg: rgba(0, 229, 189, 0.14);
+  --dash-success-border: rgba(0, 229, 189, 0.35);
+  
+  --dash-warning: #FFB347;
+  --dash-warning-bg: rgba(255, 179, 71, 0.14);
+  --dash-warning-border: rgba(255, 179, 71, 0.35);
+  
+  --dash-danger: #FF6B6B;
+  --dash-danger-bg: rgba(255, 107, 107, 0.15);
+  --dash-danger-border: rgba(255, 107, 107, 0.35);
+  
+  --dash-info: #4DABF7;
+  --dash-info-bg: rgba(77, 171, 247, 0.14);
+  --dash-info-border: rgba(77, 171, 247, 0.35);
+
+  --dash-chart-grid: #242930;
+  --dash-chart-axis: #A39D90;
+  --dash-chart-month: #F0EDE6;
+  --dash-chart-purple: #B77EF0;
+  --dash-chart-cyan: #00E5BD;
+}
+
 html,
 body.dashboard-body {
   height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--bg-primary, #F7F4EF);
-  color: var(--text-primary, #0B0B0A);
+  background-color: var(--dash-bg);
+  color: var(--dash-text-primary);
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   -webkit-font-smoothing: antialiased;
 }
 
-[data-theme="dark"] body.dashboard-body {
-  background-color: #080909;
-  color: #ECE8E1;
-}
-
-/* ==========================================================
-   CUSTOM LUXURY SCROLLBAR STYLES FOR DASHBOARD CARDS
-   ========================================================== */
 .custom-scrollbar,
 .renewals-quick-list,
 .scheduled-slots-list,
@@ -117,9 +197,6 @@ body.dashboard-body {
   position: relative;
 }
 
-/* ----------------------------------------------------------
-   02. LEFT SIDEBAR PANEL (Matching Reference Image Alignment)
-   ---------------------------------------------------------- */
 .portal-sidebar {
   width: 275px;
   min-width: 275px;
@@ -142,7 +219,6 @@ body.dashboard-body {
   border-right-color: rgba(164, 119, 67, 0.15);
 }
 
-/* Sidebar Brand Header */
 .sidebar-brand-block {
   padding: 1.75rem 1.5rem 1.25rem;
   display: flex;
@@ -225,7 +301,6 @@ body.dashboard-body {
   padding: 0.25rem;
 }
 
-/* Portal Navigation Title */
 .sidebar-nav-label {
   padding: 1.5rem 1.5rem 0.65rem;
   font-size: 0.68rem;
@@ -235,7 +310,6 @@ body.dashboard-body {
   text-transform: uppercase;
 }
 
-/* Sidebar Nav List */
 .sidebar-nav {
   flex: 1;
   padding: 0 1rem;
@@ -296,7 +370,6 @@ body.dashboard-body {
   text-overflow: ellipsis;
 }
 
-/* Active Nav State (Warm Gold / Champagne Pill Matching Reference) */
 .sidebar-nav-link.active {
   background: linear-gradient(135deg, #C49A62 0%, #A47743 100%);
   color: #FFFFFF;
@@ -309,7 +382,6 @@ body.dashboard-body {
   color: #FFFFFF;
 }
 
-/* Badges on Nav items */
 .nav-badge {
   font-size: 0.68rem;
   font-weight: 700;
@@ -343,7 +415,6 @@ body.dashboard-body {
   border: 1px solid rgba(245, 166, 35, 0.25);
 }
 
-/* Bottom Sidebar Block */
 .sidebar-bottom-block {
   padding: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -429,9 +500,6 @@ body.dashboard-body {
   height: 15px;
 }
 
-/* ----------------------------------------------------------
-   03. RIGHT MAIN VIEWPORT & TOP UTILITY BAR
-   ---------------------------------------------------------- */
 .portal-main-area {
   flex: 1;
   height: 100vh;
@@ -439,17 +507,12 @@ body.dashboard-body {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: var(--bg-primary, #F7F4EF);
+  background-color: var(--dash-bg);
   min-width: 0;
   width: 100%;
   max-width: 100%;
 }
 
-[data-theme="dark"] .portal-main-area {
-  background-color: #0A0B0C;
-}
-
-/* Top Utility Bar (Strict Parity with Reference Image) */
 .portal-topbar {
   height: 72px;
   min-height: 72px;
@@ -457,15 +520,11 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-color, #D9D1C5);
-  background-color: var(--bg-surface, #FFFFFF);
+  border-bottom: 1px solid var(--dash-border);
+  background-color: var(--dash-surface);
   z-index: 50;
   gap: 1.5rem;
-}
-
-[data-theme="dark"] .portal-topbar {
-  background-color: #101214;
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .topbar-left {
@@ -482,8 +541,8 @@ body.dashboard-body {
   justify-content: center;
   align-self: center;
   gap: 5px;
-  background: var(--bg-primary, #F7F4EF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   border-radius: 50%;
   cursor: pointer;
   width: 38px;
@@ -494,20 +553,15 @@ body.dashboard-body {
   transition: all 0.2s ease;
 }
 
-[data-theme="dark"] .mobile-sidebar-toggle {
-  background-color: #17191C;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 .mobile-sidebar-toggle:hover {
-  border-color: var(--brand-accent);
-  background-color: var(--bg-surface);
+  border-color: var(--dash-accent);
+  background-color: var(--dash-surface);
 }
 
 .mobile-sidebar-toggle span {
   width: 16px;
   height: 2px;
-  background-color: var(--text-primary);
+  background-color: var(--dash-text-primary);
   border-radius: 2px;
   display: block;
 }
@@ -524,13 +578,13 @@ body.dashboard-body {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--brand-accent, #A47743);
+  color: var(--dash-accent);
   text-transform: uppercase;
 }
 
 .eyebrow-diamond {
   font-size: 0.55rem;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
 }
 
 .topbar-welcome-title {
@@ -538,18 +592,17 @@ body.dashboard-body {
   font-family: var(--font-serif, 'Playfair Display', serif);
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   letter-spacing: -0.015em;
   line-height: 1.15;
 }
 
 .client-name-highlight {
-  color: var(--brand-accent, #A47743);
+  color: var(--dash-accent);
   font-style: italic;
   font-weight: 500;
 }
 
-/* Topbar Right Controls */
 .topbar-right {
   display: flex;
   align-items: center;
@@ -557,34 +610,28 @@ body.dashboard-body {
   gap: 0.85rem;
 }
 
-/* Search Box */
 .topbar-search-box {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background-color: var(--bg-primary, #F7F4EF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   border-radius: 24px;
   padding: 0.45rem 0.95rem;
   width: 250px;
   transition: all 0.2s ease;
 }
 
-[data-theme="dark"] .topbar-search-box {
-  background-color: #17191C;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 .topbar-search-box:focus-within {
-  border-color: var(--brand-accent);
-  box-shadow: 0 0 0 3px rgba(164, 119, 67, 0.15);
+  border-color: var(--dash-border-focus);
+  box-shadow: 0 0 0 3px var(--dash-accent-bg);
   width: 280px;
 }
 
 .search-icon {
   width: 16px;
   height: 16px;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   flex-shrink: 0;
 }
 
@@ -593,34 +640,32 @@ body.dashboard-body {
   background: transparent;
   font-family: inherit;
   font-size: 0.82rem;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   width: 100%;
   outline: none;
+}
+
+.topbar-search-input::placeholder {
+  color: var(--dash-text-muted);
 }
 
 .search-kbd {
   font-size: 0.68rem;
   font-weight: 600;
-  background-color: var(--bg-surface, #FFFFFF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface);
+  border: 1px solid var(--dash-border);
   padding: 1px 5px;
   border-radius: 4px;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
-[data-theme="dark"] .search-kbd {
-  background-color: #22262B;
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Topbar Icon Buttons */
 .topbar-btn {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: var(--bg-primary, #F7F4EF);
-  border: 1px solid var(--border-color, #D9D1C5);
-  color: var(--text-primary);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
+  color: var(--dash-text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -629,15 +674,10 @@ body.dashboard-body {
   position: relative;
 }
 
-[data-theme="dark"] .topbar-btn {
-  background-color: #17191C;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 .topbar-btn:hover {
-  background-color: var(--bg-surface);
-  border-color: var(--brand-accent);
-  color: var(--brand-accent);
+  background-color: var(--dash-surface);
+  border-color: var(--dash-accent);
+  color: var(--dash-accent);
   transform: translateY(-1px);
 }
 
@@ -663,7 +703,6 @@ body.dashboard-body {
   display: none;
 }
 
-/* Notification Bell & Pill */
 .notif-btn svg {
   width: 18px;
   height: 18px;
@@ -683,14 +722,9 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--bg-surface, #FFFFFF);
+  border: 2px solid var(--dash-surface);
 }
 
-[data-theme="dark"] .notif-badge-pill {
-  border-color: #101214;
-}
-
-/* User Profile Trigger Pill */
 .topbar-dropdown-wrap {
   position: relative;
 }
@@ -699,8 +733,8 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  background-color: var(--bg-primary, #F7F4EF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   border-radius: 24px;
   padding: 0.35rem 0.85rem 0.35rem 0.35rem;
   cursor: pointer;
@@ -708,14 +742,9 @@ body.dashboard-body {
   font-family: inherit;
 }
 
-[data-theme="dark"] .profile-trigger-btn {
-  background-color: #17191C;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 .profile-trigger-btn:hover {
-  border-color: var(--brand-accent);
-  background-color: var(--bg-surface);
+  border-color: var(--dash-accent);
+  background-color: var(--dash-surface);
 }
 
 .profile-avatar-img {
@@ -723,7 +752,7 @@ body.dashboard-body {
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid var(--brand-accent);
+  border: 1.5px solid var(--dash-accent);
 }
 
 .profile-name-col {
@@ -735,39 +764,32 @@ body.dashboard-body {
 .profile-full-name {
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   line-height: 1.2;
 }
 
 .profile-role {
   font-size: 0.65rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
 .profile-chevron {
   width: 8px;
   height: 5px;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
-/* Dropdown Popovers (Notifications & Profile) */
 .dropdown-popover {
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  background-color: var(--bg-surface, #FFFFFF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface);
+  border: 1px solid var(--dash-border);
   border-radius: 12px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
   display: none;
   z-index: 100;
   animation: popoverFadeIn 0.2s ease forwards;
-}
-
-[data-theme="dark"] .dropdown-popover {
-  background-color: #15181B;
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 .dropdown-popover.open {
@@ -779,7 +801,6 @@ body.dashboard-body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Notifications Popover */
 .notif-popover {
   width: 320px;
 }
@@ -789,24 +810,20 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle, #E8E2D7);
-}
-
-[data-theme="dark"] .notif-popover-header {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--dash-border-subtle);
 }
 
 .nph-title {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .nph-clear-btn {
   background: none;
   border: none;
   font-size: 0.72rem;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   cursor: pointer;
   font-weight: 600;
 }
@@ -823,16 +840,12 @@ body.dashboard-body {
   display: flex;
   gap: 0.75rem;
   padding: 0.85rem 1rem;
-  border-bottom: 1px solid var(--border-subtle, #E8E2D7);
+  border-bottom: 1px solid var(--dash-border-subtle);
   transition: background-color 0.15s ease;
 }
 
-[data-theme="dark"] .notif-item {
-  border-bottom-color: rgba(255, 255, 255, 0.05);
-}
-
 .notif-item:hover {
-  background-color: var(--bg-primary);
+  background-color: var(--dash-surface-hover);
 }
 
 .notif-dot {
@@ -843,9 +856,9 @@ body.dashboard-body {
   flex-shrink: 0;
 }
 
-.notif-dot-amber { background-color: #F5A623; }
-.notif-dot-green { background-color: #00C9A7; }
-.notif-dot-blue { background-color: #1976D2; }
+.notif-dot-amber { background-color: var(--dash-warning); }
+.notif-dot-green { background-color: var(--dash-success); }
+.notif-dot-blue { background-color: var(--dash-info); }
 
 .notif-content {
   flex: 1;
@@ -853,13 +866,13 @@ body.dashboard-body {
 
 .notif-text {
   font-size: 0.78rem;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   line-height: 1.35;
 }
 
 .notif-time {
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   margin-top: 3px;
   display: block;
 }
@@ -867,7 +880,7 @@ body.dashboard-body {
 .notif-footer {
   padding: 0.75rem 1rem;
   text-align: center;
-  background-color: var(--bg-primary);
+  background-color: var(--dash-surface-elevated);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
@@ -875,13 +888,12 @@ body.dashboard-body {
 .notif-view-all {
   background: none;
   border: none;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
 }
 
-/* Profile Popover */
 .profile-popover {
   width: 260px;
 }
@@ -898,26 +910,26 @@ body.dashboard-body {
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--brand-accent);
+  border: 2px solid var(--dash-accent);
 }
 
 .pch-name {
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .pch-email {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
 .pch-badge {
   display: inline-block;
   font-size: 0.62rem;
   font-weight: 700;
-  background-color: rgba(164, 119, 67, 0.15);
-  color: var(--brand-accent);
+  background-color: var(--dash-accent-bg);
+  color: var(--dash-accent);
   border-radius: 4px;
   padding: 1px 6px;
   margin-top: 3px;
@@ -925,11 +937,7 @@ body.dashboard-body {
 
 .profile-menu-divider {
   height: 1px;
-  background-color: var(--border-subtle, #E8E2D7);
-}
-
-[data-theme="dark"] .profile-menu-divider {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--dash-border-subtle);
 }
 
 .profile-menu-links {
@@ -949,15 +957,15 @@ body.dashboard-body {
   border-radius: 6px;
   font-family: inherit;
   font-size: 0.82rem;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease;
 }
 
 .pml-item:hover {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--dash-surface-hover);
+  color: var(--dash-text-primary);
 }
 
 .pml-item svg {
@@ -1000,9 +1008,6 @@ body.dashboard-body {
   height: 16px;
 }
 
-/* ----------------------------------------------------------
-   04. PORTAL CONTENT BODY & TAB MANAGEMENT
-   ---------------------------------------------------------- */
 .portal-content-body {
   flex: 1;
   overflow-y: auto;
@@ -1014,7 +1019,6 @@ body.dashboard-body {
   box-sizing: border-box;
 }
 
-/* Tab Panels */
 .portal-tab-panel {
   display: none;
   animation: tabFade 0.25s ease forwards;
@@ -1033,7 +1037,6 @@ body.dashboard-body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tab Header Banner */
 .tab-header-banner {
   margin-bottom: 1.75rem;
 }
@@ -1042,7 +1045,7 @@ body.dashboard-body {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.35rem;
@@ -1052,21 +1055,16 @@ body.dashboard-body {
   font-family: var(--font-serif, 'Playfair Display', serif);
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   margin: 0 0 0.35rem;
 }
 
 .banner-desc {
   font-size: 0.92rem;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   margin: 0;
 }
 
-/* ----------------------------------------------------------
-   05. TAB 1: OVERVIEW & ANALYTICS STYLES
-   ---------------------------------------------------------- */
-
-/* 4 Top KPI Cards Grid */
 .kpi-metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1076,27 +1074,22 @@ body.dashboard-body {
 }
 
 .kpi-card {
-  background-color: var(--bg-surface, #FFFFFF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface-card);
+  border: 1px solid var(--dash-border);
   border-radius: 12px;
   padding: 0.85rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-[data-theme="dark"] .kpi-card {
-  background-color: #121417;
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .kpi-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-color: var(--dash-border-focus);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .kpi-card-header {
@@ -1117,7 +1110,7 @@ body.dashboard-body {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   text-transform: uppercase;
   line-height: 1.25;
   white-space: nowrap;
@@ -1127,7 +1120,7 @@ body.dashboard-body {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   text-transform: uppercase;
   line-height: 1.25;
   white-space: nowrap;
@@ -1150,33 +1143,23 @@ body.dashboard-body {
 
 .icon-pill-purple,
 .icon-pill-amber {
-  background-color: rgba(232, 160, 69, 0.14);
-  color: #D48B28;
-}
-
-[data-theme="dark"] .icon-pill-purple,
-[data-theme="dark"] .icon-pill-amber {
-  background-color: rgba(232, 160, 69, 0.20);
-  color: #F0B15E;
+  background-color: var(--dash-warning-bg);
+  color: var(--dash-warning);
 }
 
 .icon-pill-emerald {
-  background-color: rgba(0, 201, 167, 0.12);
-  color: #00C9A7;
+  background-color: var(--dash-success-bg);
+  color: var(--dash-success);
 }
 
 .icon-pill-gold {
-  background-color: rgba(196, 154, 98, 0.15);
-  color: #C49A62;
+  background-color: var(--dash-accent-bg);
+  color: var(--dash-accent);
 }
 
 .icon-pill-cyan {
-  background-color: rgba(0, 212, 200, 0.12);
-  color: #00B3A6;
-}
-
-[data-theme="dark"] .icon-pill-cyan {
-  color: #00D4C8;
+  background-color: var(--dash-info-bg);
+  color: var(--dash-info);
 }
 
 .kpi-value-row {
@@ -1189,7 +1172,7 @@ body.dashboard-body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   line-height: 1.15;
   font-family: var(--font-sans);
   white-space: nowrap;
@@ -1223,32 +1206,21 @@ body.dashboard-body {
 }
 
 .trend-up {
-  background-color: rgba(0, 201, 167, 0.12);
-  color: #00A88B;
-}
-
-[data-theme="dark"] .trend-up {
-  color: #00E5BD;
+  background-color: var(--dash-success-bg);
+  color: var(--dash-success);
 }
 
 .trend-optimal {
-  background-color: rgba(0, 212, 200, 0.12);
-  color: #009E94;
-}
-
-[data-theme="dark"] .trend-optimal {
-  color: #00D4C8;
+  background-color: var(--dash-info-bg);
+  color: var(--dash-info);
 }
 
 .trend-caption {
   font-size: 0.7rem;
   line-height: 1.2;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
-/* ----------------------------------------------------------
-   06. DUAL CHART ROW (Matching Reference Grid)
-   ---------------------------------------------------------- */
 .portal-charts-grid {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
@@ -1257,18 +1229,13 @@ body.dashboard-body {
 }
 
 .chart-card {
-  background-color: var(--bg-surface, #FFFFFF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface-card);
+  border: 1px solid var(--dash-border);
   border-radius: 14px;
   padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-}
-
-[data-theme="dark"] .chart-card {
-  background-color: #121417;
-  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .chart-card-top {
@@ -1282,28 +1249,22 @@ body.dashboard-body {
   margin: 0 0 0.25rem;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   letter-spacing: -0.01em;
 }
 
 .chart-desc {
   margin: 0;
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
-/* Time Range Pill */
 .chart-time-toggle {
   display: flex;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   border-radius: 20px;
   padding: 2px;
-}
-
-[data-theme="dark"] .chart-time-toggle {
-  background-color: #1B1E22;
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .btn-time-pill {
@@ -1313,18 +1274,17 @@ body.dashboard-body {
   border-radius: 16px;
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .btn-time-pill.active {
-  background-color: #9353D3;
+  background-color: var(--dash-accent);
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(147, 83, 211, 0.3);
+  box-shadow: 0 2px 8px var(--dash-accent-bg);
 }
 
-/* Legend Strip */
 .chart-legend-strip {
   display: flex;
   align-items: center;
@@ -1337,7 +1297,7 @@ body.dashboard-body {
   align-items: center;
   gap: 0.45rem;
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
 }
 
 .legend-box {
@@ -1346,10 +1306,9 @@ body.dashboard-body {
   border-radius: 3px;
 }
 
-.legend-purple { background-color: #E8A045; }
-.legend-cyan { background-color: #00D4C8; }
+.legend-purple { background-color: var(--dash-accent); }
+.legend-cyan { background-color: var(--dash-info); }
 
-/* SVG Chart Viewports */
 .chart-svg-viewport {
   position: relative;
   width: 100%;
@@ -1362,16 +1321,20 @@ body.dashboard-body {
   overflow: visible;
 }
 
+.growth-chart-svg line {
+  stroke: var(--dash-chart-grid);
+}
+
 .chart-axis-text {
   font-size: 11px;
-  fill: var(--text-muted);
+  fill: var(--dash-chart-axis);
   font-family: var(--font-sans);
 }
 
 .chart-month-text {
   font-size: 12px;
   font-weight: 600;
-  fill: var(--text-secondary);
+  fill: var(--dash-chart-month);
   font-family: var(--font-sans);
 }
 
@@ -1381,14 +1344,14 @@ body.dashboard-body {
 }
 
 .chart-dot-purple {
-  fill: #FFFFFF;
-  stroke: #E8A045;
+  fill: var(--dash-surface);
+  stroke: var(--dash-accent);
   stroke-width: 2.5;
 }
 
 .chart-dot-cyan {
-  fill: #FFFFFF;
-  stroke: #00D4C8;
+  fill: var(--dash-surface);
+  stroke: var(--dash-info);
   stroke-width: 2;
 }
 
@@ -1398,33 +1361,31 @@ body.dashboard-body {
   stroke-width: 3.5;
 }
 
-/* Floating Tooltip */
 .chart-floating-tooltip {
   position: absolute;
   top: 25px;
   right: 50px;
-  background-color: #171512;
-  color: #FFFFFF;
+  background-color: var(--dash-surface-elevated);
+  color: var(--dash-text-primary);
   padding: 6px 12px;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   pointer-events: none;
-  border: 1px solid rgba(232, 160, 69, 0.35);
+  border: 1px solid var(--dash-border-focus);
 }
 
 .tooltip-month {
   font-size: 0.68rem;
-  color: #A0988A;
+  color: var(--dash-text-muted);
   font-weight: 600;
 }
 
 .tooltip-stat {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #E8A045;
+  color: var(--dash-accent);
 }
 
-/* Category Bar Chart (Right Card) */
 .barchart-viewport {
   width: 100%;
   height: 230px;
@@ -1436,11 +1397,7 @@ body.dashboard-body {
 }
 
 .bar-track {
-  fill: var(--bg-primary);
-}
-
-[data-theme="dark"] .bar-track {
-  fill: #1A1D21;
+  fill: var(--dash-surface-input);
 }
 
 .bar-fill {
@@ -1452,33 +1409,25 @@ body.dashboard-body {
   opacity: 0.85;
 }
 
-.bar-fill-amber { fill: #E8A045; }
-.bar-fill-teal { fill: #00D4C8; }
-.bar-fill-coral { fill: #E8636A; }
-.bar-fill-slate { fill: #5E7A96; }
-
-.bar-fill-purple { fill: #E8A045; }
-.bar-fill-violet { fill: #00D4C8; }
-.bar-fill-cyan { fill: #E8636A; }
-.bar-fill-gold { fill: #5E7A96; }
+.bar-fill-amber { fill: var(--dash-accent); }
+.bar-fill-teal { fill: var(--dash-info); }
+.bar-fill-coral { fill: var(--dash-danger); }
+.bar-fill-slate { fill: var(--dash-success); }
 
 .bar-value-text {
   font-size: 11px;
   font-weight: 700;
-  fill: var(--text-primary);
+  fill: var(--dash-text-primary);
   font-family: var(--font-sans);
 }
 
 .bar-cat-text {
   font-size: 11px;
   font-weight: 600;
-  fill: var(--text-secondary);
+  fill: var(--dash-text-secondary);
   font-family: var(--font-sans);
 }
 
-/* ----------------------------------------------------------
-   07. PANEL CARDS & DATA TABLES
-   ---------------------------------------------------------- */
 .portal-grid-2col {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
@@ -1493,25 +1442,20 @@ body.dashboard-body {
   margin-bottom: 2rem;
 }
 
-/* Margin Utility Classes */
 .mt-4 { margin-top: 1rem; }
 .mt-5 { margin-top: 1.5rem; }
 .mt-6 { margin-top: 2rem; }
 .mt-8 { margin-top: 2.5rem; }
 
 .panel-card {
-  background-color: var(--bg-surface, #FFFFFF);
-  border: 1px solid var(--border-color, #D9D1C5);
+  background-color: var(--dash-surface-card);
+  border: 1px solid var(--dash-border);
   border-radius: 14px;
   padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
   min-width: 0;
   overflow: hidden;
-}
-
-[data-theme="dark"] .panel-card {
-  background-color: #121417;
-  border-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .panel-card-header {
@@ -1525,19 +1469,19 @@ body.dashboard-body {
   margin: 0 0 0.25rem;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .pch-card-desc {
   margin: 0;
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
 .btn-outline-sm {
   background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
+  border: 1px solid var(--dash-border);
+  color: var(--dash-text-primary);
   padding: 0.35rem 0.85rem;
   border-radius: 8px;
   font-size: 0.78rem;
@@ -1548,18 +1492,16 @@ body.dashboard-body {
 }
 
 .btn-outline-sm:hover {
-  border-color: var(--brand-accent);
-  color: var(--brand-accent);
-  background-color: rgba(164, 119, 67, 0.08);
+  border-color: var(--dash-accent);
+  color: var(--dash-accent);
+  background-color: var(--dash-accent-bg);
 }
 
-/* Data Table */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
 }
 
-/* Documents card — full height, horizontal scroll only, page scrolls vertically */
 .docs-table-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -1580,14 +1522,10 @@ body.dashboard-body {
 .table-scrollable thead th {
   position: sticky;
   top: 0;
-  background-color: var(--bg-surface, #FFFFFF);
+  background-color: var(--dash-surface-card);
   z-index: 2;
-  box-shadow: 0 1px 0 var(--border-color);
-}
-
-[data-theme="dark"] .table-scrollable thead th {
-  background-color: #121417;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 0 var(--dash-border);
+  color: var(--dash-text-muted);
 }
 
 .portal-table {
@@ -1602,39 +1540,34 @@ body.dashboard-body {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   text-transform: uppercase;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--dash-border);
 }
 
 .portal-table td {
   padding: 0.85rem;
   font-size: 0.82rem;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-subtle);
+  color: var(--dash-text-secondary);
+  border-bottom: 1px solid var(--dash-border-subtle);
   vertical-align: middle;
 }
 
-[data-theme="dark"] .portal-table td {
-  border-bottom-color: rgba(255, 255, 255, 0.05);
-}
-
 .portal-table tr:hover td {
-  background-color: var(--bg-primary);
+  background-color: var(--dash-surface-hover);
 }
 
 .tbl-veh-title {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .tbl-vin {
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
-/* Status Pills */
 .status-pill {
   display: inline-block;
   font-size: 0.68rem;
@@ -1645,35 +1578,27 @@ body.dashboard-body {
 }
 
 .status-pass {
-  background-color: rgba(0, 201, 167, 0.12);
-  color: #00967B;
-  border: 1px solid rgba(0, 201, 167, 0.25);
-}
-
-[data-theme="dark"] .status-pass {
-  color: #00E5BD;
+  background-color: var(--dash-success-bg);
+  color: var(--dash-success);
+  border: 1px solid var(--dash-success-border);
 }
 
 .status-scheduled {
-  background-color: rgba(147, 83, 211, 0.12);
-  color: #9353D3;
-  border: 1px solid rgba(147, 83, 211, 0.25);
+  background-color: var(--dash-info-bg);
+  color: var(--dash-info);
+  border: 1px solid var(--dash-info-border);
 }
 
 .status-reinspect {
-  background-color: rgba(229, 57, 53, 0.12);
-  color: #C62828;
-  border: 1px solid rgba(229, 57, 53, 0.25);
-}
-
-[data-theme="dark"] .status-reinspect {
-  color: #EF5350;
+  background-color: var(--dash-danger-bg);
+  color: var(--dash-danger);
+  border: 1px solid var(--dash-danger-border);
 }
 
 .btn-view-token {
   background: none;
-  border: 1px solid var(--border-color);
-  color: var(--brand-accent);
+  border: 1px solid var(--dash-border);
+  color: var(--dash-accent);
   padding: 3px 8px;
   border-radius: 6px;
   font-size: 0.75rem;
@@ -1683,32 +1608,29 @@ body.dashboard-body {
 }
 
 .btn-view-token:hover {
-  background-color: var(--brand-accent);
+  background-color: var(--dash-accent);
   color: #FFFFFF;
-  border-color: var(--brand-accent);
+  border-color: var(--dash-accent);
 }
 
-/* Metric Chips in Table */
 .metric-chip {
   display: inline-block;
   font-size: 0.68rem;
   font-family: var(--font-mono, monospace);
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   padding: 1px 6px;
   border-radius: 4px;
   margin-right: 4px;
+  color: var(--dash-text-primary);
 }
 
 .metric-alert {
-  background-color: rgba(229, 57, 53, 0.1);
-  border-color: rgba(229, 57, 53, 0.3);
-  color: #C62828;
+  background-color: var(--dash-danger-bg);
+  border-color: var(--dash-danger-border);
+  color: var(--dash-danger);
 }
 
-/* ----------------------------------------------------------
-   08. RENEWALS LIST (Expiring Certifications)
-   ---------------------------------------------------------- */
 .renewals-quick-list {
   display: flex;
   flex-direction: column;
@@ -1727,27 +1649,27 @@ body.dashboard-body {
   gap: 0.85rem;
   padding: 0.85rem 1rem;
   border-radius: 10px;
-  border: 1px solid var(--border-subtle);
-  background-color: var(--bg-surface);
+  border: 1px solid var(--dash-border);
+  background-color: var(--dash-surface-card);
   transition: all 0.2s ease;
   min-width: 420px;
 }
 
 .renewal-item:hover {
   transform: translateX(3px);
-  border-color: var(--border-color);
+  border-color: var(--dash-border-focus);
 }
 
 .renewal-item.urgent {
-  border-left: 4px solid #E53935;
+  border-left: 4px solid var(--dash-danger);
 }
 
 .renewal-item.warning {
-  border-left: 4px solid #F5A623;
+  border-left: 4px solid var(--dash-warning);
 }
 
 .renewal-item.normal {
-  border-left: 4px solid #00C9A7;
+  border-left: 4px solid var(--dash-success);
 }
 
 .renewal-urgency-dot {
@@ -1757,9 +1679,9 @@ body.dashboard-body {
   flex-shrink: 0;
 }
 
-.renewal-item.urgent .renewal-urgency-dot { background-color: #E53935; }
-.renewal-item.warning .renewal-urgency-dot { background-color: #F5A623; }
-.renewal-item.normal .renewal-urgency-dot { background-color: #00C9A7; }
+.renewal-item.urgent .renewal-urgency-dot { background-color: var(--dash-danger); }
+.renewal-item.warning .renewal-urgency-dot { background-color: var(--dash-warning); }
+.renewal-item.normal .renewal-urgency-dot { background-color: var(--dash-success); }
 
 .renewal-body {
   flex: 1;
@@ -1774,14 +1696,14 @@ body.dashboard-body {
 .renewal-veh {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .renewal-badge-urgent {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #C62828;
-  background-color: rgba(229, 57, 53, 0.1);
+  color: var(--dash-danger);
+  background-color: var(--dash-danger-bg);
   padding: 1px 6px;
   border-radius: 4px;
 }
@@ -1789,8 +1711,8 @@ body.dashboard-body {
 .renewal-badge-warning {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #D48806;
-  background-color: rgba(245, 166, 35, 0.1);
+  color: var(--dash-warning);
+  background-color: var(--dash-warning-bg);
   padding: 1px 6px;
   border-radius: 4px;
 }
@@ -1798,22 +1720,22 @@ body.dashboard-body {
 .renewal-badge-safe {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #00967B;
-  background-color: rgba(0, 201, 167, 0.1);
+  color: var(--dash-success);
+  background-color: var(--dash-success-bg);
   padding: 1px 6px;
   border-radius: 4px;
 }
 
 .renewal-sub {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   margin-top: 2px;
 }
 
 .btn-renew-pill {
-  background-color: rgba(164, 119, 67, 0.1);
-  border: 1px solid rgba(164, 119, 67, 0.3);
-  color: var(--brand-accent);
+  background-color: var(--dash-accent-bg);
+  border: 1px solid var(--dash-accent);
+  color: var(--dash-accent);
   padding: 0.35rem 0.75rem;
   border-radius: 6px;
   font-size: 0.75rem;
@@ -1824,21 +1746,17 @@ body.dashboard-body {
 }
 
 .btn-renew-pill:hover {
-  background-color: var(--brand-accent);
+  background-color: var(--dash-accent);
   color: #FFFFFF;
 }
 
-/* ----------------------------------------------------------
-   09. BOOKINGS & SLOTS STYLES
-   ---------------------------------------------------------- */
 .form-section-title {
   margin: 0 0 1.25rem;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
-/* ── Booking Form Horizontal Scroll Wrapper ── */
 .booking-form-scroll {
   overflow-x: auto;
   overflow-y: visible;
@@ -1855,7 +1773,7 @@ body.dashboard-body {
   display: block;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   margin-bottom: 0.4rem;
 }
 
@@ -1864,29 +1782,32 @@ body.dashboard-body {
 .dash-textarea {
   width: 100%;
   padding: 0.65rem 0.85rem;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   border-radius: 8px;
   font-family: inherit;
   font-size: 0.85rem;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-[data-theme="dark"] .dash-input,
-[data-theme="dark"] .dash-select,
-[data-theme="dark"] .dash-textarea {
-  background-color: #17191C;
-  border-color: rgba(255, 255, 255, 0.1);
+.dash-input::placeholder,
+.dash-textarea::placeholder {
+  color: var(--dash-text-muted);
 }
 
 .dash-input:focus,
 .dash-select:focus,
 .dash-textarea:focus {
-  border-color: var(--brand-accent);
-  box-shadow: 0 0 0 3px rgba(164, 119, 67, 0.15);
+  border-color: var(--dash-border-focus);
+  box-shadow: 0 0 0 3px var(--dash-accent-bg);
+}
+
+select.dash-select option {
+  background-color: var(--dash-surface);
+  color: var(--dash-text-primary);
 }
 
 .form-row-2 {
@@ -1915,9 +1836,18 @@ body.dashboard-body {
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
+  background-color: var(--dash-accent);
+  color: #FFFFFF;
+  border: 1px solid var(--dash-accent);
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-/* Scheduled Slots List */
+.btn-dash-submit:hover {
+  background-color: var(--dash-accent-hover);
+  border-color: var(--dash-accent-hover);
+}
+
 .scheduled-slots-list {
   display: flex;
   flex-direction: column;
@@ -1933,42 +1863,38 @@ body.dashboard-body {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--dash-border);
   border-radius: 10px;
-  background-color: var(--bg-surface);
+  background-color: var(--dash-surface-card);
   transition: all 0.2s ease;
   min-width: 460px;
 }
 
 .slot-card:hover {
-  border-color: var(--border-color);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-color: var(--dash-border-focus);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .slot-time-col {
   width: 75px;
   text-align: center;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border);
   border-radius: 8px;
   padding: 0.5rem 0.25rem;
   display: flex;
   flex-direction: column;
 }
 
-[data-theme="dark"] .slot-time-col {
-  background-color: #1A1D20;
-}
-
 .slot-day {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
 }
 
 .slot-hour {
   font-size: 0.65rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
 .slot-details-col {
@@ -1978,12 +1904,12 @@ body.dashboard-body {
 .slot-veh-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .slot-meta-strip {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -1994,8 +1920,8 @@ body.dashboard-body {
   display: inline-block;
   font-size: 0.65rem;
   font-weight: 600;
-  color: var(--brand-accent);
-  background-color: rgba(164, 119, 67, 0.1);
+  color: var(--dash-accent);
+  background-color: var(--dash-accent-bg);
   padding: 1px 6px;
   border-radius: 4px;
 }
@@ -2011,15 +1937,12 @@ body.dashboard-body {
   background: none;
   border: none;
   font-size: 0.72rem;
-  color: #C62828;
+  color: var(--dash-danger);
   cursor: pointer;
   text-decoration: underline;
   padding: 0;
 }
 
-/* ----------------------------------------------------------
-   10. FILTER CONTROLS (Certificates Tab)
-   ---------------------------------------------------------- */
 .filter-controls-row {
   display: flex;
   align-items: center;
@@ -2040,28 +1963,25 @@ body.dashboard-body {
 
 .btn-filter-tag {
   background: transparent;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--dash-border);
   padding: 0.4rem 0.85rem;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .btn-filter-tag.active {
-  background-color: var(--brand-accent);
-  border-color: var(--brand-accent);
+  background-color: var(--dash-accent);
+  border-color: var(--dash-accent);
   color: #FFFFFF;
 }
 
-/* ----------------------------------------------------------
-   11. REMINDER CARDS (Renewals Tab)
-   ---------------------------------------------------------- */
 .reminder-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background-color: var(--dash-surface-card);
+  border: 1px solid var(--dash-border);
   border-radius: 12px;
   padding: 1.25rem;
   display: flex;
@@ -2073,15 +1993,15 @@ body.dashboard-body {
 }
 
 .reminder-card-critical {
-  border-top: 4px solid #E53935;
+  border-top: 4px solid var(--dash-danger);
 }
 
 .reminder-card-warning {
-  border-top: 4px solid #F5A623;
+  border-top: 4px solid var(--dash-warning);
 }
 
 .reminder-card-safe {
-  border-top: 4px solid #00C9A7;
+  border-top: 4px solid var(--dash-success);
 }
 
 .rc-header {
@@ -2096,8 +2016,8 @@ body.dashboard-body {
 .rc-badge-critical {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #E53935;
-  background-color: rgba(229, 57, 53, 0.1);
+  color: var(--dash-danger);
+  background-color: var(--dash-danger-bg);
   padding: 2px 7px;
   border-radius: 4px;
   white-space: nowrap;
@@ -2106,8 +2026,8 @@ body.dashboard-body {
 .rc-badge-warning {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #D48806;
-  background-color: rgba(245, 166, 35, 0.12);
+  color: var(--dash-warning);
+  background-color: var(--dash-warning-bg);
   padding: 2px 7px;
   border-radius: 4px;
   white-space: nowrap;
@@ -2116,8 +2036,8 @@ body.dashboard-body {
 .rc-badge-safe {
   font-size: 0.65rem;
   font-weight: 700;
-  color: #00967B;
-  background-color: rgba(0, 201, 167, 0.12);
+  color: var(--dash-success);
+  background-color: var(--dash-success-bg);
   padding: 2px 7px;
   border-radius: 4px;
   white-space: nowrap;
@@ -2125,7 +2045,7 @@ body.dashboard-body {
 
 .rc-date {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   white-space: nowrap;
 }
 
@@ -2137,14 +2057,14 @@ body.dashboard-body {
   margin: 0 0 0.25rem;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   word-break: break-word;
 }
 
 .rc-vin {
   font-size: 0.72rem;
   font-family: var(--font-mono, monospace);
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   margin-bottom: 0.45rem;
   word-break: break-all;
 }
@@ -2152,18 +2072,17 @@ body.dashboard-body {
 .rc-type-tag {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   margin-bottom: 0.5rem;
 }
 
 .rc-desc {
   font-size: 0.78rem;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   line-height: 1.4;
   margin: 0 0 0.75rem;
 }
 
-/* Scrollable Protocol Checkpoints Inside Cards */
 .rc-checkpoints-wrap {
   margin-bottom: 0.85rem;
 }
@@ -2173,7 +2092,7 @@ body.dashboard-body {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--brand-accent, #A47743);
+  color: var(--dash-accent);
   text-transform: uppercase;
   margin-bottom: 0.35rem;
 }
@@ -2185,14 +2104,9 @@ body.dashboard-body {
   flex-direction: column;
   gap: 0.35rem;
   padding: 0.5rem 0.65rem;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-subtle);
+  background-color: var(--dash-surface-input);
+  border: 1px solid var(--dash-border-subtle);
   border-radius: 6px;
-}
-
-[data-theme="dark"] .rc-checkpoints {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .rc-check-item {
@@ -2200,12 +2114,12 @@ body.dashboard-body {
   align-items: center;
   gap: 0.45rem;
   font-size: 0.72rem;
-  color: var(--text-secondary);
+  color: var(--dash-text-secondary);
   line-height: 1.25;
 }
 
 .rc-check-item .check-icon {
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   font-size: 0.68rem;
   font-weight: 700;
   flex-shrink: 0;
@@ -2216,8 +2130,8 @@ body.dashboard-body {
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 12px;
-  background-color: rgba(164, 119, 67, 0.12);
-  color: var(--brand-accent);
+  background-color: var(--dash-accent-bg);
+  color: var(--dash-accent);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -2237,7 +2151,6 @@ body.dashboard-body {
   box-sizing: border-box;
 }
 
-/* Reminder Settings Grid */
 .reminder-settings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2251,9 +2164,9 @@ body.dashboard-body {
   align-items: flex-start;
   gap: 0.75rem;
   padding: 0.85rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--dash-border);
   border-radius: 8px;
-  background-color: var(--bg-primary);
+  background-color: var(--dash-surface-input);
   cursor: pointer;
   min-width: 0;
   box-sizing: border-box;
@@ -2261,13 +2174,13 @@ body.dashboard-body {
 }
 
 .setting-toggle-card:hover {
-  border-color: var(--brand-accent);
+  border-color: var(--dash-border-focus);
 }
 
 .setting-toggle-card input[type="checkbox"] {
   margin-top: 2px;
   flex-shrink: 0;
-  accent-color: var(--brand-accent);
+  accent-color: var(--dash-accent);
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -2282,22 +2195,19 @@ body.dashboard-body {
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   word-break: break-word;
 }
 
 .stc-sub {
   display: block;
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   margin-top: 2px;
   word-break: break-word;
   overflow-wrap: anywhere;
 }
 
-/* ----------------------------------------------------------
-   12. DOCUMENTS & PAYMENT STYLES
-   ---------------------------------------------------------- */
 .doc-title-row {
   display: flex;
   align-items: center;
@@ -2307,19 +2217,19 @@ body.dashboard-body {
 .doc-icon {
   width: 18px;
   height: 18px;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   flex-shrink: 0;
 }
 
 .doc-name {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .btn-download-doc {
-  background-color: rgba(164, 119, 67, 0.1);
-  border: 1px solid rgba(164, 119, 67, 0.3);
-  color: var(--brand-accent);
+  background-color: var(--dash-accent-bg);
+  border: 1px solid var(--dash-accent);
+  color: var(--dash-accent);
   padding: 0.35rem 0.75rem;
   border-radius: 6px;
   font-size: 0.75rem;
@@ -2329,7 +2239,7 @@ body.dashboard-body {
 }
 
 .btn-download-doc:hover {
-  background-color: var(--brand-accent);
+  background-color: var(--dash-accent);
   color: #FFFFFF;
 }
 
@@ -2342,52 +2252,112 @@ body.dashboard-body {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
 .psc-val {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   margin: 0.35rem 0;
 }
 
 .psc-sub {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
-/* ----------------------------------------------------------
-   13. SETTINGS & SECURITY CARDS
-   ---------------------------------------------------------- */
 .security-item-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--dash-border);
   border-radius: 8px;
   margin-bottom: 0.85rem;
-  background-color: var(--bg-primary);
+  background-color: var(--dash-surface-input);
 }
 
 .sic-title {
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
 }
 
 .sic-sub {
   display: block;
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   margin-top: 2px;
 }
 
-/* ----------------------------------------------------------
-   14. DIGITAL CERTIFICATE PASSPORT MODAL
-   ---------------------------------------------------------- */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.70);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-container {
+  background-color: var(--dash-surface);
+  border: 1px solid var(--dash-border);
+  color: var(--dash-text-primary);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem 1rem;
+  border-bottom: 1px solid var(--dash-border-subtle);
+}
+
+.modal-title {
+  color: var(--dash-text-primary);
+  margin: 0;
+}
+
+.modal-eyebrow {
+  color: var(--dash-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.modal-body {
+  padding: 1.25rem 1.75rem;
+  color: var(--dash-text-secondary);
+  line-height: 1.6;
+}
+
+.modal-footer {
+  padding: 1rem 1.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 1px solid var(--dash-border-subtle);
+}
+
+.modal-close,
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--dash-text-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s ease;
+  font-family: inherit;
+}
+
+.modal-close:hover,
+.modal-close-btn:hover {
+  color: var(--dash-text-primary);
+}
+
 .cert-modal-container {
   max-width: 680px;
   width: 92%;
@@ -2398,7 +2368,7 @@ body.dashboard-body {
   align-items: flex-start;
   justify-content: space-between;
   padding: 1.5rem 1.75rem 1rem;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--dash-border-subtle);
 }
 
 .cert-modal-body {
@@ -2406,8 +2376,8 @@ body.dashboard-body {
 }
 
 .cert-passport-card {
-  background-color: var(--bg-primary);
-  border: 1.5px solid var(--brand-accent);
+  background-color: var(--dash-surface-input);
+  border: 1.5px solid var(--dash-accent);
   border-radius: 12px;
   padding: 1.5rem;
   position: relative;
@@ -2418,7 +2388,7 @@ body.dashboard-body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--dash-border);
   padding-bottom: 1rem;
 }
 
@@ -2427,7 +2397,7 @@ body.dashboard-body {
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   display: block;
 }
 
@@ -2435,12 +2405,12 @@ body.dashboard-body {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
   display: block;
 }
 
 .cpc-badge-passed {
-  background-color: #00A88B;
+  background-color: var(--dash-success);
   color: #FFFFFF;
   font-size: 0.72rem;
   font-weight: 700;
@@ -2465,14 +2435,14 @@ body.dashboard-body {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
   text-transform: uppercase;
 }
 
 .cpc-val {
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   margin-top: 2px;
 }
 
@@ -2480,8 +2450,8 @@ body.dashboard-body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.65rem;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background-color: var(--dash-surface);
+  border: 1px solid var(--dash-border);
   border-radius: 8px;
   padding: 0.85rem;
   margin-bottom: 1.25rem;
@@ -2494,18 +2464,18 @@ body.dashboard-body {
 
 .cm-name {
   font-size: 0.65rem;
-  color: var(--text-muted);
+  color: var(--dash-text-muted);
 }
 
 .cm-val {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dash-text-primary);
   margin-top: 2px;
 }
 
 .cm-stat-ok {
-  color: #00A88B;
+  color: var(--dash-success);
   font-size: 0.65rem;
 }
 
@@ -2513,10 +2483,11 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: #171512;
+  background-color: #0E1012;
   color: #FFFFFF;
   padding: 0.85rem;
   border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .cpc-qr-box {
@@ -2543,7 +2514,7 @@ body.dashboard-body {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--brand-accent);
+  color: var(--dash-accent);
 }
 
 .chi-hash {
@@ -2563,17 +2534,13 @@ body.dashboard-body {
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--dash-border-subtle);
 }
 
-/* Logout Modal */
 .logout-modal-container {
   max-width: 440px;
 }
 
-/* ----------------------------------------------------------
-   15. RTL SUPPORT
-   ---------------------------------------------------------- */
 [dir="rtl"] .portal-sidebar {
   border-right: none;
   border-left: 1px solid rgba(255, 255, 255, 0.08);
@@ -2597,9 +2564,6 @@ body.dashboard-body {
   text-align: right;
 }
 
-/* ----------------------------------------------------------
-   16. RESPONSIVE DESIGN (TABLETS & MOBILE)
-   ---------------------------------------------------------- */
 @media (max-width: 1200px) {
   .kpi-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2833,10 +2797,6 @@ body.dashboard-body {
     font-size: 0.72rem;
   }
 }
-
-/* ================================================================
-   BILLING & INVOICES + SETTINGS � RESPONSIVE FIXES
-   ================================================================ */
 
 @media (max-width: 900px) {
   .psc-val {

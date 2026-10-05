@@ -1,8 +1,3 @@
-/**
- * ORVEXA — Coming Soon: Vehicle Inspection & Emission Testing Center
- * Interactive Engine: Backward Countdown, Theme Switcher & RTL Management
- * (coming soon.js / coming-soon.js)
- */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -11,14 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initNotifyForm();
 });
 
-/* --------------------------------------------------------------------------
-   01. THEME TOGGLE (Sun / Moon Switcher on the Right)
-   -------------------------------------------------------------------------- */
 function initTheme() {
   const themeToggle = document.getElementById('themeToggle');
   const htmlRoot = document.documentElement;
 
-  // Retrieve saved preference or default to light
   const savedTheme = localStorage.getItem('orvexa-theme') || htmlRoot.getAttribute('data-theme') || 'light';
   applyTheme(savedTheme);
 
@@ -37,15 +28,11 @@ function applyTheme(theme) {
   htmlRoot.setAttribute('data-theme', theme);
 }
 
-/* --------------------------------------------------------------------------
-   02. RTL TOGGLE (Right Corner in Top Bar)
-   -------------------------------------------------------------------------- */
 function initRTL() {
   const rtlToggle = document.getElementById('rtlToggle');
   const rtlBtnText = document.getElementById('rtlBtnText');
   const htmlRoot = document.documentElement;
 
-  // Retrieve saved direction or default to ltr
   const savedDir = localStorage.getItem('orvexa-dir') || htmlRoot.getAttribute('dir') || 'ltr';
   applyDir(savedDir);
 
@@ -68,15 +55,10 @@ function applyDir(dir) {
   }
 }
 
-/* --------------------------------------------------------------------------
-   03. BACKWARD COUNTDOWN TIMER ("numbers goes to backword")
-   -------------------------------------------------------------------------- */
 function initBackwardCountdown() {
-  // Store or retrieve fixed future target timestamp so numbers count backward smoothly
   const STORAGE_KEY = 'orvexa_facility_target_time';
   let targetTime = parseInt(localStorage.getItem(STORAGE_KEY), 10);
 
-  // If no target timestamp or already past, set target to 48 days, 14 hours, 36 minutes, 24 seconds ahead
   const now = Date.now();
   if (!targetTime || targetTime <= now) {
     const launchDurationMs = (48 * 24 * 3600 + 14 * 3600 + 36 * 60 + 24) * 1000;
@@ -122,7 +104,6 @@ function initBackwardCountdown() {
 
     prevVals = { days: strDays, hours: strHours, minutes: strMinutes, seconds: strSeconds };
 
-    // Update Progress Bars
     if (barDays) barDays.style.width = Math.min(100, Math.max(5, (days / 60) * 100)) + '%';
     if (barHours) barHours.style.width = ((hours / 24) * 100) + '%';
     if (barMinutes) barMinutes.style.width = ((minutes / 60) * 100) + '%';
@@ -141,16 +122,11 @@ function initBackwardCountdown() {
     }
   }
 
-  // Run immediate first tick
   tickCountdown();
 
-  // Run every 1000ms backward
   setInterval(tickCountdown, 1000);
 }
 
-/* --------------------------------------------------------------------------
-   04. VIP PRIORITY COMMISSIONING NOTIFY FORM
-   -------------------------------------------------------------------------- */
 function initNotifyForm() {
   const form = document.getElementById('csNotifyForm');
   const input = document.getElementById('csEmailInput');
@@ -162,7 +138,6 @@ function initNotifyForm() {
     e.preventDefault();
     const email = input.value.trim();
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
       feedback.className = 'cs-notify-feedback error';
@@ -171,14 +146,12 @@ function initNotifyForm() {
       return;
     }
 
-    // Save email in localStorage list
     const subscribers = JSON.parse(localStorage.getItem('orvexa_vip_subscribers') || '[]');
     if (!subscribers.includes(email)) {
       subscribers.push(email);
       localStorage.setItem('orvexa_vip_subscribers', JSON.stringify(subscribers));
     }
 
-    // Success State
     feedback.className = 'cs-notify-feedback success';
     feedback.innerHTML = '&#10003; Verification successful. You have been reserved on the VIP Priority Commissioning Register.';
     input.value = '';

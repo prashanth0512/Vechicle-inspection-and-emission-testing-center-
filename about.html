@@ -3,6 +3,22 @@
 
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ORVEXA | About — The Architecture of Certainty &amp; Automotive Metrology</title>
   <meta name="description"
@@ -10,29 +26,22 @@
   <meta name="keywords"
     content="about ORVEXA, automotive metrology, ISO 17020 vehicle inspection, emissions testing laboratory, vehicle digital passport, automotive compliance history">
 
-  <!-- Modern Editorial & Precision Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
-  <!-- Core Design System & About Page Styles -->
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="about.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body>
 
-  <!-- ==================================================
-       01. LUXURY HEADER (100% VISUAL & BEHAVIORAL CONSISTENCY)
-       ================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <!-- Brand Logo -->
       <a href="index.html" class="brand-logo" aria-label="ORVEXA Homepage">
         <div class="logo-symbol">
           <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="brand-emblem-img">
@@ -43,10 +52,8 @@
         </div>
       </a>
 
-      <!-- Primary Navigation -->
       <nav class="main-nav" aria-label="Main Navigation">
         <ul class="nav-list">
-          <!-- Home with Dropdown (Home 1 & Home 2) -->
           <li class="nav-item has-dropdown">
             <a href="index.html" class="nav-link">
               <span>Home</span>
@@ -66,26 +73,19 @@
             </div>
           </li>
 
-          <!-- About (Active) -->
           <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
 
-          <!-- Services -->
           <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
 
-          <!-- Journals -->
           <li class="nav-item"><a href="journal.html" class="nav-link">Journals</a></li>
 
-          <!-- Contact -->
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 
-          <!-- Dashboard -->
           <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
         </ul>
       </nav>
 
-      <!-- Header Utilities (Order: Theme Toggle -> RTL Button -> Login -> Book Now) -->
       <div class="header-actions">
-        <!-- 1. Refined Single-Icon Theme Toggle (Sun in Light, Moon in Dark) -->
         <button type="button" class="theme-mode-btn" id="themeToggle" aria-label="Toggle theme mode">
           <span class="theme-icon-sun" title="Light Mode">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -109,21 +109,17 @@
           </span>
         </button>
 
-        <!-- 2. RTL Button -->
         <button type="button" class="header-rtl-btn" id="rtlToggle" aria-label="Toggle text direction RTL / LTR">
           <span id="rtlBtnText">RTL</span>
         </button>
 
-        <!-- 3. Client Login -->
         <a href="login.html" class="header-login-btn" id="loginBtn">Login</a>
 
-        <!-- 4. Book Now CTA (Small) -->
         <button type="button" class="btn-primary-header btn-sm" id="headerBookBtn" onclick="openBookingModal()">
           <span>Book Now</span>
           <span class="btn-arrow">&rarr;</span>
         </button>
 
-        <!-- Mobile Menu Toggle -->
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -133,7 +129,6 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
       <div class="drawer-brand-block">
@@ -143,7 +138,6 @@
       <button type="button" class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
     </div>
 
-    <!-- Navigation Links -->
     <ul class="drawer-links">
       <li><a href="index.html" class="drawer-link"><span>Home 1</span></a></li>
       <li><a href="home2.html" class="drawer-link"><span>Home 2</span></a></li>
@@ -161,15 +155,11 @@
   </div>
 
   <main>
-    <!-- ==================================================
-         01. ABOUT HERO SECTION (AWARD-WINNING LUXURY HERO)
-         ================================================== -->
     <section class="about-hero-section" id="aboutHero">
       <div class="about-hero-bg-glow"></div>
       <div class="container">
         <div class="about-hero-grid">
 
-          <!-- Left Column: Editorial & Left-Aligned Hero Content -->
           <div class="about-hero-content">
             <div class="about-eyebrow-pill">
               <span class="about-dot-beacon"></span>
@@ -199,54 +189,48 @@
             </div>
           </div>
 
-          <!-- Right Column: Award-Winning Metrology Hologram HUD Card -->
           <div class="about-hero-visual">
-            <div class="about-hologram-card">
-              <!-- Precision Corner Reticles -->
-              <span class="about-card-reticle tl"></span>
-              <span class="about-card-reticle tr"></span>
-              <span class="about-card-reticle bl"></span>
-              <span class="about-card-reticle br"></span>
+            <div class="about-hero-image-stage">
+              <span class="about-frame-reticle tl" aria-hidden="true"></span>
+              <span class="about-frame-reticle tr" aria-hidden="true"></span>
+              <span class="about-frame-reticle bl" aria-hidden="true"></span>
+              <span class="about-frame-reticle br" aria-hidden="true"></span>
 
-              <!-- Award Badge -->
-              <div class="about-award-badge-top">
-                <svg class="about-trophy-icon" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L12 14.1l-4.8 2.5.9-5.3L4.3 7.6l5.3-.8L12 2z" />
-                </svg>
-                <span>2025 GLOBAL AUTOMOTIVE METROLOGY AWARD &bull; WINNER</span>
+              <div class="about-hero-status-pill">
+                <span class="about-pulse-dot"></span>
+                <span>METROLOGY LAB 01 &bull; 3D LASER CALIBRATION</span>
               </div>
 
-              <h3 class="about-award-headline">Benchmark Inspection Facility of the Year</h3>
-              <p class="about-award-sub">
-                Awarded by the International Automotive Standards Consortium for zero-conflict institutional auditing
-                and sub-millimeter optical measurement protocols.
-              </p>
+              <div class="about-hero-img-wrap">
+                <img src="assets/about_hero_metrology.jpg"
+                  alt="ORVEXA Aerospace-Calibrated Automotive Metrology &amp; Vehicle Inspection Laboratory Platform"
+                  class="about-hero-img"
+                  width="800"
+                  height="600" />
+                <div class="about-hero-img-scrim" aria-hidden="true"></div>
+              </div>
 
-              <!-- Telemetry Metrics Grid -->
-              <div class="about-telemetry-specs">
-                <div class="about-spec-tile">
-                  <span class="spec-tile-label">MEASUREMENT RIGOR</span>
-                  <span class="spec-tile-value gold">&plusmn;0.01 mm</span>
+              <div class="about-hero-metric-badge">
+                <div class="metric-badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="9" />
+                    <line x1="12" y1="3" x2="12" y2="7" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                    <line x1="3" y1="12" x2="7" y2="12" />
+                    <line x1="17" y1="12" x2="21" y2="12" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
                 </div>
-                <div class="about-spec-tile">
-                  <span class="spec-tile-label">STATUTORY STANDARD</span>
-                  <span class="spec-tile-value">ISO/IEC 17020</span>
-                </div>
-                <div class="about-spec-tile">
-                  <span class="spec-tile-label">INSPECTION DURATION</span>
-                  <span class="spec-tile-value gold">15 Minutes</span>
-                </div>
-                <div class="about-spec-tile">
-                  <span class="spec-tile-label">RECORD SECURITY</span>
-                  <span class="spec-tile-value">SHA-256 Ledger</span>
+                <div class="metric-badge-text">
+                  <span class="metric-badge-num">&plusmn;0.01 mm</span>
+                  <span class="metric-badge-desc">Optical Chassis Tolerance</span>
                 </div>
               </div>
             </div>
           </div>
 
-        </div><!-- /about-hero-grid -->
+        </div>
 
-        <!-- Bottom Hero Ticker Strip (4 Key Impact Metrics) -->
         <div class="about-hero-ticker">
           <div class="ticker-stat-block">
             <div class="ticker-stat-num">120,000+</div>
@@ -270,111 +254,205 @@
           </div>
         </div>
 
-      </div><!-- /container -->
-    </section>
-
-    <!-- ==================================================
-         02. OUR STORY SECTION (ASYMMETRIC LUXURY ARCHITECTURAL LAYOUT)
-         ================================================== -->
-    <section class="about-story-section" id="ourStory">
-      <div class="container">
-        <div class="story-grid">
-
-          <!-- Left Column: Compelling Narrative -->
-          <div class="story-content">
-            <div class="story-eyebrow">
-              <span>FOUNDING NARRATIVE // 2014 &mdash; PRESENT</span>
-            </div>
-
-            <h2 class="story-title">
-              From an Aerospace Propulsion Cell to<br>
-              <span class="italic-serif highlight-gold">A Global Automotive Benchmark.</span>
-            </h2>
-
-            <p class="story-lead">
-              In 2014, automotive inspection had stalled. Subjective pencil checkmarks and questionable mechanic repair
-              quotes left motorists in perpetual uncertainty.
-            </p>
-
-            <p class="story-body">
-              Our founders—aerospace propulsion testing engineers—recognized that vehicle roadworthiness demanded the
-              mathematical certainty of flight clearance. We engineered our inaugural dynamometer testing cell with
-              laser micrometers and gas chromatography, proving that braking balance, chassis micro-twist, and tailpipe
-              combustion chemistry could be audited with sub-millimeter precision in under twenty minutes.
-            </p>
-
-            <!-- Luxury Quote Callout -->
-            <div class="story-quote-card">
-              <p class="story-quote-text">
-                &ldquo;We founded ORVEXA with a singular rule: we never sell repairs, parts, or maintenance. Our only
-                deliverable is unimpeachable, mathematical truth.&rdquo;
-              </p>
-              <span class="story-quote-author">&mdash; DR. MARCUS VANCE, FOUNDER &amp; CEO</span>
-            </div>
-
-            <!-- Guiding Pillars -->
-            <div class="story-pillars">
-              <div class="story-pillar-item">
-                <span class="story-pillar-check">&#10003;</span>
-                <span><strong>Absolute Institutional Independence:</strong> Zero repair cross-selling ensures complete,
-                  conflict-free consumer confidence.</span>
-              </div>
-              <div class="story-pillar-item">
-                <span class="story-pillar-check">&#10003;</span>
-                <span><strong>Aerospace Calibration Discipline:</strong> All laser profilometers and gas analyzers
-                  calibrated daily against NIST standards.</span>
-              </div>
-              <div class="story-pillar-item">
-                <span class="story-pillar-check">&#10003;</span>
-                <span><strong>Instant Cryptographic Ledger:</strong> Digital vehicle clearance passports minted into
-                  wallet passes and permanent state databases.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Visual Stage with Layered Frames & Rotating Seal -->
-          <div class="story-visual-stage">
-            <!-- Main Photo Frame -->
-            <div class="story-main-frame">
-              <img src="assets/archive_dyno_cell.jpg"
-                alt="AWD Dynamometer acoustic testing cell with laser wheel alignment" class="story-main-img">
-            </div>
-
-            <!-- Rotating Gold Seal -->
-            <div class="story-circular-seal" aria-hidden="true">
-              <svg viewBox="0 0 140 140" class="seal-svg-ring">
-                <path id="aboutSealPath" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
-                <text>
-                  <textPath href="#aboutSealPath" startOffset="0%">
-                    ORVEXA CERTIFIED &bull; PRECISION BENCHMARKS &bull; EST. 2014 &bull;
-                  </textPath>
-                </text>
-              </svg>
-              <div class="seal-center-crest">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-            </div>
-
-            <!-- Floating Metric Overlay Card -->
-            <div class="story-floating-card">
-              <span class="story-float-tag">DECADE OF RIGOR // 2014 &ndash; 2026</span>
-              <h4 class="story-float-title">Sub-Millimeter Metrology</h4>
-              <p class="story-float-desc">
-                Over 120,000 multi-point audits completed without a single contested safety certification.
-              </p>
-            </div>
-          </div>
-
-        </div><!-- /story-grid -->
       </div>
     </section>
 
-    <!-- ==================================================
-         03. MISSION & VISION SECTION (DUAL ARCHITECTURAL CARDS)
-         ================================================== -->
+    <section class="about-story-section" id="ourStory">
+      <div class="container">
+        <div class="story-grid capability-split-grid">
+
+          <div class="capability-visual-stage">
+            <div class="capability-main-frame">
+              <img src="assets/about_inspection_center.jpg"
+                alt="ORVEXA Vehicle Inspection &amp; Emission Testing Center Bay with Certified Technician and Gas Analysis Equipment"
+                class="capability-main-img">
+              <div class="capability-img-overlay"></div>
+              
+              <span class="cap-reticle tl"></span>
+              <span class="cap-reticle bl"></span>
+              <span class="cap-reticle br"></span>
+
+              <div class="capability-status-tag">
+                <span class="cap-dot-pulse"></span>
+                <span>LANE 03 // LIVE EMISSIONS SPECTROMETRY</span>
+              </div>
+
+              <div class="unique-capability-seal" aria-hidden="true">
+                <svg viewBox="0 0 160 160" class="seal-svg-ring">
+                  <circle cx="80" cy="80" r="76" fill="none" stroke="rgba(197, 160, 89, 0.4)" stroke-width="1.2" stroke-dasharray="3 3" />
+                  <circle cx="80" cy="80" r="54" fill="none" stroke="rgba(197, 160, 89, 0.5)" stroke-width="1" />
+                  
+                  <path id="aboutSealPath" d="M 80, 80 m -62, 0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" fill="none" />
+                  <text class="seal-text-path">
+                    <textPath href="#aboutSealPath" startOffset="0%">
+                      ★ ORVEXA METROLOGY ★ VEHICLE INSPECTION &amp; EMISSIONS ★ EST. 2014
+                    </textPath>
+                  </text>
+                </svg>
+
+                <div class="seal-center-core">
+                  <div class="seal-core-bezel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="seal-shield-svg">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                  </div>
+                  <span class="seal-core-status">ISO 17020</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="capability-floating-card">
+              <span class="story-float-tag">ACCREDITED TESTING FACILITY</span>
+              <h4 class="story-float-title">ISO/IEC 17020 Type A Certified</h4>
+              <p class="story-float-desc">
+                Governmentally accredited zero-conflict vehicle inspection &amp; regulated emissions testing facility.
+              </p>
+            </div>
+          </div>
+
+          <div class="capability-content-col">
+            <div class="story-eyebrow">
+              <span class="eyebrow-dash-gold"></span>
+              <span>CORE CAPABILITIES // VEHICLE INSPECTION &amp; TESTING CENTER</span>
+            </div>
+
+            <h2 class="story-title">
+              Precision Vehicle Inspection,<br>
+              <span class="italic-serif highlight-gold">Emission Testing &amp; Verification.</span>
+            </h2>
+
+            <p class="story-lead">
+              ORVEXA is an accredited, specialized Vehicle Inspection &amp; Emission Testing Center delivering authoritative roadworthiness evaluations, laser metrology, and certified gas spectrometry with zero repair conflicts.
+            </p>
+
+            <div class="capability-service-list">
+              <h3 class="capability-list-heading">CENTER SERVICE CAPABILITIES</h3>
+              
+              <div class="cap-services-grid">
+                <div class="cap-service-item">
+                  <div class="cap-service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div class="cap-service-text">
+                    <strong>Vehicle Inspection</strong>
+                    <span>Multi-point brake, chassis &amp; safety checks</span>
+                  </div>
+                </div>
+
+                <div class="cap-service-item">
+                  <div class="cap-service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="4"/>
+                      <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                    </svg>
+                  </div>
+                  <div class="cap-service-text">
+                    <strong>Emission Testing</strong>
+                    <span>Tailpipe gas spectrometry &amp; smoke opacity</span>
+                  </div>
+                </div>
+
+                <div class="cap-service-item">
+                  <div class="cap-service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 6v6l4 2"/>
+                    </svg>
+                  </div>
+                  <div class="cap-service-text">
+                    <strong>Vehicle Testing &amp; Diagnostics</strong>
+                    <span>Roller dynamometer &amp; ECU OBD-II analysis</span>
+                  </div>
+                </div>
+
+                <div class="cap-service-item">
+                  <div class="cap-service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </div>
+                  <div class="cap-service-text">
+                    <strong>Verification &amp; QA</strong>
+                    <span>ISO/IEC 17020 Type A independent audits</span>
+                  </div>
+                </div>
+
+                <div class="cap-service-item">
+                  <div class="cap-service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="1" y="3" width="15" height="13" rx="2"/>
+                      <polygon points="16 8 20 8 23 11 23 16 16 16 8"/>
+                      <circle cx="5.5" cy="18.5" r="2.5"/>
+                      <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                  </div>
+                  <div class="cap-service-text">
+                    <strong>Consulting &amp; Fleet Advisory</strong>
+                    <span>Compliance planning &amp; bulk bay allocation</span>
+                  </div>
+                </div>
+
+                <div class="cap-service-item">
+                  <div class="cap-service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                    </svg>
+                  </div>
+                  <div class="cap-service-text">
+                    <strong>Digital Certification</strong>
+                    <span>Tamper-proof certificates with QR hashes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="capability-categories-block">
+              <div class="cap-badges-grid">
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> Safety Inspections
+                </span>
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> Emission Testing
+                </span>
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> Compliance Inspections
+                </span>
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> Diagnostic Testing
+                </span>
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> Fleet Inspections
+                </span>
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> Digital Certification
+                </span>
+                <span class="cap-badge-pill">
+                  <span class="cap-pill-dot"></span> EV &amp; Hybrid Testing
+                </span>
+              </div>
+            </div>
+
+            <div class="capability-actions-row">
+              <a href="service.html" class="btn-primary-hero">
+                <span>EXPLORE ALL SERVICES</span>
+                <span class="arrow">&rarr;</span>
+              </a>
+              <button type="button" class="btn-secondary-hero" onclick="openBookingModal()">
+                <span>BOOK AN INSPECTION</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section class="about-mission-section" id="mission">
       <div class="container">
 
@@ -395,7 +473,6 @@
 
         <div class="mission-vision-grid">
 
-          <!-- Card A: OUR MISSION -->
           <div class="mv-card">
             <div class="mv-card-badge">
               <span>ACTIVE DIRECTIVE &bull; PRESENT EXCELLENCE</span>
@@ -453,7 +530,6 @@
             </div>
           </div>
 
-          <!-- Card B: OUR VISION -->
           <div class="mv-card">
             <div class="mv-card-badge">
               <span>STRATEGIC HORIZON &bull; VISION 2030</span>
@@ -512,13 +588,10 @@
             </div>
           </div>
 
-        </div><!-- /mission-vision-grid -->
+        </div>
       </div>
     </section>
 
-    <!-- ==================================================
-         04. COMPANY TIMELINE SECTION (CHRONOLOGY OF RIGOR)
-         ================================================== -->
     <section class="about-timeline-section" id="timeline">
       <div class="container">
 
@@ -537,10 +610,8 @@
         </div>
 
         <div class="timeline-chronology-wrap">
-          <!-- Glowing Spine -->
           <div class="timeline-chronology-spine"></div>
 
-          <!-- Milestone 1: 2014 -->
           <div class="timeline-chrono-item">
             <div class="timeline-node-pulse"></div>
             <div class="timeline-node-pin"></div>
@@ -558,7 +629,6 @@
             <div></div>
           </div>
 
-          <!-- Milestone 2: 2017 -->
           <div class="timeline-chrono-item">
             <div class="timeline-node-pulse"></div>
             <div class="timeline-node-pin"></div>
@@ -576,7 +646,6 @@
             </div>
           </div>
 
-          <!-- Milestone 3: 2020 -->
           <div class="timeline-chrono-item">
             <div class="timeline-node-pulse"></div>
             <div class="timeline-node-pin"></div>
@@ -594,7 +663,6 @@
             <div></div>
           </div>
 
-          <!-- Milestone 4: 2023 -->
           <div class="timeline-chrono-item">
             <div class="timeline-node-pulse"></div>
             <div class="timeline-node-pin"></div>
@@ -612,7 +680,6 @@
             </div>
           </div>
 
-          <!-- Milestone 5: 2026 -->
           <div class="timeline-chrono-item">
             <div class="timeline-node-pulse"></div>
             <div class="timeline-node-pin"></div>
@@ -630,13 +697,10 @@
             <div></div>
           </div>
 
-        </div><!-- /timeline-chronology-wrap -->
+        </div>
       </div>
     </section>
 
-    <!-- ==================================================
-         05. EXECUTIVE & ENGINEERING TEAM CARDS
-         ================================================== -->
     <section class="about-team-section" id="team">
       <div class="container">
 
@@ -657,7 +721,6 @@
 
         <div class="team-cards-grid">
 
-          <!-- Member 1: Dr. Marcus Vance -->
           <div class="team-card">
             <div class="team-photo-frame">
               <img src="assets/team_marcus.jpg" alt="Dr. Marcus Vance, Founder &amp; CEO" class="team-photo">
@@ -672,17 +735,29 @@
               </p>
               <div class="team-footer-meta">
                 <span class="team-cred-tag">Ph.D. METROLOGY &bull; FELLOW SAE</span>
-                <a href="#" class="team-social-link" aria-label="LinkedIn profile of Marcus Vance">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </a>
+                <div class="team-social-group">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="LinkedIn profile of Dr. Marcus Vance" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="X (Twitter) profile of Dr. Marcus Vance" title="X / Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a href="mailto:m.vance@orvexa.com" class="team-social-link" aria-label="Email Dr. Marcus Vance" title="Email Contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Member 2: Elena Rostova -->
           <div class="team-card">
             <div class="team-photo-frame">
               <img src="assets/team_elena.jpg" alt="Elena Rostova, VP of Diagnostic Engineering" class="team-photo">
@@ -697,17 +772,29 @@
               </p>
               <div class="team-footer-meta">
                 <span class="team-cred-tag">M.S. AUTOMOTIVE &bull; ISO-17020 AUDITOR</span>
-                <a href="#" class="team-social-link" aria-label="LinkedIn profile of Elena Rostova">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </a>
+                <div class="team-social-group">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="LinkedIn profile of Elena Rostova" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="X (Twitter) profile of Elena Rostova" title="X / Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a href="mailto:e.rostova@orvexa.com" class="team-social-link" aria-label="Email Elena Rostova" title="Email Contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Member 3: David Chen -->
           <div class="team-card">
             <div class="team-photo-frame">
               <img src="assets/team_david.jpg" alt="David Chen, Director of Optical Spectrometry" class="team-photo">
@@ -722,17 +809,29 @@
               </p>
               <div class="team-footer-meta">
                 <span class="team-cred-tag">M.S. CHEMICAL PHYSICS &bull; CARB ADVISOR</span>
-                <a href="#" class="team-social-link" aria-label="LinkedIn profile of David Chen">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </a>
+                <div class="team-social-group">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="LinkedIn profile of David Chen" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="X (Twitter) profile of David Chen" title="X / Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a href="mailto:d.chen@orvexa.com" class="team-social-link" aria-label="Email David Chen" title="Email Contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Member 4: Sophia Al-Mansoor -->
           <div class="team-card">
             <div class="team-photo-frame">
               <img src="assets/team_sophia.jpg" alt="Sophia Al-Mansoor, Head of Cryptographic Telemetry"
@@ -748,31 +847,39 @@
               </p>
               <div class="team-footer-meta">
                 <span class="team-cred-tag">M.S. CYBERSECURITY &bull; IEEE MEMBER</span>
-                <a href="#" class="team-social-link" aria-label="LinkedIn profile of Sophia Al-Mansoor">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </a>
+                <div class="team-social-group">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="LinkedIn profile of Sophia Al-Mansoor" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="team-social-link" aria-label="X (Twitter) profile of Sophia Al-Mansoor" title="X / Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a href="mailto:s.almansoor@orvexa.com" class="team-social-link" aria-label="Email Sophia Al-Mansoor" title="Email Contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-        </div><!-- /team-cards-grid -->
+        </div>
       </div>
     </section>
 
-    <!-- ==================================================
-         06. FINAL CTA CARD (COMPACT LUXURY INSPECTION HUD)
-         ================================================== -->
     <section class="final-cta-section" id="booking">
       <div class="container">
         <div class="final-cta-card">
-          <!-- Subtle Luxury Ambient Glow Sheen -->
           <div class="cta-card-sheen"></div>
 
           <div class="final-cta-grid">
-            <!-- Left Column: Editorial & Left-Aligned Content -->
             <div class="final-card-content text-left">
               <div class="final-eyebrow-pill">
                 <span class="final-dot"></span>
@@ -800,7 +907,6 @@
                 </a>
               </div>
 
-              <!-- Micro Inspection Highlights -->
               <div class="cta-specs-strip">
                 <div class="cta-spec-item">
                   <span class="cta-spec-check">&#10003;</span>
@@ -819,16 +925,13 @@
               </div>
             </div>
 
-            <!-- Right Column: Animated Vehicle Inspection HUD Stage -->
             <div class="final-cta-visual">
               <div class="cta-inspector-stage">
-                <!-- HUD Precision Corner Reticles -->
                 <span class="cta-hud-corner tl"></span>
                 <span class="cta-hud-corner tr"></span>
                 <span class="cta-hud-corner bl"></span>
                 <span class="cta-hud-corner br"></span>
 
-                <!-- Top Telemetry Bar -->
                 <div class="cta-hud-header">
                   <div class="cta-hud-live">
                     <span class="cta-live-beacon"></span>
@@ -839,14 +942,11 @@
                   </div>
                 </div>
 
-                <!-- Central Vehicle Stage & Scanner -->
                 <div class="cta-vehicle-display">
                   <img src="assets/h2_inspection_car.jpg" alt="Vehicle Inspection Diagnostics" class="cta-car-graphic">
 
-                  <!-- Diagnostics Metrology Grid Overlay -->
                   <div class="cta-scan-grid"></div>
 
-                  <!-- Animated Laser Metrology Beam -->
                   <div class="cta-laser-scanner">
                     <div class="cta-laser-beam"></div>
                     <div class="cta-laser-flare"></div>
@@ -854,7 +954,6 @@
                     <span class="cta-laser-tag">METROLOGY BEAM</span>
                   </div>
 
-                  <!-- Hotspot 1: Front Caliper / Brakes -->
                   <div class="cta-hud-point pt-brakes" title="Braking System">
                     <span class="point-radar"></span>
                     <span class="point-core"></span>
@@ -864,7 +963,6 @@
                     </div>
                   </div>
 
-                  <!-- Hotspot 2: Chassis Geometry -->
                   <div class="cta-hud-point pt-chassis" title="Laser Chassis Alignment">
                     <span class="point-radar"></span>
                     <span class="point-core"></span>
@@ -874,7 +972,6 @@
                     </div>
                   </div>
 
-                  <!-- Hotspot 3: Powertrain & Emissions -->
                   <div class="cta-hud-point pt-engine" title="Emissions Diagnostics">
                     <span class="point-radar"></span>
                     <span class="point-core"></span>
@@ -885,7 +982,6 @@
                   </div>
                 </div>
 
-                <!-- Bottom Telemetry Readout & Verification Status -->
                 <div class="cta-hud-footer">
                   <div class="cta-hud-progress-info">
                     <span class="cta-progress-label">INSPECTION:</span>
@@ -907,16 +1003,11 @@
     </section>
   </main>
 
-  <!-- ==================================================
-       07. PREMIUM EDITORIAL FOOTER (100% VISUAL CONSISTENCY)
-       ================================================== -->
   <footer class="site-footer" id="contact">
     <div class="container">
 
-      <!-- Top Footer Row -->
       <div class="footer-top-grid">
 
-        <!-- Brand Column -->
         <div class="footer-brand-col">
           <div class="footer-logo">
             <img src="assets/brand-logo.png" alt="ORVEXA Emblem" class="footer-symbol brand-emblem-img">
@@ -929,7 +1020,6 @@
             Premium Vehicle Inspection, Regulated Emissions Testing, Compliance Management &amp; Digital Certification.
           </p>
 
-          <!-- Social Icons -->
           <div class="footer-socials">
             <a href="#" class="footer-social-btn" aria-label="Follow on Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -961,7 +1051,6 @@
           </div>
         </div>
 
-        <!-- Column 1: Services -->
         <div class="footer-nav-col">
           <h4 class="footer-col-title">Services</h4>
           <ul class="footer-links">
@@ -973,7 +1062,6 @@
           </ul>
         </div>
 
-        <!-- Column 2: Company -->
         <div class="footer-nav-col">
           <h4 class="footer-col-title">Company</h4>
           <ul class="footer-links">
@@ -987,7 +1075,6 @@
           </ul>
         </div>
 
-        <!-- Column 3: Additional Links -->
         <div class="footer-nav-col">
           <h4 class="footer-col-title">Additional Links</h4>
           <ul class="footer-links">
@@ -1000,7 +1087,6 @@
           </ul>
         </div>
 
-        <!-- Column 4: Contact -->
         <div class="footer-nav-col footer-contact-col">
           <h4 class="footer-col-title">Contact</h4>
           <ul class="footer-contact-list">
@@ -1054,12 +1140,10 @@
           </ul>
         </div>
 
-      </div><!-- /footer-top-grid -->
+      </div>
 
-      <!-- Divider -->
       <div class="footer-divider"></div>
 
-      <!-- Bottom Footer Row -->
       <div class="footer-bottom-row">
         <p class="footer-copyright">
           &copy; <span id="currentYear">2026</span> ORVEXA. Vehicle Inspection &amp; Emissions Testing. All rights
@@ -1077,9 +1161,6 @@
     </div>
   </footer>
 
-  <!-- ==================================================
-       INTERACTIVE BOOKING MODAL WIZARD
-       ================================================== -->
   <div class="modal-backdrop" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true"
     aria-labelledby="modalTitle">
     <div class="modal-container">
@@ -1092,7 +1173,6 @@
       </div>
 
       <div class="modal-body">
-        <!-- Booking Step Progress Bar -->
         <div class="modal-steps-indicator">
           <div class="step-indicator-item active" data-step-indicator="1">
             <span class="step-num">1</span>
@@ -1116,7 +1196,6 @@
         </div>
 
         <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
-          <!-- STEP 1: SELECT SERVICE -->
           <div class="form-step-pane active" data-step-pane="1">
             <h4 class="step-title">Select Verification Protocol</h4>
             <div class="service-select-group">
@@ -1153,7 +1232,6 @@
             </div>
           </div>
 
-          <!-- STEP 2: LOCATION & TIME -->
           <div class="form-step-pane" data-step-pane="2">
             <h4 class="step-title">Select Testing Bay &amp; Preferred Date</h4>
             <div class="form-grid-2">
@@ -1189,7 +1267,6 @@
             </div>
           </div>
 
-          <!-- STEP 3: VEHICLE DETAILS -->
           <div class="form-step-pane" data-step-pane="3">
             <h4 class="step-title">Vehicle Telemetry Information</h4>
             <div class="form-grid-2">
@@ -1217,7 +1294,6 @@
             </div>
           </div>
 
-          <!-- STEP 4: CLIENT CONTACT & SUMMARY -->
           <div class="form-step-pane" data-step-pane="4">
             <h4 class="step-title">Client Information &amp; Final Confirmation</h4>
             <div class="form-grid-2">
@@ -1258,7 +1334,6 @@
     </div>
   </div>
 
-  <!-- Portal Notice & Status Modal (404, Coming Soon, Login, Dashboard) -->
   <div class="modal-backdrop" id="portalNoticeModal" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-container portal-notice-container">
       <div class="modal-header">
@@ -1290,7 +1365,6 @@
     </div>
   </div>
 
-  <!-- Core Javascript Engines -->
   <script src="index.js"></script>
 </body>
 

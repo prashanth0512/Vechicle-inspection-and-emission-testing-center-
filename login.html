@@ -3,48 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Client &amp; Partner Authentication — Metrology Laboratory</title>
     <meta name="description"
         content="Sign in to your ORVEXA client portal. Access certified vehicle emissions passports, manage appointment slots, and view enterprise fleet telemetry.">
 
-    <!-- Precision Editorial & Sans Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="login.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body class="auth-body">
 
-    <!-- ==================================================
-         AUTH SPLIT CONTAINER (NO SITE HEADER OR FOOTER)
-         ================================================== -->
     <div class="auth-split-container">
 
-        <!-- ==================================================
-             LEFT COLUMN: PREMIUM IMAGE + 3 LINES OF METROLOGY
-             (Hidden on Mobile)
-             ================================================== -->
         <div class="auth-visual-col">
             <div class="auth-visual-bg" style="background-image: url('assets/archive_dyno_cell.jpg');"></div>
             <div class="auth-visual-overlay"></div>
 
-            <!-- CNC Reticles & Framing -->
             <div class="visual-corner visual-corner-tl"></div>
             <div class="visual-corner visual-corner-tr"></div>
             <div class="visual-corner visual-corner-bl"></div>
             <div class="visual-corner visual-corner-br"></div>
 
-            <!-- Clean 3-Line Review Paragraph -->
             <div class="visual-bottom-content">
                 <blockquote class="auth-review-quote">
                     “ORVEXA’s automated vehicle metrology reduced our fleet compliance downtime by 65% while delivering
@@ -57,19 +61,13 @@
             </div>
         </div>
 
-        <!-- ==================================================
-             RIGHT COLUMN: FORM CARD (Fits in 90vh on Mobile)
-             ================================================== -->
         <div class="auth-form-col">
 
-            <!-- Floating Top Utilities (Back to Site Removed) -->
             <div class="auth-floating-top">
                 <div class="auth-top-actions">
-                    <!-- RTL Toggle -->
                     <button type="button" class="auth-util-btn rtl-toggle" id="authRtlToggle" title="Toggle RTL / LTR">
                         <span id="authRtlText">RTL</span>
                     </button>
-                    <!-- Theme Toggle -->
                     <button type="button" class="auth-util-btn theme-toggle" id="authThemeToggle"
                         title="Toggle Light / Dark Mode">
                         <span class="theme-icon-sun" title="Light Mode">
@@ -96,11 +94,9 @@
                 </div>
             </div>
 
-            <!-- Form Card Wrapper -->
             <div class="auth-card-wrapper">
                 <div class="auth-card">
 
-                    <!-- Top Center-Aligned Brand Block & Tagline -->
                     <div class="auth-brand-center">
                         <a href="index.html" class="auth-brand-logo" aria-label="ORVEXA Homepage">
                             <div class="auth-symbol">
@@ -117,9 +113,7 @@
                             digital passports.</p>
                     </div>
 
-                    <!-- Login Form (Only Two Fields as Requested) -->
                     <form id="loginForm" class="auth-form" onsubmit="handleLoginSubmit(event)">
-                        <!-- Field 1: Email -->
                         <div class="form-group-auth">
                             <label for="loginEmail" class="auth-label">Work / Direct Email</label>
                             <div class="input-icon-wrap">
@@ -134,7 +128,6 @@
                             </div>
                         </div>
 
-                        <!-- Field 2: Password with Interactive Eye Toggle -->
                         <div class="form-group-auth">
                             <div class="label-row-between">
                                 <label for="loginPassword" class="auth-label">Password</label>
@@ -167,7 +160,6 @@
                             </div>
                         </div>
 
-                        <!-- Remember Me Row -->
                         <div class="auth-remember-row">
                             <label class="auth-checkbox-label">
                                 <input type="checkbox" id="loginRemember" checked>
@@ -175,19 +167,16 @@
                             </label>
                         </div>
 
-                        <!-- Primary Submit Button -->
                         <button type="submit" class="btn-primary-hero btn-auth-submit" id="btnSubmitLogin">
                             <span>Sign In to Console</span>
                             <span class="btn-arrow">&rarr;</span>
                         </button>
                     </form>
 
-                    <!-- Divider -->
                     <div class="auth-divider">
                         <span class="divider-text">OR CONTINUE WITH</span>
                     </div>
 
-                    <!-- Google & Apple Social Login Buttons -->
                     <div class="social-login-grid">
                         <button type="button" class="btn-social-auth" onclick="simulateSocialAuth('Google')">
                             <svg class="social-icon" viewBox="0 0 24 24">
@@ -212,7 +201,6 @@
                         </button>
                     </div>
 
-                    <!-- New to this? Create account link -->
                     <div class="auth-switch-row">
                         <span class="switch-prompt">New to this?</span>
                         <a href="signup.html" class="switch-link" id="createAccountBtn">Create an account &rarr;</a>
@@ -222,7 +210,6 @@
         </div>
     </div>
 
-    <!-- Password Reset Modal -->
     <div class="modal-backdrop" id="forgotModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-container forgot-modal-container">
             <div class="modal-header">
@@ -249,7 +236,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="login.js"></script>
 </body>
 

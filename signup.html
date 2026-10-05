@@ -3,48 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
+  <script>
+    (function () {
+      var KEY = 'orvexa-theme', LEGACY = 'orvexa_theme', root = document.documentElement;
+      try {
+        var t = localStorage.getItem(KEY);
+        if (!t) { t = localStorage.getItem(LEGACY); if (t) localStorage.setItem(KEY, t); }
+        if (localStorage.getItem(LEGACY)) localStorage.removeItem(LEGACY);
+        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        window.addEventListener('storage', function (e) {
+          if (e.key === KEY && (e.newValue === 'dark' || e.newValue === 'light')) {
+            root.setAttribute('data-theme', e.newValue);
+          }
+        });
+      } catch (err) { }
+    })();
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORVEXA | Create Enterprise Account — Metrology &amp; Telemetry Portal</title>
     <meta name="description"
         content="Create your ORVEXA client account. Book vehicle inspection bay appointments, download digital compliance certificates, and manage enterprise fleet testing.">
 
-    <!-- Precision Editorial & Sans Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="signup.css">
-    <!-- Favicon & Brand Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 
 <body class="auth-body">
 
-    <!-- ==================================================
-         AUTH SPLIT CONTAINER (NO SITE HEADER OR FOOTER)
-         ================================================== -->
     <div class="auth-split-container">
 
-        <!-- ==================================================
-             LEFT COLUMN: PREMIUM IMAGE + 3 LINES OF METROLOGY
-             (Hidden on Mobile)
-             ================================================== -->
         <div class="auth-visual-col">
             <div class="auth-visual-bg" style="background-image: url('assets/h2_inspection_bay.jpg');"></div>
             <div class="auth-visual-overlay"></div>
 
-            <!-- CNC Reticles & Framing -->
             <div class="visual-corner visual-corner-tl"></div>
             <div class="visual-corner visual-corner-tr"></div>
             <div class="visual-corner visual-corner-bl"></div>
             <div class="visual-corner visual-corner-br"></div>
 
-            <!-- Clean 3-Line Review Paragraph -->
             <div class="visual-bottom-content">
                 <blockquote class="auth-review-quote">
                     “The precision Horiba 5-gas optical analysis and digital passports set an entirely new benchmark for certified vehicle compliance operations.”
@@ -56,19 +60,13 @@
             </div>
         </div>
 
-        <!-- ==================================================
-             RIGHT COLUMN: FORM CARD (Fits in 90vh on Mobile)
-             ================================================== -->
         <div class="auth-form-col">
 
-            <!-- Floating Top Utilities (Back to Site Removed) -->
             <div class="auth-floating-top">
                 <div class="auth-top-actions">
-                    <!-- RTL Toggle -->
                     <button type="button" class="auth-util-btn rtl-toggle" id="authRtlToggle" title="Toggle RTL / LTR">
                         <span id="authRtlText">RTL</span>
                     </button>
-                    <!-- Theme Toggle -->
                     <button type="button" class="auth-util-btn theme-toggle" id="authThemeToggle" title="Toggle Light / Dark Mode">
                         <span class="theme-icon-sun" title="Light Mode">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -92,11 +90,9 @@
                 </div>
             </div>
 
-            <!-- Form Card Wrapper -->
             <div class="auth-card-wrapper">
                 <div class="auth-card">
 
-                    <!-- Top Center-Aligned Brand Block & Tagline -->
                     <div class="auth-brand-center">
                         <a href="index.html" class="auth-brand-logo" aria-label="ORVEXA Homepage">
                             <div class="auth-symbol">
@@ -112,9 +108,7 @@
                         <p class="auth-card-tagline">Register to book certified inspection slots &amp; access digital vehicle passports.</p>
                     </div>
 
-                    <!-- Signup Form -->
                     <form id="signupForm" class="auth-form" onsubmit="handleSignupSubmit(event)">
-                        <!-- Name Field -->
                         <div class="form-group-auth">
                             <label for="suFullName" class="auth-label">Full Name</label>
                             <div class="input-icon-wrap">
@@ -126,7 +120,6 @@
                             </div>
                         </div>
 
-                        <!-- Email Field -->
                         <div class="form-group-auth">
                             <label for="suEmail" class="auth-label">Work / Contact Email</label>
                             <div class="input-icon-wrap">
@@ -138,7 +131,6 @@
                             </div>
                         </div>
 
-                        <!-- Password Field with Interactive Eye Toggle -->
                         <div class="form-group-auth">
                             <label for="suPassword" class="auth-label">Password</label>
                             <div class="input-icon-wrap">
@@ -148,12 +140,10 @@
                                 </svg>
                                 <input type="password" id="suPassword" class="auth-input has-toggle" placeholder="Minimum 8 characters" required autocomplete="new-password">
                                 <button type="button" class="eye-toggle-btn" aria-label="Toggle password visibility" onclick="togglePasswordVisibility('suPassword', this)">
-                                    <!-- Eye Open SVG -->
                                     <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
                                     </svg>
-                                    <!-- Eye Closed SVG -->
                                     <svg class="eye-icon eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                                         <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
                                         <line x1="1" y1="1" x2="23" y2="23" />
@@ -162,7 +152,6 @@
                             </div>
                         </div>
 
-                        <!-- Confirm Password Field with Interactive Eye Toggle -->
                         <div class="form-group-auth">
                             <label for="suConfirmPass" class="auth-label">Confirm Password</label>
                             <div class="input-icon-wrap">
@@ -184,7 +173,6 @@
                             </div>
                         </div>
 
-                        <!-- Terms Agreement Checkbox -->
                         <div class="auth-terms-row">
                             <label class="auth-checkbox-label">
                                 <input type="checkbox" id="suTerms" required>
@@ -192,19 +180,16 @@
                             </label>
                         </div>
 
-                        <!-- Primary Submit Button -->
                         <button type="submit" class="btn-primary-hero btn-auth-submit" id="btnSubmitSignup">
                             <span>Create Enterprise Account</span>
                             <span class="btn-arrow">&rarr;</span>
                         </button>
                     </form>
 
-                    <!-- Divider -->
                     <div class="auth-divider">
                         <span class="divider-text">OR CONTINUE WITH</span>
                     </div>
 
-                    <!-- Google & Apple Social Login Buttons -->
                     <div class="social-login-grid">
                         <button type="button" class="btn-social-auth" onclick="simulateSocialAuth('Google')">
                             <svg class="social-icon" viewBox="0 0 24 24">
@@ -224,7 +209,6 @@
                         </button>
                     </div>
 
-                    <!-- Already have account link -->
                     <div class="auth-switch-row">
                         <span class="switch-prompt">Already have an account?</span>
                         <a href="login.html" class="switch-link" id="loginLink">Log In &rarr;</a>
@@ -234,7 +218,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="signup.js"></script>
 </body>
 

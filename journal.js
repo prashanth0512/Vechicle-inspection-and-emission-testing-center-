@@ -1,7 +1,3 @@
-/* ==========================================================
-   JOURNAL.JS - ORVEXA Research & Metrology Journal Logic
-   Article database, dynamic filter tabs, and interactive UI
-   ========================================================== */
 
 const JOURNAL_ARTICLES = [
   {
@@ -96,9 +92,6 @@ const JOURNAL_ARTICLES = [
   }
 ];
 
-// ==========================================================
-//  RENDER JOURNAL CARDS
-// ==========================================================
 function renderJournalCards(filterCategory = 'all') {
   const grid = document.getElementById('journalGrid');
   if (!grid) return;
@@ -135,7 +128,7 @@ function renderJournalCards(filterCategory = 'all') {
       </div>
       <div class="jc-footer">
         <a href="journal-detail.html?article=${a.slug}" class="btn-journal-link">
-          <span>View Service Details</span>
+          <span>Read Full Journal</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -146,9 +139,6 @@ function renderJournalCards(filterCategory = 'all') {
   `).join('');
 }
 
-// ==========================================================
-//  CATEGORY FILTER TABS
-// ==========================================================
 function initFilterTabs() {
   const tabs = document.querySelectorAll('.j-filter-btn');
   tabs.forEach(tab => {
@@ -161,9 +151,6 @@ function initFilterTabs() {
   });
 }
 
-// ==========================================================
-//  FAQS ACCORDION
-// ==========================================================
 function initJournalFAQ() {
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -187,14 +174,11 @@ function initJournalFAQ() {
   });
 }
 
-// ==========================================================
-//  THEME TOGGLE
-// ==========================================================
 function initThemeToggle() {
   const toggleBtn = document.getElementById('themeToggle');
   const html = document.documentElement;
 
-  const savedTheme = localStorage.getItem('orvexa_theme') || 'light';
+  const savedTheme = localStorage.getItem('orvexa-theme') || 'light';
   html.setAttribute('data-theme', savedTheme);
 
   if (toggleBtn) {
@@ -202,14 +186,11 @@ function initThemeToggle() {
       const current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
-      localStorage.setItem('orvexa_theme', next);
+      localStorage.setItem('orvexa-theme', next);
     });
   }
 }
 
-// ==========================================================
-//  MOBILE DRAWER
-// ==========================================================
 function initMobileMenu() {
   const btn = document.getElementById('mobileMenuBtn');
   const drawer = document.getElementById('mobileDrawer');
@@ -223,9 +204,6 @@ function initMobileMenu() {
   }
 }
 
-// ==========================================================
-//  BOOKING MODAL
-// ==========================================================
 function openBookingModal() {
   const modal = document.getElementById('bookingModal');
   if (modal) {
@@ -244,9 +222,6 @@ function closeBookingModal() {
   }
 }
 
-// ==========================================================
-//  RTL LOGIC
-// ==========================================================
 function initRTL() {
   const rtlToggle = document.getElementById('rtlToggle');
   const htmlRoot = document.documentElement;
@@ -272,9 +247,6 @@ function applyDir(dir) {
   }
 }
 
-// ==========================================================
-//  PORTAL NOTICE MODAL
-// ==========================================================
 function openPortalNotice(type, title, msg) {
   const modal = document.getElementById('portalNoticeModal');
   if (!modal) return;
@@ -342,9 +314,6 @@ function closePortalNotice() {
   }
 }
 
-// ==========================================================
-//  DOM READY
-// ==========================================================
 document.addEventListener('DOMContentLoaded', () => {
   renderJournalCards('all');
   initFilterTabs();

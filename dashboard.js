@@ -1,13 +1,5 @@
-/* ==========================================================
-   DASHBOARD.JS - ORVEXA Enterprise Client & Telemetry Portal
-   Tab Management, Chart Interactivity, Bookings, Certificates, Theme & RTL
-   ========================================================== */
 
-// ----------------------------------------------------------
-// 01. TAB SWITCHING LOGIC (Sidebar Navigation)
-// ----------------------------------------------------------
 function switchTab(tabId) {
-  // Update sidebar active link
   const navLinks = document.querySelectorAll('.sidebar-nav-link');
   navLinks.forEach(link => {
     if (link.getAttribute('data-tab') === tabId) {
@@ -17,7 +9,6 @@ function switchTab(tabId) {
     }
   });
 
-  // Update tab panel visibility
   const panels = document.querySelectorAll('.portal-tab-panel');
   panels.forEach(panel => {
     panel.classList.remove('active');
@@ -34,18 +25,13 @@ function switchTab(tabId) {
     }
   }
 
-  // Close mobile sidebar if open
   closeMobileSidebar();
 
-  // Keep URL hash synchronized
   if (window.history && window.history.replaceState) {
     window.history.replaceState(null, null, '#' + tabId);
   }
 }
 
-// ----------------------------------------------------------
-// 02. MOBILE SIDEBAR DRAWER TOGGLE
-// ----------------------------------------------------------
 function openMobileSidebar() {
   const sidebar = document.getElementById('portalSidebar');
   const backdrop = document.getElementById('sidebarBackdrop');
@@ -60,9 +46,6 @@ function closeMobileSidebar() {
   if (backdrop) backdrop.classList.remove('open');
 }
 
-// ----------------------------------------------------------
-// 03. DROPDOWNS MANAGEMENT (Notifications & User Profile)
-// ----------------------------------------------------------
 function initDropdowns() {
   const notifBtn = document.getElementById('notifBtn');
   const notifPopover = document.getElementById('notifPopover');
@@ -93,14 +76,12 @@ function initDropdowns() {
     });
   }
 
-  // Close dropdowns on outside click
   document.addEventListener('click', (e) => {
     if (!e.target.closest('#notifWrap') && !e.target.closest('#profileWrap')) {
       closeAllDropdowns();
     }
   });
 
-  // Mark all notifications read
   const markReadBtn = document.getElementById('markAllReadBtn');
   if (markReadBtn) {
     markReadBtn.addEventListener('click', () => {
@@ -111,7 +92,6 @@ function initDropdowns() {
     });
   }
 
-  // Logout Trigger
   const logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
@@ -133,14 +113,10 @@ function closeAllDropdowns() {
   if (profileBtn) profileBtn.setAttribute('aria-expanded', 'false');
 }
 
-// ----------------------------------------------------------
-// 04. THEME & RTL SWITCHERS
-// ----------------------------------------------------------
 function initThemeAndRTL() {
-  // Theme Toggle
   const themeToggle = document.getElementById('portalThemeToggle');
   const htmlRoot = document.documentElement;
-  const savedTheme = localStorage.getItem('orvexa_theme') || 'light';
+  const savedTheme = localStorage.getItem('orvexa-theme') || 'light';
   htmlRoot.setAttribute('data-theme', savedTheme);
 
   if (themeToggle) {
@@ -148,12 +124,11 @@ function initThemeAndRTL() {
       const current = htmlRoot.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const next = current === 'dark' ? 'light' : 'dark';
       htmlRoot.setAttribute('data-theme', next);
-      localStorage.setItem('orvexa_theme', next);
+      localStorage.setItem('orvexa-theme', next);
       showToast(`Switched to ${next === 'dark' ? 'Dark' : 'Light'} Mode`);
     });
   }
 
-  // RTL Toggle
   const rtlToggle = document.getElementById('portalRtlToggle');
   const rtlText = document.getElementById('portalRtlText');
   const savedDir = localStorage.getItem('orvexa-dir') || 'ltr';
@@ -172,9 +147,6 @@ function initThemeAndRTL() {
   }
 }
 
-// ----------------------------------------------------------
-// 05. CHART TIME RANGE TOGGLE (6 Months vs 1 Year)
-// ----------------------------------------------------------
 const CHART_DATA = {
   '6M': {
     purpleArea: 'M 60 190 Q 180 180 280 160 T 480 110 T 660 45 L 660 210 L 60 210 Z',
@@ -235,7 +207,6 @@ function initChartInteractivity() {
     }
   }
 
-  // Dot tooltips
   const dots = document.querySelectorAll('.chart-dot');
   dots.forEach(dot => {
     dot.addEventListener('mouseenter', (e) => {
@@ -247,9 +218,6 @@ function initChartInteractivity() {
   });
 }
 
-// ----------------------------------------------------------
-// 06. BOOKING APPOINTMENT FORM SUBMISSION
-// ----------------------------------------------------------
 function handleDashBookingSubmit(e) {
   e.preventDefault();
 
@@ -268,7 +236,6 @@ function handleDashBookingSubmit(e) {
   const vehicle = vehInput ? vehInput.value.trim() : 'Registered Fleet Vehicle';
   const vin = vinInput ? vinInput.value.trim().toUpperCase() : 'ORVEXA-VIN-TEMP';
 
-  // Format date display (e.g. OCT 15)
   let dateFormatted = 'OCT 15';
   if (rawDate) {
     const d = new Date(rawDate);
@@ -282,7 +249,6 @@ function handleDashBookingSubmit(e) {
   }
 
   setTimeout(() => {
-    // Create new slot card element
     const container = document.getElementById('scheduledSlotsContainer');
     if (container) {
       const slotCard = document.createElement('div');
@@ -308,7 +274,6 @@ function handleDashBookingSubmit(e) {
       `;
       container.prepend(slotCard);
 
-      // Update badge count
       updateBookingBadge(1);
     }
 
@@ -317,7 +282,6 @@ function handleDashBookingSubmit(e) {
       submitBtn.innerHTML = `<span>Confirm &amp; Lock Inspection Slot</span><span class="btn-arrow">&rarr;</span>`;
     }
 
-    // Reset inputs
     if (vehInput) vehInput.value = '';
     if (vinInput) vinInput.value = '';
 
@@ -346,7 +310,6 @@ function updateBookingBadge(delta) {
   badge.textContent = `${updated} Active`;
 }
 
-// Quick prefill from Renewals tab
 function prefillBooking(vin, vehicle, protocol) {
   switchTab('bookings');
 
@@ -359,7 +322,6 @@ function prefillBooking(vin, vehicle, protocol) {
     if (vinInput) vinInput.value = vin;
     if (vehInput) vehInput.value = vehicle;
 
-    // Pick closest protocol
     if (protoSelect) {
       for (let i = 0; i < protoSelect.options.length; i++) {
         if (protoSelect.options[i].text.toLowerCase().includes(protocol.toLowerCase())) {
@@ -369,7 +331,6 @@ function prefillBooking(vin, vehicle, protocol) {
       }
     }
 
-    // Set suggested date to 5 days from now
     if (dateInput) {
       const d = new Date();
       d.setDate(d.getDate() + 5);
@@ -381,9 +342,6 @@ function prefillBooking(vin, vehicle, protocol) {
   }, 150);
 }
 
-// ----------------------------------------------------------
-// 07. CERTIFICATES TABLE FILTER & DIGITAL PASSPORT MODAL
-// ----------------------------------------------------------
 function filterCertificatesTable() {
   const query = (document.getElementById('certSearchInput')?.value || '').toLowerCase();
   const rows = document.querySelectorAll('#certTable tbody tr');
@@ -444,9 +402,6 @@ function closeCertModal() {
   }
 }
 
-// ----------------------------------------------------------
-// 08. LOGOUT MODAL
-// ----------------------------------------------------------
 function openLogoutModal() {
   const modal = document.getElementById('logoutModal');
   if (modal) {
@@ -465,9 +420,6 @@ function closeLogoutModal() {
   }
 }
 
-// ----------------------------------------------------------
-// 09. SETTINGS & UTILITY ACTIONS
-// ----------------------------------------------------------
 function handleSettingsSave(e) {
   e.preventDefault();
   showToast('Fleet organization profile saved successfully.');
@@ -485,9 +437,6 @@ function simulateDownload(filename) {
   }, 1000);
 }
 
-// ----------------------------------------------------------
-// 10. TOAST NOTIFICATION UTILITY
-// ----------------------------------------------------------
 function showToast(msg) {
   let toast = document.getElementById('portalToast');
   if (!toast) {
@@ -527,7 +476,6 @@ function showToast(msg) {
   }, 3200);
 }
 
-// Global Search (Top Bar)
 function initGlobalSearch() {
   const searchInput = document.getElementById('topbarSearchInput');
   if (!searchInput) return;
@@ -536,14 +484,12 @@ function initGlobalSearch() {
     const val = searchInput.value.trim().toLowerCase();
     if (!val) return;
 
-    // Search matches in quick recent table or certificates table
     const quickRows = document.querySelectorAll('#quickRecentTbody tr');
     quickRows.forEach(row => {
       row.style.display = row.innerText.toLowerCase().includes(val) ? '' : 'none';
     });
   });
 
-  // Keyboard shortcut CMD+K / CTRL+K
   document.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
@@ -552,9 +498,6 @@ function initGlobalSearch() {
   });
 }
 
-// ----------------------------------------------------------
-// 11. DOM CONTENT LOADED INITIALIZER
-// ----------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   initThemeAndRTL();
   initDropdowns();
@@ -562,7 +505,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCertFilterButtons();
   initGlobalSearch();
 
-  // Sidebar Links click listeners
   const navLinks = document.querySelectorAll('.sidebar-nav-link');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -571,7 +513,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mobile menu buttons
   const mobToggle = document.getElementById('mobileSidebarToggle');
   const mobClose = document.getElementById('sidebarCloseBtn');
   const backdrop = document.getElementById('sidebarBackdrop');
@@ -580,7 +521,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobClose) mobClose.addEventListener('click', closeMobileSidebar);
   if (backdrop) backdrop.addEventListener('click', closeMobileSidebar);
 
-  // Set default booking date to tomorrow
   const dateInput = document.getElementById('dbDate');
   if (dateInput) {
     const tomorrow = new Date();
@@ -589,7 +529,6 @@ document.addEventListener('DOMContentLoaded', () => {
     dateInput.min = new Date().toISOString().split('T')[0];
   }
 
-  // Backdrop clicks for modals
   const certModal = document.getElementById('certModal');
   if (certModal) {
     certModal.addEventListener('click', (e) => {
@@ -604,7 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Check URL hash on load (e.g. #reminders, #payments)
   const initialHash = window.location.hash.replace('#tab-', '').replace('#', '');
   if (initialHash) {
     const validTabs = ['overview', 'bookings', 'certificates', 'reminders', 'documents', 'payments', 'settings'];

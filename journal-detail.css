@@ -1,9 +1,4 @@
-/* ==========================================================
-   JOURNAL-DETAIL.CSS - ORVEXA Research Journal Detail Page Styles
-   Luxury Metrology & Technical Research Presentation
-   ========================================================== */
 
-/* ---- 01. HERO BANNER (2-COLUMN ARCHITECTURAL SPLIT) ---- */
 .jd-hero {
   position: relative;
   min-height: auto;
@@ -31,7 +26,6 @@
   align-items: center;
 }
 
-/* Left Content Column */
 .jd-hero-content {
   position: relative;
   z-index: 2;
@@ -101,7 +95,6 @@
   max-width: 620px;
 }
 
-/* Hero Meta Row (Date, Read Time & Author Byline) */
 .jd-hero-meta-row {
   display: flex;
   align-items: center;
@@ -178,7 +171,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Right Showcase Column (Ultra-Premium Full-Bleed HUD Frame) */
 .jd-hero-showcase {
   position: relative;
   display: flex;
@@ -218,7 +210,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-/* Ambient Back Glow */
 .jd-card-glow {
   position: absolute;
   inset: -15px;
@@ -234,7 +225,6 @@
   opacity: 1;
 }
 
-/* CNC Milled Precision Gold Corner Brackets */
 .jd-card-corner {
   position: absolute;
   width: 16px;
@@ -277,7 +267,6 @@
   border-color: #F3E5C8;
 }
 
-/* Top-Left Lab Station Node Pill */
 .jd-card-node-pill {
   position: absolute;
   top: 1.25rem;
@@ -323,7 +312,6 @@
   100% { transform: scale(2.2); opacity: 0; }
 }
 
-/* Top-Right Live Statutory Standard Pill */
 .jd-card-tag {
   position: absolute;
   top: 1.25rem;
@@ -360,7 +348,6 @@
   50% { opacity: 0.5; transform: scale(0.85); }
 }
 
-/* Full-bleed viewport: 440px height */
 .jd-card-viewport {
   position: relative;
   width: 100%;
@@ -380,7 +367,6 @@
   transform: scale(1.06);
 }
 
-/* Telemetry Grid Watermark Overlay */
 .jd-card-grid-watermark {
   position: absolute;
   inset: 0;
@@ -405,7 +391,6 @@
   z-index: 3;
 }
 
-/* Floating Frosted-Glass HUD Strip at Bottom of Card */
 .jd-card-hud-strip {
   position: absolute;
   bottom: 3px;
@@ -471,7 +456,6 @@
   text-transform: uppercase;
 }
 
-/* Shimmering Gold Laser Accent Line */
 .jd-card-accent-line {
   position: absolute;
   bottom: 0;
@@ -489,9 +473,6 @@
   100% { background-position: -200% 0; }
 }
 
-/* ==========================================================
-   02. 2-COLUMN SCROLLING ARTICLE & SINGLE STICKY CARD LAYOUT
-   ========================================================== */
 .jd-article-layout-section {
   padding: 4.5rem 0 6rem;
   background: var(--bg-primary);
@@ -513,12 +494,11 @@
   position: relative;
 }
 
-/* LEFT COLUMN: SCROLLING CONTENT */
 .jd-main-scroll {
   display: flex;
   flex-direction: column;
   gap: 3.25rem;
-  min-width: 0; /* Prevents table or content blowout inside grid */
+  min-width: 0;
   max-width: 100%;
 }
 
@@ -529,7 +509,6 @@
   min-width: 0;
 }
 
-/* 1. Abstract Box */
 .jd-block-abstract {
   padding: 2.25rem 2.5rem;
   background: var(--bg-surface);
@@ -564,7 +543,6 @@
   margin: 0.65rem 0 0;
 }
 
-/* Article Subheadings & Scholarly Prose */
 .jd-subheading {
   font-family: var(--font-serif);
   font-size: clamp(1.35rem, 1.9vw, 1.72rem);
@@ -588,7 +566,6 @@
   margin-bottom: 0;
 }
 
-/* 2. Apparatus Spec Matrix (4 Chips) */
 .jd-specs-matrix {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -649,14 +626,12 @@
   line-height: 1.3;
 }
 
-/* Prose Blocks Container */
 .jd-prose-block {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
-/* 4. Multi-Phase Testing Sequencing (Scholarly Continuous Flow) */
 .jd-phase-flow {
   display: flex;
   flex-direction: column;
@@ -724,7 +699,6 @@
   margin: 0;
 }
 
-/* Backward-compatible workflow grid classes */
 .jd-workflow-block {
   display: flex;
   flex-direction: column;
@@ -796,7 +770,6 @@
   margin-top: 0.25rem;
 }
 
-/* 6. Diagnostic Benchmark Tolerances Table (Contained, No Spillover to Sidebar) */
 .jd-benchmark-block {
   display: flex;
   flex-direction: column;
@@ -904,7 +877,6 @@
   text-transform: uppercase;
 }
 
-/* 7. Metrology Field Quote */
 .jd-quote-box {
   position: relative;
   padding: 2.25rem 2.25rem;
@@ -950,7 +922,6 @@
   font-style: normal;
 }
 
-/* Findings Checklist Card */
 .jd-findings-card {
   padding: 2.25rem 2rem;
   background: var(--bg-surface);
@@ -1011,7 +982,6 @@
   margin: 0.25rem 0 1.5rem;
 }
 
-/* 8. Statistical Findings Matrix */
 .jd-stat-matrix {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1062,7 +1032,6 @@
   margin: 0;
 }
 
-/* 9. Why Choose This Protocol */
 .jd-why-block {
   display: flex;
   flex-direction: column;
@@ -1122,7 +1091,6 @@
   margin: 0;
 }
 
-/* 10. Pricing & Service Packages */
 .jd-pricing-block {
   display: flex;
   flex-direction: column;
@@ -1236,7 +1204,6 @@
   flex-shrink: 0;
 }
 
-/* 11. Frequently Asked Questions (Accordion) */
 .jd-faq-block {
   display: flex;
   flex-direction: column;
@@ -1326,10 +1293,6 @@
   line-height: 1.75;
 }
 
-/* ==========================================================
-   03. RIGHT COLUMN: EXACTLY ONE STICKY ACTION CARD
-   "right has add only one card content will scroll but card did not move"
-   ========================================================== */
 .jd-sidebar-sticky {
   position: relative;
   height: 100%;
@@ -1420,7 +1383,6 @@
   margin: -0.25rem 0 0;
 }
 
-/* Rate / Price Row */
 .sticky-rate-block, .sticky-price-row {
   display: flex;
   align-items: center;
@@ -1481,7 +1443,6 @@
   margin: -0.4rem 0 0;
 }
 
-/* Key Specs Quick List */
 .sticky-specs-list {
   display: flex;
   flex-direction: column;
@@ -1538,14 +1499,12 @@
   color: var(--text-primary);
 }
 
-/* CTA Wrap */
 .sticky-cta-wrap {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-/* Verified Inspector Attribution */
 .sticky-inspector-chip {
   display: flex;
   align-items: center;
@@ -1589,7 +1548,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Footer Contact in Card */
 .sticky-footer-contact {
   display: flex;
   align-items: center;
@@ -1609,9 +1567,6 @@
   text-decoration: underline;
 }
 
-/* ==========================================================
-   04. OTHER RESEARCH ISSUES GRID
-   ========================================================== */
 .jd-other-section {
   padding: 5.5rem 0;
   background: var(--bg-secondary);
@@ -1750,9 +1705,6 @@
   width: 100%;
 }
 
-/* ==========================================================
-   05. LUXURY CTA CARD SECTION (Mathematical Precision & Alignment)
-   ========================================================== */
 .svc-cta-section {
   padding: 5.5rem 0;
   background-color: var(--bg-primary);
@@ -1801,7 +1753,6 @@
   pointer-events: none;
 }
 
-/* Precision CNC Corner Brackets */
 .cta-bracket {
   position: absolute;
   width: 14px;
@@ -1842,7 +1793,6 @@
   border-color: #F3E5C8;
 }
 
-/* Two-Column Grid: Text Left, Rotating Seal Right */
 .svc-cta-content {
   position: relative;
   z-index: 2;
@@ -1949,7 +1899,6 @@
   flex-wrap: wrap;
 }
 
-/* Rotating Seal Right Column */
 .svc-cta-seal-wrap {
   display: flex;
   flex-direction: column;
@@ -2046,7 +1995,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Circular CTA Card Visual Image with Glowing Gold HUD Orbit */
 .cta-circle-frame {
   position: relative;
   width: 154px;
@@ -2151,9 +2099,6 @@
   animation: liveDotPulse 2s infinite ease-in-out;
 }
 
-/* ==========================================================
-   06. RESPONSIVE BREAKPOINTS
-   ========================================================== */
 @media (max-width: 1100px) {
   .jd-layout-grid {
     grid-template-columns: 1fr;

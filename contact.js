@@ -1,7 +1,3 @@
-/* ==========================================================
-   CONTACT.JS - ORVEXA Priority Intake & Testing Center Logic
-   Form Handling, HUD Map Interactive Switching, FAQs, Theme & Modals
-   ========================================================== */
 
 const HUB_DATA = {
   central: {
@@ -50,7 +46,6 @@ function selectHub(hubId) {
 
   currentSelectedHub = hubId;
 
-  // 1. Update Hub Cards Active Class
   document.querySelectorAll('.hub-card').forEach(card => {
     if (card.getAttribute('data-hub-id') === hubId) {
       card.classList.add('active');
@@ -59,20 +54,17 @@ function selectHub(hubId) {
     }
   });
 
-  // 2. Update Map HUD Header Bar
   const titleEl = document.getElementById('mapTargetTitle');
   const coordsEl = document.getElementById('mapCoordinates');
   if (titleEl) titleEl.textContent = 'TARGET: ' + data.title;
   if (coordsEl) coordsEl.innerHTML = `<span>${data.coords}</span>`;
 
-  // 3. Update Map Pins Active State
   document.querySelectorAll('.map-pin-group').forEach(pin => {
     pin.classList.remove('active');
   });
   const activePin = document.getElementById(data.pinId);
   if (activePin) activePin.classList.add('active');
 
-  // 4. Update Floating Info Card on Map
   const mfpTitle = document.getElementById('mfpTitle');
   const mfpDesc = document.getElementById('mfpDesc');
   const mfpClearance = document.getElementById('mfpClearance');
@@ -80,7 +72,6 @@ function selectHub(hubId) {
   if (mfpDesc) mfpDesc.textContent = data.desc;
   if (mfpClearance) mfpClearance.textContent = data.clearance;
 
-  // 5. Sync location dropdown in form if user wants
   const locSelect = document.getElementById('cfLocation');
   if (locSelect) {
     if (hubId === 'central') locSelect.value = 'Central HQ — 48 Calibration Dr (Tech District)';
@@ -89,9 +80,6 @@ function selectHub(hubId) {
   }
 }
 
-// ==========================================================
-//  FORM SUBMISSION & RECEIPT GENERATOR
-// ==========================================================
 function handleContactSubmit(e) {
   e.preventDefault();
 
@@ -107,7 +95,6 @@ function handleContactSubmit(e) {
 
   let hasError = false;
 
-  // Validate fields
   [nameInput, emailInput, phoneInput, makeInput].forEach(input => {
     if (!input) return;
     const group = input.closest('.form-group');
@@ -123,7 +110,6 @@ function handleContactSubmit(e) {
     return;
   }
 
-  // Visual loading feedback
   const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Priority Request';
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -131,7 +117,6 @@ function handleContactSubmit(e) {
   }
 
   setTimeout(() => {
-    // Generate simulated Token & Hash
     const randomNum = Math.floor(1000 + Math.random() * 9000);
     const token = `ORV-2026-X${randomNum}`;
     const hash = generateRandomHex(64);
@@ -142,7 +127,6 @@ function handleContactSubmit(e) {
     const arrivalWin = windowSelect ? windowSelect.value : 'Morning (08:00 – 11:00 AM)';
     const vehicleStr = `${makeInput ? makeInput.value.trim() : 'Vehicle'} (${yearInput ? yearInput.value : '2024'})`;
 
-    // Populate Success Modal
     const tokenEl = document.getElementById('receiptToken');
     const protoEl = document.getElementById('receiptProtocol');
     const clientEl = document.getElementById('receiptClient');
@@ -159,7 +143,6 @@ function handleContactSubmit(e) {
     if (vehEl) vehEl.textContent = vehicleStr;
     if (hashEl) hashEl.textContent = hash;
 
-    // Open Success Modal
     openSuccessModal();
 
     if (submitBtn) {
@@ -196,9 +179,6 @@ function closeSuccessModal() {
   }
 }
 
-// ==========================================================
-//  FAQ ACCORDION
-// ==========================================================
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.contact-faq-grid .faq-item');
   faqItems.forEach(item => {
@@ -222,9 +202,6 @@ function initFaqAccordion() {
   });
 }
 
-// ==========================================================
-//  BOOKING MODAL
-// ==========================================================
 function openBookingModal() {
   const modal = document.getElementById('bookingModal');
   if (modal) {
@@ -243,9 +220,6 @@ function closeBookingModal() {
   }
 }
 
-// ==========================================================
-//  PORTAL NOTICE MODAL (404, Coming Soon, Login, Dashboard)
-// ==========================================================
 function openPortalNotice(type, title, msg) {
   const modal = document.getElementById('portalNoticeModal');
   if (!modal) return;
@@ -313,105 +287,25 @@ function closePortalNotice() {
   }
 }
 
-// ==========================================================
-//  RTL LOGIC
-// ==========================================================
-function initRTL() {
-  const rtlToggle = document.getElementById('rtlToggle');
-  const htmlRoot = document.documentElement;
-  const savedDir = localStorage.getItem('orvexa-dir') || 'ltr';
-  applyDir(savedDir);
-
-  if (rtlToggle) {
-    rtlToggle.addEventListener('click', () => {
-      const currentDir = htmlRoot.getAttribute('dir') || 'ltr';
-      const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
-      applyDir(newDir);
-      localStorage.setItem('orvexa-dir', newDir);
-    });
-  }
-}
-
-function applyDir(dir) {
-  const htmlRoot = document.documentElement;
-  const rtlBtnText = document.getElementById('rtlBtnText');
-  htmlRoot.setAttribute('dir', dir);
-  if (rtlBtnText) {
-    rtlBtnText.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
-  }
-}
-
-// ==========================================================
-//  HEADER SCROLL GLASS BLUR & SHADOW
-// ==========================================================
-function initHeaderScroll() {
-  const header = document.getElementById('siteHeader');
-  if (!header) return;
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }, { passive: true });
-}
-
-// ==========================================================
-//  DOM READY INITIALIZATION
-// ==========================================================
 document.addEventListener('DOMContentLoaded', () => {
-  initRTL();
   initFaqAccordion();
-  initHeaderScroll();
 
-  // Set default date in form to tomorrow
   const dateInput = document.getElementById('cfDate');
   if (dateInput) {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     dateInput.value = tomorrow.toISOString().split('T')[0];
     dateInput.min = new Date().toISOString().split('T')[0];
-  }
 
-  // Theme Toggle
-  const toggleBtn = document.getElementById('themeToggle');
-  const html = document.documentElement;
-  const savedTheme = localStorage.getItem('orvexa_theme') || 'light';
-  html.setAttribute('data-theme', savedTheme);
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('orvexa_theme', next);
+    dateInput.addEventListener('click', function () {
+      try {
+        if (typeof this.showPicker === 'function') {
+          this.showPicker();
+        }
+      } catch (err) {}
     });
   }
 
-  // Mobile Menu Drawer
-  const mobBtn = document.getElementById('mobileMenuBtn');
-  const mobDrawer = document.getElementById('mobileDrawer');
-  const mobClose = document.getElementById('drawerClose');
-  const drawerLinks = document.querySelectorAll('.drawer-link');
-  if (mobBtn && mobDrawer) mobBtn.addEventListener('click', () => mobDrawer.classList.add('open'));
-  if (mobClose && mobDrawer) mobClose.addEventListener('click', () => mobDrawer.classList.remove('open'));
-  drawerLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (mobDrawer) mobDrawer.classList.remove('open');
-    });
-  });
-
-  // Booking Modal
-  const closeBtn = document.getElementById('modalCloseBtn');
-  const bookingModal = document.getElementById('bookingModal');
-  if (closeBtn) closeBtn.addEventListener('click', closeBookingModal);
-  if (bookingModal) {
-    bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) closeBookingModal();
-    });
-  }
-
-  // Success Modal Click Backdrop
   const successModal = document.getElementById('intakeSuccessModal');
   if (successModal) {
     successModal.addEventListener('click', (e) => {
@@ -419,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Portal Notice Modal Click Backdrop
   const portalModal = document.getElementById('portalNoticeModal');
   if (portalModal) {
     portalModal.addEventListener('click', (e) => {
@@ -427,7 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Set Current Year in Footer
   const yr = document.getElementById('currentYear');
   if (yr) yr.textContent = new Date().getFullYear();
 });

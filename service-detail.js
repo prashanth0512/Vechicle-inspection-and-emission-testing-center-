@@ -1,7 +1,3 @@
-/* ==========================================================
-   SERVICE-DETAIL.JS - ORVEXA Service Detail Page Logic
-   All 6 service data objects + comprehensive metrology data
-   ========================================================== */
 
 const SERVICES = {
   'safety-inspection': {
@@ -15,7 +11,7 @@ const SERVICES = {
     priceNote: 'Per vehicle',
     duration: '15&ndash;20 min',
     badge: 'ISO 17020',
-    heroImg: 'assets/real_test_undercarriage_lift.png',
+    heroImg: 'assets/service_safety.jpg',
     overview: 'Our Statutory Safety Inspection performs a rigorous 48-point physical verification of every safety-critical system on your vehicle. From brake force distribution to structural rigidity, our calibrated technicians ensure your vehicle meets every regional compliance requirement before you leave the bay.',
     specs: [
       { label: 'STATUTORY STANDARD', val: 'ISO/IEC 17020 Type A' },
@@ -108,7 +104,7 @@ const SERVICES = {
     priceNote: 'Per vehicle',
     duration: '15&ndash;20 min',
     badge: 'ECE R83',
-    heroImg: 'assets/service_emissions.jpg',
+    heroImg: 'assets/h2_emissions_sensor.jpg',
     overview: 'ORVEXA 5-Gas Emissions Spectrometry uses dyno-loaded tailpipe optical gas chromatography to measure CO, CO₂, HC, O₂, and NOx concentrations simultaneously. Combined with a full OBD-II readiness monitor sweep, this service delivers comprehensive emissions compliance data aligned with ECE Regulation 83 and regional authority standards.',
     specs: [
       { label: 'REGULATORY MANDATE', val: 'ECE Regulation 83 / Euro 6' },
@@ -201,7 +197,7 @@ const SERVICES = {
     priceNote: 'Save $35 vs. separate',
     duration: '20&ndash;25 min',
     badge: 'ISO 17020',
-    heroImg: 'assets/real_test_mechanic_tablet.png',
+    heroImg: 'assets/service_combined_protocol.jpg',
     overview: 'The Combined Comprehensive Protocol combines the full 48-point Statutory Safety Inspection and 5-Gas Emissions Spectrometry into a single seamless bay session, with priority lane access and instant digital certificate clearance included. The most efficient and cost-effective way to achieve full vehicle compliance in a single visit.',
     specs: [
       { label: 'PROTOCOL SUITE', val: 'Unified Safety + 5-Gas' },
@@ -292,9 +288,9 @@ const SERVICES = {
     heroTitleItalic: 'Compliance.',
     price: '$850',
     priceNote: 'Per fleet / month',
-    duration: 'Scheduled',
+    duration: 'Duration varies by vehicle and inspection scope.',
     badge: 'FLEET PLAN',
-    heroImg: 'assets/card_clean_road.jpg',
+    heroImg: 'assets/service_fleet_compliance.jpg',
     overview: 'ORVEXA Fleet Compliance Management provides transport operators, logistics companies, and corporate vehicle pools with a fully managed inspection scheduling programme. From automated expiry alerts to bulk bay allocation, your entire fleet stays compliant without manual administration overhead.',
     specs: [
       { label: 'PROGRAMME ARCHITECTURE', val: 'Centralised Bulk Fleet API' },
@@ -385,9 +381,9 @@ const SERVICES = {
     heroTitleItalic: 'Certification.',
     price: '$35',
     priceNote: 'Per certificate',
-    duration: 'Instant',
+    duration: 'Instant digital delivery',
     badge: 'ENCRYPTED',
-    heroImg: 'assets/card_tablet_cert.jpg',
+    heroImg: 'assets/service_digital_certification.jpg',
     overview: 'ORVEXA Digital Certification converts your physical inspection result into a permanent, tamper-proof blockchain-anchored digital record. Each certificate carries a unique 64-character QR verification hash, making it instantly verifiable by law enforcement, insurers, and vehicle licensing authorities via smartphone scan.',
     specs: [
       { label: 'CRYPTOGRAPHIC CIPHER', val: 'SHA-256 Distributed Hash' },
@@ -480,7 +476,7 @@ const SERVICES = {
     priceNote: 'Per vehicle',
     duration: '20&ndash;30 min',
     badge: 'NEW 2025',
-    heroImg: 'assets/real_test_obd_engine.png',
+    heroImg: 'assets/service_card_ev.jpg',
     overview: 'ORVEXA EV &amp; Hybrid Telemetry is specifically engineered for battery-electric vehicles (BEVs), plug-in hybrids (PHEVs), and mild-hybrids. Our protocol covers battery state-of-health (SOH) analysis, high-voltage insulation resistance testing, regenerative braking efficiency validation, and motor output dyno profiling — delivering the most comprehensive EV health report available outside a manufacturer dealership.',
     specs: [
       { label: 'HIGH-VOLTAGE STANDARD', val: 'UNECE Regulation 100 Rev 3' },
@@ -564,9 +560,6 @@ const SERVICES = {
   }
 };
 
-// ==========================================================
-//  PAGE POPULATION
-// ==========================================================
 function getServiceSlug() {
   const params = new URLSearchParams(window.location.search);
   return params.get('service') || 'safety-inspection';
@@ -582,7 +575,6 @@ function populatePage() {
 
   document.title = 'ORVEXA | ' + svc.name.replace(/&amp;/g, '&');
 
-  // Hero Population
   setHTML('sdHeroEyebrow', svc.eyebrow);
   setHTML('sdHeroTitle', svc.heroTitle);
   setHTML('sdHeroTitleItalic', svc.heroTitleItalic);
@@ -602,11 +594,9 @@ function populatePage() {
     cardTag.textContent = svc.badge + ' // BAY ACTIVE';
   }
 
-  // Overview Population
   setHTML('sdOverviewTitle', svc.name);
   setHTML('sdOverviewText', svc.overview);
   
-  // Technical Specs Chips Matrix
   var specsEl = document.getElementById('sdSpecsMatrix');
   if (specsEl && svc.specs) {
     specsEl.innerHTML = svc.specs.map(function(sp) {
@@ -617,7 +607,6 @@ function populatePage() {
     }).join('');
   }
 
-  // Highlights
   var hlList = document.getElementById('sdHighlights');
   if (hlList) {
     hlList.innerHTML = svc.highlights.map(function(h) {
@@ -625,7 +614,6 @@ function populatePage() {
     }).join('');
   }
 
-  // 4-Step Technical Bay Process
   var procEl = document.getElementById('sdProcessGrid');
   if (procEl && svc.process) {
     procEl.innerHTML = svc.process.map(function(pr) {
@@ -641,7 +629,6 @@ function populatePage() {
     }).join('');
   }
 
-  // Official Compliance Deliverables
   var delivEl = document.getElementById('sdDeliverablesGrid');
   if (delivEl && svc.deliverables) {
     delivEl.innerHTML = svc.deliverables.map(function(dl) {
@@ -661,7 +648,6 @@ function populatePage() {
     }).join('');
   }
 
-  // Why Choose / The ORVEXA Difference
   var whyGrid = document.getElementById('sdWhyGrid');
   if (whyGrid) {
     whyGrid.innerHTML = svc.whyChoose.map(function(w, i) {
@@ -677,7 +663,6 @@ function populatePage() {
     }).join('');
   }
 
-  // Pricing
   var pricingGrid = document.getElementById('sdPricingGrid');
   if (pricingGrid) {
     pricingGrid.innerHTML = svc.pricing.map(function(p, i) {
@@ -703,7 +688,6 @@ function populatePage() {
     }).join('');
   }
 
-  // FAQs
   var faqList = document.getElementById('sdFaqList');
   if (faqList) {
     faqList.innerHTML = svc.faqs.map(function(f, i) {
@@ -720,11 +704,9 @@ function populatePage() {
     initFAQ();
   }
 
-  // Back link
   var backLink = document.getElementById('sdBackLink');
   if (backLink) backLink.href = 'service.html';
 
-  // Other services nav
   var otherNav = document.getElementById('sdOtherServices');
   if (otherNav) {
     var others = Object.values(SERVICES).filter(function(s) { return s.slug !== slug; }).slice(0, 3);
@@ -776,7 +758,6 @@ function openBookingModal() {
   }
 }
 
-// Run on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
   populatePage();
 

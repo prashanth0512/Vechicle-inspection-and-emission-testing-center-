@@ -1,27 +1,21 @@
-/**
- * ORVEXA — Luxury Vehicle Inspection & Emissions Testing Center
- * High-End Interactive Architecture & State Management
- */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initRTL();
   initHeaderScroll();
+  initActiveNavigation();
   initMobileDrawer();
   initTimelineObserver();
   initMethodologyStepper();
+  initDiagnosticRadar();
   initModalListeners();
   initDateDefaults();
 });
 
-/* --------------------------------------------------------------------------
-   01B. RTL TOGGLE (Left-to-Right / Right-to-Left Switcher)
-   -------------------------------------------------------------------------- */
 function initRTL() {
   const rtlToggle = document.getElementById('rtlToggle');
   const htmlRoot = document.documentElement;
 
-  // Check persisted direction or default to ltr
   const savedDir = localStorage.getItem('orvexa-dir') || 'ltr';
   applyDir(savedDir);
 
@@ -44,14 +38,10 @@ function applyDir(dir) {
   }
 }
 
-/* --------------------------------------------------------------------------
-   01. THEME SWITCHER (Light Ivory / Dark Architectural)
-   -------------------------------------------------------------------------- */
 function initTheme() {
   const themeToggle = document.getElementById('themeToggle');
   const htmlRoot = document.documentElement;
 
-  // Check persisted theme or fallback to html data-theme attribute
   const savedTheme = localStorage.getItem('orvexa-theme') || htmlRoot.getAttribute('data-theme') || 'light';
   applyTheme(savedTheme);
 
@@ -70,46 +60,56 @@ function applyTheme(theme) {
   htmlRoot.setAttribute('data-theme', theme);
 }
 
-/* --------------------------------------------------------------------------
-   02. HEADER SCROLL & ACTIVE NAVIGATION
-   -------------------------------------------------------------------------- */
 function initHeaderScroll() {
   const header = document.getElementById('siteHeader');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  if (!header) return;
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.pageYOffset > 40);
+  };
 
-    // Header blur styling
-    if (scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    // ScrollSpy for Active Nav Link
-    let currentId = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentId = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
-      }
-    });
-  }, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
-/* --------------------------------------------------------------------------
-   03. MOBILE DRAWER
-   -------------------------------------------------------------------------- */
+function initActiveNavigation() {
+  const PAGE_SECTION = {
+    'index.html': 'home',
+    'home2.html': 'home',
+    'about.html': 'about',
+    'service.html': 'services',
+    'service-detail.html': 'services',
+    'journal.html': 'journals',
+    'journal-detail.html': 'journals',
+    'contact.html': 'contact',
+    'dashboard.html': 'dashboard'
+  };
+
+  const fileOf = (href) => {
+    if (!href) return '';
+    if (href.startsWith('#')) return 'index.html';
+    return decodeURIComponent(href.split('?')[0].split('#')[0].split('/').pop()) || 'index.html';
+  };
+
+  const currentFile = fileOf(window.location.pathname) || 'index.html';
+  const currentSection = PAGE_SECTION[currentFile];
+  if (!currentSection) return;
+
+  document.querySelectorAll('.main-nav .nav-link').forEach(link => {
+    const isActive = PAGE_SECTION[fileOf(link.getAttribute('href'))] === currentSection;
+    link.classList.toggle('active', isActive);
+    if (isActive) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+
+  const PARENT = { 'service-detail.html': 'service.html', 'journal-detail.html': 'journal.html' };
+  const exactFile = PARENT[currentFile] || currentFile;
+
+  document.querySelectorAll('.nav-dropdown-menu .dropdown-item, .drawer-link').forEach(link => {
+    link.classList.toggle('active', fileOf(link.getAttribute('href')) === exactFile);
+  });
+}
+
 function initMobileDrawer() {
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
@@ -125,8 +125,25 @@ function initMobileDrawer() {
     if (mobileDrawer) mobileDrawer.classList.remove('open');
   }
 
-  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
-  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileDrawer) {
+        if (mobileDrawer.classList.contains('open')) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      }
+    });
+  }
+
+  if (drawerClose) {
+    drawerClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
+    });
+  }
 
   drawerLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);
@@ -138,11 +155,22 @@ function initMobileDrawer() {
       openBookingModal();
     });
   }
+
+  document.addEventListener('click', (e) => {
+    if (mobileDrawer && mobileDrawer.classList.contains('open')) {
+      if (!mobileDrawer.contains(e.target) && (!mobileMenuBtn || !mobileMenuBtn.contains(e.target))) {
+        closeDrawer();
+      }
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
 }
 
-/* --------------------------------------------------------------------------
-   04. VERTICAL TIMELINE SCROLL PROGRESS
-   -------------------------------------------------------------------------- */
 function initTimelineObserver() {
   const timelineSection = document.getElementById('timeline');
   const progressBar = document.getElementById('timelineProgress');
@@ -162,9 +190,6 @@ function initTimelineObserver() {
   }, { passive: true });
 }
 
-/* --------------------------------------------------------------------------
-   05. METHODOLOGY INTERACTIVE STEPPER & TELEMETRY
-   -------------------------------------------------------------------------- */
 function initMethodologyStepper() {
   const steps = {
     book: {
@@ -263,9 +288,8 @@ function initMethodologyStepper() {
   const stepKeys = ['book', 'arrive', 'inspect', 'result', 'certificate'];
   let activeIndex = 0;
   let autoTimer = null;
-  const ROTATION_INTERVAL = 2000; // 2-second interval between image & badge changes
+  const ROTATION_INTERVAL = 2000;
 
-  // Preload all step images to ensure instantaneous transition without flickers
   stepKeys.forEach(key => {
     if (steps[key] && steps[key].img) {
       const img = new Image();
@@ -280,14 +304,12 @@ function initMethodologyStepper() {
     const data = steps[stepKey];
     if (!data) return;
 
-    // Synchronize active step badge / pill
     pills.forEach(pill => {
       const isCurrent = pill.getAttribute('data-step') === stepKey;
       pill.classList.toggle('active', isCurrent);
       pill.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
     });
 
-    // Smooth image crossfade
     if (imgEl) {
       if (animate) {
         imgEl.classList.add('fading');
@@ -302,7 +324,6 @@ function initMethodologyStepper() {
       }
     }
 
-    // Update HUD & telemetry badges
     if (hudText) hudText.textContent = data.hud;
     if (calBadge) calBadge.textContent = data.cal;
     if (nodeLabel1) nodeLabel1.textContent = data.node1.label;
@@ -310,7 +331,6 @@ function initMethodologyStepper() {
     if (nodeLabel2) nodeLabel2.textContent = data.node2.label;
     if (nodeVal2) nodeVal2.textContent = data.node2.val;
 
-    // Update bottom info blocks
     data.info.forEach((item, idx) => {
       if (infoTags[idx]) infoTags[idx].textContent = item.tag;
       if (infoSubs[idx]) infoSubs[idx].textContent = item.sub;
@@ -334,19 +354,17 @@ function initMethodologyStepper() {
     }
   }
 
-  // Interactive manual click on badges updates step immediately and resets 2s timer
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       const stepKey = pill.getAttribute('data-step');
       const targetIndex = stepKeys.indexOf(stepKey);
       if (targetIndex !== -1) {
         setStep(targetIndex, true);
-        startAutoRotation(); // restart 2s cycle from the newly selected badge
+        startAutoRotation();
       }
     });
   });
 
-  // Pause timer when browser tab is hidden to save resources, resume when focused
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       stopAutoRotation();
@@ -355,17 +373,12 @@ function initMethodologyStepper() {
     }
   });
 
-  // Start automatic rotation immediately on page load (2-second gap)
   startAutoRotation();
 }
 
-/* --------------------------------------------------------------------------
-   06. BOOKING MODAL WIZARD STATE
-   -------------------------------------------------------------------------- */
 let currentBookingStep = 1;
 
 function initModalListeners() {
-  // Triggers for Booking
   const headerBookBtn = document.getElementById('headerBookBtn');
   const heroBookBtn = document.getElementById('heroBookBtn');
   const searchBtn = document.getElementById('searchBtn');
@@ -390,7 +403,6 @@ function initModalListeners() {
 
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeBookingModal);
 
-  // Close modals when clicking outside container
   window.addEventListener('click', (e) => {
     if (e.target === bookingModal) closeBookingModal();
     const docModal = document.getElementById('docModal');
@@ -399,7 +411,6 @@ function initModalListeners() {
     if (e.target === searchModal) closeSearchModal();
   });
 
-  // ESC key listener
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeBookingModal();
@@ -449,7 +460,6 @@ function openBookingWithLocation(locationName) {
 function goToBookingStep(step) {
   currentBookingStep = step;
 
-  // Update step indicators
   const indicators = document.querySelectorAll('.step-indicator-item');
   indicators.forEach(ind => {
     const s = parseInt(ind.getAttribute('data-step-indicator'), 10);
@@ -460,7 +470,6 @@ function goToBookingStep(step) {
     }
   });
 
-  // Update panes
   const panes = document.querySelectorAll('.form-step-pane');
   panes.forEach(p => {
     const paneStep = parseInt(p.getAttribute('data-step-pane'), 10);
@@ -488,7 +497,6 @@ function generateConfirmationStep() {
   document.getElementById('summaryVehicle').innerText = `${make} (${plate})`;
   document.getElementById('summaryEmail').innerText = email;
 
-  // Random luxury reference id
   const randomRef = 'ORV-' + Math.floor(10000 + Math.random() * 90000);
   document.getElementById('confirmRefId').innerText = `REFERENCE: ${randomRef}`;
 
@@ -500,9 +508,6 @@ function handleBookingSubmit(event) {
   generateConfirmationStep();
 }
 
-/* --------------------------------------------------------------------------
-   08. DOCUMENT PREVIEW MODAL
-   -------------------------------------------------------------------------- */
 function previewDocModal(docTitle) {
   const modal = document.getElementById('docModal');
   const title = document.getElementById('docModalTitle');
@@ -523,9 +528,6 @@ function closeDocModal() {
   }
 }
 
-/* --------------------------------------------------------------------------
-   09. QUICK SEARCH MODAL
-   -------------------------------------------------------------------------- */
 function openSearchModal() {
   const modal = document.getElementById('quickSearchModal');
   if (modal) {
@@ -557,9 +559,6 @@ function searchFor(query) {
   }
 }
 
-/* --------------------------------------------------------------------------
-   10. UTILITIES
-   -------------------------------------------------------------------------- */
 function initDateDefaults() {
   const dateInput = document.getElementById('bookingDate');
   if (dateInput) {
@@ -567,6 +566,11 @@ function initDateDefaults() {
     today.setDate(today.getDate() + 1);
     dateInput.value = today.toISOString().split('T')[0];
     dateInput.min = new Date().toISOString().split('T')[0];
+    dateInput.addEventListener('click', function () {
+      try {
+        if (typeof this.showPicker === 'function') this.showPicker();
+      } catch (err) {}
+    });
   }
 
   const yearSpan = document.getElementById('currentYear');
@@ -575,9 +579,6 @@ function initDateDefaults() {
   }
 }
 
-/* --------------------------------------------------------------------------
-   11. PORTAL NOTICES & FOOTER LINKS (404, COMING SOON, LOGIN, DASHBOARD)
-   -------------------------------------------------------------------------- */
 function openPortalNotice(type, title, msg) {
   const modal = document.getElementById('portalNoticeModal');
   if (!modal) return;
@@ -657,7 +658,6 @@ function closePortalNotice() {
   }
 }
 
-// Close portal modal on backdrop click
 document.addEventListener('DOMContentLoaded', () => {
   const portalModal = document.getElementById('portalNoticeModal');
   if (portalModal) {
@@ -666,4 +666,172 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+function initDiagnosticRadar() {
+  const tabs = document.querySelectorAll('.radar-tab-btn');
+  const hotspots = document.querySelectorAll('.radar-hotspot');
+  if (!tabs.length) return;
+
+  const RADAR_DATA = {
+    emissions: {
+      badge: "ZONE 01 // EXHAUST GAS SPECTROMETRY",
+      status: "CALIBRATED COMPLIANT",
+      title: "Dual-Probe Infrared Gas Chromatography & Opacity Analysis",
+      desc: "Continuous raw tailpipe sampling measuring CO, CO₂, HC, O₂, and NOx under simulated dynamic highway and transient engine cycles with automated pass-fail limit certification.",
+      ticker: "AVL DiGas 4000 • 100 Hz Continuous Transient Stream • Traceable to NIST SRMs",
+      hardware: "AVL DiGas 4000 • NDIR 5-Gas • Heated Extraction Bench",
+      standard: "UN/ECE Regulation 83 • Euro 6d-ISC-FCM • ISO/IEC 17025",
+      hash: "SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      link: "service-detail.html?service=emissions-testing",
+      gauges: [
+        { label: "CARBON MONOXIDE (CO)", val: "0.08% vol", width: "40%", limit: "Limit: < 0.20%", status: "OPTIMAL PASS" },
+        { label: "HYDROCARBONS (HC)", val: "16 PPM", width: "16%", limit: "Limit: < 100 PPM", status: "COMPLIANT" },
+        { label: "LAMBDA RATIO (λ)", val: "1.002", width: "50%", limit: "Range: 0.97 – 1.03", status: "STOICHIOMETRIC" },
+        { label: "NITROGEN OXIDES (NOx)", val: "26 mg/km", width: "32%", limit: "Euro 6d: < 60 mg/km", status: "ZERO EXCEEDANCE" }
+      ]
+    },
+    braking: {
+      badge: "ZONE 02 // 4WD DYNAMIC BRAKE & CHASSIS",
+      status: "CALIBRATED COMPLIANT",
+      title: "MAHA 4WD Roller Dynamometer & Deceleration Balance",
+      desc: "Dynamic axle roller measurement under regulated clamping loads, verifying left/right brake force distribution, emergency deceleration rate, and brake disc thermal variance.",
+      ticker: "MAHA IW7 4WD Dynamometer • 40 kN Axle Rating • Sub-Percent Symmetry Calculation",
+      hardware: "MAHA IW7 Dual-Roller Bed • Dynamic Load Cells & Infrared Pyrometry",
+      standard: "EU Directive 2014/45/EU • ECE Regulation 13-H • ISO 21069",
+      hash: "SHA-256 c819441a129ef3e680a6be17f2258d4e9c7e0964722c83ae18471c08d986b245",
+      link: "service-detail.html?service=safety-inspection",
+      gauges: [
+        { label: "FRONT AXLE FORCE", val: "4.85 kN / 4.82 kN", width: "82%", limit: "Imbalance: 0.6% (< 25%)", status: "PERFECT SYMMETRY" },
+        { label: "REAR AXLE FORCE", val: "3.10 kN / 3.08 kN", width: "78%", limit: "Imbalance: 0.6% (< 30%)", status: "BALANCED" },
+        { label: "DECELERATION EFFICIENCY", val: "84.2% g", width: "84%", limit: "Statutory Minimum: > 50%", status: "HIGH PERFORMANCE" },
+        { label: "ROTOR RUNOUT", val: "0.012 mm", width: "24%", limit: "OEM Tolerance: < 0.040 mm", status: "SUB-MICRON PASS" }
+      ]
+    },
+    suspension: {
+      badge: "ZONE 03 // 3D LASER GEOMETRY & PLAY",
+      status: "CALIBRATED COMPLIANT",
+      title: "3D Optical Stereo Geometry & Hydraulic Shaker Play Detection",
+      desc: "Sub-millimeter triangulation across four wheel clamps mounted on a flush hydraulic lift, verifying camber, caster, toe, and kingpin inclination alongside suspension joint integrity.",
+      ticker: "Hunter HawkEye Elite 3D • 4x High-Res CMOS Stereoscopic Towers • ±0.01° Resolution",
+      hardware: "Hunter HawkEye Elite 3D Towers & Maha PMS 3.5 Hydraulic Axle Shaker",
+      standard: "Directive 2014/45/EU Annex I • ISO 8855 • VDI/VDE 2634",
+      hash: "SHA-256 7d1f56bc229a43e792c81d34f9a0b12c85e43178229dc7b88491c107293a52f8",
+      link: "service-detail.html?service=combined-protocol",
+      gauges: [
+        { label: "CAMBER VARIANCE", val: "-0.48° L / -0.50° R", width: "52%", limit: "Spec: -0.50° (±0.20°)", status: "FACTORY SPEC" },
+        { label: "TOE ANGLE DEVIATION", val: "+0.02° L / +0.02° R", width: "42%", limit: "OEM Tolerance: ±0.05°", status: "PERFECTLY ZEROED" },
+        { label: "BALL JOINT RADIAL PLAY", val: "0.11 mm", width: "18%", limit: "Allowable Play: < 1.0 mm", status: "ZERO SLACK" },
+        { label: "DAMPER DAMPING RATIO", val: "68% L / 67% R", width: "68%", limit: "EUSAMA Balance: > 40%", status: "CERTIFIED FIRM" }
+      ]
+    },
+    ev: {
+      badge: "ZONE 04 // 1000V HIGH-VOLTAGE EV LAB",
+      status: "CALIBRATED COMPLIANT",
+      title: "1000V DC Galvanic Isolation & CANbus Cell Telemetry",
+      desc: "Complete diagnostic evaluation of high-voltage battery modules, inverter insulation resistance, CANbus individual cell voltage spread, and regenerative braking charge management.",
+      ticker: "Gossen Metrawatt Profitest H+E • 1000V DC Hi-Pot & Micro-Ohm Earth Continuity",
+      hardware: "Gossen Metrawatt 1000V Isolation Rig & CANbus Telemetry Sniffer",
+      standard: "UN/ECE Regulation 100 • ISO 6469-3 • SAE J1766",
+      hash: "SHA-256 a159f84826d9e13b86027e8241cd75f68b31a89c962b1049281e6402f14c2b99",
+      link: "service-detail.html?service=ev-hybrid",
+      gauges: [
+        { label: "ISOLATION RESISTANCE", val: "850 MΩ", width: "85%", limit: "UN ECE R100: > 100 Ω/V", status: "SUPERIOR GALVANIC" },
+        { label: "MAX CELL VOLTAGE DELTA", val: "11 mV", width: "22%", limit: "Balance Limit: < 25 mV", status: "OPTIMAL SPREAD" },
+        { label: "BATTERY STATE OF HEALTH", val: "98.6% SOH", width: "98%", limit: "Degradation Threshold: < 70%", status: "CELL INTEGRITY EXCELLENT" },
+        { label: "PEAK REGEN TORQUE", val: "320 Nm", width: "80%", limit: "Firmware Synchronized", status: "100% RECOVERY" }
+      ]
+    }
+  };
+
+  function setRadarZone(zoneKey) {
+    const data = RADAR_DATA[zoneKey];
+    if (!data) return;
+
+    tabs.forEach(tab => {
+      const isCurrent = tab.getAttribute('data-zone') === zoneKey;
+      tab.classList.toggle('active', isCurrent);
+      tab.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+    });
+
+    hotspots.forEach(pin => {
+      pin.classList.toggle('active', pin.getAttribute('data-pin') === zoneKey);
+    });
+
+    const elementsToUpdate = [
+      { id: 'radarCardBadge', text: data.badge },
+      { id: 'radarStatusTxt', text: data.status },
+      { id: 'radarCardTitle', text: data.title },
+      { id: 'radarCardDesc', text: data.desc },
+      { id: 'radarTickerVal', text: data.ticker },
+      { id: 'protoHardware', text: data.hardware },
+      { id: 'protoStandard', text: data.standard },
+      { id: 'protoHash', text: data.hash }
+    ];
+
+    elementsToUpdate.forEach(item => {
+      const el = document.getElementById(item.id);
+      if (el) {
+        el.style.opacity = '0.3';
+        el.style.transform = 'translateY(4px)';
+        el.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        setTimeout(() => {
+          el.textContent = item.text;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 100);
+      }
+    });
+
+    const linkEl = document.getElementById('radarDetailLink');
+    if (linkEl && data.link) linkEl.href = data.link;
+
+    const gaugesContainer = document.getElementById('radarGaugesGrid');
+    if (gaugesContainer && data.gauges) {
+      data.gauges.forEach((g, idx) => {
+        const num = idx + 1;
+        const gVal = document.getElementById('gVal' + num);
+        const gBar = document.getElementById('gBar' + num);
+        const gCard = gaugesContainer.children[idx];
+
+        if (gCard) {
+          const lbl = gCard.querySelector('.gauge-label');
+          const lim = gCard.querySelector('.statutory-limit');
+          const stat = gCard.querySelector('.gauge-status');
+          if (lbl) lbl.textContent = g.label;
+          if (lim) lim.textContent = g.limit;
+          if (stat) stat.textContent = g.status;
+        }
+
+        if (gVal) {
+          gVal.style.opacity = '0.3';
+          setTimeout(() => {
+            gVal.textContent = g.val;
+            gVal.style.opacity = '1';
+          }, 100);
+        }
+
+        if (gBar) {
+          gBar.style.width = '0%';
+          setTimeout(() => {
+            gBar.style.width = g.width;
+          }, 140);
+        }
+      });
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const zone = tab.getAttribute('data-zone');
+      if (zone) setRadarZone(zone);
+    });
+  });
+
+  hotspots.forEach(pin => {
+    pin.addEventListener('click', () => {
+      const zone = pin.getAttribute('data-pin');
+      if (zone) setRadarZone(zone);
+    });
+  });
+}
 

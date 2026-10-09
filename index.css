@@ -1167,7 +1167,7 @@ html[data-theme="dark"] .theme-icon-moon {
   position: relative;
   z-index: 10;
   padding: clamp(1.25rem, 2.5vh, 2.5rem) 0 clamp(1rem, 2vh, 1.75rem) 0;
-  max-width: clamp(480px, 48%, 680px);
+  max-width: clamp(540px, 50%, 680px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1387,12 +1387,12 @@ html[data-theme="dark"] .theme-icon-moon {
 }
 
 .hero-micro-features {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: clamp(0.5rem, 1.4vw, 1.25rem);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  gap: clamp(0.5rem, 1.2vw, 1.25rem);
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
   padding-top: 1rem;
   border-top: 1px solid rgba(180, 155, 100, 0.35);
   margin-top: 0.25rem;
@@ -1402,10 +1402,10 @@ html[data-theme="dark"] .theme-icon-moon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
   text-align: center;
-  flex: 1 1 0;
-  min-width: 70px;
+  min-width: 0;
+  width: 100%;
 }
 
 .micro-icon {
@@ -1432,17 +1432,21 @@ html[data-theme="dark"] .theme-icon-moon {
 }
 
 .micro-title {
-  font-size: 0.72rem;
+  font-size: clamp(0.62rem, 0.72vw, 0.72rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: clamp(0.04em, 0.07vw, 0.08em);
   color: #151412;
+  white-space: nowrap;
+  line-height: 1.25;
   transition: color var(--transition-fast);
 }
 
 .micro-sub {
-  font-size: 0.65rem;
+  font-size: clamp(0.56rem, 0.64vw, 0.65rem);
   color: #4a4844;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  line-height: 1.25;
   transition: color var(--transition-fast);
 }
 
@@ -5512,15 +5516,16 @@ html[data-theme="light"] .hud-status-badge {
   }
 
   .micro-title {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    word-break: break-word;
+    font-size: clamp(0.64rem, 2.4vw, 0.72rem);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    line-height: 1.25;
   }
 
   .micro-sub {
-    font-size: 0.68rem;
-    line-height: 1.3;
-    word-break: break-word;
+    font-size: clamp(0.56rem, 2vw, 0.66rem);
+    line-height: 1.25;
+    white-space: nowrap;
   }
 
   .about-stats-row {
